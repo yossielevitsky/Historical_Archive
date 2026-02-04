@@ -179,6 +179,38 @@ h6 {
     border-color: var(--color-gold);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-gold);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -331,7 +363,7 @@ h6 {
 /* Synagogue List Grid */
 .synagogue-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-md);
     padding: var(--spacing-lg) 0;
 }
@@ -403,20 +435,69 @@ h6 {
     }
 
     .header-content {
-        flex-direction: column;
-        gap: var(--spacing-sm);
+        /* Keep row for logo + hamburger */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        /* allow nav to break to new line */
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .main-nav {
+        /* Ensure nav takes full width when expanded */
+        width: 100%;
+        order: 3;
+        /* Force it to bottom of flex container */
     }
 
     .main-nav ul {
-        gap: var(--spacing-sm);
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+        background-color: var(--color-slate);
+        border-top: 1px solid #444;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .main-nav ul.active {
+        display: flex;
+    }
+
+    .main-nav a {
+        padding: 1rem;
+        /* Larger touch target */
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        line-height: 1.2;
     }
-}/* Lightbox Styles */
+}
+
+/* Lightbox Styles */
 .lightbox {
     display: none;
     position: fixed;
