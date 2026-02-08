@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const captionText = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // Select all images in the gallery grid
-    const galleryImages = document.querySelectorAll('.synagogue-grid .card-image img');
+    // Select all images in the gallery grid and any specific lightbox triggers
+    const galleryImages = document.querySelectorAll('.synagogue-grid .card-image img, img.lightbox-trigger');
 
     galleryImages.forEach(img => {
         // Add cursor pointer to indicate clickability
@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); // Prevent default link behavior if wrapped in link
             lightbox.style.display = 'block';
             lightboxImg.src = img.src;
-            captionText.innerHTML = img.alt;
+            // Use data-caption if available, otherwise fallback to alt
+            captionText.innerHTML = img.dataset.caption || img.alt;
             document.body.style.overflow = 'hidden'; // Disable scroll
         });
     });

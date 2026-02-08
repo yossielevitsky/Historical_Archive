@@ -1,0 +1,74 @@
+/* Accordion Styles - Mobile Only (< 769px) */
+
+@media (max-width: 768px) {
+    .accordion-header {
+        cursor: pointer;
+        position: relative;
+        padding-right: 30px;
+        /* Space for the icon */
+        user-select: none;
+        transition: color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+        color: var(--color-gold-hover);
+    }
+
+    .accordion-header::after {
+        content: '\25BC';
+        /* Down arrow */
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active::after {
+        transform: translateY(-50%) rotate(180deg);
+        /* Rotate up when active */
+    }
+
+    .accordion-content {
+        display: none;
+        /* Hidden by default on mobile */
+        margin-bottom: var(--spacing-md);
+        animation: fadeIn 0.5s ease;
+    }
+
+    .accordion-content.is-open {
+        display: block;
+        /* Visible when open */
+    }
+}
+
+/* Desktop Styles (> 768px) */
+@media (min-width: 769px) {
+    .accordion-content {
+        display: block !important;
+        /* Always visible on desktop */
+    }
+
+    .accordion-header {
+        cursor: default;
+        /* Regular cursor */
+        pointer-events: none;
+        /* remove interaction just in case */
+    }
+
+    /* Ensure no icon appears */
+    .accordion-header::after {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

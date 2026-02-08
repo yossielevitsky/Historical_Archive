@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contribute - Jewish Antwerp Historical Archive</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/nav.js" defer></script>
+    <style>
+        .contribute-card {
+            background: var(--color-slate);
+            border: 1px solid #333;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: 4px;
+        }
+
+        .contribute-card h2 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-main);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            background: #222;
+            border: 1px solid #444;
+            color: var(--color-text-main);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-gold);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <a href="index.html">The Jewish Antwerp<br><span class="subtitle">Historical Archive</span></a>
+                </div>
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="kehilles.html">Kehilles</a></li>
+                        <li><a href="rabbis.html">Rabbis</a></li>
+                        <li><a href="synagogues.html">Synagogues</a></li>
+                        <li><a href="contribute.html" class="active">Contribute</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div class="container" style="padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg);">
+                <div class="contribute-card">
+                    <h2>What We Are Looking For</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main);">
+                        We are actively seeking contributions to enrich the Jewish Antwerp Historical Archive.
+                        Specifically, we are looking for:
+                    </p>
+                    <ul
+                        style="list-style-type: disc; margin-left: 2rem; margin-top: 1rem; color: var(--color-text-muted);">
+                        <li>Historical photographs of synagogues, community events, and daily life.</li>
+                        <li>Documents, letters, and artifacts related to Jewish life in Antwerp.</li>
+                        <li>Personal stories and testimonies from community members.</li>
+                        <li>Videos or audio recordings of historical significance.</li>
+                        <li>Corrections or additional information for existing profiles and articles.</li>
+                    </ul>
+                </div>
+
+                <div class="contribute-card">
+                    <h2>Submit a Contribution</h2>
+                    <p style="margin-bottom: var(--spacing-md); color: var(--color-text-muted);">
+                        Have something to add? Use the form below to send us your contribution or suggest changes.
+                        You can choose to include your name or remain anonymous.
+                    </p>
+                    <form id="contributionForm"
+                        onsubmit="event.preventDefault(); alert('Thank you for your contribution!');">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name (Optional)</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="form-label">Contribution / Message</label>
+                            <textarea id="content" name="content" class="form-control"
+                                placeholder="Describe your contribution, suggest a change, or provide information here..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Contribution</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>&copy; 2026 The Jewish Antwerp Historical Archive. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/scroll-top.js"></script>
+</body>
+
+</html>

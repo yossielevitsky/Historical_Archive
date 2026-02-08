@@ -14,12 +14,22 @@
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Inter', system-ui, sans-serif;
 
+    /* Fluid Typography */
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    /* 16px to 18px */
+    --font-size-h1: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+    --font-size-h2: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+    --font-size-h3: clamp(1.25rem, 1.1rem + 1vw, 2rem);
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 8rem;
+
+    /* Mobile Gutter */
+    --gutter-width: 20px;
 
     /* Layout */
     --container-width: 1200px;
@@ -37,6 +47,7 @@
 
 body {
     font-family: var(--font-sans);
+    font-size: var(--font-size-base);
     background-color: var(--color-charcoal);
     color: var(--color-text-main);
     line-height: 1.6;
@@ -47,11 +58,17 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
+    /* Touch target improvement */
+    display: inline-block;
 }
 
 img {
     max-width: 100%;
+    height: auto;
+    /* Prevent distortion */
     display: block;
+    margin: 0 auto;
+    /* Center images */
 }
 
 /* Typography Utilities */
@@ -64,6 +81,20 @@ h6 {
     font-family: var(--font-serif);
     font-weight: 700;
     color: var(--color-gold);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
 }
 
 .container {
@@ -98,7 +129,7 @@ h6 {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
 }
@@ -140,6 +171,8 @@ h6 {
     letter-spacing: 1px;
     color: var(--color-text-main);
     position: relative;
+    padding: 0.5rem 0;
+    /* Touch padding */
 }
 
 .main-nav a::after {
@@ -163,29 +196,14 @@ h6 {
     color: var(--color-gold);
 }
 
-.search-bar input {
-    background: var(--color-slate);
-    border: 1px solid #444;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    color: var(--color-text-main);
-    font-family: var(--font-sans);
-    width: 200px;
-    transition: border-color 0.3s ease;
-}
-
-.search-bar input:focus {
-    outline: none;
-    border-color: var(--color-gold);
-}
-
 /* Hamburger Menu */
 .hamburger {
     display: none;
     cursor: pointer;
     background: transparent;
     border: none;
-    padding: 0.5rem;
+    padding: 10px;
+    /* Min touch target */
     z-index: 1001;
 }
 
@@ -214,15 +232,24 @@ h6 {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://placehold.co/1920x1080/1a1a1a/333333?text=Historical+Antwerp');
+    background-image: url('../images/home-hero.jpg');
     background-size: cover;
     background-position: center;
     margin-top: -1px;
-    /* connected to header visually */
+}
+
+.image-section {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-overlay {
@@ -240,13 +267,6 @@ h6 {
     text-align: center;
     max-width: 800px;
     padding: var(--spacing-md);
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-xs);
-    color: var(--color-gold);
-    letter-spacing: 1px;
 }
 
 .hebrew-text {
@@ -276,6 +296,11 @@ h6 {
     letter-spacing: 2px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    min-height: 44px;
+    /* Touch target */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover {
@@ -302,12 +327,6 @@ h6 {
     padding: var(--spacing-lg) 0;
 }
 
-.wiki-main h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-xs);
-    color: var(--color-gold);
-}
-
 .wiki-main .subtitle {
     font-family: var(--font-serif);
     font-size: 1.5rem;
@@ -325,6 +344,7 @@ h6 {
     margin-bottom: var(--spacing-md);
 }
 
+/* Sidebar */
 .wiki-sidebar {
     background: var(--color-slate);
     padding: var(--spacing-md);
@@ -332,6 +352,10 @@ h6 {
     height: fit-content;
     position: sticky;
     top: calc(var(--header-height) + var(--spacing-md));
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Shadow */
 }
 
 .sidebar-title {
@@ -373,6 +397,9 @@ h6 {
     border: 1px solid #333;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    border-radius: 12px;
+    /* Smooth corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
@@ -401,11 +428,6 @@ h6 {
     padding: var(--spacing-md);
 }
 
-.card-title {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xs);
-}
-
 .card-meta {
     color: var(--color-text-muted);
     font-size: 0.9rem;
@@ -418,45 +440,59 @@ h6 {
     font-size: 0.8rem;
     letter-spacing: 2px;
     font-weight: 600;
+    display: inline-block;
+    padding: 0.5rem 0;
+    /* Touch friendly */
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .wiki-container {
-        grid-template-columns: 1fr;
+    :root {
+        --spacing-md: 1.5rem;
+        --spacing-lg: 3rem;
     }
 
+    .container {
+        padding: 0 var(--gutter-width);
+        /* Consistent gutter */
+    }
+
+    .wiki-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        display: block;
+        /* Allow manipulation via JS more easily */
+    }
+
+    /* Sidebar moved via JS, but styling here */
     .wiki-sidebar {
         position: static;
-        margin-bottom: var(--spacing-lg);
-        order: -1;
-        /* Show data first on mobile? or keep default? Let's keep default */
-        order: 0;
+        margin: var(--spacing-md) 0;
+        border-color: #444;
+        /* Softer border on mobile ? */
+        background: #252525;
+        /* Slightly distinct background */
     }
 
     .header-content {
-        /* Keep row for logo + hamburger */
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        /* allow nav to break to new line */
     }
 
     .hamburger {
         display: block;
+        padding: 12px;
     }
 
     .main-nav {
-        /* Ensure nav takes full width when expanded */
         width: 100%;
         order: 3;
-        /* Force it to bottom of flex container */
     }
 
     .main-nav ul {
         display: none;
-        /* Hidden by default */
         flex-direction: column;
         align-items: center;
         gap: 0;
@@ -471,12 +507,13 @@ h6 {
     }
 
     .main-nav a {
-        padding: 1rem;
-        /* Larger touch target */
+        padding: 1.2rem;
+        /* Easy tap targets */
         display: block;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #333;
+        font-size: 1rem;
     }
 
     @keyframes slideDown {
@@ -490,26 +527,20 @@ h6 {
             transform: translateY(0);
         }
     }
-
-    .hero-content h1 {
-        font-size: 2.25rem;
-        line-height: 1.2;
-    }
 }
 
 /* Lightbox Styles */
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
 }
 
 .lightbox-content {
@@ -526,22 +557,25 @@ h6 {
 #lightbox-caption {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 90%;
     max-width: 700px;
     text-align: center;
     color: #ccc;
     padding: 10px 0;
-    height: 150px;
+    height: auto;
+    font-family: var(--font-sans);
 }
 
 .lightbox-close {
     position: absolute;
     top: 15px;
-    right: 35px;
+    right: 25px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
+    padding: 10px;
+    /* larger touch target */
 }
 
 .lightbox-close:hover,
@@ -553,16 +587,118 @@ h6 {
 
 @keyframes zoom {
     from {
-        transform: scale(0)
+        transform: scale(0.9);
+        opacity: 0;
     }
 
     to {
-        transform: scale(1)
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .lightbox-content {
         width: 100%;
+    }
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scrollTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scrollTopBtn:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-3px);
+}
+
+/* Wiki-style Links */
+.wiki-link {
+    color: var(--color-gold);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-gold);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.wiki-link:hover {
+    color: var(--color-gold-hover);
+    border-bottom: 1px solid var(--color-gold-hover);
+}
+
+/* Content Split Layout (Side-by-Side) */
+.content-split {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+}
+
+.content-split .wiki-image-container {
+    flex: 0 0 45%;
+    /* Image takes 45% width */
+}
+
+.content-split .text-group {
+    flex: 1;
+    /* Text takes remaining space */
+}
+
+.content-split .wiki-image-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Stack for Split Content */
+@media (max-width: 768px) {
+    .content-split {
+        flex-direction: column;
+    }
+
+    .content-split .wiki-image-container,
+    .content-split .text-group {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+/* Image Float (Text Wrap) */
+.image-float-right {
+    float: right;
+    width: 38%;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .image-float-right {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
     }
 }
