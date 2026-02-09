@@ -552,6 +552,17 @@ h3 {
     object-fit: contain;
     animation-name: zoom;
     animation-duration: 0.3s;
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+}
+
+.lightbox-content.zoomed {
+    cursor: grab;
+}
+
+.lightbox-content.zoomed.dragging {
+    cursor: grabbing;
+    transition: none;
 }
 
 #lightbox-caption {
@@ -673,6 +684,14 @@ h3 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.caption-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
 /* Mobile Stack for Split Content */
 @media (max-width: 768px) {
     .content-split {
@@ -700,5 +719,317 @@ h3 {
         width: 100%;
         margin-left: 0;
         margin-bottom: 20px;
+    }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    z-index: 1002;
+    /* Above header border if needed */
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background-color: var(--color-gold);
+    width: 0%;
+    transition: width 0.1s linear;
+    will-change: width;
+}
+
+/* Wikipedia-style Left Sidebar Layout */
+.wiki-page-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* Left sidebar | Main content */
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.wiki-toc {
+    /* Sticky Sidebar */
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    /* Account for fixed header */
+    height: fit-content;
+    max-height: calc(100vh - var(--header-height) - 4rem);
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+    border-right: 1px solid var(--color-slate);
+}
+
+.wiki-toc h4 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+    margin-top: 0;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-link {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 2px 0;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+    color: var(--color-gold);
+}
+
+.toc-link.active {
+    color: var(--color-gold);
+    border-left-color: var(--color-gold);
+    font-weight: 500;
+}
+
+.toc-toggle {
+    display: none;
+    /* Hidden on desktop */
+}
+
+/* Main Content Typography overrides for Wiki feel */
+.wiki-main-content {
+    min-width: 0;
+    /* Prevent grid blowout */
+}
+
+.wiki-main-content h2 {
+    border-bottom: 1px solid var(--color-slate);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+}
+
+.wiki-main-content .intro-text {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+/* Desktop TOC Toggle features */
+.toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-slate);
+    padding-bottom: 0.5rem;
+}
+
+.toc-header h4 {
+    margin: 0;
+    border: none;
+    color: var(--color-gold);
+}
+
+.toc-hide-btn {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-sans);
+}
+
+.toc-hide-btn:hover {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+/* Collapsed State (Desktop) */
+.wiki-page-container.toc-hidden {
+    grid-template-columns: 1fr;
+    /* Full width content */
+}
+
+.wiki-toc.hidden {
+    display: none;
+}
+
+/* Restore Button */
+.toc-restore-btn {
+    position: fixed;
+    top: calc(var(--header-height) + 20px);
+    left: 20px;
+    z-index: 950;
+    background-color: var(--color-slate);
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    display: none;
+    /* Hidden by default */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.toc-restore-btn:hover {
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+}
+
+.toc-restore-btn.visible {
+    display: block;
+}
+
+/* Ensure main content doesn't hit the button if it overlaps */
+
+
+.wiki-main-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Image Floats */
+.image-float-right {
+    float: right;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    width: 40%;
+    max-width: 300px;
+}
+
+.image-float-left {
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    width: 40%;
+    max-width: 300px;
+    clear: left;
+}
+
+/* Responsive float adjustment */
+@media (max-width: 768px) {
+
+    .image-float-right,
+    .image-float-left {
+        float: none;
+        width: 100%;
+        margin: 1rem 0;
+        max-width: 100%;
+    }
+}
+
+/* Mobile/Tablet Responsive for Wiki TOC */
+@media (max-width: 900px) {
+    .wiki-page-container {
+        grid-template-columns: 1fr;
+        /* Stack layout */
+        display: block;
+        gap: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        padding-left: var(--gutter-width);
+        padding-right: var(--gutter-width);
+        /* Reduce top padding and add side gutters */
+    }
+
+    .wiki-toc {
+        position: sticky;
+        /* Keep toggle accessible */
+        top: calc(var(--header-height) + 10px);
+        /* Just below header */
+        z-index: 900;
+        width: 100%;
+        border-right: none;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: var(--spacing-md);
+        padding-right: 0;
+        background-color: var(--color-charcoal);
+        /* Match body bg to cover content when sticky */
+        border-radius: 0 0 8px 8px;
+    }
+
+    .toc-list {
+        display: none;
+        /* Collapsed by default */
+        background-color: var(--color-slate);
+        border: 1px solid #444;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        padding: 1rem;
+        max-height: 50vh;
+        /* Scrollable list on mobile */
+        overflow-y: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .toc-list.expanded {
+        display: block;
+        margin-top: 0;
+    }
+
+    .toc-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: var(--color-slate);
+        border: 1px solid var(--color-gold);
+        /* Make it pop more used to be #333 */
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        color: var(--color-gold);
+        font-family: var(--font-sans);
+        font-weight: 500;
+        border-radius: 8px;
+        /* Rounded when collapsed */
+        transition: border-radius 0.2s;
+    }
+
+    .toc-toggle.expanded {
+        border-radius: 8px 8px 0 0;
+        /* Flat bottom when expanded */
+        border-bottom-color: #444;
+        /* Blend with list */
+        background-color: var(--color-slate);
+    }
+
+    .toc-toggle::after {
+        content: '+';
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .toc-toggle.expanded::after {
+        content: '-';
+    }
+
+    .wiki-main-content h2 {
+        margin-top: 1.5rem;
+        /* Less margin on mobile */
+        font-size: 1.75rem;
+        /* Slightly smaller headings */
     }
 }
