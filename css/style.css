@@ -141,6 +141,121 @@ h3 {
     width: 100%;
 }
 
+/* Search Bar */
+/* Search Bar */
+/* Search Bar */
+.search-wrapper {
+    position: relative;
+    /* margin handled by list gap */
+    width: 250px;
+}
+
+/* ... lines 153 ... */
+.main-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* ... lines 159 ... */
+
+/* ... */
+
+#searchInput {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-slate);
+    border-radius: 20px;
+    background-color: var(--color-slate);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    /* Wider than input for better readability */
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: var(--color-slate);
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+    /* Hidden by default */
+}
+
+.search-results.active {
+    display: block;
+}
+
+/* Increased specificity to override .main-nav a padding */
+.search-results .search-item {
+    padding: 15px 24px !important;
+    /* Force padding */
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: block;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-transform: none;
+    /* Reset main-nav text-transform */
+    letter-spacing: normal;
+}
+
+/* Disable the underline effect from .main-nav a */
+.search-results .search-item::after {
+    display: none !important;
+}
+
+/* Match specificity */
+.search-results .search-item:last-child {
+    border-bottom: none;
+}
+
+.search-results .search-item:hover {
+    background-color: #383838;
+}
+
+.search-item-title {
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-item-type {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ... */
+
+/* Mobile adjustments moved to main media query block below */
+
+
 .logo a {
     font-family: var(--font-serif);
     font-size: 1.5rem;
@@ -344,6 +459,16 @@ h3 {
     margin-bottom: var(--spacing-md);
 }
 
+.wiki-content a,
+.wiki-main-content a {
+    color: var(--color-gold);
+}
+
+.wiki-content a:hover,
+.wiki-main-content a:hover {
+    color: var(--color-gold-hover);
+}
+
 /* Sidebar */
 .wiki-sidebar {
     background: var(--color-slate);
@@ -489,26 +614,72 @@ h3 {
     .main-nav {
         width: 100%;
         order: 3;
+        margin-left: 0;
     }
 
+    .search-wrapper {
+        width: 100%;
+        margin: 10px 0;
+        order: 4;
+        /* Place after nav */
+    }
+
+    .search-results {
+        width: 100%;
+        position: relative;
+        /* Stack on mobile */
+        box-shadow: none;
+        margin-top: 5px;
+    }
+
+    /* Side Drawer Menu */
     .main-nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0;
-        width: 100%;
+        width: 280px;
+        /* Fixed width drawer */
+        height: 100vh;
         background-color: var(--color-slate);
-        border-top: 1px solid #444;
-        animation: slideDown 0.3s ease forwards;
+        border-left: 1px solid #444;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hidden off-screen */
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        transition: right 0.3s ease-in-out;
+        padding-top: 80px;
+        /* Space for close button area if needed, or just padding */
     }
 
     .main-nav ul.active {
-        display: flex;
+        right: 0;
+        /* Slide in */
+    }
+
+    .main-nav .mobile-search-item {
+        order: -1;
+        /* Move to top */
+        width: 100%;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure search results overlap content in drawer */
+    .main-nav .search-results {
+        position: absolute;
+        /* Overlap content */
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 200px;
+        z-index: 1002;
     }
 
     .main-nav a {
-        padding: 1.2rem;
-        /* Easy tap targets */
+        padding: 1rem;
         display: block;
         width: 100%;
         text-align: center;
@@ -516,17 +687,7 @@ h3 {
         font-size: 1rem;
     }
 
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+    /* Remove old animation keyframes if no longer needed or keep for other uses, replacing simplified here */
 }
 
 /* Lightbox Styles */
@@ -816,6 +977,12 @@ h3 {
 .wiki-main-content {
     min-width: 0;
     /* Prevent grid blowout */
+}
+
+.wiki-main-content section {
+    display: flow-root;
+    /* Contains floats */
+    margin-bottom: var(--spacing-lg);
 }
 
 .wiki-main-content h2 {
