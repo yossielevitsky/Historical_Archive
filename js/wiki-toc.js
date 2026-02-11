@@ -46,26 +46,85 @@ document.addEventListener('DOMContentLoaded', () => {
     tocContainer.appendChild(toggleBtn);       // Mobile Header
     tocContainer.appendChild(tocList);
 
+    // Track current H2 list item to append H3s
+    let currentH2Li = null;
+    let currentSubList = null;
+
     headings.forEach((heading, index) => {
         // Ensure id
         if (!heading.id) {
             heading.id = `section-${index + 1}`;
         }
 
-        const li = document.createElement('li');
         const link = document.createElement('a');
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
         link.className = 'toc-link';
 
-        // Indent H3
-        if (heading.tagName === 'H3') {
-            link.style.paddingLeft = '25px';
-            link.style.fontSize = '0.85rem';
-        }
+        // Check if H2 or H3
+        if (heading.tagName === 'H2') {
+            const li = document.createElement('li');
+            li.className = 'toc-item-h2';
 
-        li.appendChild(link);
-        tocList.appendChild(li);
+            // Container for [Arrow + Link] to handle layout
+            const linkWrapper = document.createElement('div');
+            linkWrapper.className = 'toc-link-wrapper';
+
+            // Create Toggle Arrow
+            const arrow = document.createElement('span');
+            arrow.className = 'toc-toggle-arrow';
+            arrow.innerHTML = '&#9656;'; // Right triangle
+
+            // Add click listener for toggle
+            arrow.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                li.classList.toggle('expanded');
+                if (li.classList.contains('expanded')) {
+                    arrow.innerHTML = '&#9662;'; // Down triangle
+                } else {
+                    arrow.innerHTML = '&#9656;';
+                }
+            });
+
+            linkWrapper.appendChild(arrow);
+            linkWrapper.appendChild(link);
+            li.appendChild(linkWrapper);
+
+            tocList.appendChild(li);
+
+            // Prepare for potential H3 children
+            currentH2Li = li;
+            currentSubList = null; // Reset, create only if needed
+
+        } else if (heading.tagName === 'H3') {
+            // It's an H3
+            if (currentH2Li) {
+                // Ensure sublist exists
+                if (!currentSubList) {
+                    currentSubList = document.createElement('ul');
+                    currentSubList.className = 'toc-sublist';
+                    currentH2Li.appendChild(currentSubList);
+
+                    // Show arrow on parent if it has children
+                    const parentArrow = currentH2Li.querySelector('.toc-toggle-arrow');
+                    if (parentArrow) {
+                        parentArrow.classList.add('has-children');
+                    }
+                }
+
+                const li = document.createElement('li');
+                li.className = 'toc-item-h3';
+                li.appendChild(link);
+                currentSubList.appendChild(li);
+            } else {
+                // Orphan H3 (before any H2) - treat as top level for now or append to root
+                const li = document.createElement('li');
+                li.className = 'toc-item-h3 orphan';
+                li.appendChild(link);
+                tocList.appendChild(li);
+            }
+        }
 
         // Smooth Scroll (Same logic)
         link.addEventListener('click', (e) => {
@@ -81,6 +140,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
+                // Expanding parent if clicking H3? Optional but good UX
+                // If we are scrolling to H2, maybe expand it? 
+                if (heading.tagName === 'H2' && currentH2Li) {
+                    // logic to find the specific LI for this H2 if we were inside the loop...
+                    // simpler: let the user expand manually or expand automatically upon navigation
+                    // For now, simple navigation
+                }
+
                 // Adjust for fixed header
                 const headerOffset = 100;
                 const elementPosition = targetElement.getBoundingClientRect().top;

@@ -12,7 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Calculate the maximum scroll position where the progress bar should be 100%
         // This is when the bottom of the viewport reaches the top of the footer
-        const contentBottom = docHeight - footerHeight;
+        const references = document.querySelector('#references');
+        const referencesHeight = references ? references.offsetHeight : 0;
+
+        // Calculate the maximum scroll position where the progress bar should be 100%
+        // This is when the bottom of the viewport reaches the top of the footer (and references if present)
+        const contentBottom = docHeight - footerHeight - referencesHeight;
         const maxScroll = contentBottom - winHeight;
 
         let scrollPercent = 0;

@@ -968,6 +968,58 @@ h3 {
     font-weight: 500;
 }
 
+/* Nested TOC Styles */
+.toc-link-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.toc-toggle-arrow {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    margin-right: 4px;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    user-select: none;
+    visibility: hidden;
+    /* Hidden if no children */
+    transition: transform 0.2s ease;
+}
+
+.toc-toggle-arrow:hover {
+    color: var(--color-gold);
+}
+
+.toc-toggle-arrow.has-children {
+    visibility: visible;
+}
+
+.toc-sublist {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 5px 24px;
+    /* Indent from parent */
+    border-left: 1px solid #333;
+    /* Visual guide */
+}
+
+.toc-item-h2.expanded .toc-sublist {
+    display: block;
+}
+
+.toc-item-h3 {
+    margin-bottom: 4px;
+}
+
+.toc-item-h3 .toc-link {
+    font-size: 0.85rem;
+    padding-left: 10px;
+    /* Standard pad */
+}
+
 .toc-toggle {
     display: none;
     /* Hidden on desktop */
