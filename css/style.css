@@ -475,8 +475,6 @@ h3 {
     padding: var(--spacing-md);
     border: 1px solid var(--color-gold);
     height: fit-content;
-    position: sticky;
-    top: calc(var(--header-height) + var(--spacing-md));
     border-radius: 8px;
     /* Rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -583,10 +581,9 @@ h3 {
     }
 
     .wiki-container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: var(--spacing-md);
-        display: block;
-        /* Allow manipulation via JS more easily */
     }
 
     /* Sidebar moved via JS, but styling here */
@@ -597,6 +594,7 @@ h3 {
         /* Softer border on mobile ? */
         background: #252525;
         /* Slightly distinct background */
+        order: -1;
     }
 
     .header-content {
