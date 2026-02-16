@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Title - The Jewish Antwerp Historical Archive</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Using accordion.css only if we need collapsible sections, but good to have -->
+    <link rel="stylesheet" href="css/accordion.css">
+    <script src="js/nav.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <a href="index.html">The Jewish Antwerp<br><span class="subtitle">Historical Archive</span></a>
+                </div>
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+
+                        <li><a href="rabbis.html">Rabbis</a></li>
+                        <li><a href="synagogues.html">Synagogues</a></li>
+                        <li><a href="contribute.html">Contribute</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+
+            <!-- Header Area -->
+            <!-- Using wiki-page-container for grid layout with right sidebar -->
+            <div class="container wiki-page-container"
+                style="margin-top: 0; padding-top: var(--spacing-sm); grid-template-columns: 1fr 250px; row-gap: 1rem;">
+
+                <!-- Article Header (Title & Subtitle) - Aligned with Main Content (Col 1) -->
+                <div class="wiki-header" style="grid-column: 1; margin-bottom: 0;">
+                    <h1 style="font-size: 3rem; color: var(--color-gold); margin-bottom: 0.25rem; margin-top: 0;">
+                        Article
+                        Headline Goes Here</h1>
+                    <p class="article-subtitle"
+                        style="font-size: 1.5rem; color: var(--color-text-muted); margin-bottom: 0.25rem; text-align: left;">
+                        A brief subtitle or summary of the article contents.</p>
+                </div>
+
+                <!-- Sidebar - Forced to Row 2, Col 2 (Right) -->
+                <aside class="wiki-sidebar" style="grid-column: 2; grid-row: 2;">
+                    <h3 class="sidebar-title">Article Info</h3>
+
+                    <div class="data-point">
+                        <span class="data-label">Author</span>
+                        <span class="data-value">Contributor Name</span>
+                    </div>
+
+                    <div class="data-point">
+                        <span class="data-label">Published</span>
+                        <span class="data-value">October 24, 2023</span>
+                    </div>
+
+                    <div class="data-point">
+                        <span class="data-label">Reading Time</span>
+                        <span class="data-value">5 min read</span>
+                    </div>
+                </aside>
+
+                <!-- Main Content - Forced to Row 2, Col 1 (Left) -->
+                <article class="wiki-main-content" style="grid-column: 1; grid-row: 2;">
+                    <!-- Featured Image -->
+                    <div class="wiki-image-container" style="margin-bottom: 2rem;">
+                        <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Featured+Image"
+                            alt="Article Featured Image" style="width: 100%; border-radius: 8px;">
+                        <div class="caption-text">Caption for the featured image</div>
+                    </div>
+
+                    <section class="wiki-content">
+                        <p class="intro-text"><strong>Introduction:</strong> This is the opening paragraph of the
+                            article. It sets the scene and introduces the topic to the reader. It is usually slightly
+                            larger or bolded to catch attention.</p>
+
+                        <h2>Section Heading</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.</p>
+
+                        <div class="wiki-image-container image-float-right">
+                            <img src="https://placehold.co/300x200/2d2d2d/c5a059?text=Side+Image" alt="Side Image">
+                            <div class="caption-text">A relevant side image</div>
+                        </div>
+
+                        <h3>Subsection Title</h3>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                            cupiditate non provident.</p>
+
+
+                        <h2>Conclusion</h2>
+                        <p>In conclusion, this article highlights the importance of preserving historical narratives.
+                            The specific events discussed here demonstrate the resilience and cultural richness of the
+                            community.</p>
+                    </section>
+                </article>
+
+
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>&copy; 2026 The Jewish Antwerp Historical Archive. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/lightbox.js"></script>
+    <script src="js/scroll-top.js"></script>
+    <!-- Accordion script if needed for collapsible sections in articles -->
+    <script src="js/accordion.js"></script>
+</body>
+
+</html>

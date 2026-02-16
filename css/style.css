@@ -688,6 +688,14 @@ h3 {
     margin: 0 auto;
 }
 
+.get-involved-image {
+    max-width: 350px;
+    display: block;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 8px;
+    /* Optional */
+}
+
 .get-involved-content h2 {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
@@ -702,6 +710,17 @@ h3 {
 }
 
 /* Wiki Layout */
+.wiki-page-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--spacing-lg);
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--gutter-width) var(--spacing-lg) var(--gutter-width);
+    /* Reduced top padding */
+    position: relative;
+}
+
 .wiki-container {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -1612,11 +1631,386 @@ h3 {
     .toc-toggle.expanded::after {
         content: '-';
     }
+}
 
-    .wiki-main-content h2 {
-        margin-top: 1.5rem;
-        /* Less margin on mobile */
-        font-size: 1.75rem;
-        /* Slightly smaller headings */
+/* History Gateway Page Styles */
+.history-gateway-container {
+    padding-top: var(--spacing-sm);
+    /* Reduced from lg to sm */
+    padding-bottom: var(--spacing-xl);
+}
+
+.breadcrumbs-page-container {
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+}
+
+/* ... existing styles ... */
+
+@media (max-width: 900px) {
+    .wiki-page-container {
+        /* ... */
+        padding-top: var(--spacing-sm);
+        /* Reduced from md to sm */
+    }
+}
+
+/* ... */
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    padding: 0;
+    /* Removing top/bottom padding to be closer */
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.history-gateway-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg) auto;
+}
+
+.intro-text-centered {
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.history-main-action {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.history-periods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.history-card {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.history-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: var(--color-slate);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.history-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.history-card .card-content {
+    /* ... existing styles ... */
+    padding: 1rem 0;
+}
+
+/* Horizontal Card Variant for Holocaust Page */
+.history-card.horizontal-card {
+    display: flex;
+    /* Ensure display flex is set */
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--spacing-lg);
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    /* Ensure it takes full width */
+}
+
+.history-card.horizontal-card .card-image-wrapper {
+    width: 65%;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.history-card.horizontal-card .card-content {
+    width: 35%;
+    padding: 0 0 0 var(--spacing-md);
+    /* Added padding for separation */
+}
+
+@media (max-width: 768px) {
+    .history-card.horizontal-card {
+        flex-direction: column;
+    }
+
+    .history-card.horizontal-card .card-image-wrapper,
+    .history-card.horizontal-card .card-content {
+        width: 100%;
+    }
+}
+
+
+
+.history-card h2,
+.history-card h3 {
+    color: var(--color-gold);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-h3);
+}
+
+.history-card p {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Full Overview Card Styling Override */
+.full-overview-card {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.full-overview-card .card-content {
+    align-items: center;
+}
+
+.full-overview-card h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: 1rem;
+}
+
+.full-overview-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.card-link-text {
+    display: inline-block;
+    color: var(--color-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.history-card:hover .card-link-text {
+    color: var(--color-gold-hover);
+    border-bottom-color: var(--color-gold-hover);
+}
+
+@media (max-width: 768px) {
+    .full-overview-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .history-gateway-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '/';
+    margin: 0 0.5rem;
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--color-gold);
+    font-weight: 500;
+}
+
+/* Holocaust Page Specific Styles */
+
+/* Hero Section */
+.holocaust-hero {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.holocaust-hero h1 {
+    font-size: clamp(2.5rem, 2rem + 3vw, 4rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gold);
+}
+
+.holocaust-hero .intro-text-centered {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.holocaust-hero .hero-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-gold);
+    margin: 0 auto;
+    border: none;
+    opacity: 0.7;
+}
+
+/* Historical Snapshot Block */
+.historical-snapshot {
+    background-color: var(--color-slate);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.snapshot-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid #444;
+    padding-bottom: var(--spacing-xs);
+}
+
+.snapshot-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    width: 100%;
+    text-align: center;
+}
+
+.snapshot-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.snapshot-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+    margin-bottom: 5px;
+}
+
+.snapshot-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-parchment);
+}
+
+/* Commemorative Footer */
+.commemorative-footer {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    border-top: 1px solid #333;
+    margin-top: var(--spacing-xl);
+}
+
+.commemorative-text {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.commemorative-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.commemorative-link:hover {
+    border-bottom-color: var(--color-gold);
+    color: var(--color-gold-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .historical-snapshot {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+
+    .snapshot-data {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 }
