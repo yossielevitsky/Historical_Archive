@@ -1,21 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select the main content container
+    // 1. Standard Wiki Content Accordion (Flat structure)
+    // Used in template_synagogue.html, template_profile.html, etc.
     const wikiContent = document.querySelector('.wiki-content');
     const wikiSidebar = document.querySelector('.wiki-sidebar');
     const wikiContainer = document.querySelector('.wiki-container');
 
-    // Accordion Logic
     if (wikiContent) {
         initAccordion(wikiContent);
 
-        // Mobile Sidebar Logic
-        handleMobileLayout(wikiContent, wikiSidebar, wikiContainer);
-
-        // Listen for resize to adjust layout
-        window.addEventListener('resize', () => {
+        // Sidebar Logic for standard pages
+        if (wikiSidebar && wikiContainer) {
             handleMobileLayout(wikiContent, wikiSidebar, wikiContainer);
-        });
+            window.addEventListener('resize', () => {
+                handleMobileLayout(wikiContent, wikiSidebar, wikiContainer);
+            });
+        }
     }
+
+    // 2. History Page Accordion (Section-based structure)
+    // Used in history.html
+    const historyContainer = document.querySelector('.wiki-accordion-sections');
+    if (historyContainer) {
+        initHistoryAccordion(historyContainer);
+    }
+
+    // --- Helper Functions ---
 
     function initAccordion(contentContainer) {
         const children = Array.from(contentContainer.children);
@@ -34,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Click event
                 child.addEventListener('click', () => {
-                    if (window.innerWidth > 768) return; // Disable on desktop
+                    if (window.innerWidth > 900) return; // Disable on desktop (aligned with CSS breakpoint)
                     child.classList.toggle('active');
                     const content = child.nextElementSibling;
                     if (content && content.classList.contains('accordion-content')) {
@@ -47,30 +56,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function initHistoryAccordion(container) {
+        const sections = container.querySelectorAll('section');
+        sections.forEach(section => {
+            const header = section.querySelector('h2');
+            if (!header) return;
+
+            // Check if already wrapped (idempotency)
+            if (section.querySelector('.section-content-wrapper')) return;
+
+            // Create wrapper
+            const wrapper = document.createElement('div');
+            wrapper.className = 'section-content-wrapper';
+
+            // Move all children after header into wrapper
+            // using while loop to move remaining siblings safely
+            let nextNode = header.nextSibling;
+            while (nextNode) {
+                const nodeToMove = nextNode;
+                nextNode = nextNode.nextSibling; // save reference to next
+                wrapper.appendChild(nodeToMove);
+            }
+
+            section.appendChild(wrapper);
+
+            // Add click listener
+            header.addEventListener('click', () => {
+                if (window.innerWidth > 900) return; // Disable on desktop
+                section.classList.toggle('active');
+                header.classList.toggle('active');
+            });
+        });
+    }
+
     function handleMobileLayout(content, sidebar, container) {
         if (!content || !sidebar || !container) return;
 
-        const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 900; // Increased breakpoint to match general mobile/tablet flow
 
         if (isMobile) {
             // Move sidebar INTO content, after the introduction (before first h2)
-            // Function logic: Find the first H2. Insert Sidebar before it.
             const firstHeader = content.querySelector('h2');
-
             if (firstHeader) {
-                // If it's not already there
                 if (firstHeader.previousElementSibling !== sidebar) {
                     content.insertBefore(sidebar, firstHeader);
                 }
             } else {
-                // No headers? Just append to content or put it at top?
-                // Default to top if no headers, or bottom. Let's append to bottom of intro if no headers.
-                content.appendChild(sidebar);
+                // If no headers, append to end or after first P? 
+                // Default to appending to content
+                if (sidebar.parentElement !== content) {
+                    content.appendChild(sidebar);
+                }
             }
         } else {
             // Desktop: Move sidebar back to container
-            // It should be the second child of wiki-container (grid layout)
-            // wiki-container has .wiki-main and .wiki-sidebar
             if (sidebar.parentElement !== container) {
                 container.appendChild(sidebar);
             }

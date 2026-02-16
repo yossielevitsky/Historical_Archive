@@ -311,6 +311,148 @@ h3 {
     color: var(--color-gold);
 }
 
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-gold);
+}
+
+/* Language Switcher */
+.lang-switcher-item {
+    position: relative;
+    /* margin-left: var(--spacing-sm); Removed per user request to reduce spacing */
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--color-slate);
+    color: var(--color-gold);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    border-color: var(--color-gold);
+    background-color: rgba(197, 160, 89, 0.1);
+}
+
+.lang-arrow {
+    font-size: 0.6em;
+    transition: transform 0.3s ease;
+}
+
+.lang-btn[aria-expanded="true"] .lang-arrow {
+    transform: rotate(180deg);
+}
+
+.main-nav .lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 150px;
+    background-color: var(--color-slate);
+    border: 1px solid #444;
+    border-radius: 4px;
+    list-style: none;
+    padding: 0 !important;
+    /* Override main-nav ul padding */
+    margin-top: 0.5rem;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    flex-direction: column !important;
+    /* Ensure vertical list */
+    gap: 0 !important;
+    /* Override main-nav ul gap */
+}
+
+.main-nav .lang-dropdown.active {
+    display: flex !important;
+}
+
+.main-nav .lang-dropdown li {
+    width: 100%;
+}
+
+.lang-option {
+    display: block;
+    padding: 0.75rem 1rem !important;
+    /* Override main-nav a padding */
+    color: var(--color-text-main) !important;
+    text-transform: none !important;
+    font-size: 0.95rem !important;
+    border-bottom: 1px solid #333;
+    text-align: left !important;
+}
+
+.lang-option:last-child {
+    border-bottom: none;
+}
+
+.lang-option:hover {
+    background-color: #383838;
+    color: var(--color-gold) !important;
+}
+
+.lang-option[data-lang="he"] {
+    font-family: 'Inter', sans-serif;
+    /* Ensure Hebrew font support if needed, or system default */
+}
+
+/* Mobile Language Switcher adjustments */
+@media (max-width: 768px) {
+    .lang-switcher-item {
+        margin-left: 0;
+        width: 100%;
+        order: -2;
+        /* Place at top of mobile menu */
+        border-bottom: 1px solid #333;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .lang-switcher {
+        width: 100%;
+    }
+
+    .lang-btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.8rem;
+        border: 1px solid #444;
+        background-color: #252525;
+    }
+
+    .main-nav .lang-dropdown {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+        margin-top: 0;
+    }
+
+    .main-nav .lang-dropdown li {
+        border-bottom: none;
+    }
+
+    .lang-option {
+        padding-left: 2rem !important;
+        border-bottom: 1px solid #333;
+        background-color: #2a2a2a;
+    }
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -434,6 +576,131 @@ h3 {
     color: var(--color-text-muted);
 }
 
+
+/* About Section */
+.about-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-slate);
+    /* Slightly lighter than main bg for contrast */
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.about-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+}
+
+
+/* Articles Section */
+.articles-section {
+    padding: var(--spacing-xl) 0;
+    /* No background color as requested */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-gold);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.article-card {
+    /* No background color for card as requested */
+    text-align: center;
+}
+
+.article-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    border-radius: 8px;
+    /* Optional: adds subtle polish */
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.article-card:hover .article-image img {
+    transform: scale(1.05);
+}
+
+.article-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gold);
+}
+
+.article-content p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.read-more {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--color-gold);
+    border-bottom: 2px solid transparent;
+    /* Prepare for hover effect */
+    padding-bottom: 2px;
+}
+
+.read-more:hover {
+    border-bottom-color: var(--color-gold);
+}
+
+/* Get Involved Section */
+.get-involved-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-slate);
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.get-involved-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.get-involved-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gold);
+}
+
+.get-involved-content p {
+    font-size: 1.2rem;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
 /* Wiki Layout */
 .wiki-container {
     display: grid;
@@ -513,6 +780,12 @@ h3 {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-md);
     padding: var(--spacing-lg) 0;
+}
+
+/* Specific override for Rabbis page to show smaller cards */
+.rabbis-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
 }
 
 .card {
@@ -686,6 +959,103 @@ h3 {
     }
 
     /* Remove old animation keyframes if no longer needed or keep for other uses, replacing simplified here */
+
+    /* Mobile History Typography Overrides */
+    .wiki-main-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .wiki-main-content h2 {
+        font-size: 1.4rem;
+        border-bottom: 1px solid #333;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .wiki-main-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .wiki-main-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Accordion Styles for Mobile Sections */
+    .wiki-accordion-sections section h2 {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding-right: 35px;
+        margin-bottom: 0px;
+        /* Minimal margin */
+        padding-bottom: 0.2rem;
+        padding-top: 0.2rem;
+        /* Explicitly small top padding */
+        line-height: 1.2;
+        /* Tighter line height */
+        border-bottom: 1px solid #333;
+        /* Ensure border is visible */
+    }
+
+    .wiki-accordion-sections section h2::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--color-gold);
+        transition: transform 0.3s ease;
+    }
+
+    .wiki-accordion-sections section h2.active::after {
+        content: '-';
+        transform: translateY(-50%);
+        /* Or rotate check */
+    }
+
+    .wiki-accordion-sections section .section-content-wrapper {
+        display: none;
+        padding-bottom: 0.5rem;
+        /* Reduced padding */
+        padding-top: 0;
+        /* Remove top padding completely */
+    }
+
+    .wiki-accordion-sections section .section-content-wrapper>*:first-child {
+        margin-top: 0 !important;
+        /* Force remove top margin */
+        padding-top: 0 !important;
+        /* Force remove top padding if any */
+    }
+
+    .wiki-accordion-sections section.active .section-content-wrapper {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* Hide TOC on mobile for history page */
+    .wiki-toc {
+        display: none !important;
+    }
+
+    /* Rabbis Grid Mobile Override - 2 columns */
+    .rabbis-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+        /* Smaller gap for mobile */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
 }
 
 /* Lightbox Styles */

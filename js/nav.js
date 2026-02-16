@@ -25,24 +25,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Search Functionality
     const searchData = [
+        // Main Pages
         { title: "Home", url: "index.html", type: "Page" },
         { title: "History of Jewish Antwerp", url: "history.html", type: "Page" },
-        { title: "Kehilles (Communities)", url: "kehilles.html", type: "Page" },
         { title: "Rabbis", url: "rabbis.html", type: "Page" },
         { title: "Synagogues", url: "synagogues.html", type: "Page" },
         { title: "Contribute", url: "contribute.html", type: "Page" },
 
-        // Detailed Pages
-        { title: "Hollandse Synagoge (Shomre Hadass)", url: "hollandse-synagoge.html", type: "Synagogue" },
-        { title: "Portuguese Synagogue", url: "portuguese-synagogue.html", type: "Synagogue" },
-        { title: "Van Den Nestlei Synagogue (Romi Goldmuntz)", url: "van-den-nestlei-synagogue.html", type: "Synagogue" },
-        { title: "Rabbi Chaim Kreiswirth", url: "rabbi-chaim-kreiswirth.html", type: "Rabbi" },
+        // Synagogues
+        { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
+        { title: "Alexander Synagogue", url: "synagogues/alexander-synagogue.html", type: "Synagogue" },
+        { title: "Beit Yaakov", url: "synagogues/beit-yaakov.html", type: "Synagogue" },
+        { title: "Belz 2 (Ohel Moshe)", url: "synagogues/belz-2-ohel-moshe.html", type: "Synagogue" },
+        { title: "Belz 3 (Beis Ahron)", url: "synagogues/belz-3-beis-ahron.html", type: "Synagogue" },
+        { title: "Belz 4 (Beis Hillel)", url: "synagogues/belz-4-beis-hillel.html", type: "Synagogue" },
+        { title: "Belz Center", url: "synagogues/belz-center.html", type: "Synagogue" },
+        { title: "Beth Mordechai", url: "synagogues/beth-mordechai.html", type: "Synagogue" },
+        { title: "Bobov", url: "synagogues/bobov-synagogue.html", type: "Synagogue" },
+        { title: "Chabad Lubavitch", url: "synagogues/chabad-lubavitch.html", type: "Synagogue" },
+        { title: "Daas Sholem-Shotz", url: "synagogues/daas-sholem-shotz.html", type: "Synagogue" },
+        { title: "Eisenmann Synagogue", url: "synagogues/eisenmann-synagogue.html", type: "Synagogue" },
+        { title: "Gur", url: "synagogues/gur-synagogue.html", type: "Synagogue" },
+        { title: "Hollandse Synagoge", url: "synagogues/hollandse-synagoge.html", type: "Synagogue" },
+        { title: "Beit Hakneset Hasafaradi Jotsei Geruzia", url: "synagogues/jotsei-geruzia-synagogue.html", type: "Synagogue" },
+        { title: "K'hal Chasidim", url: "synagogues/khal-chasidim.html", type: "Synagogue" },
+        { title: "Klausenburg", url: "synagogues/klausenburg-synagogue.html", type: "Synagogue" },
+        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue" },
+        { title: "Moryah Terlist", url: "synagogues/moryah-terlist.html", type: "Synagogue" },
+        { title: "Ohel Yaakov", url: "synagogues/ohel-yaakov.html", type: "Synagogue" },
+        { title: "Oosten Synagogue", url: "synagogues/oosten-synagogue.html", type: "Synagogue" },
+        { title: "Or Shraga-Kolel", url: "synagogues/or-shraga-kolel.html", type: "Synagogue" },
+        { title: "Portuguese Synagogue", url: "synagogues/portuguese-synagogue.html", type: "Synagogue" },
+        { title: "Pshevorsk Synagogue", url: "synagogues/pshevorsk-synagogue.html", type: "Synagogue" },
+        { title: "Satmar 2", url: "synagogues/satmar-2.html", type: "Synagogue" },
+        { title: "Satmar Synagogue", url: "synagogues/satmar-synagogue.html", type: "Synagogue" },
+        { title: "Schmigred", url: "synagogues/schmigred-synagogue.html", type: "Synagogue" },
+        { title: "Tshortkow", url: "synagogues/tshortkow-synagogue.html", type: "Synagogue" },
+        { title: "Van Den Nestlei Synagogue", url: "synagogues/van-den-nestlei-synagogue.html", type: "Synagogue" },
+        { title: "Wiznitz 2", url: "synagogues/wiznitz-2.html", type: "Synagogue" },
+        { title: "Wiznitz", url: "synagogues/wiznitz-synagogue.html", type: "Synagogue" },
+        { title: "Zichron Benjamin", url: "synagogues/zichron-benjamin.html", type: "Synagogue" },
 
-        // Sections / Anchors could be added here if needed
-        { title: "Rabbi Moshe Avigdor Amiel", url: "rabbis.html", type: "Rabbi" },
-        { title: "Eisenmann Synagogue", url: "synagogues.html", type: "Synagogue" },
-        { title: "Machsike Hadass", url: "kehilles.html", type: "Kehille" },
-        { title: "Shomre Hadass", url: "kehilles.html", type: "Kehille" }
+        // Rabbis
+        { title: "Dayan Schmal", url: "rabbis/dayan-schmal.html", type: "Rabbi" },
+        { title: "Mizrachi - Beth Hamedrash Rav Amiel", url: "rabbis/mizrachi-rav-amiel.html", type: "Rabbi" },
+        { title: "Rabbi Chaim Kreiswirth", url: "rabbis/rabbi-chaim-kreiswirth.html", type: "Rabbi" },
+        { title: "Rav Aaron Schiff", url: "rabbis/rav-aaron-schiff.html", type: "Rabbi" },
+        { title: "Rav Dovid Moshe Lieberman", url: "rabbis/rav-dovid-moshe-lieberman.html", type: "Rabbi" },
+        { title: "Rav Hillel Medalie", url: "rabbis/rav-hillel-medalie.html", type: "Rabbi" },
+        { title: "Rav Markus Mordechai Rottenberg", url: "rabbis/rav-markus-mordechai-rottenberg.html", type: "Rabbi" },
+        { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi" },
+        { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi" },
+        { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi" },
+        { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" }
     ];
 
     const headerContent = document.querySelector('.header-content');
@@ -118,6 +153,64 @@ document.addEventListener('DOMContentLoaded', () => {
             document.addEventListener('click', (e) => {
                 if (!searchWrapper.contains(e.target)) {
                     searchResults.classList.remove('active');
+                }
+            });
+        }
+
+        // 3. Language Switcher Injection
+        const langLi = document.createElement('li');
+        langLi.className = 'lang-switcher-item';
+        langLi.innerHTML = `
+            <div class="lang-switcher">
+                <button class="lang-btn" aria-expanded="false">
+                    <span class="lang-current">EN</span>
+                    <span class="lang-arrow">▼</span>
+                </button>
+                <ul class="lang-dropdown">
+                    <li><a href="#" class="lang-option active" data-lang="en">English</a></li>
+                    <li><a href="#" class="lang-option" data-lang="nl">Nederlands</a></li>
+                    <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    <li><a href="#" class="lang-option" data-lang="he">עברית</a></li>
+                </ul>
+            </div>
+        `;
+
+        if (navUl) {
+            navUl.appendChild(langLi);
+        }
+
+        // Language Switcher Logic
+        const langBtn = langLi.querySelector('.lang-btn');
+        const langDropdown = langLi.querySelector('.lang-dropdown');
+
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+                langBtn.setAttribute('aria-expanded', !isExpanded);
+                langDropdown.classList.toggle('active');
+            });
+
+            // Close when clicking an option
+            langDropdown.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    // Update active state optional:
+                    langDropdown.querySelector('.lang-option.active')?.classList.remove('active');
+                    option.classList.add('active');
+
+                    // Update button text optional:
+                    // langBtn.querySelector('.lang-current').textContent = option.getAttribute('data-lang').toUpperCase();
+
+                    langDropdown.classList.remove('active');
+                    langBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!langLi.contains(e.target)) {
+                    langDropdown.classList.remove('active');
+                    langBtn.setAttribute('aria-expanded', 'false');
                 }
             });
         }
