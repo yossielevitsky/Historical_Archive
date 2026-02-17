@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -28,7 +28,12 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../history.html">History</a></li>
+                        <li>
+                            <div class="dropdown"><a href="javascript:void(0)" class="dropbtn">History</a>
+                                <div class="dropdown-content"><a href="../history.html">Full History</a><a
+                                        href="holocaust.html">The Holocaust</a></div>
+                            </div>
+                        </li>
                         <li><a href="../rabbis.html">Rabbis</a></li>
                         <li><a href="../synagogues.html">Synagogues</a></li>
                         <li><a href="../contribute.html">Contribute</a></li>
@@ -38,7 +43,7 @@
         </header>
 
         <main id="main-content">
-            <div class="container wiki-page-container">
+            <div class="container" style="padding: 2rem 1rem;">
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
@@ -50,8 +55,18 @@
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="page-title">Names Database</h1>
-                    <!-- Content will go here -->
+                    <h1 class="section-title">Names Database</h1>
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="../images/document-image.jpg" alt="Names Database"
+                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
+                    </div>
+                    <div style="text-align: center; padding: 4rem 0;">
+                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">Coming Soon</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                            A searchable archive of names is currently under development. Thank you for your patience.
+                        </p>
+                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">Go Back</a>
+                    </div>
                 </div>
             </div>
         </main>

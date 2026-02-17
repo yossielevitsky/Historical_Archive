@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -28,7 +28,12 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../history.html">History</a></li>
+                        <li>
+                            <div class="dropdown"><a href="javascript:void(0)" class="dropbtn">History</a>
+                                <div class="dropdown-content"><a href="../history.html">Full History</a><a
+                                        href="holocaust.html">The Holocaust</a></div>
+                            </div>
+                        </li>
                         <li><a href="../rabbis.html">Rabbis</a></li>
                         <li><a href="../synagogues.html">Synagogues</a></li>
                         <li><a href="../contribute.html">Contribute</a></li>
@@ -82,6 +87,70 @@
                     </div>
                 </div>
 
+                <!-- Visual Timeline Section -->
+                <div class="timeline-section">
+                    <h2 class="section-title">Timeline</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">1933</div>
+                            <div class="timeline-content">
+                                <h3>Rise of Nazism</h3>
+                                <p>Hitler comes to power in Germany.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">May 1940</div>
+                            <div class="timeline-content">
+                                <h3>German Occupation</h3>
+                                <p>Germany invades Belgium. The military administration begins.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">Oct 1940</div>
+                            <div class="timeline-content">
+                                <h3>First Anti-Jewish Examples</h3>
+                                <p>Registration of Jews and Jewish businesses becomes mandatory.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">April 1941</div>
+                            <div class="timeline-content">
+                                <h3>Pogrom in Antwerp</h3>
+                                <p>Violent anti-Jewish riots in the diamond district, supported by local collaborators.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">June 1942</div>
+                            <div class="timeline-content">
+                                <h3>The Yellow Star</h3>
+                                <p>Jews are forced to wear the Yellow Star of David in public.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">Aug-Sept 1942</div>
+                            <div class="timeline-content">
+                                <h3>Major Roundups (Razzias)</h3>
+                                <p>Mass arrests in Antwerp. Thousands are sent to Dossin Kazerne.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">Sept 1944</div>
+                            <div class="timeline-content">
+                                <h3>Liberation</h3>
+                                <p>Allied forces liberate Antwerp. The community is devastated.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Primary Call to Action / Main History Card -->
                 <div class="history-main-action">
                     <a href="../history/wwii.html" class="history-card full-overview-card horizontal-card">
@@ -101,8 +170,7 @@
                 <div class="history-periods-grid">
                     <a href="names.html" class="history-card period-card">
                         <div class="card-image-wrapper">
-                            <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Names" alt="Names Database"
-                                class="card-image">
+                            <img src="../images/document-image.jpg" alt="Names Database" class="card-image">
                         </div>
                         <div class="card-content">
                             <h3>Names Database</h3>
@@ -113,8 +181,7 @@
 
                     <a href="memorials.html" class="history-card period-card">
                         <div class="card-image-wrapper">
-                            <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Memorials" alt="Memorials"
-                                class="card-image">
+                            <img src="../images/holocaust-memorial.jpg" alt="Memorials" class="card-image">
                         </div>
                         <div class="card-content">
                             <h3>Memorials & Monuments</h3>
@@ -125,8 +192,7 @@
 
                     <a href="righteous.html" class="history-card period-card">
                         <div class="card-image-wrapper">
-                            <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Righteous"
-                                alt="Righteous Among the Nations" class="card-image">
+                            <img src="../images/ran-medal.jpg" alt="Righteous Among the Nations" class="card-image">
                         </div>
                         <div class="card-content">
                             <h3>Righteous Among the Nations</h3>
@@ -134,6 +200,65 @@
                             <span class="card-link-text">Read Stories &rarr;</span>
                         </div>
                     </a>
+                </div>
+
+                <!-- Locations / Map Section -->
+                <div class="locations-section">
+                    <h2 class="section-title">Locations of Memory</h2>
+                    <div class="locations-grid">
+                        <a href="dossin.html" class="location-card">
+                            <div class="location-image">
+                                <img src="../images/kazerne-dossin.jpg" alt="Dossin Kazerne">
+                            </div>
+                            <div class="location-content">
+                                <h3>Dossin Kazerne (Mechelen)</h3>
+                                <p>The transit camp from which over 25,000 Jews and Roma were deported to Auschwitz.</p>
+                            </div>
+                        </a>
+                        <a href="central-station.html" class="location-card">
+                            <div class="location-image">
+                                <img src="../images/central-station-antwerp.jpg" alt="Antwerp Central Station">
+                            </div>
+                            <div class="location-content">
+                                <h3>Antwerp Central Station</h3>
+                                <p>Many roundups led here, where victims were put on trains to Mechelen.</p>
+                            </div>
+                        </a>
+                        <a href="orphanages.html" class="location-card">
+                            <div class="location-image">
+                                <img src="../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg"
+                                    alt="Jewish Orphanages">
+                            </div>
+                            <div class="location-content">
+                                <h3>Orphanages</h3>
+                                <p>Institutions that hid and sheltered Jewish children during the deportations.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- External Resources Section -->
+                <div class="resources-section">
+                    <div class="container">
+                        <h2 class="section-title">Further Research & Education</h2>
+                        <div class="resources-grid">
+                            <a href="https://kazernedossin.eu/en/" target="_blank" rel="noopener noreferrer"
+                                class="resource-item">
+                                <h3>Kazerne Dossin</h3>
+                                <p>Memorial, Museum and Documentation Centre on Holocaust and Human Rights.</p>
+                            </a>
+                            <a href="https://www.yadvashem.org/" target="_blank" rel="noopener noreferrer"
+                                class="resource-item">
+                                <h3>Yad Vashem</h3>
+                                <p>The World Holocaust Remembrance Center.</p>
+                            </a>
+                            <a href="https://felixarchief.antwerpen.be/" target="_blank" rel="noopener noreferrer"
+                                class="resource-item">
+                                <h3>FelixArchief</h3>
+                                <p>Antwerp City Archives containing vital records of the Jewish community.</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Commemorative Footer Element -->

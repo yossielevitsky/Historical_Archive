@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close menu when a link is clicked
         document.querySelectorAll('.main-nav a').forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                // Don't close if it's the dropdown toggle
+                if (link.classList.contains('dropbtn')) {
+                    return;
+                }
+
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', false);
@@ -31,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rabbis", url: "rabbis.html", type: "Page" },
         { title: "Synagogues", url: "synagogues.html", type: "Page" },
         { title: "Contribute", url: "contribute.html", type: "Page" },
+
+        // Holocaust Section
+        { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page" },
+        { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Wiki" },
+        { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Wiki" },
+        { title: "Names Database", url: "holocaust/names.html", type: "Wiki" },
+        { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Wiki" },
+        { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Wiki" },
+        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Wiki" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
@@ -215,4 +229,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // 4. History Dropdown Click Logic
+    const historyLinks = document.querySelectorAll('.dropdown > a');
+
+    historyLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const dropdownContent = link.nextElementSibling;
+
+            // Close other dropdowns if we add more in the future
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                if (content !== dropdownContent) {
+                    content.classList.remove('show');
+                }
+            });
+
+            if (dropdownContent) {
+                dropdownContent.classList.toggle('show');
+            }
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-content.show').forEach(content => {
+                content.classList.remove('show');
+            });
+        }
+    });
 });

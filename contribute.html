@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -60,6 +60,18 @@
             min-height: 150px;
             resize: vertical;
         }
+
+        .btn-inverse {
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+            border-color: var(--color-gold);
+        }
+
+        .btn-inverse:hover {
+            background-color: transparent !important;
+            color: var(--color-gold) !important;
+            border-color: var(--color-gold);
+        }
     </style>
 </head>
 
@@ -78,7 +90,12 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="history.html">History</a></li>
+                        <li>
+                            <div class="dropdown"><a href="javascript:void(0)" class="dropbtn">History</a>
+                                <div class="dropdown-content"><a href="history.html">Full History</a><a
+                                        href="holocaust/holocaust.html">The Holocaust</a></div>
+                            </div>
+                        </li>
 
                         <li><a href="rabbis.html">Rabbis</a></li>
                         <li><a href="synagogues.html">Synagogues</a></li>
@@ -107,10 +124,37 @@
                 </div>
 
                 <div class="contribute-card">
+                    <h2 style="font-size: 1.4rem;">Most Wanted Items</h2>
+                    <p style="margin-bottom: 1rem; color: var(--color-text-main);">We are currently searching for:</p>
+                    <ul
+                        style="list-style-type: square; margin-left: 2rem; color: var(--color-text-muted); margin-bottom: 0;">
+                        <li>#1</li>
+                        <li>#2</li>
+                        <li>#3</li>
+                    </ul>
+                </div>
+
+                <div class="contribute-card" style="border-left: 3px solid var(--color-gold);">
+                    <h2 style="font-size: 1.4rem;">Want to Write an Article?</h2>
+                    <p style="color: var(--color-text-main); margin-bottom: 0;">
+                        If you are interested in researching and writing a full article for the archive, please
+                        <a href="mailto:info@jewishantwerparchive.org"
+                            style="color: var(--color-gold); text-decoration: underline;">email us directly</a>.
+                        We welcome guest contributors!
+                    </p>
+                </div>
+
+                <div class="contribute-card">
                     <h2>Submit a Contribution</h2>
                     <p style="margin-bottom: var(--spacing-md); color: var(--color-text-muted);">
                         Have something to add? Use the form below to send us your contribution or suggest changes.
                         You can choose to include your name or remain anonymous.
+                    </p>
+                    <p
+                        style="margin-bottom: var(--spacing-md); font-size: 0.9rem; color: var(--color-text-muted); font-style: italic;">
+                        <strong>Note:</strong> All contributions will be credited to you unless you prefer to remain
+                        anonymous.
+                        We respect your privacy and will handle all submitted materials with care.
                     </p>
                     <form id="contributionForm"
                         onsubmit="event.preventDefault(); alert('Thank you for your contribution!');">
@@ -124,10 +168,33 @@
                                 placeholder="Describe your contribution, suggest a change, or provide information here..."
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn">Submit Contribution</button>
+                        <button type="submit" class="btn btn-inverse">Submit Contribution</button>
                     </form>
                 </div>
-            </div>
+
+
+                <div class="contribute-card">
+                    <h2>Contact Us</h2>
+                    <p style="margin-bottom: var(--spacing-md); color: var(--color-text-muted);">
+                        You can also reach out to us directly via the following channels:
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--color-gold);">📧</span>
+                            <a href="mailto:info@jewishantwerparchive.org"
+                                style="color: var(--color-text-main); text-decoration: none;">info@jewishantwerparchive.org</a>
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--color-gold);">📞</span>
+                            <span style="color: var(--color-text-main);">+32 3 123 45 67</span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--color-gold);">📍</span>
+                            <span style="color: var(--color-text-main);">Hoveniersstraat 123, 2018 Antwerp,
+                                Belgium</span>
+                        </li>
+                    </ul>
+                </div>
         </main>
 
         <footer class="main-footer">

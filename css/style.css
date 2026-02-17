@@ -316,6 +316,60 @@ h3 {
     color: var(--color-gold);
 }
 
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-slate);
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    top: 100%;
+    left: 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0;
+    flex-direction: column;
+}
+
+
+.dropdown-content a {
+    color: var(--color-text-main);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-transform: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #333;
+    white-space: nowrap;
+
+}
+
+.dropdown-content a::after {
+    display: none;
+    /* Remove underline animation for dropdown items */
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #383838;
+    color: var(--color-gold);
+}
+
+.dropdown-content.show {
+    display: flex;
+    /* Show as flex to keep column direction */
+}
+
 /* Language Switcher */
 .lang-switcher-item {
     position: relative;
@@ -975,6 +1029,13 @@ h3 {
         text-align: center;
         border-bottom: 1px solid #333;
         font-size: 1rem;
+    }
+
+
+    /* Mobile Dropdown adjustment */
+    .dropdown-content {
+        left: -40%;
+        text-align: left;
     }
 
     /* Remove old animation keyframes if no longer needed or keep for other uses, replacing simplified here */
@@ -2009,8 +2070,244 @@ h3 {
         padding: var(--spacing-md);
     }
 
+
     .snapshot-data {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
+}
+
+/* =========================================
+   Holocaust Page Enhancements
+   ========================================= */
+
+/* Timeline Section */
+.timeline-section {
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.timeline-section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-gold);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-charcoal);
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-date {
+    width: 45%;
+    text-align: right;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    font-weight: 700;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+}
+
+.timeline-content {
+    width: 45%;
+    background-color: var(--color-slate);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    border: 1px solid #444;
+    position: relative;
+}
+
+.timeline-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-main);
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Timeline Mobile */
+@media (max-width: 768px) {
+    .timeline-section::before {
+        left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+
+    .timeline-marker {
+        left: 20px;
+        top: 24px;
+        transform: translate(-50%, 0);
+    }
+
+    .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        width: 100%;
+        text-align: left;
+        margin-bottom: var(--spacing-xs);
+        font-size: 1.25rem;
+    }
+
+    .timeline-content {
+        width: 100%;
+    }
+}
+
+/* Locations / Map Section */
+.locations-section {
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid #333;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.location-card {
+    background-color: var(--color-slate);
+    border: 1px solid #444;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: block;
+    /* Make it block if it's an anchor */
+    text-decoration: none;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+}
+
+.location-image {
+    height: 180px;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.location-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.location-card:hover .location-image img {
+    transform: scale(1.05);
+}
+
+.location-content {
+    padding: var(--spacing-md);
+}
+
+.location-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-main);
+}
+
+.location-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* Resources Section */
+.resources-section {
+    padding: var(--spacing-lg) 0;
+    background-color: #252525;
+    /* Slightly lighter/different than main bg */
+    border-top: 1px solid #333;
+    margin-top: var(--spacing-lg);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.resource-item {
+    display: block;
+    background-color: var(--color-charcoal);
+    padding: var(--spacing-md);
+    border: 1px solid #444;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.resource-item:hover {
+    border-color: var(--color-gold);
+    background-color: #222;
+}
+
+.resource-item h3 {
+    font-size: 1.1rem;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resource-item h3::after {
+    content: '→';
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.resource-item:hover h3::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.resource-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
 }
