@@ -208,26 +208,64 @@ document.addEventListener('DOMContentLoaded', () => {
         const langDropdown = langLi.querySelector('.lang-dropdown');
 
         if (langBtn && langDropdown) {
+            const currentLang = document.documentElement.lang || 'en';
+            
+            // Set current language display
+            langBtn.querySelector('.lang-current').textContent = currentLang.toUpperCase();
+
+            // Calculate paths to roots
+            const logoLink = document.querySelector('.logo a');
+            let depth = 0;
+            let pathToLangRoot = '';
+            if (logoLink) {
+                const href = logoLink.getAttribute('href');
+                const matches = href.match(/\.\.\//g);
+                depth = matches ? matches.length : 0;
+                pathToLangRoot = href.replace('index.html', '');
+            }
+
+            let pathToSiteRoot = '';
+            if (currentLang === 'en') {
+                pathToSiteRoot = pathToLangRoot;
+            } else {
+                pathToSiteRoot = '../' + pathToLangRoot;
+            }
+
+            // Get current page filename relative to language root
+            const segments = window.location.pathname.split('/');
+            const pagePathSegments = segments.slice(segments.length - (depth + 1));
+            let relativePagePath = pagePathSegments.join('/');
+            if (!relativePagePath || relativePagePath.endsWith('/')) {
+                relativePagePath = 'index.html';
+            }
+
+            // Update each option's href
+            langDropdown.querySelectorAll('.lang-option').forEach(option => {
+                const targetLang = option.getAttribute('data-lang');
+                
+                // Set active class
+                if (targetLang === currentLang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+
+                // Calculate target relative URL
+                let targetUrl = '';
+                if (targetLang === 'en') {
+                    targetUrl = pathToSiteRoot + relativePagePath;
+                } else {
+                    targetUrl = pathToSiteRoot + targetLang + '/' + relativePagePath;
+                }
+                
+                option.setAttribute('href', targetUrl);
+            });
+
             langBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
                 langBtn.setAttribute('aria-expanded', !isExpanded);
                 langDropdown.classList.toggle('active');
-            });
-
-            // Close when clicking an option
-            langDropdown.querySelectorAll('.lang-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    // Update active state optional:
-                    langDropdown.querySelector('.lang-option.active')?.classList.remove('active');
-                    option.classList.add('active');
-
-                    // Update button text optional:
-                    // langBtn.querySelector('.lang-current').textContent = option.getAttribute('data-lang').toUpperCase();
-
-                    langDropdown.classList.remove('active');
-                    langBtn.setAttribute('aria-expanded', 'false');
-                });
             });
 
             // Close when clicking outside
