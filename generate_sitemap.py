@@ -35,9 +35,17 @@ def get_git_date(file_path):
         return datetime.today().strftime("%Y-%m-%d")
 
 def get_priority_and_changefreq(rel_path):
-    if rel_path == "index.html":
-        return "1.0", "weekly"
-    elif rel_path in ["history.html", "rabbis.html", "synagogues.html", "contribute.html", "holocaust/holocaust.html"]:
+    # Strip language prefixes for checking priorities
+    check_path = rel_path
+    for lang in ['nl/', 'fr/', 'he/']:
+        if rel_path.startswith(lang):
+            check_path = rel_path[len(lang):]
+            break
+            
+    if check_path == "index.html":
+        # Root language landing pages get 0.9, root site gets 1.0
+        return ("1.0" if rel_path == "index.html" else "0.9"), "weekly"
+    elif check_path in ["history.html", "rabbis.html", "synagogues.html", "contribute.html", "holocaust/holocaust.html"]:
         return "0.8", "weekly"
     else:
         return "0.6", "monthly"
@@ -67,8 +75,13 @@ def main():
     txt_lines = []
 
     for rel_path, full_path in html_files:
-        # Map index.html to the root domain URL
-        url = base_url if rel_path == "index.html" else base_url + rel_path
+        # Map index.html files to their clean folder/domain paths
+        if rel_path == "index.html":
+            url = base_url
+        elif rel_path in ["nl/index.html", "fr/index.html", "he/index.html"]:
+            url = base_url + rel_path[:-10] # Strips 'index.html'
+        else:
+            url = base_url + rel_path
         date_str = get_git_date(full_path)
         priority, changefreq = get_priority_and_changefreq(rel_path)
 
