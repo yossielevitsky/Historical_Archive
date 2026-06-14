@@ -142,10 +142,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
 
                 if (filtered.length > 0) {
+                    // Calculate relative path prefix based on home link
+                    let pathPrefix = '';
+                    const homeLink = document.querySelector('.main-nav a[href$="index.html"]');
+                    if (homeLink) {
+                        const href = homeLink.getAttribute('href');
+                        // If href is "index.html", prefix is ""
+                        // If href is "../index.html", prefix is "../"
+                        pathPrefix = href.replace('index.html', '');
+                    }
+
                     filtered.forEach(item => {
                         const div = document.createElement('a');
                         div.className = 'search-item';
-                        div.href = item.url;
+                        div.href = pathPrefix + item.url;
                         div.innerHTML = `
                             <span class="search-item-title">${item.title}</span>
                             <span class="search-item-type">${item.type}</span>
