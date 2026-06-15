@@ -198,7 +198,7 @@
                             <input type="number" id="customAmount" class="form-control" placeholder="Custom" style="padding-left: 20px; width: 100px; height: 38px; border-radius: 4px; font-size: 0.95rem; display: inline-block;" oninput="clearAmountSelection()">
                         </div>
                     </div>
-                    <button class="btn btn-inverse btn-donate-now" onclick="triggerDonation()">Donate Now</button>
+                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">Donate Now (Coming Soon)</button>
                 </div>
 
                 <div class="contribute-card">
@@ -273,20 +273,7 @@
         }
 
         function triggerDonation() {
-            let amount = 0;
-            const customVal = document.getElementById('customAmount').value;
-            if (customVal) {
-                amount = parseFloat(customVal);
-            } else if (window.selectedDonationAmount) {
-                amount = window.selectedDonationAmount;
-            }
-
-            if (!amount || amount <= 0) {
-                alert('Please select or enter a valid donation amount. Thank you!');
-                return;
-            }
-
-            alert(`Thank you for your generous support! You selected a donation of $${amount}. In a live environment, this would redirect you to our payment gateway.`);
+            alert('Online donations are coming soon! Thank you for your support and interest.');
         }
 
         document.getElementById('contributionForm').addEventListener('submit', async function(e) {
