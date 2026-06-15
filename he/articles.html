@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מאמרים - Jewish Antwerp Historical Archive</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/nav.js" defer></script>
+    <script src="../js/articles-search.js" defer></script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <a href="index.html">אנטוורפן היהודית<br><span class="subtitle">הארכיון ההיסטורי</span></a>
+                </div>
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">בית</a></li>
+                        <li>
+                            <div class="dropdown"><a href="javascript:void(0)" class="dropbtn">היסטוריה</a>
+                                <div class="dropdown-content"><a href="history.html">היסטוריה מלאה</a><a
+                                        href="holocaust/holocaust.html">השואה</a></div>
+                            </div>
+                        </li>
+
+                        <li><a href="rabbis.html">רבנים</a></li>
+                        <li><a href="synagogues.html">בתי כנסת</a></li>
+                        <li><a href="contribute.html">לתרום</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div class="container breadcrumbs-page-container">
+                <!-- Breadcrumb Navigation -->
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="padding: 0;">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">בית</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">מאמרים</li>
+                    </ol>
+                </nav>
+
+                <div
+                    style="padding: var(--spacing-sm) 0 var(--spacing-lg) 0; border-bottom: 1px solid var(--color-slate); margin-bottom: var(--spacing-md);">
+                    <h1 style="color: var(--color-gold); font-size: 3rem;">מאמרים</h1>
+                    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">מסות היסטוריות, מחקרים ועדויות מאנטוורפן היהודית.</p>
+                </div>
+
+                <div class="articles-search-container">
+                    <input type="text" id="articles-search" class="articles-search-input" placeholder="חפש מאמרים..." aria-label="חפש מאמרים" />
+                    <span class="articles-search-icon">&#128269;</span>
+                </div>
+
+                <div class="articles-grid">
+                    <div id="no-results-message" class="no-results-message">לא נמצאו מאמרים התואמים את החיפוש שלך.</div>
+
+                    <!-- Holocaust -->
+                    <article class="card">
+                        <a href="holocaust/holocaust.html" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="../images/deportation-truck.jpg" alt="מרכז הגירוש מחנה דוסאן">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">השואה</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    זוכרים את הפרק האפל ביותר: הרדיפות, הגירושים ממחנה דוסאן, וחוסנם של אלו שנשארו.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- 1980 Attack -->
+                    <article class="card">
+                        <a href="history/1980-terrorist-attack.html" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="../images/gva levaje.jpg" alt="לווייתו של דוד כהנא" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">הפיגוע באנטוורפן (1980)</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    הסיפור הטרגי של הפיגוע בקבוצת ילדים שהמתינו לאוטובוס באנטוורפן.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- 1981 Bombing -->
+                    <article class="card">
+                        <a href="history/1981-synagogue-bombing.html" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg" alt="שרידי מכונית התופת משנת 1981" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">הפיגוע בבית הכנסת באנטוורפן (1981)</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    פיצוץ מכונית תופת הרסני בלב רובע היהלומים.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Escape to Havana -->
+                    <article class="card">
+                        <a href="history/cuba-connection.html" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="../images/ST%20Louis%20cuba.jpeg" alt="האונייה סנט לואיס באנטוורפן" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">הבריחה להוואנה</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    המסע הטרגי של האונייה סנט לואיס וכיצד מלטשי היהלומים מאנטוורפן מצאו מקלט בקובה.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Future 1 -->
+                    <article class="card">
+                        <a href="#" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+1" alt="מאמר עתידי" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">מאמר עתידי 1</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    תוכן למאמר היסטורי זה יפורסם בקרוב. הישארו מעודכנים.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Future 2 -->
+                    <article class="card">
+                        <a href="#" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+2" alt="מאמר עתידי" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">מאמר עתידי 2</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    תוכן למאמר היסטורי זה יפורסם בקרוב. הישארו מעודכנים.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Future 3 -->
+                    <article class="card">
+                        <a href="#" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+3" alt="מאמר עתידי" style="object-fit: cover;">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">מאמר עתידי 3</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
+                                    תוכן למאמר היסטורי זה יפורסם בקרוב. הישארו מעודכנים.
+                                </p>
+                                <span class="card-link">קרא עוד &larr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>&copy; 2026 הארכיון ההיסטורי של אנטוורפן היהודית. כל הזכויות שמורות.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/scroll-top.js"></script>
+</body>
+
+</html>

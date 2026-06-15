@@ -2540,3 +2540,141 @@ h3 {
         margin-top: 0.5rem;
     }
 }
+
+/* RTL Layout Support */
+@media (min-width: 769px) {
+    [dir="rtl"] .main-nav {
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+[dir="rtl"] .dropdown-content {
+    left: auto;
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .main-nav ul {
+        left: auto;
+        right: -100%;
+        border-left: 1px solid #444;
+        border-right: none;
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease-in-out;
+    }
+
+    [dir="rtl"] .main-nav ul.active {
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Articles Link and Grid Styling */
+.more-articles-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.more-articles-link {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--color-gold);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.more-articles-link:hover {
+    border-bottom-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+}
+
+@media (max-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Articles Page Search Bar */
+.articles-search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto var(--spacing-md) 0;
+}
+
+.articles-search-input {
+    width: 100%;
+    padding: 0.8rem 1.2rem 0.8rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    background-color: var(--color-slate);
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.articles-search-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+}
+
+.articles-search-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+/* RTL support for Articles Page Search Bar */
+[dir="rtl"] .articles-search-container {
+    margin: 0 0 var(--spacing-md) auto;
+}
+
+[dir="rtl"] .articles-search-input {
+    padding: 0.8rem 3rem 0.8rem 1.2rem;
+}
+
+[dir="rtl"] .articles-search-icon {
+    left: auto;
+    right: 1.2rem;
+}
+
+/* No results message */
+.no-results-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    display: none;
+}
