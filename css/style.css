@@ -948,20 +948,38 @@ h3 {
     }
 
     .header-content {
+        position: relative;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        min-height: 70px;
     }
 
     .hamburger {
         display: block;
         padding: 12px;
-        order: 1;
+        position: absolute;
+        left: var(--gutter-width);
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        z-index: 1002;
     }
 
     .logo {
-        order: 2;
+        text-align: left;
+        padding: 0 70px;
+        margin: 0 auto;
+    }
+
+    [dir="rtl"] .logo {
+        text-align: right;
+    }
+
+    [dir="rtl"] .hamburger {
+        left: auto;
+        right: var(--gutter-width);
     }
 
     .main-nav {
