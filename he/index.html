@@ -15,6 +15,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/nav.js" defer></script>
+  <script src="../js/events-slider.js" defer></script>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -83,40 +84,83 @@
       <section class="articles-section">
         <div class="container">
           <h2 class="section-title">Articles</h2>
-          <div class="articles-grid">
-            <article class="article-card">
-              <div class="article-image">
-                <img src="../images/deportation-truck.jpg" alt="Dossin Kazerne deportation center">
-              </div>
-              <div class="article-content">
-                <h3>The Holocaust</h3>
-                <p>Remembering the darkest chapter: the persecution, the deportations from Dossin Kazerne, and the
-                  resilience of those who remained.</p>
-                <a href="holocaust/holocaust.html" class="read-more">Read More &rarr;</a>
-              </div>
-            </article>
-            <article class="article-card">
-              <div class="article-image">
-                <img src="../images/gva levaje.jpg" alt="Funeral of David Kohane" style="object-fit: cover;">
-              </div>
-              <div class="article-content">
-                <h3>1980 Antwerp Attack</h3>
-                <p>The tragic story of the attack on a group of children waiting for a bus in Antwerp.</p>
-                <a href="history/1980-terrorist-attack.html" class="read-more">Read More &rarr;</a>
-              </div>
-            </article>
-            <article class="article-card">
-              <div class="article-image">
-                <img
-                  src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg"
-                  alt="Wreckage of the 1981 car bomb" style="object-fit: cover;">
-              </div>
-              <div class="article-content">
-                <h3>1981 Synagogue Bombing</h3>
-                <p>A devastating car bomb explosion in the heart of the diamond district.</p>
-                <a href="history/1981-synagogue-bombing.html" class="read-more">Read More &rarr;</a>
-              </div>
-            </article>
+          <div class="slider-wrapper">
+            <button class="slider-arrow prev-arrow" aria-label="Previous articles">&#10094;</button>
+            <div class="articles-slider">
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="../images/deportation-truck.jpg" alt="Dossin Kazerne deportation center">
+                </div>
+                <div class="article-content">
+                  <h3>The Holocaust</h3>
+                  <p>Remembering the darkest chapter: the persecution, the deportations from Dossin Kazerne, and the
+                    resilience of those who remained.</p>
+                  <a href="holocaust/holocaust.html" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="../images/gva levaje.jpg" alt="Funeral of David Kohane" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>1980 Antwerp Attack</h3>
+                  <p>The tragic story of the attack on a group of children waiting for a bus in Antwerp.</p>
+                  <a href="history/1980-terrorist-attack.html" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg"
+                    alt="Wreckage of the 1981 car bomb" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>1981 Synagogue Bombing</h3>
+                  <p>A devastating car bomb explosion in the heart of the diamond district.</p>
+                  <a href="history/1981-synagogue-bombing.html" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="../images/ST%20Louis%20cuba.jpeg" alt="MS St. Louis in Antwerp" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>Escape to Havana</h3>
+                  <p>The tragic voyage of the MS St. Louis and how Antwerp's diamond cutters found refuge in Cuba.</p>
+                  <a href="history/cuba-connection.html" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+1" alt="Future Article" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>Future Article 1</h3>
+                  <p>Content for this historical article will be published soon. Stay tuned for updates.</p>
+                  <a href="#" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+2" alt="Future Article" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>Future Article 2</h3>
+                  <p>Content for this historical article will be published soon. Stay tuned for updates.</p>
+                  <a href="#" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+              <article class="article-card">
+                <div class="article-image">
+                  <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+3" alt="Future Article" style="object-fit: cover;">
+                </div>
+                <div class="article-content">
+                  <h3>Future Article 3</h3>
+                  <p>Content for this historical article will be published soon. Stay tuned for updates.</p>
+                  <a href="#" class="read-more">Read More &rarr;</a>
+                </div>
+              </article>
+            </div>
+            <button class="slider-arrow next-arrow" aria-label="Next articles">&#10095;</button>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ https://jewishantwerparchive.org/fr/history.html
 https://jewishantwerparchive.org/fr/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/fr/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/fr/history/19th-century.html
+https://jewishantwerparchive.org/fr/history/cuba-connection.html
 https://jewishantwerparchive.org/fr/history/early-modern-period.html
 https://jewishantwerparchive.org/fr/history/full-history.html
 https://jewishantwerparchive.org/fr/history/medieval-period.html
@@ -19,6 +20,7 @@ https://jewishantwerparchive.org/fr/holocaust/names.html
 https://jewishantwerparchive.org/fr/holocaust/orphanages.html
 https://jewishantwerparchive.org/fr/holocaust/righteous.html
 https://jewishantwerparchive.org/fr/
+https://jewishantwerparchive.org/fr/places/heide.html
 https://jewishantwerparchive.org/fr/rabbis.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
@@ -69,6 +71,7 @@ https://jewishantwerparchive.org/he/history.html
 https://jewishantwerparchive.org/he/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/he/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/he/history/19th-century.html
+https://jewishantwerparchive.org/he/history/cuba-connection.html
 https://jewishantwerparchive.org/he/history/early-modern-period.html
 https://jewishantwerparchive.org/he/history/full-history.html
 https://jewishantwerparchive.org/he/history/medieval-period.html
@@ -84,6 +87,7 @@ https://jewishantwerparchive.org/he/holocaust/names.html
 https://jewishantwerparchive.org/he/holocaust/orphanages.html
 https://jewishantwerparchive.org/he/holocaust/righteous.html
 https://jewishantwerparchive.org/he/
+https://jewishantwerparchive.org/he/places/heide.html
 https://jewishantwerparchive.org/he/rabbis.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
@@ -133,6 +137,7 @@ https://jewishantwerparchive.org/history.html
 https://jewishantwerparchive.org/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/history/19th-century.html
+https://jewishantwerparchive.org/history/cuba-connection.html
 https://jewishantwerparchive.org/history/early-modern-period.html
 https://jewishantwerparchive.org/history/full-history.html
 https://jewishantwerparchive.org/history/medieval-period.html
@@ -153,6 +158,7 @@ https://jewishantwerparchive.org/nl/history.html
 https://jewishantwerparchive.org/nl/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/nl/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/nl/history/19th-century.html
+https://jewishantwerparchive.org/nl/history/cuba-connection.html
 https://jewishantwerparchive.org/nl/history/early-modern-period.html
 https://jewishantwerparchive.org/nl/history/full-history.html
 https://jewishantwerparchive.org/nl/history/medieval-period.html
@@ -168,6 +174,7 @@ https://jewishantwerparchive.org/nl/holocaust/names.html
 https://jewishantwerparchive.org/nl/holocaust/orphanages.html
 https://jewishantwerparchive.org/nl/holocaust/righteous.html
 https://jewishantwerparchive.org/nl/
+https://jewishantwerparchive.org/nl/places/heide.html
 https://jewishantwerparchive.org/nl/rabbis.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
@@ -213,6 +220,7 @@ https://jewishantwerparchive.org/nl/synagogues/van-den-nestlei-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-2.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/zichron-benjamin.html
+https://jewishantwerparchive.org/places/heide.html
 https://jewishantwerparchive.org/rabbis.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html

@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Wiki" },
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Wiki" },
         { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Wiki" },
+        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Wiki" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
@@ -91,7 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi" },
         { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi" },
         { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi" },
-        { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" }
+        { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" },
+
+        // Places
+        { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" }
     ];
 
     const headerContent = document.querySelector('.header-content');

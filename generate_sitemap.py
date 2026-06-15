@@ -8,6 +8,7 @@ excluded_files = {
     "template_event.html",
     "template_profile.html",
     "template_synagogue.html",
+    "template_place.html",
     "generic-synagogue.html",
 }
 
