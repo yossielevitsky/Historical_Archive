@@ -638,8 +638,10 @@ h3 {
 /* About Section */
 .about-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-slate);
-    /* Slightly lighter than main bg for contrast */
+    background-image: linear-gradient(rgba(45, 45, 45, 0.95), rgba(45, 45, 45, 0.95)), url('../images/background-archives.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     border-bottom: 1px solid #333;
 }
