@@ -5,11 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const wikiSidebar = document.querySelector('.wiki-sidebar');
     const wikiContainer = document.querySelector('.wiki-container');
 
-    if (wikiContent) {
+    // Only run accordion and sidebar placement logic for standard pages (which have .wiki-container)
+    // to keep article content expanded and simplify layouts
+    if (wikiContent && wikiContainer) {
         initAccordion(wikiContent);
 
-        // Sidebar Logic for standard pages
-        if (wikiSidebar && wikiContainer) {
+        if (wikiSidebar) {
             handleMobileLayout(wikiContent, wikiSidebar, wikiContainer);
             window.addEventListener('resize', () => {
                 handleMobileLayout(wikiContent, wikiSidebar, wikiContainer);

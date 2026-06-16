@@ -921,7 +921,7 @@ h3 {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     :root {
         --spacing-md: 1.5rem;
         --spacing-lg: 3rem;
@@ -1642,14 +1642,29 @@ h3 {
 /* Mobile/Tablet Responsive for Wiki TOC */
 @media (max-width: 900px) {
     .wiki-page-container {
-        grid-template-columns: 1fr;
-        /* Stack layout */
-        display: block;
+        display: flex !important;
+        flex-direction: column !important;
         gap: var(--spacing-md);
-        padding-top: var(--spacing-md);
+        padding-top: var(--spacing-sm) !important;
         padding-left: var(--gutter-width);
         padding-right: var(--gutter-width);
         /* Reduce top padding and add side gutters */
+    }
+
+    .wiki-header {
+        order: 1;
+    }
+
+    .wiki-main-content {
+        order: 2;
+    }
+
+    .wiki-sidebar {
+        order: 3;
+        position: static !important;
+        margin: var(--spacing-md) 0 !important;
+        border-color: #444 !important;
+        background: #252525 !important;
     }
 
     .wiki-toc {
@@ -2784,5 +2799,41 @@ h3 {
     .write-article-email-container button {
         width: 100%;
         padding: 0.5rem;
+    }
+}
+
+/* Mobile responsive heading and image overrides for articles */
+@media (max-width: 768px) {
+    /* Scale down large inline titles and subtitles */
+    .wiki-header h1,
+    .breadcrumbs-page-container h1,
+    .container h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .article-subtitle {
+        font-size: 1.15rem !important;
+    }
+
+    /* Scale down featured image height */
+    .wiki-main-content > .wiki-image-container img {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .wiki-header h1,
+    .breadcrumbs-page-container h1,
+    .container h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .article-subtitle {
+        font-size: 1.0rem !important;
+    }
+
+    .wiki-main-content > .wiki-image-container img {
+        height: 180px !important;
     }
 }
