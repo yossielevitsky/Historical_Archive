@@ -64,6 +64,15 @@
                     <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">Historical essays, research, and testimonies from Jewish Antwerp.</p>
                 </div>
 
+                <div class="write-article-banner">
+                    <h3>Do you have an article you want to write?</h3>
+                    <p>We welcome articles, essays, and testimonies from the community. Email us at:</p>
+                    <div class="write-article-email-container">
+                        <span id="contact-email">jewishantwerphistoricalarchive@gmail.com</span>
+                        <button onclick="navigator.clipboard.writeText('jewishantwerphistoricalarchive@gmail.com'); const btn = this; const orig = btn.textContent; btn.textContent = 'Copied!'; btn.style.background = '#2e7d32'; btn.style.color = '#fff'; setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);">Copy</button>
+                    </div>
+                </div>
+
                 <div class="articles-search-container">
                     <input type="text" id="articles-search" class="articles-search-input" placeholder="Search articles..." aria-label="Search articles" />
                     <span class="articles-search-icon">&#128269;</span>

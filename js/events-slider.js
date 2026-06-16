@@ -28,8 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             dot.addEventListener('click', () => {
                 const targetSlide = slides[i];
+                const isRTL = getComputedStyle(slider).direction === 'rtl';
+                let targetLeft;
+                if (isRTL) {
+                    targetLeft = targetSlide.offsetLeft - (slider.scrollWidth - slider.clientWidth);
+                } else {
+                    targetLeft = targetSlide.offsetLeft - slider.offsetLeft;
+                }
                 slider.scrollTo({
-                    left: targetSlide.offsetLeft - slider.offsetLeft,
+                    left: targetLeft,
                     behavior: 'smooth'
                 });
             });
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update active dot on scroll
         const updateActiveDot = () => {
-            const scrollLeft = slider.scrollLeft;
+            const scrollLeft = Math.abs(slider.scrollLeft);
             const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
             
             let activeIndex = 0;
@@ -70,26 +77,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrollAmount = 350; // Scroll increment
 
             const getScrollStatus = () => {
-                const atStart = slider.scrollLeft <= 5;
-                const atEnd = (slider.scrollLeft + slider.clientWidth) >= (slider.scrollWidth - 5);
-                return { atStart, atEnd };
+                const isRTL = getComputedStyle(slider).direction === 'rtl';
+                const scrollLeftVal = Math.abs(slider.scrollLeft);
+                const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+                const atStart = scrollLeftVal <= 5;
+                const atEnd = (scrollLeftVal + slider.clientWidth) >= (slider.scrollWidth - 5);
+                return { atStart, atEnd, isRTL, maxScrollLeft };
             };
 
             nextBtn.addEventListener('click', () => {
-                const { atEnd } = getScrollStatus();
+                const { atEnd, isRTL } = getScrollStatus();
                 if (atEnd) {
                     slider.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    const direction = isRTL ? -1 : 1;
+                    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
                 }
             });
 
             prevBtn.addEventListener('click', () => {
-                const { atStart } = getScrollStatus();
+                const { atStart, isRTL, maxScrollLeft } = getScrollStatus();
                 if (atStart) {
-                    slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+                    const targetLeft = isRTL ? -maxScrollLeft : slider.scrollWidth;
+                    slider.scrollTo({ left: targetLeft, behavior: 'smooth' });
                 } else {
-                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    const direction = isRTL ? -1 : 1;
+                    slider.scrollBy({ left: -direction * scrollAmount, behavior: 'smooth' });
                 }
             });
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Articles - Jewish Antwerp Historical Archive</title>
+    <title>Articles - Archives historiques juives d'Anvers</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -36,7 +36,7 @@
                         <li>
                             <div class="dropdown"><a href="javascript:void(0)" class="dropbtn">Histoire</a>
                                 <div class="dropdown-content"><a href="history.html">Histoire complète</a><a
-                                        href="holocaust/holocaust.html">La Shoah</a></div>
+                                    href="holocaust/holocaust.html">La Shoah</a></div>
                             </div>
                         </li>
 
@@ -53,7 +53,7 @@
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="padding: 0;">
                     <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Maison</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Articles</li>
                     </ol>
                 </nav>
@@ -61,29 +61,38 @@
                 <div
                     style="padding: var(--spacing-sm) 0 var(--spacing-lg) 0; border-bottom: 1px solid var(--color-slate); margin-bottom: var(--spacing-md);">
                     <h1 style="color: var(--color-gold); font-size: 3rem;">Articles</h1>
-                    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">Essais historiques, recherches et témoignages de l'Anvers juif.</p>
+                    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">Essais historiques, recherches et témoignages de la communauté juive d'Anvers.</p>
+                </div>
+
+                <div class="write-article-banner">
+                    <h3>Avez-vous un article que vous souhaitez écrire?</h3>
+                    <p>Nous acceptons les articles, essais et témoignages de la communauté. Envoyez-nous un courriel à :</p>
+                    <div class="write-article-email-container">
+                        <span id="contact-email">jewishantwerphistoricalarchive@gmail.com</span>
+                        <button onclick="navigator.clipboard.writeText('jewishantwerphistoricalarchive@gmail.com'); const btn = this; const orig = btn.textContent; btn.textContent = 'Copié !'; btn.style.background = '#2e7d32'; btn.style.color = '#fff'; setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);">Copier</button>
+                    </div>
                 </div>
 
                 <div class="articles-search-container">
-                    <input type="text" id="articles-search" class="articles-search-input" placeholder="Rechercher des articles..." aria-label="Rechercher des articles" />
-                    <span class="articles-search-icon">&#128269;</span>
+                    <input type="text" id="articles-search" class="articles-search-input" placeholder="Search articles..." aria-label="Search articles" />
+                    <span class="articles-search-icon">🔍</span>
                 </div>
 
                 <div class="articles-grid">
-                    <div id="no-results-message" class="no-results-message">Aucun article ne correspond à votre recherche.</div>
+                    <div id="no-results-message" class="no-results-message">Aucun article trouvé correspondant à votre recherche.</div>
 
                     <!-- Holocaust -->
                     <article class="card">
                         <a href="holocaust/holocaust.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/deportation-truck.jpg" alt="Centre de déportation de la caserne Dossin">
+                                <img src="../images/deportation-truck.jpg" alt="Dossin Kazerne deportation center">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">La Shoah</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">L'Holocauste</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    Se souvenir du chapitre le plus sombre : la persécution, les déportations depuis la caserne Dossin et la résilience de ceux qui sont restés.
+                                    Souvenir du chapitre le plus sombre : la persécution, les déportations de Dossin Kazerne et la résilience de ceux qui sont restés.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -92,14 +101,14 @@
                     <article class="card">
                         <a href="history/1980-terrorist-attack.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/gva levaje.jpg" alt="Funérailles de David Kohane" style="object-fit: cover;">
+                                <img src="../images/gva levaje.jpg" alt="Funeral of David Kohane" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Attentat d'Anvers de 1980</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Attaque d'Anvers en 1980</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    L'histoire tragique de l'attaque contre un groupe d'enfants qui attendaient un bus à Anvers.
+                                    L'histoire tragique de l'attaque d'un groupe d'enfants attendant un bus à Anvers.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -108,14 +117,14 @@
                     <article class="card">
                         <a href="history/1981-synagogue-bombing.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg" alt="Débris de la voiture piégée de 1981" style="object-fit: cover;">
+                                <img src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg" alt="Wreckage of the 1981 car bomb" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Attentat de la synagogue d'Anvers de 1981</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Attentat à la bombe contre une synagogue en 1981</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    Une explosion dévastatrice de voiture piégée au cœur du quartier des diamantaires.
+                                    Explosion dévastatrice d'une voiture piégée au cœur du quartier diamantaire.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -124,14 +133,14 @@
                     <article class="card">
                         <a href="history/cuba-connection.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/ST%20Louis%20cuba.jpeg" alt="Le paquebot MS St. Louis à Anvers" style="object-fit: cover;">
+                                <img src="../images/ST%20Louis%20cuba.jpeg" alt="MS St. Louis in Antwerp" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Fuite vers La Havane</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Évadez-vous à La Havane</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    Le voyage tragique du MS St. Louis et comment les diamantaires d'Anvers ont trouvé refuge à Cuba.
+                                    Le voyage tragique du MS St. Louis et comment les tailleurs de diamants anversois ont trouvé refuge à Cuba.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -140,14 +149,14 @@
                     <article class="card">
                         <a href="#" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+1" alt="Article à venir" style="object-fit: cover;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+1" alt="Future Article" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Article à venir 1</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Futur article 1</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
                                     Le contenu de cet article historique sera publié prochainement. Restez à l'écoute des mises à jour.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -156,14 +165,14 @@
                     <article class="card">
                         <a href="#" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+2" alt="Article à venir" style="object-fit: cover;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+2" alt="Future Article" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Article à venir 2</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Futur article 2</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
                                     Le contenu de cet article historique sera publié prochainement. Restez à l'écoute des mises à jour.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -172,14 +181,14 @@
                     <article class="card">
                         <a href="#" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+3" alt="Article à venir" style="object-fit: cover;">
+                                <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+3" alt="Future Article" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Article à venir 3</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Futur article 3</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
                                     Le contenu de cet article historique sera publié prochainement. Restez à l'écoute des mises à jour.
                                 </p>
-                                <span class="card-link">Lire la suite &rarr;</span>
+                                <span class="card-link">Lire la suite →</span>
                             </div>
                         </a>
                     </article>
@@ -190,7 +199,7 @@
 
         <footer class="main-footer">
             <div class="container">
-                <p>&copy; 2026 Archives Historiques de l'Anvers Juif. Tous droits réservés.</p>
+                <p>© 2026 Archives historiques juives d'Anvers. Tous droits réservés.</p>
             </div>
         </footer>
     </div>

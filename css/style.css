@@ -2698,3 +2698,91 @@ h3 {
     font-size: 1.2rem;
     display: none;
 }
+
+/* Write Article Banner styling */
+.write-article-banner {
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px dashed var(--color-gold);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.write-article-banner h3 {
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.write-article-banner p {
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.write-article-email-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-slate);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.write-article-email-container span {
+    font-family: monospace;
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    word-break: break-all;
+}
+
+.write-article-email-container button {
+    background: var(--color-gold);
+    border: none;
+    color: var(--color-charcoal);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .write-article-banner {
+        padding: 1.25rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .write-article-banner h3 {
+        font-size: 1.2rem;
+    }
+    
+    .write-article-banner p {
+        font-size: 0.95rem;
+    }
+    
+    .write-article-email-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        box-sizing: border-box;
+    }
+    
+    .write-article-email-container span {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    .write-article-email-container button {
+        width: 100%;
+        padding: 0.5rem;
+    }
+}

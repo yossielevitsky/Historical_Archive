@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentLang = document.documentElement.lang || 'en';
             
             // Set current language display
-            langBtn.querySelector('.lang-current').textContent = currentLang.toUpperCase();
+            langBtn.querySelector('.lang-current').textContent = currentLang === 'he' ? 'עב' : currentLang.toUpperCase();
 
             // Calculate paths to roots
             const logoLink = document.querySelector('.logo a');
