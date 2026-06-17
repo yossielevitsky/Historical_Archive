@@ -96,7 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" },
 
         // Places
-        { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" }
+        { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" },
+        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "Place" }
     ];
 
     const headerContent = document.querySelector('.header-content');
