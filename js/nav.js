@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Holocaust Section
         { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page" },
-        { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Wiki" },
-        { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Wiki" },
-        { title: "Names Database", url: "holocaust/names.html", type: "Wiki" },
-        { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Wiki" },
-        { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Wiki" },
-        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Wiki" },
-        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Wiki" },
-        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Wiki" },
+        { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Article" },
+        { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Article" },
+        { title: "Names Database", url: "holocaust/names.html", type: "Article" },
+        { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article" },
+        { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article" },
+        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article" },
+        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Article" },
+        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Article" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" },
-        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "Place" }
+        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School" }
     ];
 
     const headerContent = document.querySelector('.header-content');
