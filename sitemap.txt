@@ -23,8 +23,11 @@ https://jewishantwerparchive.org/fr/holocaust/names.html
 https://jewishantwerparchive.org/fr/holocaust/orphanages.html
 https://jewishantwerparchive.org/fr/holocaust/righteous.html
 https://jewishantwerparchive.org/fr/
+https://jewishantwerparchive.org/fr/places/belz-school.html
 https://jewishantwerparchive.org/fr/places/heide.html
 https://jewishantwerparchive.org/fr/places/jesode-hatorah.html
+https://jewishantwerparchive.org/fr/places/tachkemoni.html
+https://jewishantwerparchive.org/fr/places/yavne.html
 https://jewishantwerparchive.org/fr/rabbis.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
@@ -93,8 +96,11 @@ https://jewishantwerparchive.org/he/holocaust/names.html
 https://jewishantwerparchive.org/he/holocaust/orphanages.html
 https://jewishantwerparchive.org/he/holocaust/righteous.html
 https://jewishantwerparchive.org/he/
+https://jewishantwerparchive.org/he/places/belz-school.html
 https://jewishantwerparchive.org/he/places/heide.html
 https://jewishantwerparchive.org/he/places/jesode-hatorah.html
+https://jewishantwerparchive.org/he/places/tachkemoni.html
+https://jewishantwerparchive.org/he/places/yavne.html
 https://jewishantwerparchive.org/he/rabbis.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
@@ -184,8 +190,11 @@ https://jewishantwerparchive.org/nl/holocaust/names.html
 https://jewishantwerparchive.org/nl/holocaust/orphanages.html
 https://jewishantwerparchive.org/nl/holocaust/righteous.html
 https://jewishantwerparchive.org/nl/
+https://jewishantwerparchive.org/nl/places/belz-school.html
 https://jewishantwerparchive.org/nl/places/heide.html
 https://jewishantwerparchive.org/nl/places/jesode-hatorah.html
+https://jewishantwerparchive.org/nl/places/tachkemoni.html
+https://jewishantwerparchive.org/nl/places/yavne.html
 https://jewishantwerparchive.org/nl/rabbis.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
@@ -231,8 +240,11 @@ https://jewishantwerparchive.org/nl/synagogues/van-den-nestlei-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-2.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/zichron-benjamin.html
+https://jewishantwerparchive.org/places/belz-school.html
 https://jewishantwerparchive.org/places/heide.html
 https://jewishantwerparchive.org/places/jesode-hatorah.html
+https://jewishantwerparchive.org/places/tachkemoni.html
+https://jewishantwerparchive.org/places/yavne.html
 https://jewishantwerparchive.org/rabbis.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html

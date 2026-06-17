@@ -97,7 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" },
-        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School" }
+        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School" },
+        { title: "Yavne School", url: "places/yavne.html", type: "School" },
+        { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School" },
+        { title: "Belz School", url: "places/belz-school.html", type: "School" }
     ];
 
     const headerContent = document.querySelector('.header-content');
