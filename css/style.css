@@ -696,6 +696,12 @@ h3 {
     /* Optional: adds subtle polish */
 }
 
+.article-image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .article-image img {
     width: 100%;
     height: 100%;
