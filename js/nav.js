@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Wiki" },
         { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Wiki" },
         { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Wiki" },
-        { title: "The Chida in the Low Countries: A Tale of Two Cities", url: "history/chida-two-cities.html", type: "Wiki" },
+        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Wiki" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
