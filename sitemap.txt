@@ -32,8 +32,10 @@ https://jewishantwerparchive.org/fr/rabbis.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/fr/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/fr/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/fr/rabbis/rav-dovid-moshe-lieberman.html
+https://jewishantwerparchive.org/fr/rabbis/rav-eliyahu-shternbuch.html
 https://jewishantwerparchive.org/fr/rabbis/rav-hillel-medalie.html
 https://jewishantwerparchive.org/fr/rabbis/rav-markus-mordechai-rottenberg.html
 https://jewishantwerparchive.org/fr/rabbis/rav-moshe-avigdor-amiel.html
@@ -105,8 +107,10 @@ https://jewishantwerparchive.org/he/rabbis.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/he/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/he/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/he/rabbis/rav-dovid-moshe-lieberman.html
+https://jewishantwerparchive.org/he/rabbis/rav-eliyahu-shternbuch.html
 https://jewishantwerparchive.org/he/rabbis/rav-hillel-medalie.html
 https://jewishantwerparchive.org/he/rabbis/rav-markus-mordechai-rottenberg.html
 https://jewishantwerparchive.org/he/rabbis/rav-moshe-avigdor-amiel.html
@@ -199,8 +203,10 @@ https://jewishantwerparchive.org/nl/rabbis.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/nl/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/nl/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/nl/rabbis/rav-dovid-moshe-lieberman.html
+https://jewishantwerparchive.org/nl/rabbis/rav-eliyahu-shternbuch.html
 https://jewishantwerparchive.org/nl/rabbis/rav-hillel-medalie.html
 https://jewishantwerparchive.org/nl/rabbis/rav-markus-mordechai-rottenberg.html
 https://jewishantwerparchive.org/nl/rabbis/rav-moshe-avigdor-amiel.html
@@ -249,8 +255,10 @@ https://jewishantwerparchive.org/rabbis.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/rabbis/rav-dovid-moshe-lieberman.html
+https://jewishantwerparchive.org/rabbis/rav-eliyahu-shternbuch.html
 https://jewishantwerparchive.org/rabbis/rav-hillel-medalie.html
 https://jewishantwerparchive.org/rabbis/rav-markus-mordechai-rottenberg.html
 https://jewishantwerparchive.org/rabbis/rav-moshe-avigdor-amiel.html

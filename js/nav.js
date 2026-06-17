@@ -92,8 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rav Markus Mordechai Rottenberg", url: "rabbis/rav-markus-mordechai-rottenberg.html", type: "Rabbi" },
         { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi" },
         { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi" },
+        { title: "Rav Eliyahu Shternbuch", url: "rabbis/rav-eliyahu-shternbuch.html", type: "Rabbi" },
         { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi" },
         { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" },
+        { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi" },
 
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" },
