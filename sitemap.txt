@@ -6,6 +6,7 @@ https://jewishantwerparchive.org/fr/history.html
 https://jewishantwerparchive.org/fr/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/fr/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/fr/history/19th-century.html
+https://jewishantwerparchive.org/fr/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/fr/history/chida-two-cities.html
 https://jewishantwerparchive.org/fr/history/cuba-connection.html
 https://jewishantwerparchive.org/fr/history/early-modern-period.html
@@ -81,6 +82,7 @@ https://jewishantwerparchive.org/he/history.html
 https://jewishantwerparchive.org/he/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/he/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/he/history/19th-century.html
+https://jewishantwerparchive.org/he/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/he/history/chida-two-cities.html
 https://jewishantwerparchive.org/he/history/cuba-connection.html
 https://jewishantwerparchive.org/he/history/early-modern-period.html
@@ -154,6 +156,7 @@ https://jewishantwerparchive.org/history.html
 https://jewishantwerparchive.org/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/history/19th-century.html
+https://jewishantwerparchive.org/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/history/chida-two-cities.html
 https://jewishantwerparchive.org/history/cuba-connection.html
 https://jewishantwerparchive.org/history/early-modern-period.html
@@ -177,6 +180,7 @@ https://jewishantwerparchive.org/nl/history.html
 https://jewishantwerparchive.org/nl/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/nl/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/nl/history/19th-century.html
+https://jewishantwerparchive.org/nl/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/nl/history/chida-two-cities.html
 https://jewishantwerparchive.org/nl/history/cuba-connection.html
 https://jewishantwerparchive.org/nl/history/early-modern-period.html

@@ -320,4 +320,401 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // 5. Historical Tooltip Logic
+    // Scan the page for all internal article links and convert them to tooltip triggers dynamically
+    const articleLinks = document.querySelectorAll('.wiki-main-content a, .wiki-content a');
+    articleLinks.forEach(link => {
+        if (link.classList.contains('historical-tooltip-trigger')) {
+            return;
+        }
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Skip anchors, mailto, tel, external, and javascript links
+        if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || 
+            href.startsWith('http') || href.startsWith('javascript:')) {
+            return;
+        }
+
+        // Add trigger class and dynamic preview flag
+        link.classList.add('historical-tooltip-trigger');
+        link.setAttribute('data-dynamic-preview', 'true');
+    });
+
+    const tooltipTriggers = document.querySelectorAll('.historical-tooltip-trigger');
+    if (tooltipTriggers.length > 0) {
+        let tooltip = document.querySelector('.historical-tooltip');
+        let backdrop = document.querySelector('.historical-tooltip-backdrop');
+
+        if (!tooltip) {
+            tooltip = document.createElement('div');
+            tooltip.className = 'historical-tooltip';
+            tooltip.setAttribute('role', 'tooltip');
+            tooltip.setAttribute('aria-hidden', 'true');
+            tooltip.innerHTML = `
+                <button class="historical-tooltip-close" aria-label="Close tooltip">&times;</button>
+                <div class="historical-tooltip-text">
+                    <div class="historical-tooltip-title">
+                        <span class="historical-tooltip-name"></span>
+                        <span class="historical-tooltip-years"></span>
+                    </div>
+                    <div class="historical-tooltip-desc"></div>
+                </div>
+                <div class="historical-tooltip-image-container">
+                    <img class="historical-tooltip-image" src="" alt="">
+                </div>
+            `;
+            document.body.appendChild(tooltip);
+        }
+
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'historical-tooltip-backdrop';
+            document.body.appendChild(backdrop);
+        }
+
+        const closeBtn = tooltip.querySelector('.historical-tooltip-close');
+
+        const tooltipData = {
+            'henry-iii': {
+                image: 'images/brabant.jpg',
+                en: {
+                    title: 'Henry III, Duke of Brabant',
+                    years: '(c. 1230–1261)',
+                    desc: 'was Duke of Brabant from 1248 until his death. A patron of the arts and a trouvère (poet-composer), he ruled during a period of growing political influence for Brabant. Shortly before his death, he signed a will containing a provision that would have expelled the Jews of Brabant unless they abandoned moneylending. The measure was never enforced, as he died two days later and his widow, Adelaide of Burgundy, acting as regent, did not implement the policy. Consequently, the Jewish communities of Brabant remained in the duchy.'
+                },
+                nl: {
+                    title: 'Hendrik III, Hertog van Brabant',
+                    years: '(ca. 1230–1261)',
+                    desc: 'was hertog van Brabant van 1248 tot zijn dood. Als beschermheer van de kunsten en trouvère (dichter-componist) regeerde hij in een periode van groeiende politieke invloed voor Brabant. Kort voor zijn dood ondertekende hij een testament met een bepaling die de Joden uit Brabant zou hebben verdreven, tenzij ze stopten met het uitlenen van geld. De maatregel werd nooit ten uitvoer gelegd, aangezien hij twee dagen later stierf en zijn weduwe, Aleidis van Bourgondië, die optrad als regentes, het beleid niet uitvoerde. Bijgevolg bleven de Joodse gemeenschappen van Brabant in het hertogdom.'
+                },
+                fr: {
+                    title: 'Henri III, duc de Brabant',
+                    years: '(v. 1230–1261)',
+                    desc: "fut duc de Brabant de 1248 jusqu'à sa mort. Protecteur des arts et trouvère (poète-compositeur), il régna durant une période d'influence politique croissante pour le Brabant. Peu avant sa mort, il signa un testament contenant une disposition qui aurait expulsé les Juifs du Brabant à moins qu'ils n'abandonnent le prêt d'argent. La mesure ne fut jamais appliquée, car il mourut deux jours plus tard et sa veuve, Adélaïde de Bourgogne, agissant en tant que régente, ne mit pas en œuvre cette politique. Par conséquent, les communautés juives du Brabant restèrent dans le duché."
+                },
+                he: {
+                    title: 'הנרי השלישי, דוכס בראבנט',
+                    years: '(1230–1261 בקירוב)',
+                    desc: 'היה דוכס בראבנט משנת 1248 ועד מותו. כפטרון האמנויות וטרובר (משורר-מלחין), הוא שלט בתקופה של השפעה פוליטית גוברת של בראבנט. זמן קצר לפני מותו, הוא חתם על צוואה המכילה הוראה שהייתה מגרשת את יהודי בראבנט אלא אם כן ינטשו את עיסוק ההלוואה בריבית. הגזירה מעולם לא נאכפה, כיוון שהוא נפטר כעבור יומיים ואלמנתו, אדלייד מבורגונדי, ששימשה כעוצרת, לא יישמה את המדיניות. כתוצאה מכך, הקהילות היהודיות של בראבנט נותרו בדוכסות.'
+                }
+            },
+            'jacob-ben-jekuthiel': {
+                image: '',
+                en: {
+                    title: 'Jacob ben Jekuthiel',
+                    years: '(d. 1023)',
+                    desc: 'was a Jewish scholar from Rouen who became known for his efforts to protect Jewish communities during the persecutions in France and Lorraine around 1007. He traveled to Rome to petition Pope John XVII for intervention against anti-Jewish violence, securing papal support that helped halt the persecutions. After spending years in Rome and Lorraine, he accepted an invitation from Baldwin IV, Count of Flanders to settle in Arras, where he died shortly after arriving in 1023. Because Arras had no Jewish cemetery, he was buried in Reims.'
+                },
+                nl: {
+                    title: 'Jacob ben Jekuthiel',
+                    years: '(d. 1023)',
+                    desc: 'was een Joodse geleerde uit Rouen die bekend werd om zijn inspanningen om Joodse gemeenschappen te beschermen tijdens de vervolgingen in Frankrijk en Lotharingen rond 1007. Hij reisde naar Rome om paus Johannes XVII te verzoeken om tussenbeide te komen tegen het anti-Joodse geweld, waarmee hij pauselijke steun verwierf die hielp de vervolgingen te stoppen. Na jaren in Rome en Lotharingen te hebben doorgebracht, accepteerde hij een uitnodiging van Boudewijn IV, graaf van Vlaanderen om zich in Arras te vestigen, waar hij kort na zijn aankomst in 1023 stierf. Omdat Arras geen Joodse begraafplaats had, werd hij begraven in Reims.'
+                },
+                fr: {
+                    title: 'Jacob ben Jekuthiel',
+                    years: '(m. 1023)',
+                    desc: "était un érudit juif de Rouen qui s'est fait connaître pour ses efforts visant à protéger les communautés juives lors des persécutions en France et en Lorraine vers 1007. Il s'est rendu à Rome pour demander l'intervention du pape Jean XVII contre les violences anti-juives, obtenant un soutien papal qui a contribué à stopper les persécutions. Après avoir passé des années à Rome et en Lorraine, il accepta l'invitation de Baudouin IV, comte de Flandre, à s'installer à Arras, où il mourut peu après son arrivée en 1023. Arras n'ayant pas de cimetière juif, il fut enterré à Reims."
+                },
+                he: {
+                    title: 'יעקב בן יקותיאל',
+                    years: '(נפטר ב-1023)',
+                    desc: 'היה למדן יהודי מרואן שהתפרסם במאמציו להגן על הקהילות היהודיות במהלך הרדיפות בצרפת ובלורן בסביבות שנת 1007. הוא נסע לרומא כדי לבקש מהאפיפיור יוחנן השבעה עשר להתערב נגד האלימות האנטי-יהודית, והשיג תמיכה אפיפיורית שסייעה לעצור את הרדיפות. לאחר שבילה שנים ברומא ובלורן, נענה להזמנתו של בלדווין הרביעי, רוזן פלנדריה להתיישב באראס, שם נפטר זמן קצר לאחר הגעתו בשנת 1023. מכיוון שבאראס לא היה בית קברות יהודי, הוא נקבר בריימס.'
+                }
+            }
+        };
+
+        const currentLang = document.documentElement.lang || 'en';
+        let matchedLang = 'en';
+        if (currentLang.startsWith('nl')) matchedLang = 'nl';
+        else if (currentLang.startsWith('fr')) matchedLang = 'fr';
+        else if (currentLang.startsWith('he')) matchedLang = 'he';
+
+        let hideTimeout;
+        let hoverTimeout;
+        let activeTrigger = null;
+        const previewCache = {};
+
+        const getSummaryText = (text) => {
+            if (!text) return '';
+            let cleaned = text.replace(/\s+/g, ' ').trim();
+            if (cleaned.length <= 240) return cleaned;
+            let truncated = cleaned.substring(0, 240);
+            const lastSpace = truncated.lastIndexOf(' ');
+            if (lastSpace > 180) {
+                truncated = truncated.substring(0, lastSpace);
+            }
+            return truncated + '...';
+        };
+
+        const positionTooltip = (trigger) => {
+            const rect = trigger.getBoundingClientRect();
+            const tooltipWidth = tooltip.offsetWidth;
+            const tooltipHeight = tooltip.offsetHeight;
+            const offset = 12;
+
+            tooltip.classList.remove('arrow-top', 'arrow-bottom');
+
+            let top = rect.top + window.scrollY - tooltipHeight - offset;
+            let left = rect.left + window.scrollX + (rect.width - tooltipWidth) / 2;
+            tooltip.classList.add('arrow-bottom');
+
+            if (rect.top - tooltipHeight - offset < 0) {
+                top = rect.bottom + window.scrollY + offset;
+                tooltip.classList.remove('arrow-bottom');
+                tooltip.classList.add('arrow-top');
+            }
+
+            let clampedLeft = left;
+            if (clampedLeft < 10) {
+                clampedLeft = 10;
+            } else if (clampedLeft + tooltipWidth > window.innerWidth - 10) {
+                clampedLeft = window.innerWidth - tooltipWidth - 10;
+            }
+
+            tooltip.style.top = `${top}px`;
+            tooltip.style.left = `${clampedLeft}px`;
+
+            const triggerCenter = rect.left + window.scrollX + rect.width / 2;
+            const arrowOffset = triggerCenter - clampedLeft;
+
+            const clampedArrowOffset = Math.max(20, Math.min(tooltipWidth - 20, arrowOffset));
+            tooltip.style.setProperty('--arrow-left', `${clampedArrowOffset}px`);
+        };
+
+        const show = (trigger, person) => {
+            activeTrigger = trigger;
+            clearTimeout(hideTimeout);
+            const data = tooltipData[person];
+            if (!data) return;
+
+            const localized = data[matchedLang] || data['en'];
+            if (!localized) return;
+
+            tooltip.querySelector('.historical-tooltip-name').textContent = localized.title;
+            tooltip.querySelector('.historical-tooltip-years').textContent = localized.years || '';
+            tooltip.querySelector('.historical-tooltip-desc').textContent = localized.desc;
+            
+            const imgContainer = tooltip.querySelector('.historical-tooltip-image-container');
+            const imgEl = tooltip.querySelector('.historical-tooltip-image');
+
+            if (data.image) {
+                tooltip.classList.remove('no-image');
+                const logoLink = document.querySelector('.logo a');
+                let rootPrefix = '';
+                if (logoLink) {
+                    const href = logoLink.getAttribute('href');
+                    rootPrefix = href.replace('index.html', '');
+                }
+                const imgPath = `${rootPrefix}${data.image}`;
+                
+                imgEl.src = imgPath;
+                imgEl.alt = localized.title;
+                if (imgContainer) imgContainer.style.display = '';
+            } else {
+                tooltip.classList.add('no-image');
+                imgEl.src = '';
+                imgEl.alt = '';
+                if (imgContainer) imgContainer.style.display = 'none';
+            }
+
+            tooltip.setAttribute('aria-hidden', 'false');
+
+            const isMobile = window.innerWidth < 1024;
+            if (isMobile) {
+                tooltip.style.top = '';
+                tooltip.style.left = '';
+                tooltip.classList.remove('arrow-top', 'arrow-bottom');
+                backdrop.classList.add('show');
+            } else {
+                tooltip.classList.add('show');
+                positionTooltip(trigger);
+            }
+            tooltip.classList.add('show');
+        };
+
+        const showDynamic = (trigger, href) => {
+            activeTrigger = trigger;
+            const targetAbsoluteUrl = new URL(href, window.location.href).href;
+
+            if (previewCache[targetAbsoluteUrl]) {
+                renderDynamic(trigger, previewCache[targetAbsoluteUrl]);
+                return;
+            }
+
+            // Set dynamic loading preview card layout
+            tooltip.classList.remove('no-image');
+            tooltip.querySelector('.historical-tooltip-name').textContent = 'Loading...';
+            tooltip.querySelector('.historical-tooltip-years').textContent = '';
+            tooltip.querySelector('.historical-tooltip-desc').textContent = 'Fetching page preview...';
+            
+            const imgContainer = tooltip.querySelector('.historical-tooltip-image-container');
+            const imgEl = tooltip.querySelector('.historical-tooltip-image');
+            tooltip.classList.add('no-image');
+            imgEl.src = '';
+            imgEl.alt = '';
+            if (imgContainer) imgContainer.style.display = 'none';
+
+            tooltip.setAttribute('aria-hidden', 'false');
+            tooltip.classList.add('show');
+            positionTooltip(trigger);
+
+            fetch(targetAbsoluteUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error('Preview load failed');
+                    return response.text();
+                })
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    const h1 = doc.querySelector('.wiki-header h1, .wiki-main-content h1, h1');
+                    const title = h1 ? h1.textContent.trim() : '';
+
+                    const p = doc.querySelector('.intro-text, .wiki-content p, .wiki-main-content p, p');
+                    let desc = p ? p.textContent.trim() : '';
+                    desc = getSummaryText(desc);
+
+                    const img = doc.querySelector('.wiki-main-content img, .wiki-image-container img, article img');
+                    let image = '';
+                    if (img) {
+                        const src = img.getAttribute('src');
+                        if (src) {
+                            image = new URL(src, targetAbsoluteUrl).href;
+                        }
+                    }
+
+                    const pageData = { title, desc, image };
+                    previewCache[targetAbsoluteUrl] = pageData;
+
+                    renderDynamic(trigger, pageData);
+                })
+                .catch(err => {
+                    console.error('Dynamic preview error:', err);
+                    if (activeTrigger === trigger) {
+                        tooltip.querySelector('.historical-tooltip-name').textContent = 'Preview Unavailable';
+                        tooltip.querySelector('.historical-tooltip-desc').textContent = 'Could not load page preview.';
+                    }
+                });
+        };
+
+        const renderDynamic = (trigger, data) => {
+            if (activeTrigger !== trigger) return;
+            tooltip.querySelector('.historical-tooltip-name').textContent = data.title;
+            tooltip.querySelector('.historical-tooltip-years').textContent = '';
+            tooltip.querySelector('.historical-tooltip-desc').textContent = data.desc;
+
+            const imgContainer = tooltip.querySelector('.historical-tooltip-image-container');
+            const imgEl = tooltip.querySelector('.historical-tooltip-image');
+
+            if (data.image) {
+                tooltip.classList.remove('no-image');
+                imgEl.src = data.image;
+                imgEl.alt = data.title;
+                if (imgContainer) imgContainer.style.display = '';
+            } else {
+                tooltip.classList.add('no-image');
+                imgEl.src = '';
+                imgEl.alt = '';
+                if (imgContainer) imgContainer.style.display = 'none';
+            }
+
+            tooltip.classList.add('show');
+            positionTooltip(trigger);
+        };
+
+        const hide = () => {
+            hideTimeout = setTimeout(() => {
+                tooltip.classList.remove('show');
+                tooltip.setAttribute('aria-hidden', 'true');
+                backdrop.classList.remove('show');
+                activeTrigger = null;
+            }, 200);
+        };
+
+        tooltipTriggers.forEach(trigger => {
+            const person = trigger.getAttribute('data-person');
+            const href = trigger.getAttribute('href');
+            const isDynamic = trigger.getAttribute('data-dynamic-preview') === 'true';
+
+            trigger.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 1024) { // Only on PC
+                    clearTimeout(hideTimeout);
+                    clearTimeout(hoverTimeout);
+                    hoverTimeout = setTimeout(() => {
+                        if (isDynamic) {
+                            showDynamic(trigger, href);
+                        } else {
+                            show(trigger, person);
+                        }
+                    }, 250);
+                }
+            });
+
+            trigger.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 1024) {
+                    clearTimeout(hoverTimeout);
+                    hide();
+                }
+            });
+
+            trigger.addEventListener('click', (e) => {
+                if (!isDynamic || href === '#') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isMobile = window.innerWidth < 1024;
+                    if (isMobile) {
+                        if (tooltip.classList.contains('show')) {
+                            tooltip.classList.remove('show');
+                            tooltip.setAttribute('aria-hidden', 'true');
+                            backdrop.classList.remove('show');
+                        } else {
+                            show(trigger, person);
+                        }
+                    }
+                }
+            });
+        });
+
+        tooltip.addEventListener('mouseenter', () => {
+            if (window.innerWidth >= 1024) {
+                clearTimeout(hideTimeout);
+            }
+        });
+        tooltip.addEventListener('mouseleave', () => {
+            if (window.innerWidth >= 1024) {
+                hide();
+            }
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            tooltip.classList.remove('show');
+            tooltip.setAttribute('aria-hidden', 'true');
+            backdrop.classList.remove('show');
+        });
+
+        backdrop.addEventListener('click', () => {
+            tooltip.classList.remove('show');
+            tooltip.setAttribute('aria-hidden', 'true');
+            backdrop.classList.remove('show');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && tooltip.classList.contains('show')) {
+                tooltip.classList.remove('show');
+                tooltip.setAttribute('aria-hidden', 'true');
+                backdrop.classList.remove('show');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            tooltip.classList.remove('show');
+            tooltip.setAttribute('aria-hidden', 'true');
+            backdrop.classList.remove('show');
+        });
+    }
 });

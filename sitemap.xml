@@ -49,6 +49,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/fr/history/belgian-revolution-1830.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/fr/history/chida-two-cities.html</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -266,7 +272,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/synagogues.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -499,6 +505,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/he/history/belgian-revolution-1830.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/he/history/chida-two-cities.html</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -716,7 +728,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/synagogues.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -937,6 +949,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/history/belgian-revolution-1830.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/history/chida-two-cities.html</loc>
     <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1071,6 +1089,12 @@
   <url>
     <loc>https://jewishantwerparchive.org/nl/history/19th-century.html</loc>
     <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/nl/history/belgian-revolution-1830.html</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1292,7 +1316,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/synagogues.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1604,7 +1628,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/synagogues.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

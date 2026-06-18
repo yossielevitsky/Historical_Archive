@@ -2843,3 +2843,249 @@ h3 {
         height: 180px !important;
     }
 }
+
+/* Historical Tooltip Trigger Style */
+.historical-tooltip-trigger {
+    color: var(--color-gold) !important;
+    text-decoration: underline dotted var(--color-gold) 2px !important;
+    text-underline-offset: 4px;
+    cursor: help;
+    position: relative;
+    display: inline !important; /* Keep inline for paragraph flow */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.historical-tooltip-trigger:hover {
+    color: var(--color-gold-hover) !important;
+    text-decoration: underline dotted var(--color-gold-hover) 2px !important;
+}
+
+/* Tooltip Card Styling (Wikipedia Page Preview style but matching site theme) */
+.historical-tooltip {
+    position: absolute;
+    z-index: 1000;
+    width: 450px;
+    min-height: 200px;
+    background-color: var(--color-slate);
+    border: 1px solid var(--color-gold);
+    border-radius: 0px; /* Sharp corners like a square box */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    transform: translateY(10px);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.historical-tooltip.no-image {
+    width: 320px;
+    min-height: auto;
+}
+
+.historical-tooltip.no-image .historical-tooltip-image-container {
+    display: none;
+}
+
+.historical-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Text Panel styling */
+.historical-tooltip-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.historical-tooltip-title {
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+
+.historical-tooltip-name {
+    color: var(--color-gold);
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.historical-tooltip-years {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-left: 6px;
+    display: inline-block;
+}
+
+[dir="rtl"] .historical-tooltip-years {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+.historical-tooltip-desc {
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Image Panel styling */
+.historical-tooltip-image-container {
+    width: 170px;
+    height: 200px;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(197, 160, 89, 0.3); /* Subtle divider */
+    overflow: hidden;
+}
+
+[dir="rtl"] .historical-tooltip-image-container {
+    border-left: none;
+    border-right: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.historical-tooltip-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Tooltip Arrow */
+.historical-tooltip::after {
+    content: '';
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    pointer-events: none;
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%);
+    z-index: 1001;
+}
+
+.historical-tooltip.arrow-top::after {
+    bottom: 100%;
+    border-color: transparent transparent var(--color-gold) transparent;
+}
+
+.historical-tooltip.arrow-bottom::after {
+    top: 100%;
+    border-color: var(--color-gold) transparent transparent transparent;
+}
+
+/* Close button on mobile */
+.historical-tooltip-close {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    line-height: 1;
+    display: none; /* Hidden on desktop */
+    z-index: 1002;
+    transition: color 0.2s ease;
+}
+
+.historical-tooltip-close:hover {
+    color: var(--color-gold);
+}
+
+/* Backdrop overlay for mobile blur */
+.historical-tooltip-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.historical-tooltip-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* RTL Support for Hebrew */
+[dir="rtl"] .historical-tooltip {
+    text-align: right;
+}
+
+[dir="rtl"] .historical-tooltip-close {
+    right: auto;
+    left: 12px;
+}
+
+/* Mobile Styling (Drawer/Modal behavior) */
+@media (max-width: 767px) {
+    .historical-tooltip {
+        flex-direction: column;
+        width: 90% !important;
+        max-width: 380px !important;
+        min-height: auto !important;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%) scale(0.95);
+        pointer-events: auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    
+    .historical-tooltip.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .historical-tooltip-image-container {
+        width: 100% !important;
+        height: 180px !important;
+        order: -1; /* Image on top */
+        border-left: none;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    }
+    
+    [dir="rtl"] .historical-tooltip-image-container {
+        border-right: none;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    }
+    
+    .historical-tooltip::after {
+        display: none; /* Hide arrow on mobile */
+    }
+    
+    .historical-tooltip-close {
+        display: block; /* Show on mobile */
+        color: #ffffff; /* Make it highly visible over the image */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* On phone and tablet (< 1024px), reset styling of dynamic page preview links to behave like normal links */
+@media (max-width: 1023.98px) {
+    .historical-tooltip-trigger[data-dynamic-preview="true"] {
+        color: var(--color-gold) !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+    .historical-tooltip-trigger[data-dynamic-preview="true"]:hover {
+        color: var(--color-gold-hover) !important;
+        text-decoration: none !important;
+    }
+}
