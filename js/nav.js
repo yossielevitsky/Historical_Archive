@@ -102,7 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School" },
         { title: "Yavne School", url: "places/yavne.html", type: "School" },
         { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School" },
-        { title: "Belz School", url: "places/belz-school.html", type: "School" }
+        { title: "Belz School", url: "places/belz-school.html", type: "School" },
+
+        // History Events & Organizations
+        { title: "Belgian Revolution of 1830", url: "history/belgian-revolution-1830.html", type: "Event" },
+        { title: "Antwerp Pogrom", url: "history/antwerp-pogrom.html", type: "Event" },
+        { title: "Red Star Line", url: "history/red-star-line.html", type: "Company" }
     ];
 
     const headerContent = document.querySelector('.header-content');
