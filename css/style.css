@@ -813,12 +813,16 @@ h3 {
 
 .wiki-content a,
 .wiki-main-content a {
-    color: var(--color-gold);
+    color: var(--color-gold) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .wiki-content a:hover,
 .wiki-main-content a:hover {
-    color: var(--color-gold-hover);
+    color: var(--color-gold-hover) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 /* Sidebar */
@@ -1295,15 +1299,16 @@ h3 {
 
 /* Wiki-style Links */
 .wiki-link {
-    color: var(--color-gold);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--color-gold);
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    color: var(--color-gold) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: color 0.3s ease;
 }
 
 .wiki-link:hover {
-    color: var(--color-gold-hover);
-    border-bottom: 1px solid var(--color-gold-hover);
+    color: var(--color-gold-hover) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 /* Content Split Layout (Side-by-Side) */
@@ -2847,26 +2852,14 @@ h3 {
 /* Historical Tooltip Trigger Style */
 .historical-tooltip-trigger {
     color: var(--color-gold) !important;
-    text-decoration: underline dotted var(--color-gold) 2px !important;
-    text-underline-offset: 4px;
-    cursor: help;
+    text-decoration: none !important;
+    cursor: pointer !important;
     position: relative;
     display: inline !important; /* Keep inline for paragraph flow */
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .historical-tooltip-trigger:hover {
-    color: var(--color-gold-hover) !important;
-    text-decoration: underline dotted var(--color-gold-hover) 2px !important;
-}
-
-/* Page preview links (which actually go to a page) do not need a question mark cursor or a dotted/striped line */
-.historical-tooltip-trigger[data-dynamic-preview="true"] {
-    text-decoration: none !important;
-    cursor: pointer !important;
-}
-
-.historical-tooltip-trigger[data-dynamic-preview="true"]:hover {
     color: var(--color-gold-hover) !important;
     text-decoration: none !important;
 }

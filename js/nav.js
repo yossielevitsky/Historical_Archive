@@ -29,85 +29,160 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Search Functionality
+    const translations = {
+        en: {
+            placeholder: "Search...",
+            types: {
+                page: "Page",
+                article: "Article",
+                synagogue: "Synagogue",
+                rabbi: "Rabbi",
+                place: "Place",
+                school: "School",
+                event: "Event",
+                company: "Company",
+                kehilla: "Kehilla",
+                person: "Person"
+            }
+        },
+        nl: {
+            placeholder: "Zoeken...",
+            types: {
+                page: "Pagina",
+                article: "Artikel",
+                synagogue: "Synagoge",
+                rabbi: "Rabbijn",
+                place: "Plaats",
+                school: "School",
+                event: "Evenement",
+                company: "Bedrijf",
+                kehilla: "Kehilla",
+                person: "Persoon"
+            }
+        },
+        fr: {
+            placeholder: "Rechercher...",
+            types: {
+                page: "Page",
+                article: "Article",
+                synagogue: "Synagogue",
+                rabbi: "Rabbin",
+                place: "Lieu",
+                school: "École",
+                event: "Événement",
+                company: "Entreprise",
+                kehilla: "Kehilla",
+                person: "Personne"
+            }
+        },
+        he: {
+            placeholder: "חיפוש...",
+            types: {
+                page: "דף",
+                article: "מאמר",
+                synagogue: "בית כנסת",
+                rabbi: "רב",
+                place: "מקום",
+                school: "בית ספר",
+                event: "אירוע",
+                company: "חברה",
+                kehilla: "קהילה",
+                person: "אישיות"
+            }
+        }
+    };
+
+    const currentLang = document.documentElement.lang || 'en';
+    const langData = translations[currentLang] || translations['en'];
+
     const searchData = [
         // Main Pages
-        { title: "Home", url: "index.html", type: "Page" },
-        { title: "History of Jewish Antwerp", url: "history.html", type: "Page" },
-        { title: "Rabbis", url: "rabbis.html", type: "Page" },
-        { title: "Synagogues", url: "synagogues.html", type: "Page" },
-        { title: "Contribute", url: "contribute.html", type: "Page" },
+        { title: "Home", url: "index.html", type: "Page", titleNl: "Home", titleFr: "Accueil", titleHe: "בית" },
+        { title: "History of Jewish Antwerp", url: "history.html", type: "Page", titleNl: "Volledige geschiedenis", titleFr: "Histoire complète", titleHe: "היסטוריה מלאה" },
+        { title: "Rabbis", url: "rabbis.html", type: "Page", titleNl: "Rabbijnen", titleFr: "Rabbins", titleHe: "רבנים" },
+        { title: "Synagogues", url: "synagogues.html", type: "Page", titleNl: "Synagogen", titleFr: "Synagogues", titleHe: "בתי כנסת" },
+        { title: "Contribute", url: "contribute.html", type: "Page", titleNl: "Bijdragen", titleFr: "Contribuer", titleHe: "לתרום" },
 
         // Holocaust Section
-        { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page" },
-        { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Article" },
-        { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Article" },
-        { title: "Names Database", url: "holocaust/names.html", type: "Article" },
-        { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article" },
-        { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article" },
-        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article" },
-        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Article" },
-        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Article" },
+        { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page", titleNl: "De Holocaust", titleFr: "La Shoah", titleHe: "השואה" },
+        { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Article", titleNl: "Rechtvaardigen onder de Volkeren", titleFr: "Justes parmi les nations", titleHe: "חסידי אומות העולם" },
+        { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Article", titleNl: "Gedenktekens & Monumenten", titleFr: "Mémoriaux & Monuments", titleHe: "אנדרטאות ומונומנטים" },
+        { title: "Names Database", url: "holocaust/names.html", type: "Article", titleNl: "Namen Database", titleFr: "Base de données des noms", titleHe: "מאגר שמות" },
+        { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article", titleNl: "Joodse Weeshuizen", titleFr: "Orphelinats juifs", titleHe: "בתי יתומים יהודיים" },
+        { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article", titleNl: "Kazerne Dossin", titleFr: "Caserne Dossin", titleHe: "קסרקטין דוסין (מכלן)" },
+        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית של אנטוורפן" },
+        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Article", titleHe: "הבריחה להוואנה: סנט לואיס ומקלט היהלומים של קובה" },
+        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
 
         // Synagogues
-        { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue" },
-        { title: "Alexander Synagogue", url: "synagogues/alexander-synagogue.html", type: "Synagogue" },
-        { title: "Beit Yaakov", url: "synagogues/beit-yaakov.html", type: "Synagogue" },
-        { title: "Belz 2 (Ohel Moshe)", url: "synagogues/belz-2-ohel-moshe.html", type: "Synagogue" },
-        { title: "Belz 3 (Beis Ahron)", url: "synagogues/belz-3-beis-ahron.html", type: "Synagogue" },
-        { title: "Belz 4 (Beis Hillel)", url: "synagogues/belz-4-beis-hillel.html", type: "Synagogue" },
-        { title: "Belz Center", url: "synagogues/belz-center.html", type: "Synagogue" },
-        { title: "Beth Mordechai", url: "synagogues/beth-mordechai.html", type: "Synagogue" },
-        { title: "Bobov", url: "synagogues/bobov-synagogue.html", type: "Synagogue" },
-        { title: "Chabad Lubavitch", url: "synagogues/chabad-lubavitch.html", type: "Synagogue" },
-        { title: "Daas Sholem-Shotz", url: "synagogues/daas-sholem-shotz.html", type: "Synagogue" },
-        { title: "Eisenmann Synagogue", url: "synagogues/eisenmann-synagogue.html", type: "Synagogue" },
-        { title: "Gur", url: "synagogues/gur-synagogue.html", type: "Synagogue" },
-        { title: "Hollandse Synagoge", url: "synagogues/hollandse-synagoge.html", type: "Synagogue" },
-        { title: "Beit Hakneset Hasafaradi Jotsei Geruzia", url: "synagogues/jotsei-geruzia-synagogue.html", type: "Synagogue" },
-        { title: "K'hal Chasidim", url: "synagogues/khal-chasidim.html", type: "Synagogue" },
-        { title: "Klausenburg", url: "synagogues/klausenburg-synagogue.html", type: "Synagogue" },
-        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue" },
-        { title: "Moryah Terlist", url: "synagogues/moryah-terlist.html", type: "Synagogue" },
-        { title: "Ohel Yaakov", url: "synagogues/ohel-yaakov.html", type: "Synagogue" },
-        { title: "Oosten Synagogue", url: "synagogues/oosten-synagogue.html", type: "Synagogue" },
-        { title: "Or Shraga-Kolel", url: "synagogues/or-shraga-kolel.html", type: "Synagogue" },
-        { title: "Portuguese Synagogue", url: "synagogues/portuguese-synagogue.html", type: "Synagogue" },
-        { title: "Pshevorsk Synagogue", url: "synagogues/pshevorsk-synagogue.html", type: "Synagogue" },
-        { title: "Satmar 2", url: "synagogues/satmar-2.html", type: "Synagogue" },
-        { title: "Satmar Synagogue", url: "synagogues/satmar-synagogue.html", type: "Synagogue" },
-        { title: "Schmigred", url: "synagogues/schmigred-synagogue.html", type: "Synagogue" },
-        { title: "Tshortkow", url: "synagogues/tshortkow-synagogue.html", type: "Synagogue" },
-        { title: "Van Den Nestlei Synagogue", url: "synagogues/van-den-nestlei-synagogue.html", type: "Synagogue" },
-        { title: "Wiznitz 2", url: "synagogues/wiznitz-2.html", type: "Synagogue" },
-        { title: "Wiznitz", url: "synagogues/wiznitz-synagogue.html", type: "Synagogue" },
-        { title: "Zichron Benjamin", url: "synagogues/zichron-benjamin.html", type: "Synagogue" },
+        { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue", titleHe: "אגודת ישראל" },
+        { title: "Alexander Synagogue", url: "synagogues/alexander-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אלכסנדר" },
+        { title: "Beit Yaakov", url: "synagogues/beit-yaakov.html", type: "Synagogue", titleHe: "בית יעקב" },
+        { title: "Belz 2 (Ohel Moshe)", url: "synagogues/belz-2-ohel-moshe.html", type: "Synagogue", titleHe: "בעלז 2 (אוהל משה)" },
+        { title: "Belz 3 (Beis Ahron)", url: "synagogues/belz-3-beis-ahron.html", type: "Synagogue", titleHe: "בעלז 3 (בית אהרן)" },
+        { title: "Belz 4 (Beis Hillel)", url: "synagogues/belz-4-beis-hillel.html", type: "Synagogue", titleHe: "בעלז 4 (בית הלל)" },
+        { title: "Belz Center", url: "synagogues/belz-center.html", type: "Synagogue", titleHe: "מרכז בעלז" },
+        { title: "Beth Mordechai", url: "synagogues/beth-mordechai.html", type: "Synagogue", titleHe: "בית מרדכי" },
+        { title: "Bobov", url: "synagogues/bobov-synagogue.html", type: "Synagogue", titleHe: "באבוב" },
+        { title: "Chabad Lubavitch", url: "synagogues/chabad-lubavitch.html", type: "Synagogue", titleHe: "חב\"ד ליובאוויטש" },
+        { title: "Daas Sholem-Shotz", url: "synagogues/daas-sholem-shotz.html", type: "Synagogue", titleHe: "דעת שלום-שאץ" },
+        { title: "Eisenmann Synagogue", url: "synagogues/eisenmann-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אייזנמן" },
+        { title: "Gur", url: "synagogues/gur-synagogue.html", type: "Synagogue", titleHe: "גור" },
+        { title: "Hollandse Synagoge", url: "synagogues/hollandse-synagoge.html", type: "Synagogue", titleHe: "בית הכנסת של הולנד" },
+        { title: "Beit Hakneset Hasafaradi Jotsei Geruzia", url: "synagogues/jotsei-geruzia-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת הספרדי יוצאי גאורגיה" },
+        { title: "K'hal Chasidim", url: "synagogues/khal-chasidim.html", type: "Synagogue", titleHe: "קהל חסידים" },
+        { title: "Klausenburg", url: "synagogues/klausenburg-synagogue.html", type: "Synagogue", titleHe: "קלויזנבורג" },
+        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue", titleHe: "מחסיקה הדסה" },
+        { title: "Moryah Terlist", url: "synagogues/moryah-terlist.html", type: "Synagogue", titleHe: "מוריה טרליסט" },
+        { title: "Ohel Yaakov", url: "synagogues/ohel-yaakov.html", type: "Synagogue", titleHe: "אוהל יעקב" },
+        { title: "Oosten Synagogue", url: "synagogues/oosten-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אוסטן" },
+        { title: "Or Shraga-Kolel", url: "synagogues/or-shraga-kolel.html", type: "Synagogue", titleHe: "אור שרגא-כולל" },
+        { title: "Portuguese Synagogue", url: "synagogues/portuguese-synagogue.html", type: "Synagogue", titleHe: "בית כנסת פורטוגלי" },
+        { title: "Pshevorsk Synagogue", url: "synagogues/pshevorsk-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת פשבורסק" },
+        { title: "Satmar 2", url: "synagogues/satmar-2.html", type: "Synagogue", titleHe: "סאטמר 2" },
+        { title: "Satmar Synagogue", url: "synagogues/satmar-synagogue.html", type: "Synagogue", titleHe: "בית כנסת סאטמר" },
+        { title: "Schmigred", url: "synagogues/schmigred-synagogue.html", type: "Synagogue", titleHe: "שמיגרד" },
+        { title: "Tshortkow", url: "synagogues/tshortkow-synagogue.html", type: "Synagogue", titleHe: "צ'ורטקוב" },
+        { title: "Van Den Nestlei Synagogue", url: "synagogues/van-den-nestlei-synagogue.html", type: "Synagogue", titleHe: "ואן דן נסטליי" },
+        { title: "Wiznitz 2", url: "synagogues/wiznitz-2.html", type: "Synagogue", titleHe: "ויז'ניץ 2" },
+        { title: "Wiznitz", url: "synagogues/wiznitz-synagogue.html", type: "Synagogue", titleHe: "ויז'ניץ" },
+        { title: "Zichron Benjamin", url: "synagogues/zichron-benjamin.html", type: "Synagogue", titleHe: "זכרון בנימין" },
 
         // Rabbis
-        { title: "Dayan Schmal", url: "rabbis/dayan-schmal.html", type: "Rabbi" },
-        { title: "Mizrachi - Beth Hamedrash Rav Amiel", url: "rabbis/mizrachi-rav-amiel.html", type: "Rabbi" },
-        { title: "Rabbi Chaim Kreiswirth", url: "rabbis/rabbi-chaim-kreiswirth.html", type: "Rabbi" },
-        { title: "Rav Aaron Schiff", url: "rabbis/rav-aaron-schiff.html", type: "Rabbi" },
-        { title: "Rav Dovid Moshe Lieberman", url: "rabbis/rav-dovid-moshe-lieberman.html", type: "Rabbi" },
-        { title: "Rav Hillel Medalie", url: "rabbis/rav-hillel-medalie.html", type: "Rabbi" },
-        { title: "Rav Markus Mordechai Rottenberg", url: "rabbis/rav-markus-mordechai-rottenberg.html", type: "Rabbi" },
-        { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi" },
-        { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi" },
-        { title: "Rav Eliyahu Shternbuch", url: "rabbis/rav-eliyahu-shternbuch.html", type: "Rabbi" },
-        { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi" },
-        { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi" },
-        { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi" },
+        { title: "Dayan Schmal", url: "rabbis/dayan-schmal.html", type: "Rabbi", titleHe: "דיין שמאל" },
+        { title: "Mizrachi - Beth Hamedrash Rav Amiel", url: "rabbis/mizrachi-rav-amiel.html", type: "Rabbi", titleHe: "מזרחי - בית המדרש הרב עמיאל" },
+        { title: "Rabbi Chaim Kreiswirth", url: "rabbis/rabbi-chaim-kreiswirth.html", type: "Rabbi", titleHe: "הרב חיים קרייזווירט" },
+        { title: "Rav Aaron Schiff", url: "rabbis/rav-aaron-schiff.html", type: "Rabbi", titleHe: "הרב אהרן שיף" },
+        { title: "Rav Dovid Moshe Lieberman", url: "rabbis/rav-dovid-moshe-lieberman.html", type: "Rabbi", titleHe: "הרב דוד משה ליברמן" },
+        { title: "Rav Hillel Medalie", url: "rabbis/rav-hillel-medalie.html", type: "Rabbi", titleHe: "הרב הלל מדליה" },
+        { title: "Rav Markus Mordechai Rottenberg", url: "rabbis/rav-markus-mordechai-rottenberg.html", type: "Rabbi", titleHe: "הרב מרדכי רוטנברג" },
+        { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi", titleHe: "הרב משה אבגדור עמיאל" },
+        { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi", titleHe: "הרב פנחס פדווה" },
+        { title: "Rav Eliyahu Shternbuch", url: "rabbis/rav-eliyahu-shternbuch.html", type: "Rabbi", titleHe: "הרב אליהו שטרנבוך" },
+        { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi", titleHe: "רב לייביש" },
+        { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi", titleHe: "שמואל ברודט" },
+        { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi", titleHe: "הרב יהודה אריה טרגר" },
 
         // Places
-        { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place" },
-        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School" },
-        { title: "Yavne School", url: "places/yavne.html", type: "School" },
-        { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School" },
-        { title: "Belz School", url: "places/belz-school.html", type: "School" },
+        { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place", titleHe: "הייד, קלמהוט" },
+        { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School", titleHe: "בית הספר יסודי התורה" },
+        { title: "Yavne School", url: "places/yavne.html", type: "School", titleHe: "בית הספר יבנה" },
+        { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School", titleHe: "בית הספר תחכמוני" },
+        { title: "Belz School", url: "places/belz-school.html", type: "School", titleHe: "בית הספר בעלז" },
 
         // History Events & Organizations
-        { title: "Belgian Revolution of 1830", url: "history/belgian-revolution-1830.html", type: "Event" },
-        { title: "Antwerp Pogrom", url: "history/antwerp-pogrom.html", type: "Event" },
-        { title: "Red Star Line", url: "history/red-star-line.html", type: "Company" }
+        { title: "Belgian Revolution of 1830", url: "history/belgian-revolution-1830.html", type: "Event", titleNl: "Belgische Revolutie van 1830", titleFr: "Révolution belge de 1830", titleHe: "המהפכה הבלגית של 1830" },
+        { title: "Antwerp Pogrom", url: "history/antwerp-pogrom.html", type: "Event", titleNl: "Antwerpse pogrom", titleFr: "Pogrom d'Anvers", titleHe: "פוגרום אנטוורפן" },
+        { title: "Red Star Line", url: "history/red-star-line.html", type: "Company", titleNl: "Red Star Line", titleFr: "Red Star Line", titleHe: "רד סטאר ליין" },
+
+        // Communal Bodies (Kehilles)
+        { title: "Machsike Hadas", url: "organizations/machsike-hadas.html", type: "kehilla", titleHe: "מחזיקי הדת" },
+        { title: "Shomre Hadas", url: "organizations/shomre-hadas.html", type: "kehilla", titleHe: "שומרי הדת" },
+        { title: "Sephardic Community", url: "organizations/sephardic-community.html", type: "kehilla", titleHe: "הקהילה הספרדית" },
+
+        // New pages added in June 2026
+        { title: "Jozef Sterngold", url: "people/jozef-sterngold.html", type: "Person", titleNl: "Jozef Sterngold", titleFr: "Jozef Sterngold", titleHe: "יוזף שטרנגולד" },
+        { title: "April 1943 attack", url: "history/april-1943-attack.html", type: "Event", titleNl: "De aanval van april 1943", titleFr: "L'attaque d'avril 1943", titleHe: "ההתקפה של אפריל 1943" }
     ];
 
     const headerContent = document.querySelector('.header-content');
@@ -117,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchWrapper = document.createElement('div');
         searchWrapper.className = 'search-wrapper';
         searchWrapper.innerHTML = `
-            <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+            <input type="text" id="searchInput" placeholder="${langData.placeholder}" autocomplete="off">
             <div id="searchResults" class="search-results"></div>
         `;
 
@@ -152,10 +227,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                const filtered = searchData.filter(item =>
-                    item.title.toLowerCase().includes(query) ||
-                    item.type.toLowerCase().includes(query)
-                );
+                const filtered = searchData.filter(item => {
+                    const itemTypeKey = item.type.toLowerCase();
+                    const EnglishType = item.type.toLowerCase();
+                    const localizedType = (langData.types[itemTypeKey] || item.type).toLowerCase();
+
+                    let titleMatch = item.title.toLowerCase().includes(query);
+                    if (currentLang === 'he' && item.titleHe) {
+                        titleMatch = titleMatch || item.titleHe.includes(query);
+                    } else if (currentLang === 'nl' && item.titleNl) {
+                        titleMatch = titleMatch || item.titleNl.toLowerCase().includes(query);
+                    } else if (currentLang === 'fr' && item.titleFr) {
+                        titleMatch = titleMatch || item.titleFr.toLowerCase().includes(query);
+                    }
+
+                    const typeMatch = EnglishType.includes(query) ||
+                                      localizedType.includes(query);
+
+                    return titleMatch || typeMatch;
+                });
 
                 if (filtered.length > 0) {
                     // Calculate relative path prefix based on home link
@@ -172,9 +262,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         const div = document.createElement('a');
                         div.className = 'search-item';
                         div.href = pathPrefix + item.url;
+
+                        let displayTitle = item.title;
+                        if (currentLang === 'he' && item.titleHe) {
+                            displayTitle = item.titleHe;
+                        } else if (currentLang === 'nl' && item.titleNl) {
+                            displayTitle = item.titleNl;
+                        } else if (currentLang === 'fr' && item.titleFr) {
+                            displayTitle = item.titleFr;
+                        }
+
+                        const itemTypeKey = item.type.toLowerCase();
+                        const displayType = langData.types[itemTypeKey] || item.type;
+
                         div.innerHTML = `
-                            <span class="search-item-title">${item.title}</span>
-                            <span class="search-item-type">${item.type}</span>
+                            <span class="search-item-title">${displayTitle}</span>
+                            <span class="search-item-type">${displayType}</span>
                         `;
                         div.addEventListener('click', (e) => {
                             // Allow default navigation
@@ -428,6 +531,153 @@ document.addEventListener('DOMContentLoaded', () => {
                     years: '(נפטר ב-1023)',
                     desc: 'היה למדן יהודי מרואן שהתפרסם במאמציו להגן על הקהילות היהודיות במהלך הרדיפות בצרפת ובלורן בסביבות שנת 1007. הוא נסע לרומא כדי לבקש מהאפיפיור יוחנן השבעה עשר להתערב נגד האלימות האנטי-יהודית, והשיג תמיכה אפיפיורית שסייעה לעצור את הרדיפות. לאחר שבילה שנים ברומא ובלורן, נענה להזמנתו של בלדווין הרביעי, רוזן פלנדריה להתיישב באראס, שם נפטר זמן קצר לאחר הגעתו בשנת 1023. מכיוון שבאראס לא היה בית קברות יהודי, הוא נקבר בריימס.'
                 }
+            },
+            'jozef-sterngold': {
+                image: '',
+                en: { title: 'Jozef Sterngold', years: '', desc: '' },
+                nl: { title: 'Jozef Sterngold', years: '', desc: '' },
+                fr: { title: 'Jozef Sterngold', years: '', desc: '' },
+                he: { title: 'יוזף שטרנגולד', years: '', desc: '' }
+            },
+            'april-1943-attack': {
+                image: '',
+                en: { title: 'The April 1943 Attack', years: '', desc: '' },
+                nl: { title: 'De aanval van april 1943', years: '', desc: '' },
+                fr: { title: "L'attaque d'avril 1943", years: '', desc: '' },
+                he: { title: 'ההתקפה של אפריל 1943', years: '', desc: '' }
+            },
+            'dossin-barracks': {
+                image: '',
+                en: { title: 'Dossin Barracks', years: '', desc: '' },
+                nl: { title: 'Kazerne Dossin', years: '', desc: '' },
+                fr: { title: 'Caserne Dossin', years: '', desc: '' },
+                he: { title: 'קסרקטין דוסין', years: '', desc: '' }
+            },
+            'vnv': {
+                image: '',
+                en: { title: 'VNV (Flemish National Union)', years: '', desc: '' },
+                nl: { title: 'VNV (Vlaamse Nationale Unie)', years: '', desc: '' },
+                fr: { title: 'VNV (Union nationale flamande)', years: '', desc: '' },
+                he: { title: 'VNV (לאומית פלמית איחוד)', years: '', desc: '' }
+            },
+            'consistoire': {
+                image: '',
+                en: { title: 'Consistoire Central Israélite de Belgique', years: '', desc: '' },
+                nl: { title: 'Consistoire Central Israélite de Belgique', years: '', desc: '' },
+                fr: { title: 'Consistoire Central Israélite de Belgique', years: '', desc: '' },
+                he: { title: 'Consistoire Central Israélite de Belgique', years: '', desc: '' }
+            },
+            'edict-of-tolerance': {
+                image: '',
+                en: { title: 'Edict of Tolerance', years: '', desc: '' },
+                nl: { title: 'Edict van tolerantie', years: '', desc: '' },
+                fr: { title: 'Édit de tolérance', years: '', desc: '' },
+                he: { title: 'צו הסובלנות', years: '', desc: '' }
+            },
+            'bubonic-plague': {
+                image: '',
+                en: { title: 'Bubonic Plague', years: '', desc: '' },
+                nl: { title: 'Builenpest', years: '', desc: '' },
+                fr: { title: 'Peste bubonique', years: '', desc: '' },
+                he: { title: 'הדבר הבובוני', years: '', desc: '' }
+            },
+            'baldwin-iv': {
+                image: '',
+                en: { title: 'Baldwin IV, Count of Flanders', years: '', desc: '' },
+                nl: { title: 'Boudewijn IV, graaf van Vlaanderen', years: '', desc: '' },
+                fr: { title: 'Baudouin IV, comte de Flandre', years: '', desc: '' },
+                he: { title: 'בולדווין הרביעי, רוזן פלנדריה', years: '', desc: '' }
+            },
+            'red-star-line': {
+                image: '',
+                en: { title: 'Red Star Line', years: '', desc: '' },
+                nl: { title: 'Red Star Line', years: '', desc: '' },
+                fr: { title: 'Red Star Line', years: '', desc: '' },
+                he: { title: 'רד סטאר ליין', years: '', desc: '' }
+            },
+            'antwerp-pogrom': {
+                image: '',
+                en: { title: 'Antwerp Pogrom', years: '', desc: '' },
+                nl: { title: 'Antwerpse pogrom', years: '', desc: '' },
+                fr: { title: "Pogrom d'Anvers", years: '', desc: '' },
+                he: { title: 'פוגרום אנטוורפן', years: '', desc: '' }
+            },
+            'belgian-revolution-1830': {
+                image: '',
+                en: { title: 'Belgian Revolution', years: '', desc: '' },
+                nl: { title: 'Belgische Revolutie', years: '', desc: '' },
+                fr: { title: 'Révolution belge', years: '', desc: '' },
+                he: { title: 'המהפכה הבלגית', years: '', desc: '' }
+            },
+            'hollandse-synagoge': {
+                image: '',
+                en: { title: 'Hollandse Synagoge', years: '', desc: '' },
+                nl: { title: 'Hollandse Synagoge', years: '', desc: '' },
+                fr: { title: 'Synagogue Hollandse', years: '', desc: '' },
+                he: { title: 'בית הכנסת של הולנד', years: '', desc: '' }
+            },
+            'romi-goldmuntz-synagogue': {
+                image: '',
+                en: { title: 'Romi Goldmuntz Synagogue', years: '', desc: '' },
+                nl: { title: 'Romi Goldmuntz-synagoge', years: '', desc: '' },
+                fr: { title: 'Synagogue Romi Goldmuntz', years: '', desc: '' },
+                he: { title: 'בית הכנסת רומי גולדמונץ', years: '', desc: '' }
+            },
+            'jesode-hatorah': {
+                image: '',
+                en: { title: 'Jesode Hatorah', years: '', desc: '' },
+                nl: { title: 'Jesode Hatorah', years: '', desc: '' },
+                fr: { title: 'Jesode Hatora', years: '', desc: '' },
+                he: { title: 'ישודה התורה', years: '', desc: '' }
+            },
+            'tachkemoni': {
+                image: '',
+                en: { title: 'Tachkemoni', years: '', desc: '' },
+                nl: { title: 'Tachkemoni', years: '', desc: '' },
+                fr: { title: 'Tachkémoni', years: '', desc: '' },
+                he: { title: 'תחכמוני', years: '', desc: '' }
+            },
+            'heide': {
+                image: '',
+                en: { title: 'Heide', years: '', desc: '' },
+                nl: { title: 'Heide', years: '', desc: '' },
+                fr: { title: 'Heide', years: '', desc: '' },
+                he: { title: 'הייד', years: '', desc: '' }
+            },
+            'rav-markus-mordechai-rottenberg': {
+                image: '',
+                en: { title: 'Marcus Rottenberg', years: '', desc: '' },
+                nl: { title: 'Marcus Rottenberg', years: '', desc: '' },
+                fr: { title: 'Marcus Rottenberg', years: '', desc: '' },
+                he: { title: 'מרקוס רוטנברג', years: '', desc: '' }
+            },
+            'machsike-hadas': {
+                image: '',
+                en: { title: 'Machsike Hadas', years: '', desc: '' },
+                nl: { title: 'Machsike Hadas', years: '', desc: '' },
+                fr: { title: 'Machsike Hadas', years: '', desc: '' },
+                he: { title: 'מחסיקה הדס', years: '', desc: '' }
+            },
+            'shomre-hadas': {
+                image: '',
+                en: { title: 'Shomre Hadas', years: '', desc: '' },
+                nl: { title: 'Shomre Hadas', years: '', desc: '' },
+                fr: { title: 'Shomre Hadas', years: '', desc: '' },
+                he: { title: 'שומר הדס', years: '', desc: '' }
+            },
+            'sephardic-community': {
+                image: '',
+                en: { title: 'Sephardic Community', years: '', desc: '' },
+                nl: { title: 'Sefardische Gemeenschap', years: '', desc: '' },
+                fr: { title: 'Communauté sépharade', years: '', desc: '' },
+                he: { title: 'קהילה ספרדית', years: '', desc: '' }
+            },
+            'yavne': {
+                image: '',
+                en: { title: 'Yavne', years: '', desc: '' },
+                nl: { title: 'Yavne', years: '', desc: '' },
+                fr: { title: 'Yavné', years: '', desc: '' },
+                he: { title: 'יבנה', years: '', desc: '' }
             }
         };
 
@@ -507,11 +757,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data.image) {
                 tooltip.classList.remove('no-image');
-                const logoLink = document.querySelector('.logo a');
                 let rootPrefix = '';
-                if (logoLink) {
-                    const href = logoLink.getAttribute('href');
-                    rootPrefix = href.replace('index.html', '');
+                const navScript = document.querySelector('script[src*="js/nav.js"], script[src*="nav.js"]');
+                if (navScript) {
+                    const src = navScript.getAttribute('src');
+                    rootPrefix = src.replace(/js\/nav\.js$/, '').replace(/nav\.js$/, '');
+                } else {
+                    const logoLink = document.querySelector('.logo a');
+                    if (logoLink) {
+                        const href = logoLink.getAttribute('href');
+                        rootPrefix = href.replace('index.html', '');
+                    }
                 }
                 const imgPath = `${rootPrefix}${data.image}`;
                 
@@ -666,7 +922,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             trigger.addEventListener('click', (e) => {
-                if (!isDynamic || href === '#') {
+                if (href === '#' || href === 'javascript:void(0)' || !href) {
                     e.preventDefault();
                     e.stopPropagation();
                     
