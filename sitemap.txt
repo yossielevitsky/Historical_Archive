@@ -6,6 +6,7 @@ https://jewishantwerparchive.org/fr/history.html
 https://jewishantwerparchive.org/fr/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/fr/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/fr/history/19th-century.html
+https://jewishantwerparchive.org/fr/history/antwerp-pogrom.html
 https://jewishantwerparchive.org/fr/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/fr/history/chida-two-cities.html
 https://jewishantwerparchive.org/fr/history/cuba-connection.html
@@ -15,6 +16,7 @@ https://jewishantwerparchive.org/fr/history/medieval-period.html
 https://jewishantwerparchive.org/fr/history/modern-antwerp.html
 https://jewishantwerparchive.org/fr/history/post-war.html
 https://jewishantwerparchive.org/fr/history/pre-war.html
+https://jewishantwerparchive.org/fr/history/red-star-line.html
 https://jewishantwerparchive.org/fr/history/wwii.html
 https://jewishantwerparchive.org/fr/holocaust/central-station.html
 https://jewishantwerparchive.org/fr/holocaust/dossin.html
@@ -82,6 +84,7 @@ https://jewishantwerparchive.org/he/history.html
 https://jewishantwerparchive.org/he/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/he/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/he/history/19th-century.html
+https://jewishantwerparchive.org/he/history/antwerp-pogrom.html
 https://jewishantwerparchive.org/he/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/he/history/chida-two-cities.html
 https://jewishantwerparchive.org/he/history/cuba-connection.html
@@ -91,6 +94,7 @@ https://jewishantwerparchive.org/he/history/medieval-period.html
 https://jewishantwerparchive.org/he/history/modern-antwerp.html
 https://jewishantwerparchive.org/he/history/post-war.html
 https://jewishantwerparchive.org/he/history/pre-war.html
+https://jewishantwerparchive.org/he/history/red-star-line.html
 https://jewishantwerparchive.org/he/history/wwii.html
 https://jewishantwerparchive.org/he/holocaust/central-station.html
 https://jewishantwerparchive.org/he/holocaust/dossin.html
@@ -156,6 +160,7 @@ https://jewishantwerparchive.org/history.html
 https://jewishantwerparchive.org/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/history/19th-century.html
+https://jewishantwerparchive.org/history/antwerp-pogrom.html
 https://jewishantwerparchive.org/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/history/chida-two-cities.html
 https://jewishantwerparchive.org/history/cuba-connection.html
@@ -165,6 +170,7 @@ https://jewishantwerparchive.org/history/medieval-period.html
 https://jewishantwerparchive.org/history/modern-antwerp.html
 https://jewishantwerparchive.org/history/post-war.html
 https://jewishantwerparchive.org/history/pre-war.html
+https://jewishantwerparchive.org/history/red-star-line.html
 https://jewishantwerparchive.org/history/wwii.html
 https://jewishantwerparchive.org/holocaust/central-station.html
 https://jewishantwerparchive.org/holocaust/dossin.html
@@ -180,6 +186,7 @@ https://jewishantwerparchive.org/nl/history.html
 https://jewishantwerparchive.org/nl/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/nl/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/nl/history/19th-century.html
+https://jewishantwerparchive.org/nl/history/antwerp-pogrom.html
 https://jewishantwerparchive.org/nl/history/belgian-revolution-1830.html
 https://jewishantwerparchive.org/nl/history/chida-two-cities.html
 https://jewishantwerparchive.org/nl/history/cuba-connection.html
@@ -189,6 +196,7 @@ https://jewishantwerparchive.org/nl/history/medieval-period.html
 https://jewishantwerparchive.org/nl/history/modern-antwerp.html
 https://jewishantwerparchive.org/nl/history/post-war.html
 https://jewishantwerparchive.org/nl/history/pre-war.html
+https://jewishantwerparchive.org/nl/history/red-star-line.html
 https://jewishantwerparchive.org/nl/history/wwii.html
 https://jewishantwerparchive.org/nl/holocaust/central-station.html
 https://jewishantwerparchive.org/nl/holocaust/dossin.html
