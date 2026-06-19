@@ -105,6 +105,22 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
+
+        .contribute-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (min-width: 768px) {
+            .contribute-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contribute-row .contribute-card {
+                margin-bottom: 0;
+            }
+        }
     </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -161,35 +177,27 @@
                     </ul>
                 </div>
 
-                <div class="contribute-card">
-                    <h2 style="font-size: 1.4rem;">הפריטים המבוקשים ביותר</h2>
-                    <p style="margin-bottom: 1rem; color: var(--color-text-main);">כרגע אנחנו מחפשים:</p>
-                    <ul
-                        style="list-style-type: square; margin-left: 2rem; color: var(--color-text-muted); margin-bottom: 0;">
-                        <li>#1</li>
-                        <li>#2</li>
-                        <li>#3</li>
-                    </ul>
-                </div>
-
-                <div class="contribute-card" style="border-left: 3px solid var(--color-gold);">
-                    <h2 style="font-size: 1.4rem;">רוצה לכתוב מאמר?</h2>
-                    <p style="color: var(--color-text-main); margin-bottom: 0;">
-                        אם אתם מעוניינים לחקור ולכתוב מאמר מלא לארכיון, בבקשה
-                        <a href="#contact-email"
-                            style="color: var(--color-gold); text-decoration: underline;">שלח לנו דוא"ל ישירות</a>.
-                        אנו מקדמים בברכה תורמים אורחים!
-                    </p>
-                </div>
-
-                <div class="contribute-card donate-card" style="border-left: 3px solid var(--color-gold); background: linear-gradient(145deg, var(--color-slate), #1e2530);">
-                    <div class="donate-header" style="display: flex; align-items: center; gap: 15px; margin-bottom: var(--spacing-sm);">
-                        <h2 style="margin: 0; font-size: 1.8rem;">תמכו בארכיון</h2>
+                <div class="contribute-row">
+                    <div class="contribute-card">
+                        <h2 style="font-size: 1.4rem;">הפריטים המבוקשים ביותר</h2>
+                        <p style="margin-bottom: 1rem; color: var(--color-text-main);">כרגע אנחנו מחפשים:</p>
+                        <ul
+                            style="list-style-type: square; margin-left: 2rem; color: var(--color-text-muted); margin-bottom: 0;">
+                            <li>#1</li>
+                            <li>#2</li>
+                            <li>#3</li>
+                        </ul>
                     </div>
-                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main); margin-bottom: var(--spacing-md);">
-                        תרומות תומכות באירוח אתרים, רישום דומיין, דיגיטציה של חומרים היסטוריים ושימור ההיסטוריה של אנטוורפן היהודית. תמיכתך שומרת על ארכיון חיוני זה נגיש לכולם.
-                    </p>
-                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">תרום עכשיו (בקרוב)</button>
+
+                    <div class="contribute-card" style="border-left: 3px solid var(--color-gold); margin-bottom: 0;">
+                        <h2 style="font-size: 1.4rem;">רוצה לכתוב מאמר?</h2>
+                        <p style="color: var(--color-text-main); margin-bottom: 0;">
+                            אם אתם מעוניינים לחקור ולכתוב מאמר מלא לארכיון, בבקשה
+                            <a href="#contact-email"
+                                style="color: var(--color-gold); text-decoration: underline;">שלח לנו דוא"ל ישירות</a>.
+                            אנו מקדמים בברכה תורמים אורחים!
+                        </p>
+                    </div>
                 </div>
 
                 <div class="contribute-card">
@@ -217,6 +225,16 @@
                         </div>
                         <button type="submit" class="btn btn-inverse">שלח תרומה</button>
                     </form>
+                </div>
+
+                <div class="contribute-card donate-card" style="border-left: 3px solid var(--color-gold); background: linear-gradient(145deg, var(--color-slate), #1e2530);">
+                    <div class="donate-header" style="display: flex; align-items: center; gap: 15px; margin-bottom: var(--spacing-sm);">
+                        <h2 style="margin: 0; font-size: 1.8rem;">תמכו בארכיון</h2>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main); margin-bottom: var(--spacing-md);">
+                        תרומות תומכות באירוח אתרים, רישום דומיין, דיגיטציה של חומרים היסטוריים ושימור ההיסטוריה של אנטוורפן היהודית. תמיכתך שומרת על ארכיון חיוני זה נגיש לכולם.
+                    </p>
+                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">תרום עכשיו (בקרוב)</button>
                 </div>
 
 
