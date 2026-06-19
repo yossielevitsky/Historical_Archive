@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article", titleNl: "Kazerne Dossin", titleFr: "Caserne Dossin", titleHe: "קסרקטין דוסין (מכלן)" },
         { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית של אנטוורפן" },
         { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Article", titleHe: "הבריחה להוואנה: סנט לואיס ומקלט היהלומים של קובה" },
-        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-two-cities.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
+        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-journey-antwerp-belgium.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue", titleHe: "אגודת ישראל" },

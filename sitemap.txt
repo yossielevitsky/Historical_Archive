@@ -7,8 +7,9 @@ https://jewishantwerparchive.org/fr/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/fr/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/fr/history/19th-century.html
 https://jewishantwerparchive.org/fr/history/antwerp-pogrom.html
+https://jewishantwerparchive.org/fr/history/april-1943-attack.html
 https://jewishantwerparchive.org/fr/history/belgian-revolution-1830.html
-https://jewishantwerparchive.org/fr/history/chida-two-cities.html
+https://jewishantwerparchive.org/fr/history/chida-journey-antwerp-belgium.html
 https://jewishantwerparchive.org/fr/history/cuba-connection.html
 https://jewishantwerparchive.org/fr/history/early-modern-period.html
 https://jewishantwerparchive.org/fr/history/full-history.html
@@ -26,6 +27,10 @@ https://jewishantwerparchive.org/fr/holocaust/names.html
 https://jewishantwerparchive.org/fr/holocaust/orphanages.html
 https://jewishantwerparchive.org/fr/holocaust/righteous.html
 https://jewishantwerparchive.org/fr/
+https://jewishantwerparchive.org/fr/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/fr/organizations/sephardic-community.html
+https://jewishantwerparchive.org/fr/organizations/shomre-hadas.html
+https://jewishantwerparchive.org/fr/people/jozef-sterngold.html
 https://jewishantwerparchive.org/fr/places/belz-school.html
 https://jewishantwerparchive.org/fr/places/heide.html
 https://jewishantwerparchive.org/fr/places/jesode-hatorah.html
@@ -85,8 +90,9 @@ https://jewishantwerparchive.org/he/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/he/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/he/history/19th-century.html
 https://jewishantwerparchive.org/he/history/antwerp-pogrom.html
+https://jewishantwerparchive.org/he/history/april-1943-attack.html
 https://jewishantwerparchive.org/he/history/belgian-revolution-1830.html
-https://jewishantwerparchive.org/he/history/chida-two-cities.html
+https://jewishantwerparchive.org/he/history/chida-journey-antwerp-belgium.html
 https://jewishantwerparchive.org/he/history/cuba-connection.html
 https://jewishantwerparchive.org/he/history/early-modern-period.html
 https://jewishantwerparchive.org/he/history/full-history.html
@@ -104,6 +110,10 @@ https://jewishantwerparchive.org/he/holocaust/names.html
 https://jewishantwerparchive.org/he/holocaust/orphanages.html
 https://jewishantwerparchive.org/he/holocaust/righteous.html
 https://jewishantwerparchive.org/he/
+https://jewishantwerparchive.org/he/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/he/organizations/sephardic-community.html
+https://jewishantwerparchive.org/he/organizations/shomre-hadas.html
+https://jewishantwerparchive.org/he/people/jozef-sterngold.html
 https://jewishantwerparchive.org/he/places/belz-school.html
 https://jewishantwerparchive.org/he/places/heide.html
 https://jewishantwerparchive.org/he/places/jesode-hatorah.html
@@ -161,8 +171,9 @@ https://jewishantwerparchive.org/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/history/19th-century.html
 https://jewishantwerparchive.org/history/antwerp-pogrom.html
+https://jewishantwerparchive.org/history/april-1943-attack.html
 https://jewishantwerparchive.org/history/belgian-revolution-1830.html
-https://jewishantwerparchive.org/history/chida-two-cities.html
+https://jewishantwerparchive.org/history/chida-journey-antwerp-belgium.html
 https://jewishantwerparchive.org/history/cuba-connection.html
 https://jewishantwerparchive.org/history/early-modern-period.html
 https://jewishantwerparchive.org/history/full-history.html
@@ -187,8 +198,9 @@ https://jewishantwerparchive.org/nl/history/1980-terrorist-attack.html
 https://jewishantwerparchive.org/nl/history/1981-synagogue-bombing.html
 https://jewishantwerparchive.org/nl/history/19th-century.html
 https://jewishantwerparchive.org/nl/history/antwerp-pogrom.html
+https://jewishantwerparchive.org/nl/history/april-1943-attack.html
 https://jewishantwerparchive.org/nl/history/belgian-revolution-1830.html
-https://jewishantwerparchive.org/nl/history/chida-two-cities.html
+https://jewishantwerparchive.org/nl/history/chida-journey-antwerp-belgium.html
 https://jewishantwerparchive.org/nl/history/cuba-connection.html
 https://jewishantwerparchive.org/nl/history/early-modern-period.html
 https://jewishantwerparchive.org/nl/history/full-history.html
@@ -206,6 +218,10 @@ https://jewishantwerparchive.org/nl/holocaust/names.html
 https://jewishantwerparchive.org/nl/holocaust/orphanages.html
 https://jewishantwerparchive.org/nl/holocaust/righteous.html
 https://jewishantwerparchive.org/nl/
+https://jewishantwerparchive.org/nl/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/nl/organizations/sephardic-community.html
+https://jewishantwerparchive.org/nl/organizations/shomre-hadas.html
+https://jewishantwerparchive.org/nl/people/jozef-sterngold.html
 https://jewishantwerparchive.org/nl/places/belz-school.html
 https://jewishantwerparchive.org/nl/places/heide.html
 https://jewishantwerparchive.org/nl/places/jesode-hatorah.html
@@ -258,6 +274,10 @@ https://jewishantwerparchive.org/nl/synagogues/van-den-nestlei-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-2.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/zichron-benjamin.html
+https://jewishantwerparchive.org/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/organizations/sephardic-community.html
+https://jewishantwerparchive.org/organizations/shomre-hadas.html
+https://jewishantwerparchive.org/people/jozef-sterngold.html
 https://jewishantwerparchive.org/places/belz-school.html
 https://jewishantwerparchive.org/places/heide.html
 https://jewishantwerparchive.org/places/jesode-hatorah.html
