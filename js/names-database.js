@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             linkCopied: "Link copied to clipboard!",
             closeModal: "Close",
             unknown: "Unknown",
+            filterToggleBtn: "Filters",
             fields: {
                 ID: "Record ID",
                 Inventarisnummer: "Inventory Number",
@@ -107,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             linkCopied: "Directe link naar record gekopieerd!",
             closeModal: "Sluiten",
             unknown: "Onbekend",
+            filterToggleBtn: "Filters",
             fields: {
                 ID: "Archief ID",
                 Inventarisnummer: "Inventarisnummer",
@@ -170,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             linkCopied: "Lien direct vers la fiche copié !",
             closeModal: "Fermer",
             unknown: "Inconnu",
+            filterToggleBtn: "Filtres",
             fields: {
                 ID: "ID de la fiche",
                 Inventarisnummer: "Numéro d'inventaire",
@@ -233,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             linkCopied: "הקישור הישיר לרשומה הועתק!",
             closeModal: "סגור",
             unknown: "לא ידוע",
+            filterToggleBtn: "מסננים",
             fields: {
                 ID: "מזהה רשומה",
                 Inventarisnummer: "מספר ארכיון",
@@ -614,6 +618,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="search-icon-fixed">🔍</span>
                     <input type="text" id="db-search-input" placeholder="${t.searchPlaceholder}">
                 </div>
+                <button class="mobile-filter-toggle-btn" id="btn-toggle-filters">
+                    <span>⚙️</span> ${t.filterToggleBtn}
+                </button>
             </div>
 
             <div class="active-filters-container" id="active-filters-chips" style="display: none;">
@@ -739,6 +746,15 @@ document.addEventListener('DOMContentLoaded', () => {
             renderPageResults();
         });
 
+
+        const toggleBtn = document.getElementById('btn-toggle-filters');
+        const filterPanel = document.querySelector('.filter-panel');
+        if (toggleBtn && filterPanel) {
+            toggleBtn.addEventListener('click', () => {
+                filterPanel.classList.toggle('active');
+                toggleBtn.classList.toggle('active');
+            });
+        }
 
         document.getElementById('btn-clear-filters').addEventListener('click', resetFilters);
         document.getElementById('sidebar-clear-filters').addEventListener('click', resetFilters);
