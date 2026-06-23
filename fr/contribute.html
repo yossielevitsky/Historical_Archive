@@ -235,7 +235,7 @@
                     <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main); margin-bottom: var(--spacing-md);">
                         Les dons soutiennent l'hébergement de sites Web, l'enregistrement de domaines, la numérisation de documents historiques et la préservation de l'histoire juive d'Anvers. Votre soutien maintient ces archives vitales accessibles à tous.
                     </p>
-                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">Faites un don maintenant (à venir)</button>
+                    <a href="https://gofund.me/97c3a09ae" target="_blank" rel="noopener noreferrer" class="btn btn-inverse btn-donate-now">Faire un don</a>
                 </div>
 
 
@@ -263,9 +263,7 @@
     <script>
 
 
-        function triggerDonation() {
-            alert('Online donations are coming soon! Thank you for your support and interest.');
-        }
+
 
         document.getElementById('contributionForm').addEventListener('submit', async function(e) {
             e.preventDefault();

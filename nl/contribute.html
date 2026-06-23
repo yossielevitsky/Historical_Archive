@@ -235,7 +235,7 @@
                     <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main); margin-bottom: var(--spacing-md);">
                         Donaties ondersteunen websitehosting, domeinregistratie, digitalisering van historisch materiaal en het behoud van de joodse geschiedenis van Antwerpen. Dankzij uw steun blijft dit essentiële archief voor iedereen toegankelijk.
                     </p>
-                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">Doneer nu (binnenkort beschikbaar)</button>
+                    <a href="https://gofund.me/97c3a09ae" target="_blank" rel="noopener noreferrer" class="btn btn-inverse btn-donate-now">Doneer nu</a>
                 </div>
 
 
@@ -263,9 +263,7 @@
     <script>
 
 
-        function triggerDonation() {
-            alert('Online donations are coming soon! Thank you for your support and interest.');
-        }
+
 
         document.getElementById('contributionForm').addEventListener('submit', async function(e) {
             e.preventDefault();

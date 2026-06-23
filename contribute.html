@@ -235,7 +235,7 @@
                     <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-main); margin-bottom: var(--spacing-md);">
                         Donations support website hosting, domain registration, digitization of historical materials, and the preservation of Jewish Antwerp's history. Your support keeps this vital archive accessible to everyone.
                     </p>
-                    <button class="btn btn-inverse btn-donate-now" disabled style="opacity: 0.6; cursor: not-allowed;" onclick="triggerDonation()">Donate Now (Coming Soon)</button>
+                    <a href="https://gofund.me/97c3a09ae" target="_blank" rel="noopener noreferrer" class="btn btn-inverse btn-donate-now">Donate Now</a>
                 </div>
 
 
@@ -263,9 +263,7 @@
     <script>
 
 
-        function triggerDonation() {
-            alert('Online donations are coming soon! Thank you for your support and interest.');
-        }
+
 
         document.getElementById('contributionForm').addEventListener('submit', async function(e) {
             e.preventDefault();
