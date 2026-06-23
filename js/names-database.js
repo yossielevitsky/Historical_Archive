@@ -635,9 +635,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option value="death_desc">${t.sortDeathDesc}</option>
                     </select>
                 </div>
-                <button class="export-btn" id="btn-export">
-                    <span>📥</span> ${t.exportBtn}
-                </button>
             </div>
 
             <!-- Stats Dashboard -->
@@ -742,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderPageResults();
         });
 
-        document.getElementById('btn-export').addEventListener('click', exportResultsToCSV);
+
         document.getElementById('btn-clear-filters').addEventListener('click', resetFilters);
         document.getElementById('sidebar-clear-filters').addEventListener('click', resetFilters);
 
