@@ -1,16 +1,19 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Names Database - The Holocaust - Jewish Antwerp Historical Archive</title>
+    <title>Antwerp Names Project – Holocaust Victims | Jewish Antwerp Historical Archive</title>
+    <meta name="description" content="Search over 23,000 names of Antwerp victims of the Holocaust from the Antwerp Names Project." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/names-database.css">
     <script src="../js/nav.js" defer></script>
+    <script src="../js/names-database.js" defer></script>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -59,17 +62,27 @@
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="section-title">Names Database</h1>
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <img src="../images/document-image.jpg" alt="Names Database"
-                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
-                    </div>
-                    <div style="text-align: center; padding: 4rem 0;">
-                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">Coming Soon</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                            A searchable archive of names is currently under development. Thank you for your patience.
-                        </p>
-                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">Go Back</a>
+                    <h1 class="section-title">Antwerp Names Project</h1>
+                    <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 1.5rem; margin-top: -1rem;">
+                        In memory of the Antwerp victims of the Holocaust
+                    </p>
+                    <p style="color: var(--color-text-main); font-size: 1.05rem; max-width: 800px; margin: 0 auto 2rem auto; text-align: center; line-height: 1.6;">
+                        This database contains the names of thousands of Antwerp victims of the Holocaust. The data is based on the Antwerp Names Project and is made available for research, education, and remembrance.
+                    </p>
+
+                    <!-- Main App Container -->
+                    <div id="names-db-container"></div>
+
+                    <!-- Historical Context & Attribution -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.1rem;">Historical Context</h4>
+                            <p>The Antwerp Names Project documents the Antwerp victims of persecution during the Second World War. The project contributes to preserving their memory and supports historical research into the Jewish community of Antwerp.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.1rem;">Source Attribution</h4>
+                            <p>Source: FelixArchief Antwerp – Antwerp Names Project. Data based on an export of June 23, 2026. This data represents a snapshot; records may have been modified or supplemented afterwards.</p>
+                        </div>
                     </div>
                 </div>
             </div>

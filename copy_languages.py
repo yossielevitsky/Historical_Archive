@@ -15,6 +15,7 @@ excluded_files = {
     "sitemap.xml",
     "sitemap.txt",
     "robots.txt",
+    "names.html",
 }
 excluded_dirs = {
     ".git",

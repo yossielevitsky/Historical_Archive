@@ -1,16 +1,19 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="he" dir="rtl">
 
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>מאגר שמות - השואה - הארכיון ההיסטורי היהודי באנטוורפן</title>
+    <title>פרויקט השמות אנטוורפן – קורבנות השואה | הארכיון ההיסטורי היהודי של אנטוורפן</title>
+    <meta name="description" content="חיפוש בלמעלה מ-23,000 שמות של קורבנות השואה מאנטוורפן מפרויקט השמות אנטוורפן." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/names-database.css">
     <script src="../../js/nav.js" defer></script>
+    <script src="../../js/names-database.js" defer></script>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -60,17 +63,27 @@
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="section-title">מאגר שמות</h1>
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <img src="../../images/document-image.jpg" alt="Names Database"
-                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
-                    </div>
-                    <div style="text-align: center; padding: 4rem 0;">
-                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">בקרוב</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                            ארכיון שמות הניתן לחיפוש נמצא כעת בפיתוח. תודה על הסבלנות.
-                        </p>
-                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">לַחֲזוֹר</a>
+                    <h1 class="section-title">פרויקט השמות אנטוורפן</h1>
+                    <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 1.5rem; margin-top: -1rem;">
+                        לזכרם של קורבנות השואה מאנטוורפן
+                    </p>
+                    <p style="color: var(--color-text-main); font-size: 1.05rem; max-width: 800px; margin: 0 auto 2rem auto; text-align: center; line-height: 1.6;">
+                        מאגר מידע זה מכיל את שמותיהם של אלפי קורבנות השואה מאנטוורפן. הנתונים מבוססים על פרויקט השמות אנטוורפן ומיועדים למחקר, חינוך והנצחה.
+                    </p>
+
+                    <!-- Main App Container -->
+                    <div id="names-db-container"></div>
+
+                    <!-- Historical Context & Attribution -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.1rem;">רקע היסטורי</h4>
+                            <p>פרויקט השמות אנטוורפן מתעד את קורבנות הרדיפות באנטוורפן במהלך מלחמת העולם השנייה. הפרויקט תורם לשימור זכרם ותומך במחקר היסטורי של הקהילה היהודית באנטוורפן.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.1rem;">קרדיט ומקור</h4>
+                            <p>מקור: FelixArchief אנטוורפן – פרויקט השמות אנטוורפן. הנתונים מבוססים על ייצוא מ-23 ביוני 2026. נתונים אלו מהווים תמונת מצב זמנית; ייתכן שהרשומות עודכנו או הושלמו לאחר מכן.</p>
+                        </div>
                     </div>
                 </div>
             </div>
