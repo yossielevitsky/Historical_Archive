@@ -43,8 +43,8 @@ ARTICLES = {
                         <p>The connection between Sholem Aleichem and Antwerp was not merely literary. After leaving the Russian Empire in the wake of the 1905 pogroms, he spent years traveling throughout Europe, including time in Belgium. During these years he supported himself through public readings of his works before Jewish audiences across the continent.</p>
 
                         <div class="wiki-image-container image-float-right" style="max-width: 280px;">
-                            <img src="../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="Sholem Aleichem's Motl, the Cantor's Son" class="lightbox-trigger" data-caption="An illustration from Sholem Aleichem's masterpiece Motl, the Cantor's Son, depicting young Motl's journey.">
-                            <div class="caption-text">An illustration from Sholem Aleichem's masterpiece <em>Motl, the Cantor's Son</em>, depicting young Motl's journey.</div>
+                            <img src="../images/Sholem_Aleichem.jpg" alt="Sholem Aleichem" class="lightbox-trigger" data-caption="Portrait of Sholem Aleichem (1859–1916), one of the founding fathers of modern Yiddish literature.">
+                            <div class="caption-text">Portrait of Sholem Aleichem (1859–1916), one of the founding fathers of modern Yiddish literature.</div>
                         </div>
 
                         <p>Most notably, in January 1914, Sholem Aleichem visited Antwerp during one of his European reading tours. Contemporary reports describe how a crowd of around a thousand people gathered at Antwerp's Cercle Artistique to hear the celebrated Yiddish writer read from both his famous works and unpublished manuscripts. The event demonstrates the city's importance as a center of Jewish life on the eve of the First World War.</p>
@@ -131,8 +131,8 @@ ARTICLES = {
                         <p>De band tussen Sholem Aleichem en Antwerpen was niet louter literair. Nadat hij het Russische Rijk had verlaten in de nasleep van de pogroms van 1905, reisde hij jarenlang door Europa, waaronder ook door België. Tijdens deze jaren voorzag hij in zijn levensonderhoud door openbare voorlezingen van zijn werken voor een Joods publiek over het hele continent.</p>
 
                         <div class="wiki-image-container image-float-right" style="max-width: 280px;">
-                            <img src="../../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="Sholem Aleichem's Motl, the Cantor's Son" class="lightbox-trigger" data-caption="Een illustratie uit Sholem Aleichems meesterwerk Motl de Chazans zoon, die de reis van de jonge Motl uitbeeldt.">
-                            <div class="caption-text">Een illustratie uit Sholem Aleichems meesterwerk <em>Motl de Chazans zoon</em>, die de reis van de jonge Motl uitbeeldt.</div>
+                            <img src="../../images/Sholem_Aleichem.jpg" alt="Sholem Aleichem" class="lightbox-trigger" data-caption="Portret van Sholem Aleichem (1859–1916), een van de grondleggers van de moderne Jiddische literatuur.">
+                            <div class="caption-text">Portret van Sholem Aleichem (1859–1916), een van de grondleggers van de moderne Jiddische literatuur.</div>
                         </div>
 
                         <p>In januari 1914 bezocht Sholem Aleichem Antwerpen tijdens een van zijn Europese voorleestours. Eigentijdse verslagen beschrijven hoe een menigte van ongeveer duizend mensen zich verzamelde in het Antwerpse Cercle Artistique om de gevierde Jiddische schrijver te horen voorlezen uit zowel zijn beroemde werken als niet-gepubliceerde manuscripten. Het evenement toont het belang van de stad aan als centrum van het Joodse leven aan de avond voor de Eerste Wereldoorlog.</p>
@@ -219,8 +219,8 @@ ARTICLES = {
                         <p>Le lien entre Sholem Aleichem et Anvers n'était pas seulement littéraire. Après avoir quitté l'Empire russe dans le sillage des pogroms de 1905, il passa des années à voyager à travers l'Europe, y compris en Belgique. Pendant ces années, il subvenait à ses besoins grâce à des lectures publiques de ses œuvres devant des publics juifs à travers le continent.</p>
 
                         <div class="wiki-image-container image-float-right" style="max-width: 280px;">
-                            <img src="../../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="Sholem Aleichem's Motl, the Cantor's Son" class="lightbox-trigger" data-caption="Une illustration tirée du chef-d'œuvre de Sholem Aleichem, Motl, fils du chantre, dépeignant le voyage du jeune Motl.">
-                            <div class="caption-text">Une illustration tirée du chef-d'œuvre de Sholem Aleichem, <em>Motl, fils du chantre</em>, dépeignant le voyage du jeune Motl.</div>
+                            <img src="../../images/Sholem_Aleichem.jpg" alt="Sholem Aleichem" class="lightbox-trigger" data-caption="Portrait de Sholem Aleichem (1859-1916), l'un des pères fondateurs de la littérature yiddish moderne.">
+                            <div class="caption-text">Portrait de Sholem Aleichem (1859-1916), l'un des pères fondateurs de la littérature yiddish moderne.</div>
                         </div>
 
                         <p>Plus particulièrement, en janvier 1914, Sholem Aleichem visita Anvers lors de l'une de ses tournées de lecture européennes. Des rapports de l'époque décrivent comment une foule d'environ mille personnes s'est rassemblée au Cercle Artistique d'Anvers pour entendre le célèbre écrivain yiddish lire à la fois ses œuvres célèbres et des manuscrits inédits. Cet événement démontre l'importance de la ville en tant que centre de la vie juive à la veille de la Première Guerre mondiale.</p>
@@ -307,8 +307,8 @@ ARTICLES = {
                         <p>הקשר בין שלום עליכם לאנטוורפן לא היה ספרותי בלבד. לאחר שעזב את האימפריה הרוסית בעקבות פרעות 1905, הוא בילה שנים בנסיעות ברחבי אירופה, כולל שהות בבלגיה. במהלך שנים אלו הוא פירנס את עצמו באמצעות קריאות פומביות של יצירותיו בפני קהל יהודי ברחבי היבשת.</p>
 
                         <div class="wiki-image-container image-float-right" style="max-width: 280px;">
-                            <img src="../../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="Sholem Aleichem's Motl, the Cantor's Son" class="lightbox-trigger" data-caption="איור מתוך יצירת המופת של שלום עליכם מוטל בן פייסי החזן, המתאר את מסעו של מוטל הצעיר.">
-                            <div class="caption-text">איור מתוך יצירת המופת של שלום עליכם <em>מוטל בן פייסי החזן</em>, המתאר את מסעו של מוטל הצעיר.</div>
+                            <img src="../../images/Sholem_Aleichem.jpg" alt="שלום עליכם" class="lightbox-trigger" data-caption="דיוקנו של שלום עליכם (1859–1916), מאבות הספרות היידית המודרנית.">
+                            <div class="caption-text">דיוקנו של שלום עליכם (1859–1916), מאבות הספרות היידית המודרנית.</div>
                         </div>
 
                         <p>בעיקר, בינואר 1914, ביקר שלום עליכם באנטוורפן במהלך אחד מסבבי הקריאה שלו באירופה. דיווחים בני הזמן מתארים כיצד קהל של כאלף איש התכנס ב"סירקל ארטיסטיק" (Cercle Artistique) באנטוורפן כדי לשמוע את הסופר היידי המפורסם קורא הן מיצירותיו המפורסמות והן מכתבי יד שלא פורסמו. האירוע מוכיח את חשיבותה של העיר כמרכז של חיים יהודיים ערב מלחמת העולם הראשונה.</p>
@@ -434,9 +434,9 @@ TEMPLATE = """<!doctype html>
                 <article class="wiki-main-content" style="grid-column: 1; grid-row: 2;">
                     <!-- Featured Image -->
                     <div class="wiki-image-container" style="margin-bottom: 2rem;">
-                        <img src="{path_prefix}images/Sholem_Aleichem.jpg"
-                            alt="Sholem Aleichem" style="width: 100%; border-radius: 8px;" class="lightbox-trigger" data-caption="{img_sholem_caption}">
-                        <div class="caption-text">{img_sholem_caption}</div>
+                        <img src="{path_prefix}images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif"
+                            alt="Sholem Aleichem's Motl, the Cantor's Son" style="width: 100%; border-radius: 8px;" class="lightbox-trigger" data-caption="{img_motl_caption}">
+                        <div class="caption-text">{img_motl_caption}</div>
                     </div>
 
                     <section class="wiki-content">
@@ -447,11 +447,6 @@ TEMPLATE = """<!doctype html>
                 <!-- Sidebar -->
                 <aside class="wiki-sidebar" style="grid-column: 2; grid-row: 2;">
                     <h3 class="sidebar-title">{sidebar_title}</h3>
-
-                    <div class="data-point">
-                        <span class="data-label">{author_label}</span>
-                        <span class="data-value">{author}</span>
-                    </div>
 
                     <div class="data-point">
                         <span class="data-label">{published_label}</span>
