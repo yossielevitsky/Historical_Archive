@@ -34,6 +34,7 @@ https://jewishantwerparchive.org/fr/history/modern-antwerp.html
 https://jewishantwerparchive.org/fr/history/post-war.html
 https://jewishantwerparchive.org/fr/history/pre-war.html
 https://jewishantwerparchive.org/fr/history/red-star-line.html
+https://jewishantwerparchive.org/fr/history/sholem-aleichem-motl.html
 https://jewishantwerparchive.org/fr/history/wwii.html
 https://jewishantwerparchive.org/fr/holocaust/central-station.html
 https://jewishantwerparchive.org/fr/holocaust/dossin.html
@@ -125,6 +126,7 @@ https://jewishantwerparchive.org/he/history/modern-antwerp.html
 https://jewishantwerparchive.org/he/history/post-war.html
 https://jewishantwerparchive.org/he/history/pre-war.html
 https://jewishantwerparchive.org/he/history/red-star-line.html
+https://jewishantwerparchive.org/he/history/sholem-aleichem-motl.html
 https://jewishantwerparchive.org/he/history/wwii.html
 https://jewishantwerparchive.org/he/holocaust/central-station.html
 https://jewishantwerparchive.org/he/holocaust/dossin.html
@@ -206,6 +208,7 @@ https://jewishantwerparchive.org/history/modern-antwerp.html
 https://jewishantwerparchive.org/history/post-war.html
 https://jewishantwerparchive.org/history/pre-war.html
 https://jewishantwerparchive.org/history/red-star-line.html
+https://jewishantwerparchive.org/history/sholem-aleichem-motl.html
 https://jewishantwerparchive.org/history/wwii.html
 https://jewishantwerparchive.org/holocaust/central-station.html
 https://jewishantwerparchive.org/holocaust/dossin.html
@@ -241,6 +244,7 @@ https://jewishantwerparchive.org/nl/history/modern-antwerp.html
 https://jewishantwerparchive.org/nl/history/post-war.html
 https://jewishantwerparchive.org/nl/history/pre-war.html
 https://jewishantwerparchive.org/nl/history/red-star-line.html
+https://jewishantwerparchive.org/nl/history/sholem-aleichem-motl.html
 https://jewishantwerparchive.org/nl/history/wwii.html
 https://jewishantwerparchive.org/nl/holocaust/central-station.html
 https://jewishantwerparchive.org/nl/holocaust/dossin.html
