@@ -258,6 +258,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Inject mobile drawer language switcher under nav list
         const navUl = document.querySelector('.main-nav ul');
         if (navUl) {
+            // Calculate prefix for Contribute link on mobile
+            let pathToContribute = '';
+            const logoLink = document.querySelector('.logo a');
+            if (logoLink) {
+                const href = logoLink.getAttribute('href');
+                const pathPrefix = href.replace('index.html', '');
+                pathToContribute = pathPrefix + 'contribute.html';
+            } else {
+                pathToContribute = 'contribute.html';
+            }
+
+            // Detect if we are on the contribute page to mark it active
+            const isContributePage = window.location.pathname.endsWith('contribute.html');
+            const activeClass = isContributePage ? ' class="active"' : '';
+
+            const contributeLi = document.createElement('li');
+            contributeLi.className = 'mobile-only';
+            contributeLi.innerHTML = `<a href="${pathToContribute}"${activeClass}>${langData.contribute}</a>`;
+            navUl.appendChild(contributeLi);
+
             const langLi = document.createElement('li');
             langLi.className = 'lang-switcher-item mobile-only';
             langLi.innerHTML = `
