@@ -16,13 +16,13 @@ ARTICLES = {
         "nav_synagogues": "Synagogues",
         "nav_chazanim": "Chazanim",
         "bc_home": "Home",
-        "bc_history": "History",
+        "bc_history": "Articles",
         "bc_active": "Sholem Aleichem's Motl",
         "h1": "Antwerp Through the Eyes of Sholem Aleichem's <em>Motl the Cantor's Son</em>",
         "subtitle": "Sholem Aleichem's depiction of Antwerp in his final Yiddish masterpiece, reflecting the historical reality of Jewish mass migration.",
         "path_prefix": "../",
         "rel_root": "../",
-        "out_path": os.path.join(WORKSPACE_DIR, "history", "sholem-aleichem-motl.html"),
+        "out_path": os.path.join(WORKSPACE_DIR, "articles", "sholem-aleichem-motl.html"),
         "author": "Sholem Aleichem",
         "published": "June 25, 2026",
         "reading_time": "4 min read",
@@ -104,13 +104,13 @@ ARTICLES = {
         "nav_synagogues": "Synagogen",
         "nav_chazanim": "Chazaniem",
         "bc_home": "Thuis",
-        "bc_history": "Geschiedenis",
+        "bc_history": "Artikelen",
         "bc_active": "Sholem Aleichems Motl",
         "h1": "Antwerpen door de ogen van Sholem Aleichems <em>Motl de Chazans zoon</em>",
         "subtitle": "Sholem Aleichems beschrijving van Antwerpen in zijn laatste Jiddische meesterwerk, die de historische realiteit van de Joodse massamigratie weerspiegelt.",
         "path_prefix": "../../",
         "rel_root": "../",
-        "out_path": os.path.join(WORKSPACE_DIR, "nl", "history", "sholem-aleichem-motl.html"),
+        "out_path": os.path.join(WORKSPACE_DIR, "nl", "articles", "sholem-aleichem-motl.html"),
         "author": "Sholem Aleichem",
         "published": "25 juni 2026",
         "reading_time": "4 min. leestijd",
@@ -192,13 +192,13 @@ ARTICLES = {
         "nav_synagogues": "Synagogues",
         "nav_chazanim": "Chazanim",
         "bc_home": "Maison",
-        "bc_history": "Histoire",
+        "bc_history": "Articles",
         "bc_active": "Motl de Sholem Aleichem",
         "h1": "Anvers à travers les yeux de <em>Motl, fils du chantre</em> de Sholem Aleichem",
         "subtitle": "La description d'Anvers par Sholem Aleichem dans son dernier chef-d'œuvre yiddish, reflétant la réalité historique de la migration de masse juive.",
         "path_prefix": "../../",
         "rel_root": "../",
-        "out_path": os.path.join(WORKSPACE_DIR, "fr", "history", "sholem-aleichem-motl.html"),
+        "out_path": os.path.join(WORKSPACE_DIR, "fr", "articles", "sholem-aleichem-motl.html"),
         "author": "Sholem Aleichem",
         "published": "25 juin 2026",
         "reading_time": "4 min de lecture",
@@ -280,13 +280,13 @@ ARTICLES = {
         "nav_synagogues": "בתי כנסת",
         "nav_chazanim": "חזנים",
         "bc_home": "בַּיִת",
-        "bc_history": "הִיסטוֹרִיָה",
+        "bc_history": "מאמרים",
         "bc_active": "מוטל של שלום עליכם",
         "h1": "אנטוורפן בעיניו של מוטל בן החזן של שלום עליכם",
         "subtitle": "תיאורו של אנטוורפן על ידי שלום עליכם ביצירת המופת יידית האחרונה שלו, המשקפת את המציאות ההיסטורית של הגירה המונית יהודית.",
         "path_prefix": "../../",
         "rel_root": "../",
-        "out_path": os.path.join(WORKSPACE_DIR, "he", "history", "sholem-aleichem-motl.html"),
+        "out_path": os.path.join(WORKSPACE_DIR, "he", "articles", "sholem-aleichem-motl.html"),
         "author": "שלום עליכם",
         "published": "25 ביוני 2026",
         "reading_time": "4 דקות קריאה",
@@ -392,9 +392,9 @@ TEMPLATE = """<!doctype html>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="{rel_root}index.html">{nav_home}</a></li>
-                        <li><a href="{rel_root}history.html" class="active">{nav_history}</a></li>
+                        <li><a href="{rel_root}history.html">{nav_history}</a></li>
                         <li><a href="{rel_root}holocaust/holocaust.html">{nav_holocaust}</a></li>
-                        <li><a href="{rel_root}articles.html">{nav_articles}</a></li>
+                        <li><a href="{rel_root}articles.html" class="active">{nav_articles}</a></li>
                         <li><a href="{rel_root}rabbis.html">{nav_rabbis}</a></li>
                         <li><a href="{rel_root}synagogues.html">{nav_synagogues}</a></li>
                         <li><a href="{rel_root}chazanim.html">{nav_chazanim}</a></li>
@@ -409,7 +409,7 @@ TEMPLATE = """<!doctype html>
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{rel_root}index.html" class="breadcrumb-link">{bc_home}</a></li>
-                        <li class="breadcrumb-item"><a href="{rel_root}history.html" class="breadcrumb-link">{bc_history}</a></li>
+                        <li class="breadcrumb-item"><a href="{rel_root}articles.html" class="breadcrumb-link">{bc_history}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{bc_active}</li>
                     </ol>
                 </nav>

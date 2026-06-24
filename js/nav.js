@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article", titleNl: "Joodse Weeshuizen", titleFr: "Orphelinats juifs", titleHe: "בתי יתומים יהודיים" },
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article", titleNl: "Kazerne Dossin", titleFr: "Caserne Dossin", titleHe: "קסרקטין דוסין (מכלן)" },
         { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית של אנטוורפן" },
-        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "history/cuba-connection.html", type: "Article", titleHe: "הבריחה להוואנה: סנט לואיס ומקלט היהלומים של קובה" },
-        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "history/chida-journey-antwerp-belgium.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
-        { title: "Antwerp Through the Eyes of Sholem Aleichem's Motl the Cantor's Son", url: "history/sholem-aleichem-motl.html", type: "Article", titleNl: "Antwerpen door de ogen van Sholem Aleichems Motl de Chazans zoon", titleFr: "Anvers à travers les yeux de Motl, fils du chantre de Sholem Aleichem", titleHe: "אנטוורפן בעיניו של מוטל בן החזן של שלום עליכם" },
+        { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "articles/cuba-connection.html", type: "Article", titleHe: "הבריחה להוואנה: סנט לואיס ומקלט היהלומים של קובה" },
+        { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "articles/chida-journey-antwerp-belgium.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
+        { title: "Antwerp Through the Eyes of Sholem Aleichem's Motl the Cantor's Son", url: "articles/sholem-aleichem-motl.html", type: "Article", titleNl: "Antwerpen door de ogen van Sholem Aleichems Motl de Chazans zoon", titleFr: "Anvers à travers les yeux de Motl, fils du chantre de Sholem Aleichem", titleHe: "אנטוורפן בעיניו של מוטל בן החזן של שלום עליכם" },
 
 
         // Synagogues
