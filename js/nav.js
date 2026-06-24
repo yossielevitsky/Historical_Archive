@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             types: {
                 page: "Page",
                 article: "Article",
+                research: "Research",
                 synagogue: "Synagogue",
                 rabbi: "Rabbi",
                 place: "Place",
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             types: {
                 page: "Pagina",
                 article: "Artikel",
+                research: "Onderzoek",
                 synagogue: "Synagoge",
                 rabbi: "Rabbijn",
                 place: "Plaats",
@@ -63,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             types: {
                 page: "Page",
                 article: "Article",
+                research: "Recherche",
                 synagogue: "Synagogue",
                 rabbi: "Rabbin",
                 place: "Lieu",
@@ -79,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             types: {
                 page: "דף",
                 article: "מאמר",
+                research: "מחקר",
                 synagogue: "בית כנסת",
                 rabbi: "רב",
                 place: "מקום",
@@ -107,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page", titleNl: "De Holocaust", titleFr: "La Shoah", titleHe: "השואה" },
         { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Article", titleNl: "Rechtvaardigen onder de Volkeren", titleFr: "Justes parmi les nations", titleHe: "חסידי אומות העולם" },
         { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Article", titleNl: "Gedenktekens & Monumenten", titleFr: "Mémoriaux & Monuments", titleHe: "אנדרטאות ומונומנטים" },
-        { title: "Names Database", url: "holocaust/names.html", type: "Article", titleNl: "Namen Database", titleFr: "Base de données des noms", titleHe: "מאגר שמות" },
+        { title: "Names Database", url: "holocaust/names.html", type: "Research", titleNl: "Namen Database", titleFr: "Base de données des noms", titleHe: "מאגר שמות" },
         { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article", titleNl: "Joodse Weeshuizen", titleFr: "Orphelinats juifs", titleHe: "בתי יתומים יהודיים" },
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article", titleNl: "Kazerne Dossin", titleFr: "Caserne Dossin", titleHe: "קסרקטין דוסין (מכלן)" },
         { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית של אנטוורפן" },
