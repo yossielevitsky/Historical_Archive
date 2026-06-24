@@ -46,7 +46,7 @@ def get_priority_and_changefreq(rel_path):
     if check_path == "index.html":
         # Root language landing pages get 0.9, root site gets 1.0
         return ("1.0" if rel_path == "index.html" else "0.9"), "weekly"
-    elif check_path in ["history.html", "rabbis.html", "synagogues.html", "contribute.html", "holocaust/holocaust.html"]:
+    elif check_path in ["history.html", "rabbis.html", "chazanim.html", "synagogues.html", "contribute.html", "holocaust/holocaust.html"]:
         return "0.8", "weekly"
     else:
         return "0.6", "monthly"

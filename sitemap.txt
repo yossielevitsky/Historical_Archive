@@ -1,6 +1,8 @@
 https://jewishantwerparchive.org/articles.html
+https://jewishantwerparchive.org/chazanim.html
 https://jewishantwerparchive.org/contribute.html
 https://jewishantwerparchive.org/fr/articles.html
+https://jewishantwerparchive.org/fr/chazanim.html
 https://jewishantwerparchive.org/fr/contribute.html
 https://jewishantwerparchive.org/fr/history.html
 https://jewishantwerparchive.org/fr/history/1980-terrorist-attack.html
@@ -84,6 +86,7 @@ https://jewishantwerparchive.org/fr/synagogues/wiznitz-2.html
 https://jewishantwerparchive.org/fr/synagogues/wiznitz-synagogue.html
 https://jewishantwerparchive.org/fr/synagogues/zichron-benjamin.html
 https://jewishantwerparchive.org/he/articles.html
+https://jewishantwerparchive.org/he/chazanim.html
 https://jewishantwerparchive.org/he/contribute.html
 https://jewishantwerparchive.org/he/history.html
 https://jewishantwerparchive.org/he/history/1980-terrorist-attack.html
@@ -192,6 +195,7 @@ https://jewishantwerparchive.org/holocaust/orphanages.html
 https://jewishantwerparchive.org/holocaust/righteous.html
 https://jewishantwerparchive.org/
 https://jewishantwerparchive.org/nl/articles.html
+https://jewishantwerparchive.org/nl/chazanim.html
 https://jewishantwerparchive.org/nl/contribute.html
 https://jewishantwerparchive.org/nl/history.html
 https://jewishantwerparchive.org/nl/history/1980-terrorist-attack.html

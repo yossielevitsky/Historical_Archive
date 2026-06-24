@@ -16,11 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close menu when a link is clicked
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', (e) => {
-                // Don't close if it's the dropdown toggle
-                if (link.classList.contains('dropbtn')) {
-                    return;
-                }
-
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', false);
@@ -32,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         en: {
             placeholder: "Search...",
+            contribute: "Contribute",
             types: {
                 page: "Page",
                 article: "Article",
@@ -47,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         nl: {
             placeholder: "Zoeken...",
+            contribute: "Bijdragen",
             types: {
                 page: "Pagina",
                 article: "Artikel",
@@ -62,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         fr: {
             placeholder: "Rechercher...",
+            contribute: "Contribuer",
             types: {
                 page: "Page",
                 article: "Article",
@@ -77,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         he: {
             placeholder: "חיפוש...",
+            contribute: "לתרום",
             types: {
                 page: "דף",
                 article: "מאמר",
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Home", url: "index.html", type: "Page", titleNl: "Home", titleFr: "Accueil", titleHe: "בית" },
         { title: "History of Jewish Antwerp", url: "history.html", type: "Page", titleNl: "Volledige geschiedenis", titleFr: "Histoire complète", titleHe: "היסטוריה מלאה" },
         { title: "Rabbis", url: "rabbis.html", type: "Page", titleNl: "Rabbijnen", titleFr: "Rabbins", titleHe: "רבנים" },
+        { title: "Chazanim", url: "chazanim.html", type: "Page", titleNl: "Chazaniem", titleFr: "Chazanim", titleHe: "חזנים" },
         { title: "Synagogues", url: "synagogues.html", type: "Page", titleNl: "Synagogen", titleFr: "Synagogues", titleHe: "בתי כנסת" },
         { title: "Contribute", url: "contribute.html", type: "Page", titleNl: "Bijdragen", titleFr: "Contribuer", titleHe: "לתרום" },
 
@@ -182,42 +182,119 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // New pages added in June 2026
         { title: "Jozef Sterngold", url: "people/jozef-sterngold.html", type: "Person", titleNl: "Jozef Sterngold", titleFr: "Jozef Sterngold", titleHe: "יוזף שטרנגולד" },
-        { title: "April 1943 attack", url: "history/april-1943-attack.html", type: "Event", titleNl: "De aanval van april 1943", titleFr: "L'attaque d'avril 1943", titleHe: "ההתקפה של אפריל 1943" }
+        { title: "April 1943 attack", url: "history/april-1943-attack.html", type: "Event", titleNl: "De aanval van april 1943", titleFr: "L'attaque d'avril 1943", titleHe: "ההתקפה של אפריל 1943" },
+
+        // Chazanim
+        { title: "Benjamin Muller", url: "chazanim.html", type: "Person", titleHe: "בנימין מילר" },
+        { title: "Yossi Muller", url: "chazanim.html", type: "Person", titleHe: "יוסי מילר" },
+        { title: "Benzion Moskovitz", url: "chazanim.html", type: "Person", titleHe: "בנציון מוסקוביץ" },
+        { title: "Abraham Jelenko", url: "chazanim.html", type: "Person", titleHe: "אברהם ילנקו" },
+        { title: "Simon Davidovic", url: "chazanim.html", type: "Person", titleHe: "שמעון דוידוביץ" },
+        { title: "Uscher Felder", url: "chazanim.html", type: "Person", titleHe: "אשר פלדר" },
+        { title: "Jacob Feldinger", url: "chazanim.html", type: "Person", titleHe: "יעקב פלדינגר" }
     ];
 
     const headerContent = document.querySelector('.header-content');
 
     // Inject Search HTML if header exists
     if (headerContent) {
+        // 1. Header-only search wrapper (visible on desktop, hidden on mobile)
         const searchWrapper = document.createElement('div');
-        searchWrapper.className = 'search-wrapper';
+        searchWrapper.className = 'search-wrapper header-only';
         searchWrapper.innerHTML = `
-            <input type="text" id="searchInput" placeholder="${langData.placeholder}" autocomplete="off">
-            <div id="searchResults" class="search-results"></div>
+            <input type="text" placeholder="${langData.placeholder}" autocomplete="off">
+            <div class="search-results"></div>
         `;
 
-        // Insert before hamburger for desktop layout preference (Logo - Search - Hamburger - Nav)
-        // Or append to end. 
-        // Appending to end puts it after Nav.
-        // Inserting before Nav?
-        // Create list item wrapper for search
-        const searchLi = document.createElement('li');
-        searchLi.className = 'mobile-search-item';
-        searchLi.appendChild(searchWrapper);
-
-        const navUl = document.querySelector('.main-nav ul');
-        if (navUl) {
-            navUl.appendChild(searchLi);
+        const hamburgerBtn = headerContent.querySelector('.hamburger');
+        
+        // 1b. Header-only Contribute button (visible on desktop, hidden on mobile)
+        let pathToContribute = '';
+        const headerLogoLink = headerContent.querySelector('.logo a');
+        if (headerLogoLink) {
+            const href = headerLogoLink.getAttribute('href');
+            const pathPrefix = href.replace('index.html', '');
+            pathToContribute = pathPrefix + 'contribute.html';
         } else {
-            // Fallback for non-standard layout
-            headerContent.appendChild(searchWrapper);
+            pathToContribute = 'contribute.html';
         }
 
-        // Logic
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
+        const contributeBtn = document.createElement('a');
+        contributeBtn.href = pathToContribute;
+        contributeBtn.className = 'btn contribute-btn header-only';
+        contributeBtn.textContent = langData.contribute;
 
-        if (searchInput && searchResults) {
+        if (hamburgerBtn) {
+            headerContent.insertBefore(searchWrapper, hamburgerBtn);
+            headerContent.insertBefore(contributeBtn, hamburgerBtn);
+        } else {
+            headerContent.appendChild(searchWrapper);
+            headerContent.appendChild(contributeBtn);
+        }
+
+        // Inject header language switcher directly under header-content
+        const langWrapper = document.createElement('div');
+        langWrapper.className = 'lang-switcher-wrapper header-only';
+        langWrapper.innerHTML = `
+            <div class="lang-switcher">
+                <button class="lang-btn" aria-expanded="false">
+                    <span class="lang-current">EN</span>
+                    <span class="lang-arrow">▼</span>
+                </button>
+                <ul class="lang-dropdown">
+                    <li><a href="#" class="lang-option active" data-lang="en">English</a></li>
+                    <li><a href="#" class="lang-option" data-lang="nl">Nederlands</a></li>
+                    <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    <li><a href="#" class="lang-option" data-lang="he">עברית</a></li>
+                </ul>
+            </div>
+        `;
+        if (hamburgerBtn) {
+            headerContent.insertBefore(langWrapper, hamburgerBtn);
+        } else {
+            headerContent.appendChild(langWrapper);
+        }
+
+        // Inject mobile drawer language switcher under nav list
+        const navUl = document.querySelector('.main-nav ul');
+        if (navUl) {
+            const langLi = document.createElement('li');
+            langLi.className = 'lang-switcher-item mobile-only';
+            langLi.innerHTML = `
+                <div class="lang-switcher">
+                    <button class="lang-btn" aria-expanded="false">
+                        <span class="lang-current">EN</span>
+                        <span class="lang-arrow">▼</span>
+                    </button>
+                    <ul class="lang-dropdown">
+                        <li><a href="#" class="lang-option active" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="nl">Nederlands</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                        <li><a href="#" class="lang-option" data-lang="he">עברית</a></li>
+                    </ul>
+                </div>
+            `;
+            navUl.appendChild(langLi);
+
+            // 2. Mobile-only drawer search wrapper (inserted at the very top of drawer list)
+            const searchLi = document.createElement('li');
+            searchLi.className = 'mobile-search-item mobile-only';
+            const mobileSearchWrapper = document.createElement('div');
+            mobileSearchWrapper.className = 'search-wrapper';
+            mobileSearchWrapper.innerHTML = `
+                <input type="text" placeholder="${langData.placeholder}" autocomplete="off">
+                <div class="search-results"></div>
+            `;
+            searchLi.appendChild(mobileSearchWrapper);
+            navUl.insertBefore(searchLi, navUl.firstChild);
+        }
+
+        // Dynamic Search Logic for both wrappers
+        const setupSearch = (wrapper) => {
+            const searchInput = wrapper.querySelector('input');
+            const searchResults = wrapper.querySelector('.search-results');
+            if (!searchInput || !searchResults) return;
+
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
                 searchResults.innerHTML = '';
@@ -253,8 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const homeLink = document.querySelector('.main-nav a[href$="index.html"]');
                     if (homeLink) {
                         const href = homeLink.getAttribute('href');
-                        // If href is "index.html", prefix is ""
-                        // If href is "../index.html", prefix is "../"
                         pathPrefix = href.replace('index.html', '');
                     }
 
@@ -280,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="search-item-type">${displayType}</span>
                         `;
                         div.addEventListener('click', (e) => {
-                            // Allow default navigation
                             searchResults.classList.remove('active');
                             searchInput.value = '';
                         });
@@ -294,69 +368,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Close when clicking outside
             document.addEventListener('click', (e) => {
-                if (!searchWrapper.contains(e.target)) {
+                if (!wrapper.contains(e.target)) {
                     searchResults.classList.remove('active');
                 }
             });
+        };
+
+        // Setup all search wrappers on the page
+        document.querySelectorAll('.search-wrapper').forEach(setupSearch);
+
+        // 3. Language Switcher Logic (runs on all .lang-switcher instances on the page)
+        const logoLink = document.querySelector('.logo a');
+        let depth = 0;
+        let pathToLangRoot = '';
+        if (logoLink) {
+            const href = logoLink.getAttribute('href');
+            const matches = href.match(/\.\.\//g);
+            depth = matches ? matches.length : 0;
+            pathToLangRoot = href.replace('index.html', '');
         }
 
-        // 3. Language Switcher Injection
-        const langLi = document.createElement('li');
-        langLi.className = 'lang-switcher-item';
-        langLi.innerHTML = `
-            <div class="lang-switcher">
-                <button class="lang-btn" aria-expanded="false">
-                    <span class="lang-current">EN</span>
-                    <span class="lang-arrow">▼</span>
-                </button>
-                <ul class="lang-dropdown">
-                    <li><a href="#" class="lang-option active" data-lang="en">English</a></li>
-                    <li><a href="#" class="lang-option" data-lang="nl">Nederlands</a></li>
-                    <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
-                    <li><a href="#" class="lang-option" data-lang="he">עברית</a></li>
-                </ul>
-            </div>
-        `;
-
-        if (navUl) {
-            navUl.appendChild(langLi);
+        let pathToSiteRoot = '';
+        if (currentLang === 'en') {
+            pathToSiteRoot = pathToLangRoot;
+        } else {
+            pathToSiteRoot = '../' + pathToLangRoot;
         }
 
-        // Language Switcher Logic
-        const langBtn = langLi.querySelector('.lang-btn');
-        const langDropdown = langLi.querySelector('.lang-dropdown');
+        // Get current page filename relative to language root
+        const segments = window.location.pathname.split('/').filter(Boolean);
+        let relativePagePath = 'index.html';
+        if (segments.length > 0) {
+            const lastSegment = segments[segments.length - 1];
+            if (lastSegment === 'nl' || lastSegment === 'fr' || lastSegment === 'he' || lastSegment === 'en') {
+                relativePagePath = 'index.html';
+            } else {
+                const startIdx = Math.max(0, segments.length - (depth + 1));
+                const pageSegments = segments.slice(startIdx);
+                if (pageSegments.length > 0 && ['nl', 'fr', 'he', 'en'].includes(pageSegments[0])) {
+                    pageSegments.shift();
+                }
+                relativePagePath = pageSegments.join('/') || 'index.html';
+            }
+        }
 
-        if (langBtn && langDropdown) {
-            const currentLang = document.documentElement.lang || 'en';
-            
+        document.querySelectorAll('.lang-switcher').forEach(switcher => {
+            const langBtn = switcher.querySelector('.lang-btn');
+            const langDropdown = switcher.querySelector('.lang-dropdown');
+            if (!langBtn || !langDropdown) return;
+
             // Set current language display
             langBtn.querySelector('.lang-current').textContent = currentLang === 'he' ? 'עב' : currentLang.toUpperCase();
-
-            // Calculate paths to roots
-            const logoLink = document.querySelector('.logo a');
-            let depth = 0;
-            let pathToLangRoot = '';
-            if (logoLink) {
-                const href = logoLink.getAttribute('href');
-                const matches = href.match(/\.\.\//g);
-                depth = matches ? matches.length : 0;
-                pathToLangRoot = href.replace('index.html', '');
-            }
-
-            let pathToSiteRoot = '';
-            if (currentLang === 'en') {
-                pathToSiteRoot = pathToLangRoot;
-            } else {
-                pathToSiteRoot = '../' + pathToLangRoot;
-            }
-
-            // Get current page filename relative to language root
-            const segments = window.location.pathname.split('/');
-            const pagePathSegments = segments.slice(segments.length - (depth + 1));
-            let relativePagePath = pagePathSegments.join('/');
-            if (!relativePagePath || relativePagePath.endsWith('/')) {
-                relativePagePath = 'index.html';
-            }
 
             // Update each option's href
             langDropdown.querySelectorAll('.lang-option').forEach(option => {
@@ -389,45 +451,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Close when clicking outside
             document.addEventListener('click', (e) => {
-                if (!langLi.contains(e.target)) {
+                if (!switcher.contains(e.target)) {
                     langDropdown.classList.remove('active');
                     langBtn.setAttribute('aria-expanded', 'false');
                 }
             });
-        }
+        });
     }
 
-    // 4. History Dropdown Click Logic
-    const historyLinks = document.querySelectorAll('.dropdown > a');
-
-    historyLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const dropdownContent = link.nextElementSibling;
-
-            // Close other dropdowns if we add more in the future
-            document.querySelectorAll('.dropdown-content').forEach(content => {
-                if (content !== dropdownContent) {
-                    content.classList.remove('show');
-                }
-            });
-
-            if (dropdownContent) {
-                dropdownContent.classList.toggle('show');
-            }
-        });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown-content.show').forEach(content => {
-                content.classList.remove('show');
-            });
-        }
-    });
 
     // 5. Historical Tooltip Logic
     // Scan the page for all internal article links and convert them to tooltip triggers dynamically
@@ -439,6 +470,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const href = link.getAttribute('href');
         if (!href) return;
+
+        // Skip breadcrumbs
+        if (link.closest('.breadcrumb-nav') || link.classList.contains('breadcrumb-link')) {
+            return;
+        }
 
         // Skip anchors, mailto, tel, external, and javascript links
         if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || 

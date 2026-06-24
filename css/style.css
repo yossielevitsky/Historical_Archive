@@ -165,7 +165,7 @@ h3 {
 
 /* ... */
 
-#searchInput {
+.search-wrapper input {
     width: 100%;
     padding: 0.5rem 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -178,7 +178,7 @@ h3 {
     transition: all 0.3s ease;
 }
 
-#searchInput:focus {
+.search-wrapper input:focus {
     border-color: var(--color-gold);
     box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
 }
@@ -321,58 +321,7 @@ h3 {
 }
 
 
-/* Dropdown Menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--color-slate);
-    min-width: 200px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1002;
-    top: 100%;
-    left: 0;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 0;
-    flex-direction: column;
-}
-
-
-.dropdown-content a {
-    color: var(--color-text-main);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-transform: none;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #333;
-    white-space: nowrap;
-
-}
-
-.dropdown-content a::after {
-    display: none;
-    /* Remove underline animation for dropdown items */
-}
-
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-.dropdown-content a:hover {
-    background-color: #383838;
-    color: var(--color-gold);
-}
-
-.dropdown-content.show {
-    display: flex;
-    /* Show as flex to keep column direction */
-}
 
 /* Language Switcher */
 .lang-switcher-item {
@@ -413,7 +362,7 @@ h3 {
     transform: rotate(180deg);
 }
 
-.main-nav .lang-dropdown {
+.lang-dropdown {
     position: absolute;
     top: 100%;
     right: 0;
@@ -427,18 +376,18 @@ h3 {
     margin-top: 0.5rem;
     display: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
+    z-index: 1010; /* Increased to sit in front of main navigation menu */
     flex-direction: column !important;
     /* Ensure vertical list */
     gap: 0 !important;
     /* Override main-nav ul gap */
 }
 
-.main-nav .lang-dropdown.active {
+.lang-dropdown.active {
     display: flex !important;
 }
 
-.main-nav .lang-dropdown li {
+.lang-dropdown li {
     width: 100%;
 }
 
@@ -491,7 +440,7 @@ h3 {
         background-color: #252525;
     }
 
-    .main-nav .lang-dropdown {
+    .lang-dropdown {
         position: static;
         width: 100%;
         box-shadow: none;
@@ -500,7 +449,7 @@ h3 {
         margin-top: 0;
     }
 
-    .main-nav .lang-dropdown li {
+    .lang-dropdown li {
         border-bottom: none;
     }
 
@@ -513,7 +462,7 @@ h3 {
 
 /* Hamburger Menu */
 .hamburger {
-    display: none;
+    display: block;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -959,6 +908,11 @@ h3 {
         order: -1;
     }
 
+    .main-header {
+        height: auto !important;
+        min-height: 70px;
+    }
+
     .header-content {
         position: relative;
         flex-direction: row;
@@ -1007,6 +961,16 @@ h3 {
         /* Place after nav */
     }
 
+    .search-wrapper.header-only {
+        display: none !important;
+    }
+
+    .mobile-search-item {
+        width: 100%;
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+
     .search-results {
         width: 100%;
         position: relative;
@@ -1023,20 +987,20 @@ h3 {
         gap: 0;
         width: 280px;
         /* Fixed width drawer */
-        height: 100vh;
+        height: calc(100vh - 100%);
         background-color: var(--color-slate);
         border-right: 1px solid #444;
         border-left: none;
-        position: fixed;
-        top: 0;
-        left: -100%;
+        position: absolute;
+        top: 100%;
+        left: -280px;
         right: auto;
         /* Hidden off-screen */
-        box-shadow: 4px 0 12px rgba(0, 0, 0, 0.5);
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
         z-index: 1000;
         transition: left 0.3s ease-in-out;
-        padding-top: 80px;
-        /* Space for close button area if needed, or just padding */
+        padding-top: 20px;
+        overflow-y: auto;
     }
 
     .main-nav ul.active {
@@ -1073,11 +1037,7 @@ h3 {
     }
 
 
-    /* Mobile Dropdown adjustment */
-    .dropdown-content {
-        left: -40%;
-        text-align: left;
-    }
+
 
     /* Remove old animation keyframes if no longer needed or keep for other uses, replacing simplified here */
 
@@ -2602,11 +2562,12 @@ h3 {
 
 @media (max-width: 768px) {
     [dir="rtl"] .main-nav ul {
+        position: absolute;
         left: auto;
-        right: -100%;
+        right: -280px;
         border-left: 1px solid #444;
         border-right: none;
-        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+        box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.5);
         transition: right 0.3s ease-in-out;
     }
 
@@ -2867,6 +2828,8 @@ h3 {
 /* Tooltip Card Styling (Wikipedia Page Preview style but matching site theme) */
 .historical-tooltip {
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1000;
     width: 450px;
     min-height: 200px;
@@ -3079,4 +3042,140 @@ h3 {
         color: #ffffff; /* Make it highly visible over the image */
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
-}
+}
+
+/* Desktop Collapsed Navigation Dropdown Styling */
+@media (min-width: 901px) {
+    .header-content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .logo {
+        margin-right: auto;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    /* Reset hamburger styling on desktop to behave as a flex item */
+    .hamburger {
+        position: static;
+        transform: none;
+        margin: 0;
+    }
+
+    /* Style the main-nav container */
+    .main-nav {
+        position: static; /* Allows full-width absolute positioning of ul relative to header */
+        margin-left: 0;
+    }
+
+    /* Style the navigation links as a full-width horizontal bar dropdown */
+    .main-nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--color-slate);
+        border-top: 1px solid #444;
+        border-bottom: 1px solid #444;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        padding: 1.25rem 2rem;
+        z-index: 1001;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2.2rem;
+        margin-top: 0;
+    }
+
+    .main-nav ul.active {
+        display: flex;
+    }
+
+    .main-nav li {
+        width: auto;
+    }
+
+    .main-nav a {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--color-text-main);
+        padding: 0.5rem 0;
+        position: relative;
+        border-bottom: none;
+        display: inline-block;
+        text-align: center;
+    }
+
+    /* Re-enable hover underline animation for horizontal desktop menu items */
+    .main-nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--color-gold);
+        transition: width 0.3s ease;
+        display: block !important;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+        width: 100%;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        color: var(--color-gold);
+        background-color: transparent;
+    }
+
+
+
+    /* Hide language options meant for mobile drawer */
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+/* Language switchers configuration */
+.lang-switcher-wrapper.header-only {
+    display: block;
+}
+
+.lang-switcher-item.mobile-only {
+    display: none;
+}
+
+.contribute-btn.header-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .lang-switcher-wrapper.header-only {
+        display: none !important;
+    }
+
+    .lang-switcher-item.mobile-only {
+        display: block !important;
+    }
+
+    .contribute-btn.header-only {
+        display: none !important;
+    }
+}
+
