@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 image: '',
                 en: { title: 'The April 1943 Attack', years: '', desc: 'On April 19, 1943, three Belgian resistance members stopped the Twentieth Convoy transport train carrying Jewish deportees from Dossin Barracks to Auschwitz, enabling 233 prisoners to escape.' },
                 nl: { title: 'De aanval van april 1943', years: '', desc: 'Op 19 april 1943 hielden drie Belgische verzetsleden de trein van het Twintigste Transport tegen, die joodse gedeporteerden van de Dossinkazerne naar Auschwitz vervoerde, waardoor 233 gevangenen konden ontsnappen.' },
-                fr: { title: 'L'attaque d'avril 1943', years: '', desc: 'Le 19 avril 1943, trois résistants belges ont arrêté le train du XXe convoi transportant des déportés juifs de la caserne Dossin vers Auschwitz, permettant à 233 prisonniers de s\'échapper.' },
+                fr: { title: 'L\'attaque d\'avril 1943', years: '', desc: 'Le 19 avril 1943, trois résistants belges ont arrêté le train du XXe convoi transportant des déportés juifs de la caserne Dossin vers Auschwitz, permettant à 233 prisonniers de s\'échapper.' },
                 he: { title: 'ההתקפה של אפריל 1943', years: '', desc: 'ב-19 באפריל 1943, שלושה חברי מחתרת בלגים עצרו את רכבת המשלוח של השיירה העשרים שהובילה מגורשים יהודים מקסרקטין דוסין לאושוויץ, ואפשרו ל-233 אסירים להימלט.' }
             },
             'dossin-barracks': {
@@ -599,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 image: '',
                 en: { title: 'Antwerp Pogrom', years: '', desc: 'The Antwerp Pogrom occurred on Easter Monday, April 14, 1941, when violent pro-Nazi collaborators attacked the Jewish quarter, setting fire to the Eisenmann and Van Den Nestlei synagogues and assaulting Jewish residents.' },
                 nl: { title: 'Antwerpse pogrom', years: '', desc: 'De Antwerpse Pogrom vond plaats op paasmaandag 14 april 1941, toen pro-nazicollaborateurs de joodse wijk aanvielen, de synagogen Eisenmann en Van Den Nestlei in brand staken en joodse bewoners mishandelden.' },
-                fr: { title: 'Pogrom d'Anvers', years: '', desc: 'Le pogrom d\'Anvers a eu lieu le lundi de Pâques 14 avril 1941, lorsque des collaborateurs pro-nazis ont attaqué le quartier juif, incendiant les synagogues Eisenmann et Van Den Nestlei et agressant des résidents juifs.' },
+                fr: { title: 'Pogrom d\'Anvers', years: '', desc: 'Le pogrom d\'Anvers a eu lieu le lundi de Pâques 14 avril 1941, lorsque des collaborateurs pro-nazis ont attaqué le quartier juif, incendiant les synagogues Eisenmann et Van Den Nestlei et agressant des résidents juifs.' },
                 he: { title: 'פוגרום אנטוורפן', years: '', desc: 'פוגרום אנטוורפן התרחש ביום שני של פסחא, 14 באפריל 1941, כאשר משתפי פעולה פרו-נאצים תקפו את הרובע היהודי, הציתו את בתי הכנסת אייזנמן וואן דן נסטליי ותקפו תושבים יהודים.' }
             },
             'belgian-revolution-1830': {
