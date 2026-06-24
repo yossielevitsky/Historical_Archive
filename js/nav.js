@@ -534,17 +534,17 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'jozef-sterngold': {
                 image: '',
-                en: { title: 'Jozef Sterngold', years: '', desc: '' },
-                nl: { title: 'Jozef Sterngold', years: '', desc: '' },
-                fr: { title: 'Jozef Sterngold', years: '', desc: '' },
-                he: { title: 'יוזף שטרנגולד', years: '', desc: '' }
+                en: { title: 'Jozef Sterngold', years: '', desc: 'Jozef Sterngold was a key figure in the Belgian Jewish resistance (CDJ) during WWII, saving children and hiding refugees, and subsequently led the post-war rebuilding of Antwerp\'s Jewish institutions.' },
+                nl: { title: 'Jozef Sterngold', years: '', desc: 'Jozef Sterngold was een sleutelfiguur in het Belgisch-joodse verzet (CDJ) tijdens de Tweede Wereldoorlog. Hij redde kinderen en hielp onderduikers, en leidde daarna de naoorlogse wederopbouw van joodse instellingen.' },
+                fr: { title: 'Jozef Sterngold', years: '', desc: 'Jozef Sterngold fut une figure clé de la résistance juive belge (CDJ) pendant la guerre, sauvant des enfants et cachant des réfugiés, puis dirigea la reconstruction d\'après-guerre des institutions juives d\'Anvers.' },
+                he: { title: 'יוזף שטרנגולד', years: '', desc: 'יוזף שטרנגולד היה דמות מפתח במחתרת היהודית בבלגיה (CDJ) במהלך מלחמת העולם השנייה, והציל ילדים ופליטים במקומות מסתור, ובהמשך הוביל את שיקום המוסדות היהודיים באנטוורפן לאחר המלחמה.' }
             },
             'april-1943-attack': {
                 image: '',
-                en: { title: 'The April 1943 Attack', years: '', desc: '' },
-                nl: { title: 'De aanval van april 1943', years: '', desc: '' },
-                fr: { title: "L'attaque d'avril 1943", years: '', desc: '' },
-                he: { title: 'ההתקפה של אפריל 1943', years: '', desc: '' }
+                en: { title: 'The April 1943 Attack', years: '', desc: 'On April 19, 1943, three Belgian resistance members stopped the Twentieth Convoy transport train carrying Jewish deportees from Dossin Barracks to Auschwitz, enabling 233 prisoners to escape.' },
+                nl: { title: 'De aanval van april 1943', years: '', desc: 'Op 19 april 1943 hielden drie Belgische verzetsleden de trein van het Twintigste Transport tegen, die joodse gedeporteerden van de Dossinkazerne naar Auschwitz vervoerde, waardoor 233 gevangenen konden ontsnappen.' },
+                fr: { title: 'L'attaque d'avril 1943', years: '', desc: 'Le 19 avril 1943, trois résistants belges ont arrêté le train du XXe convoi transportant des déportés juifs de la caserne Dossin vers Auschwitz, permettant à 233 prisonniers de s\'échapper.' },
+                he: { title: 'ההתקפה של אפריל 1943', years: '', desc: 'ב-19 באפריל 1943, שלושה חברי מחתרת בלגים עצרו את רכבת המשלוח של השיירה העשרים שהובילה מגורשים יהודים מקסרקטין דוסין לאושוויץ, ואפשרו ל-233 אסירים להימלט.' }
             },
             'dossin-barracks': {
                 image: '',
@@ -590,24 +590,24 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'red-star-line': {
                 image: '',
-                en: { title: 'Red Star Line', years: '', desc: '' },
-                nl: { title: 'Red Star Line', years: '', desc: '' },
-                fr: { title: 'Red Star Line', years: '', desc: '' },
-                he: { title: 'רד סטאר ליין', years: '', desc: '' }
+                en: { title: 'Red Star Line', years: '', desc: 'The Red Star Line was a shipping line founded in 1871 operating between Antwerp and America. It served as a gateway to the New World for over two million passengers, including hundreds of thousands of Eastern European Jewish emigrants.' },
+                nl: { title: 'Red Star Line', years: '', desc: 'De Red Star Line was een in 1871 opgerichte rederij tussen Antwerpen en Amerika. Het diende als toegangspoort tot de Nieuwe Wereld voor meer dan twee miljoen passagiers, onder wie honderdduizenden Oost-Europese joodse emigranten.' },
+                fr: { title: 'Red Star Line', years: '', desc: 'La Red Star Line était une compagnie maritime fondée en 1871 reliant Anvers à l\'Amérique. Elle a servi de porte d\'entrée vers le Nouveau Monde pour plus de deux millions de passagers, dont des centaines de milliers d\'émigrants juifs d\'Europe de l\'Est.' },
+                he: { title: 'רד סטאר ליין', years: '', desc: 'רד סטאר ליין הייתה חברת ספנות שנוסדה בשנת 1871 וקישרה בין אנטוורפן לאמריקה. היא שימשה שער לעולם החדש עבור למעלה משני מיליון נוסעים, בהם מאות אלפי מהגרים יהודים ממזרח אירופה.' }
             },
             'antwerp-pogrom': {
                 image: '',
-                en: { title: 'Antwerp Pogrom', years: '', desc: '' },
-                nl: { title: 'Antwerpse pogrom', years: '', desc: '' },
-                fr: { title: "Pogrom d'Anvers", years: '', desc: '' },
-                he: { title: 'פוגרום אנטוורפן', years: '', desc: '' }
+                en: { title: 'Antwerp Pogrom', years: '', desc: 'The Antwerp Pogrom occurred on Easter Monday, April 14, 1941, when violent pro-Nazi collaborators attacked the Jewish quarter, setting fire to the Eisenmann and Van Den Nestlei synagogues and assaulting Jewish residents.' },
+                nl: { title: 'Antwerpse pogrom', years: '', desc: 'De Antwerpse Pogrom vond plaats op paasmaandag 14 april 1941, toen pro-nazicollaborateurs de joodse wijk aanvielen, de synagogen Eisenmann en Van Den Nestlei in brand staken en joodse bewoners mishandelden.' },
+                fr: { title: 'Pogrom d'Anvers', years: '', desc: 'Le pogrom d\'Anvers a eu lieu le lundi de Pâques 14 avril 1941, lorsque des collaborateurs pro-nazis ont attaqué le quartier juif, incendiant les synagogues Eisenmann et Van Den Nestlei et agressant des résidents juifs.' },
+                he: { title: 'פוגרום אנטוורפן', years: '', desc: 'פוגרום אנטוורפן התרחש ביום שני של פסחא, 14 באפריל 1941, כאשר משתפי פעולה פרו-נאצים תקפו את הרובע היהודי, הציתו את בתי הכנסת אייזנמן וואן דן נסטליי ותקפו תושבים יהודים.' }
             },
             'belgian-revolution-1830': {
                 image: '',
-                en: { title: 'Belgian Revolution', years: '', desc: '' },
-                nl: { title: 'Belgische Revolutie', years: '', desc: '' },
-                fr: { title: 'Révolution belge', years: '', desc: '' },
-                he: { title: 'המהפכה הבלגית', years: '', desc: '' }
+                en: { title: 'Belgian Revolution', years: '', desc: 'The Belgian Revolution of 1830 led to the secession of the southern provinces from the Netherlands, establishing an independent Kingdom of Belgium. For the Jewish community, the 1831 Constitution brought full civic emancipation and official state recognition of Judaism.' },
+                nl: { title: 'Belgische Revolutie', years: '', desc: 'De Belgische Revolutie van 1830 leidde tot de afscheiding van de zuidelijke provincies van de Nederlanden, waardoor een onafhankelijk België ontstond. Voor de joodse gemeenschap bracht de grondwet van 1831 volledige burgerlijke emancipatie en staatserkenning.' },
+                fr: { title: 'Révolution belge', years: '', desc: 'La Révolution belge de 1830 a conduit à la sécession des provinces du Sud des Pays-Bas, créant une Belgique indépendante. Pour la communauté juive, la Constitution de 1831 a apporté une pleine émancipation civique et la reconnaissance de l\'État.' },
+                he: { title: 'המהפכה הבלגית', years: '', desc: 'המהפכה הבלגית של 1830 הובילה לפרישת המחוזות הדרומיים מארצות השפלה ולהקמת בלגיה העצמאית. עבור הקהילה היהודית, חוקת 1831 הביאה לאמנציפציה אזרחית מלאה ולהכרה רשמית ביהדות על ידי המדינה.' }
             },
             'hollandse-synagoge': {
                 image: '',
@@ -625,17 +625,17 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'jesode-hatorah': {
                 image: '',
-                en: { title: 'Jesode Hatorah', years: '', desc: '' },
-                nl: { title: 'Jesode Hatorah', years: '', desc: '' },
-                fr: { title: 'Jesode Hatora', years: '', desc: '' },
-                he: { title: 'ישודה התורה', years: '', desc: '' }
+                en: { title: 'Jesode Hatorah', years: '', desc: 'Founded in 1895, Jesode Hatorah is the oldest Jewish day school in Antwerp. Closed during WWII and reopened in May 1945, it today serves as a large educational cornerstone for the Haredi community.' },
+                nl: { title: 'Jesode Hatorah', years: '', desc: 'Jesode Hatorah, opgericht in 1895, is de oudste joodse dagschool in Antwerpen. Gesloten tijdens de Tweede Wereldoorlog en heropend in mei 1945, fungeert het vandaag als een grote onderwijshoeksteen voor de Haredi-gemeenschap.' },
+                fr: { title: 'Jesode Hatora', years: '', desc: 'Fondée en 1895, Jesode Hatorah est la plus ancienne école juive d\'Anvers. Fermée pendant la Seconde Guerre mondiale et rouverte en mai 1945, elle est aujourd\'hui un pilier éducatif majeur pour la communauté Haredi.' },
+                he: { title: 'ישודה התורה', years: '', desc: 'יסודי התורה, שנוסד בשנת 1895, הוא בית הספר היומי היהודי הוותיק ביותר באנטוורפן. הוא נסגר במהלך מלחמת העולם השנייה ונפתח מחדש במאי 1945, וכיום משמש כאבן יסוד חינוכית גדולה לקהילה החרדית.' }
             },
             'tachkemoni': {
                 image: '',
-                en: { title: 'Tachkemoni', years: '', desc: '' },
-                nl: { title: 'Tachkemoni', years: '', desc: '' },
-                fr: { title: 'Tachkémoni', years: '', desc: '' },
-                he: { title: 'תחכמוני', years: '', desc: '' }
+                en: { title: 'Tachkemoni', years: '', desc: 'Founded in 1920, the Tachkemoni school in Antwerp was established under the Religious Zionist Mizrachi movement, combining modern Hebrew, Zionist philosophy, traditional religious texts, and secular studies.' },
+                nl: { title: 'Tachkemoni', years: '', desc: 'De in 1920 opgerichte Tachkemoni-school in Antwerpen werd opgezet onder de religieus-zionistische Mizrachi-beweging en combineert modern Hebreeuws, zionistische filosofie, religieuze teksten en seculiere studies.' },
+                fr: { title: 'Tachkémoni', years: '', desc: 'Fondée en 1920, l\'école Tachkemoni d\'Anvers a été créée sous l\'égide du mouvement sioniste religieux Mizrachi, combinant l\'hébreu moderne, la philosophie sioniste, les textes religieux et les études profanes.' },
+                he: { title: 'תחכמוני', years: '', desc: 'בית ספר תחכמוני באנטוורפן, שנוסד בשנת 1920, הוקם מטעם תנועת המזרחי (הציונות הדתית), ומשלב עברית מודרנית, פילוסופיה ציונית, לימודי קודש ולימודי חול.' }
             },
             'heide': {
                 image: '',
@@ -646,38 +646,38 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'rav-markus-mordechai-rottenberg': {
                 image: '',
-                en: { title: 'Marcus Rottenberg', years: '', desc: '' },
-                nl: { title: 'Marcus Rottenberg', years: '', desc: '' },
-                fr: { title: 'Marcus Rottenberg', years: '', desc: '' },
-                he: { title: 'מרקוס רוטנברג', years: '', desc: '' }
+                en: { title: 'Marcus Rottenberg', years: '', desc: 'Marcus (Mordechai) Rottenberg served as the Chief Rabbi of Antwerp\'s Orthodox community (Machsike Hadas) from 1912. He refused to abandon his congregation during the war and was murdered in Auschwitz in 1943.' },
+                nl: { title: 'Marcus Rottenberg', years: '', desc: 'Marcus (Mordechai) Rottenberg was vanaf 1912 opperrabbijn van de Antwerps-orthodoxe gemeenschap (Machsike Hadas). Hij weigerde zijn gemeente tijdens de oorlog te verlaten en werd in 1943 vermoord in Auschwitz.' },
+                fr: { title: 'Marcus Rottenberg', years: '', desc: 'Marcus (Mordechai) Rottenberg a été le grand rabbin de la communauté orthodoxe d\'Anvers (Machsike Hadas) à partir de 1912. Il refusa d\'abandonner sa congrégation pendant la guerre et fut assassiné à Auschwitz en 1943.' },
+                he: { title: 'מרקוס רוטנברג', years: '', desc: 'הרב מרדכי (מרקוס) רוטנברג כיהן כרבה הראשי של הקהילה החרדית "מחזיקי הדת" באנטוורפן משנת 1912. הוא סירב לנטוש את קהילתו במהלך המלחמה ונרצח באושוויץ בשנת 1943.' }
             },
             'machsike-hadas': {
                 image: '',
-                en: { title: 'Machsike Hadas', years: '', desc: '' },
-                nl: { title: 'Machsike Hadas', years: '', desc: '' },
-                fr: { title: 'Machsike Hadas', years: '', desc: '' },
-                he: { title: 'מחסיקה הדס', years: '', desc: '' }
+                en: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is the principal ultra-Orthodox (Haredi) umbrella organization in Antwerp. Established in the late 19th century, it oversees synagogues, schools, and dietary certification (kashrut) systems.' },
+                nl: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is de belangrijkste ultraorthodoxe (Haredi) koepelorganisatie in Antwerpen. Opgericht in de late 19e eeuw, houdt zij toezicht op synagogen, scholen en kasjroet-certificering.' },
+                fr: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas est la principale organisation faîtière ultra-orthodoxe (Haredi) d\'Anvers. Fondée à la fin du XIXe siècle, elle supervise les synagogues, les écoles et la certification de la cacherout.' },
+                he: { title: 'מחסיקה הדס', years: '', desc: 'מחזיקי הדת הוא ארגון הגג החרדי המרכזי באנטוורפן. הוא הוקם בשלהי המאה ה-19 ומפקח על בתי כנסת, מוסדות חינוך ומערכות השגחת כשרות.' }
             },
             'shomre-hadas': {
                 image: '',
-                en: { title: 'Shomre Hadas', years: '', desc: '' },
-                nl: { title: 'Shomre Hadas', years: '', desc: '' },
-                fr: { title: 'Shomre Hadas', years: '', desc: '' },
-                he: { title: 'שומר הדס', years: '', desc: '' }
+                en: { title: 'Shomre Hadas', years: '', desc: 'Shomre Hadas is the main Modern Orthodox and traditional Jewish congregation in Antwerp, established in the 19th century. Its flagship synagogue, the Hollandse Synagoge, opened in 1893.' },
+                nl: { title: 'Shomre Hadas', years: '', desc: 'Shomre Hadas is de belangrijkste modern-orthodoxe en traditionele joodse gemeente in Antwerpen, opgericht in de 19e eeuw. Haar vlaggenschip, de Hollandse Synagoge, werd geopend in 1893.' },
+                fr: { title: 'Shomre Hadas', years: '', desc: 'Shomre Hadas est la principale congrégation juive orthodoxe moderne et traditionnelle d\'Anvers, établie au XIXe siècle. Sa synagogue phare, la Hollandse Synagoge, a ouvert ses portes en 1893.' },
+                he: { title: 'שומר הדס', years: '', desc: 'שומרי הדת היא הקהילה היהודית האורתודוקסית-מודרנית והמסורתית המרכזית באנטוורפן, שהוקמה במאה ה-19. בית הכנסת המרכזי שלה, בית הכנסת ההולנדי, נפתח בשנת 1893.' }
             },
             'sephardic-community': {
                 image: '',
-                en: { title: 'Sephardic Community', years: '', desc: '' },
-                nl: { title: 'Sefardische Gemeenschap', years: '', desc: '' },
-                fr: { title: 'Communauté sépharade', years: '', desc: '' },
-                he: { title: 'קהילה ספרדית', years: '', desc: '' }
+                en: { title: 'Sephardic Community', years: '', desc: 'The Sephardic community in Antwerp dates back to 16th-century Crypto-Jews, with later waves arriving from the Ottoman Empire for the diamond trade, establishing the Portuguese Synagogue following the Portuguese rite.' },
+                nl: { title: 'Sefardische Gemeenschap', years: '', desc: 'De Sefardische gemeenschap in Antwerpen stamt uit de 16e-eeuwse cryptojoden. Latere golven arriveerden uit het Ottomaanse Rijk voor de diamanthandel en stichtten de Portugese Synagoge volgens de Portugese ritus.' },
+                fr: { title: 'Communauté sépharade', years: '', desc: 'La communauté sépharade d\'Anvers remonte aux marranes du XVIe siècle. Des vagues ultérieures arrivèrent de l\'Empire ottoman pour le commerce du diamant, fondant la synagogue portugaise selon le rite portugais.' },
+                he: { title: 'קהילה ספרדית', years: '', desc: 'הקהילה הספרדית באנטוורפן מתחילה באנוסים מהמאה ה-16, כאשר גלים מאוחרים יותר הגיעו מהאימפריה העות\'מאנית לצורך ענף היהלומים והקימו את בית הכנסת הפורטוגזי בנוסח פורטוגל.' }
             },
             'yavne': {
                 image: '',
-                en: { title: 'Yavne', years: '', desc: '' },
-                nl: { title: 'Yavne', years: '', desc: '' },
-                fr: { title: 'Yavné', years: '', desc: '' },
-                he: { title: 'יבנה', years: '', desc: '' }
+                en: { title: 'Yavne', years: '', desc: 'Established in the post-WWII era, the Yavne school serves Orthodox Zionist families in Antwerp, integrating Torah study with secular knowledge (Torah u-Madda) from kindergarten through secondary school.' },
+                nl: { title: 'Yavne', years: '', desc: 'De na de Tweede Wereldoorlog opgerichte Yavne-school bedient orthodox-zionistische gezinnen in Antwerpen en integreert Tora-studie met seculiere kennis (Torah u-Madda) van kleuter- tot secundair onderwijs.' },
+                fr: { title: 'Yavné', years: '', desc: 'Créée après la Seconde Guerre mondiale, l\'école Yavné s\'adresse aux familles orthodoxes sionistes d\'Anvers, intégrant l\'étude de la Torah et les connaissances profanes (Torah u-Madda) de la maternelle au secondaire.' },
+                he: { title: 'יבנה', years: '', desc: 'בית ספר יבנה, שהוקם בתקופה שלאחר מלחמת העולם השנייה, משרת משפחות דתיות-לאומיות באנטוורפן, ומשלב לימודי קודש עם ידע כללי (תורה ומדע) מגיל הגן ועד לתיכון.' }
             }
         };
 
