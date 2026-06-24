@@ -89,6 +89,11 @@ ARTICLES = {
                         <p>The chapter is made even more remarkable by the fact that Sholem Aleichem himself stood before an audience in Antwerp in January 1914, only two years before his death. The same city that welcomed thousands of Jewish migrants on their way to America also welcomed the greatest Yiddish writer of his generation.</p>
 
                         <p>For many Jewish families who left Eastern Europe, Antwerp was the last stop before the New World. In the pages of <em>Motl the Cantor's Son</em>, their experiences — and Antwerp's place in that journey — live on.</p>
+
+                        <h2>References</h2>
+                        <ul class="references-list" style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text-muted);">
+                            <li><strong>Internet Archive:</strong> <a href="https://ia802802.us.archive.org/0/items/nybc203785/nybc203785.pdf" target="_blank" rel="noopener noreferrer"><em>Motl Peysi dem Khazns</em> (Yiddish Edition)</a>.</li>
+                        </ul>
         """
     },
     "nl": {
@@ -176,7 +181,12 @@ ARTICLES = {
 
                         <p>Het hoofdstuk is des te opmerkelijker door het feit dat Sholem Aleichem zelf in januari 1914 voor een publiek in Antwerpen stond, slechts twee jaar voor zijn dood. Dezelfde stad die duizenden Joodse migranten verwelkomde op hun weg naar Amerika, verwelkomde ook de grootste Jiddische schrijver van zijn generatie.</p>
 
-                        <p>For veel Joodse gezinnen die Oost-Europa verlieten, was Antwerpen de laatste stop voor de Nieuwe Wereld. In de pagina's van <em>Motl de Chazans zoon</em> leven hun ervaringen — en de plaats van Antwerpen in die reis — voort.</p>
+                        <p>Voor veel Joodse gezinnen die Oost-Europa verlieten, was Antwerpen de laatste stop voor de Nieuwe Wereld. In de pagina's van <em>Motl de Chazans zoon</em> leven hun ervaringen — en de plaats van Antwerpen in die reis — voort.</p>
+
+                        <h2>Referenties</h2>
+                        <ul class="references-list" style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text-muted);">
+                            <li><strong>Internet Archive:</strong> <a href="https://ia802802.us.archive.org/0/items/nybc203785/nybc203785.pdf" target="_blank" rel="noopener noreferrer"><em>Motl Peysi dem Khazns</em> (Jiddische editie)</a>.</li>
+                        </ul>
         """
     },
     "fr": {
@@ -265,6 +275,11 @@ ARTICLES = {
                         <p>Ce chapitre est rendu encore plus remarquable par le fait que Sholem Aleichem lui-même s'est produit devant un public à Anvers en janvier 1914, deux ans seulement avant sa mort. La même ville qui accueillait des milliers de migrants juifs en route vers l'Amérique a également accueilli le plus grand écrivain yiddish de sa génération.</p>
 
                         <p>Pour de nombreuses familles juives qui ont quitté l'Europe de l'Est, Anvers a été la dernière étape avant le Nouveau Monde. Dans les pages de <em>Motl, fils du chantre</em>, leurs expériences — et la place d'Anvers dans ce voyage — continuent de vivre.</p>
+
+                        <h2>Références</h2>
+                        <ul class="references-list" style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text-muted);">
+                            <li><strong>Internet Archive :</strong> <a href="https://ia802802.us.archive.org/0/items/nybc203785/nybc203785.pdf" target="_blank" rel="noopener noreferrer"><em>Motl Peysi dem Khazns</em> (Édition yiddish)</a>.</li>
+                        </ul>
         """
     },
     "he": {
@@ -353,6 +368,11 @@ ARTICLES = {
                         <p>הפרק הופך למדהים עוד יותר בשל העובדה ששלום עליכם עצמו עמד בפני קהל באנטוורפן בינואר 1914, שנתיים בלבד לפני מותו. אותה עיר שקיבלה את פניהם של אלפי מהגרים יהודים בדרכם לאמריקה, קיבלה גם את פניו של הסופר היידי הגדול בדורו.</p>
 
                         <p>עבור משפחות יהודיות רבות שעזבו את מזרח אירופה, אנטוורפן הייתה התחנה האחרונה לפני העולם החדש. בדפיו של <em>מוטל בן החזן</em>, חוויותיהם — ומקומה של אנטוורפן במסע זה — ממשיכים לחיות.</p>
+
+                        <h2>מקורות</h2>
+                        <ul class="references-list" style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text-muted);">
+                            <li><strong>ארכיון האינטרנט (Internet Archive):</strong> <a href="https://ia802802.us.archive.org/0/items/nybc203785/nybc203785.pdf" target="_blank" rel="noopener noreferrer"><em>מוטל בן פייסי החזן</em> (מהדורה ביידיש)</a>.</li>
+                        </ul>
         """
     }
 }
@@ -377,7 +397,7 @@ TEMPLATE = """<!doctype html>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body>
+<body class="article-page">
     <div id="app">
         <header class="main-header">
             <div class="container header-content">
