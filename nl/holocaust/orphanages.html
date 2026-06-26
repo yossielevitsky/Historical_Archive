@@ -5,12 +5,272 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joodse Weeshuizen - De Holocaust - Joods Historisch Archief Antwerpen</title>
+    <title>Weeshuizen en Kindertehuizen - De Holocaust - Joods Historisch Archief Antwerpen</title>
+    <meta name="description" content="Ontdek de geschiedenis van weeshuizen en kindertehuizen in Antwerpen en België die Joodse kinderen hebben opgevangen tijdens de Holocaust." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/nav.js" defer></script>
+    <style>
+        /* Interactive Map CSS */
+        .map-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .map-container {
+            position: relative;
+            background-color: var(--color-slate);
+            border: 1px solid #333;
+            border-radius: 12px;
+            height: 400px;
+            width: 100%;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image: radial-gradient(circle, var(--color-gold) 1px, transparent 1px);
+            background-size: 15px 15px;
+        }
+        .map-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-gold);
+            border: 3px solid var(--color-charcoal);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            z-index: 10;
+        }
+        .map-marker:hover, .map-marker.active {
+            transform: scale(1.3);
+            background-color: var(--color-white);
+            box-shadow: 0 0 15px var(--color-gold);
+        }
+        .map-marker::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--color-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            opacity: 0.7;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .map-marker[data-city="antwerpen"] {
+            top: 32%;
+            left: 48%;
+        }
+        .map-marker[data-city="brussel"] {
+            top: 58%;
+            left: 45%;
+        }
+        .map-tooltip {
+            position: absolute;
+            background: var(--color-charcoal);
+            border: 1px solid var(--color-gold);
+            color: var(--color-text-main);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            width: 250px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .map-marker:hover + .map-tooltip {
+            opacity: 1;
+        }
+        .map-tooltip-antwerp {
+            top: 18%;
+            left: 51%;
+        }
+        .map-tooltip-brussels {
+            top: 48%;
+            left: 48%;
+        }
+        .map-instructions {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            background: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Database Table CSS */
+        .database-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .search-bar-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .search-input {
+            flex: 1;
+            background-color: var(--color-slate);
+            border: 1px solid #444;
+            color: var(--color-text-main);
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.11-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 12px center;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+        }
+        .reset-btn {
+            background-color: transparent;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .reset-btn:hover {
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .db-table th {
+            background-color: rgba(197, 160, 89, 0.1);
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+            padding: 1rem;
+            border-bottom: 2px solid #333;
+        }
+        .db-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #2d2d2d;
+            color: var(--color-text-main);
+        }
+        .db-table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        .db-table tbody tr:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Gallery Masonry CSS */
+        .gallery-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .gallery-masonry {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-masonry {
+                column-count: 1;
+            }
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background-color: var(--color-slate);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+        }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid #2d2d2d;
+        }
+
+        /* Highlighted Section CSS */
+        .highlight-box {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-left: 4px solid var(--color-gold);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .highlight-img-wrapper {
+            height: 250px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+        .highlight-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -48,28 +308,392 @@
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Thuis</a></li>
-                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">De Holocaust</a>
-                        </li>
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">De Holocaust</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Joodse weeshuizen</li>
                     </ol>
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="section-title">Weeshuizen</h1>
+                    <h1 class="section-title">Weeshuizen en Kindertehuizen</h1>
+                    <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">
+                        Instellingen die joodse kinderen in Antwerpen opvingen tijdens de Holocaust.
+                    </p>
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg"
-                            alt="Children in Antwerp"
-                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
+                            alt="Kinderen in de eetzaal van het Meisjesweeshuis, 1934"
+                            class="lightbox-trigger"
+                            data-caption="Antwerps Meisjesweeshuis, eetzaal in 1934."
+                            style="max-width: 500px; width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
                     </div>
-                    <div style="text-align: center; padding: 4rem 0;">
-                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">Binnenkort beschikbaar</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                            We inventariseren de geschiedenis van de weeshuizen waar Joodse kinderen tijdens de oorlog in Antwerpen verborgen zaten
-                            de oorlog en het lot van die kinderen.
+
+                    <!-- Factual Historical Introduction -->
+                    <div style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto 3rem auto; text-align: justify;">
+                        <p style="margin-bottom: 1rem;">
+                            Na de deportaties en massale arrestaties van Joodse gezinnen in Antwerpen in de zomer van 1942 bleven honderden Joodse kinderen achter zonder ouders of voogden. Na deze arrestaties werden sommige kinderen ondergebracht in gemeentelijke weeshuizen, kindertehuizen of niet-Joodse particuliere instellingen, terwijl anderen werden opgevangen door moedige verzorgers.
                         </p>
-                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">Ga terug</a>
+                        <p style="margin-bottom: 1rem;">
+                            Ondanks de extreme risico's die de Duitse militaire bezetting met zich meebracht, probeerden verschillende directeuren, verpleegkundigen en reddingsnetwerken deze kinderen te beschermen en te verbergen. De gemeentelijke instellingen stonden echter onder streng toezicht. Op 21 september 1942 voerde het Duitse militaire bestuur een stelselmatige razzia uit op de Antwerpse gemeentelijke weeshuizen, wat leidde tot de arrestatie en daaropvolgende deportatie van tenslotte Joodse kinderen via de Dossinkazerne in Mechelen naar Auschwitz-Birkenau.
+                        </p>
+                        <p>
+                            Deze pagina documenteert de historische rol van deze weeshuizen, het lot van de kinderen die er verbleven en de verzorgers die hun leven riskeerden om hen te beschermen.
+                        </p>
+                    </div> </div>
+
+                    <!-- Main Antwerp Institutions -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">Antwerpse Instellingen</h2>
+                        
+                        <!-- Meisjeshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: none;">Meisjeshuis</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/voormalig- meisjeshuis.jpg" 
+                                         alt="Meisjeshuis gebouw" 
+                                         class="lightbox-trigger"
+                                         data-caption="Het voormalige gebouw van het Meisjeshuis in de Albert Grisarstraat, Antwerpen.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        Het <strong>Meisjeshuis</strong> in Antwerpen was een gemeentelijk weeshuis dat een cruciaal toevluchtsoord werd voor Joodse meisjes wiens ouders in de zomer van 1942 waren gearresteerd en gedeporteerd.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>Rol in oorlogstijd:</strong> Het tehuis bood onderdak onder constante dreiging van inspecties. Verzorgers en sympathiserende personeelsleden probeerden de kinderen te beschermen door officiële registraties te vertragen en individuen te verbergen waar mogelijk.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>Lot:</strong> Op 21 september 1942 voerden de Duitse bezettingsautoriteiten een systematische razzia uit op de gemeentelijke weeshuizen. De Joodse meisjes werden gearresteerd, naar de Dossinkazerne in Mechelen gestuurd en vervolgens gedeporteerd naar Auschwitz-Birkenau. Zeer weinigen overleefden.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lees volledige geschiedenis →</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>Locatie:</strong> Albert Grisarstraat, Antwerpen
+                                        </div>
+                                        <div>
+                                            <strong>Instellingstype:</strong> Gemeentelijk meisjestehuis
+                                        </div>
+                                        <div>
+                                            <strong>Reddingsconnectie:</strong> Clandestiene hulpcoördinatie
+                                        </div>
+                                        <div>
+                                            <strong>Primaire bronnen:</strong> FelixArchief Antwerpen, Kazerne Dossin
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jongenshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">Jongenshuis</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    Het <strong>Jongenshuis</strong> was het historische gemeentelijke weeshuis voor jongens in Antwerpen en fungeerde als tijdelijk toevluchtsoord voor Joodse jongens tijdens het hoogtepunt van de anti-Joodse razzia's.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Rol in oorlogstijd:</strong> Bood onderdak en steun aan ouderloos achtergebleven jongens. Leden van het gemeentelijk personeel en sympathisanten probeerden samen te werken met ondergrondse verzetsnetwerken om gegevens te vervalsen of registraties te vertragen vóór inspecties.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Lot:</strong> Het doelwit van de tragische razzia op 21 september 1942. Vrijwel alle Joodse jongens die in de instelling verbleven, werden gearresteerd, naar de Dossinkazerne gebracht en gedeporteerd naar concentratiekampen.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lees volledige geschiedenis →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Locatie:</strong> Durletstraat, Antwerpen
+                                    </div>
+                                    <div>
+                                        <strong>Instellingstype:</strong> Gemeentelijk jongenstehuis
+                                    </div>
+                                    <div>
+                                        <strong>Reddingsconnectie:</strong> Vervalsing & registratie-uitstel
+                                    </div>
+                                    <div>
+                                        <strong>Primaire bronnen:</strong> FelixArchief Antwerpen, getuigenissen van overlevenden
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pennsylvania Foundation -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: none;">Pennsylvania Foundation</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    De <strong>Pennsylvania Foundation</strong> fungeerde als dagverblijf en kindertehuis in Antwerpen en bood essentiële voeding, gezondheidszorg en onderdak aan kwetsbare baby's en jonge kinderen van vervolgde ouders.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Rol in oorlogstijd:</strong> In samenwerking met het ondergrondse *Comité de Défense des Juifs* (CDJ) diende het tehuis als een belangrijk knooppunt om kinderen de stad uit te smokkelen en hen onder valse identiteiten onder te brengen bij katholieke pleeggezinnen op het platteland.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Lot:</strong> Hoewel veel kinderen met succes werden gered door hen te laten onderduiken, werden others tijdens latere inspecties en razzia's opgepakt.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lees volledige geschiedenis →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Locatie:</strong> Antwerpen
+                                    </div>
+                                    <div>
+                                        <strong>Instellingstype:</strong> Dagverblijf & opvangtehuis
+                                    </div>
+                                    <div>
+                                        <strong>Reddingsconnectie:</strong> Clandestiene smokkel met het CDJ
+                                    </div>
+                                    <div>
+                                        <strong>Primaire bronnen:</strong> CDJ clandestine rapporten, naoorlogse registers
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jewish Orphanage -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: none;">Joods Weeshuis (Lange Leemstraat)</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    Het <strong>Joods Weeshuis</strong> aan de Lange Leemstraat was het belangrijkste vooroorlogse weeshuis dat rechtstreeks door de Joodse gemeenschap van Antwerpen werd gerund, en zorgde voor Joodse wezen en kwetsbare kinderen.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Rol in oorlogstijd:</strong> In de begindagen van de bezetting bleef het onder extreme beperkingen functioneren. Naarmate de anti-Joodse maatregelen heviger werden, verspreidden gemeenschapsleiders de kinderen naar particuliere adressen of smokkelden hen de stad uit.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Lot:</strong> De activiteiten werden gestaakt omdat kinderen moesten onderduiken of in aparte acties werden opgepakt. Het gebouw werd uiteindelijk door de bezettingsautoriteiten in beslag genomen en gesloten.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lees volledige geschiedenis →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Locatie:</strong> Lange Leemstraat, Antwerpen
+                                    </div>
+                                    <div>
+                                        <strong>Instellingstype:</strong> Joods gemeenschapstehuis
+                                    </div>
+                                    <div>
+                                        <strong>Reddingsconnectie:</strong> Netwerken voor onderduikverspreiding
+                                    </div>
+                                    <div>
+                                        <strong>Primaire bronnen:</strong> Gedenkboeken Joodse Gemeenschap Antwerpen
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Highlighted Section: R’ Yona Tiefenbrunner & Brussels Children’s Home -->
+                    <div class="highlight-box">
+                        <span class="badge" style="background-color: rgba(197, 160, 89, 0.2); color: var(--color-gold); border: 1px solid var(--color-gold); margin-bottom: 1rem;">
+                            Verwante Reddingsinstelling buiten Antwerpen
+                        </span>
+                        <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                            <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: none;">R’ Yona Tiefenbrunner en het Brusselse Kindertehuis</a>
+                        </h2>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem;">
+                            Opmerking: Deze casestudy is opgenomen vanwege het grote historische belang voor de reddingsnetwerken van Joodse kinderen in bezet België.
+                        </p>
+                        
+                        <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                            <p style="margin-bottom: 1rem;">
+                                Rabbi Yona Tiefenbrunner leidde een Joods kindertehuis in Brussel (bekend als het <em>Home de la Glacière</em>) dat uitgroeide tot een van de belangrijkste weeshuisnetwerken in bezet België tijdens de oorlog.
+                            </p>
+                            <p style="margin-bottom: 1rem;">
+                                Tussen 1942 and 1944 zorgden Rabbi Tiefenbrunner en his medewerkers onder extreme oorlogsomstandigheden voor honderden Joodse kinderen. He creëerde een warme, veilige omgeving onder constante dreiging van razzia's en werkte in het geheim samen met ondergrondse verzetsorganisaties om kinderen te laten onderduiken.
+                            </p>
+                            <p style="margin-bottom: 1rem;">
+                                Het tehuis slaagde erin de hele bezetting open te blijven en bood onderdak aan wezen en kinderen wiens ouders waren gedeporteerd. Na de bevrijding bleef het tot 1960 functioneren als weeshuis voor kinderen van overlegen.
+                            </p>
+                            <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lees volledige geschiedenis →</a>
+                            </p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                <div>
+                                    <strong>Locatie:</strong> IJskelderstraat (Rue de la Glacière), Brussel
+                                </div>
+                                <div>
+                                    <strong>Years Active:</strong> 1942–1960
+                                </div>
+                                <div>
+                                    <strong>Relevance:</strong> Collaborated with Antwerp resistance networks to smuggle children to safety.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="map-section">
+                        <h2 class="section-title">Interactieve Kaart van Shelterlocaties</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 1rem;">
+                            Beweeg over de markeringen op de kaart om opvang- en reddingscentra in België te lokaliseren.
+                        </p>
+                        
+                        <div class="map-container">
+                            <div class="map-bg"></div>
+                            
+                            <!-- Belgium map outline simplified in SVG -->
+                            <svg class="map-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M120 40 L180 30 L220 50 L270 45 L320 80 L350 120 L330 180 L280 220 L240 250 L180 260 L140 240 L100 230 L80 180 L70 120 L85 80 Z" stroke="#c5a059" stroke-width="2" stroke-dasharray="5 5"/>
+                                <text x="185" y="100" fill="#c5a059" font-size="12" opacity="0.3" font-family="var(--font-serif)">BELGIË</text>
+                            </svg>
+                            
+                            <!-- Antwerp Marker -->
+                            <div class="map-marker" data-city="antwerpen" id="marker-antwerp"></div>
+                            <div class="map-tooltip map-tooltip-antwerp">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Antwerpen</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>Meisjeshuis</li>
+                                    <li>Jongenshuis</li>
+                                    <li>Pennsylvania Foundation</li>
+                                    <li>Joods Weeshuis (Lange Leemstraat)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Brussels Marker -->
+                            <div class="map-marker" data-city="brussel" id="marker-brussels"></div>
+                            <div class="map-tooltip map-tooltip-brussels">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Brussel</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>R’ Yona Tiefenbrunner Home</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="map-instructions">Beweeg over de markeringen om details te bekijken</div>
+                        </div>
+                    </div>
+
+                    <!-- Children Database Section -->
+                    <div class="database-section">
+                        <h2 class="section-title">Database van Kinderen & Registers</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            De namen en individuele registers van de kinderen die via deze instellingen zijn opgevangen, worden momenteel onderworpen aan historisch onderzoek en archivering. Als u beschikt over geverifieerde gegevens, getuigenverklaringen of informatie over specifieke kinderen, overweeg dan om deze bij te dragen aan het archief.
+                        </p>
+                        <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                            <a href="../contribute.html" class="reset-btn" style="text-decoration: none; display: inline-block;">Gegevens Bijdragen</a>
+                        </div>
+                    </div>
+
+                    <!-- Caregivers Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">Verzorgers en Personeel</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 2rem;">
+                            Personen die probeerden kinderen te beschermen en te redden.
+                        </p>
+                        <div class="synagogue-grid">
+                            
+                            <!-- Yvonne Nevejean -->
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="../../images/Yvonne_Nèvejean.jpg" 
+                                         alt="Yvonne Nèvejean" 
+                                         class="lightbox-trigger"
+                                         data-caption="Yvonne Nèvejean, directrice van de ONE (Office de la Naissance et de l'Enfance).">
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="card-title">Yvonne Nèvejean</h2>
+                                    <div class="card-meta">
+                                        <span>Brussel & Antwerpen</span> • <span>Directrice van het ONE</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        Een van de belangrijkste spilfiguren in de redding van Joodse kinderen in bezet België. Coördineerde met het CDJ om duizenden kinderen onder te brengen in gemeentelijke en particuliere weeshuizen, pleeggezinnen en kloosters. Erkend als Rechtvaardige onder de Volkeren.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Rabbi Yona Tiefenbrunner -->
+                            <article class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">Rabbi Yona Tiefenbrunner</h2>
+                                    <div class="card-meta">
+                                        <span>Brussel</span> • <span>Directeur Home de la Glacière</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        Leidde het Joodse kindertehuis in Brussel, waar honderden kinderen werden opgevangen. Behield Joods onderwijs en gemeenschapsleven tijdens de bezetting onder extreme druk en voedseltekorten.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Marie-Thérèse De Clerck -->
+                            <article class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">Marie-Thérèse De Clerck</h2>
+                                    <div class="card-meta">
+                                        <span>Antwerpen</span> • <span>Gemeentelijk verpleegkundige</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        Een verpleegster in het Antwerpse Meisjeshuis die in het geheim samenwerkte met ondergrondse netwerken. Ze hielp gezinnen te waarschuwen voor de razzia van september 1942, waardoor diverse kinderen konden ontsnappen.
+                                    </p>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <!-- Archiefgalerij Section -->
+                    <div class="gallery-section">
+                        <h2 class="section-title">Archiefgalerij</h2>
+                        <div class="gallery-masonry">
+                            <div class="gallery-item">
+                                <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg" 
+                                     alt="Refectorium Meisjesweeshuis, 1934" 
+                                     class="lightbox-trigger"
+                                     data-caption="Antwerps Meisjesweeshuis, eetzaal in 1934.">
+                                <div class="gallery-caption">Eetzaal van het Meisjesweeshuis, 1934.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/voormalig- meisjeshuis.jpg" 
+                                     alt="Voormalig Meisjeshuis gebouw" 
+                                     class="lightbox-trigger"
+                                     data-caption="Het voormalige gebouw van het Meisjeshuis in de Albert Grisarstraat, Antwerpen.">
+                                <div class="gallery-caption">Voormalig Meisjeshuis gebouw, Antwerpen.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/memorial-meisjeshuis.jpg" 
+                                     alt="Gedenkplaat bij het Meisjeshuis" 
+                                     class="lightbox-trigger"
+                                     data-caption="Gedenkplaat aan de gevel van het voormalige Meisjeshuis ter nagedachtenis aan de gedeporteerde kinderen.">
+                                <div class="gallery-caption">Gedenkplaat, Meisjeshuis.</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; color: var(--color-text-muted); font-size: 0.95rem; margin-top: 1rem;">
+                            Heeft u historische foto's, documenten of registers van deze weeshuizen? Overweeg dan om deze <a href="../contribute.html" style="color: var(--color-gold); text-decoration: underline;">bij te dragen</a> aan het archief.
+                        </p>
+                    </div>
+
+                    <!-- Sources Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.95rem; line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Primaire bronnen & Archieven</h3>
+                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">FelixArchief Antwerpen (Gemeentelijke weeshuisregisters).</li>
+                                <li style="margin-bottom: 0.5rem;">Archief Kazerne Dossin, Mechelen (Transportlijsten 1942).</li>
+                                <li>Archieven van het *Comité de Défense des Juifs* (CDJ), Brussel.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Boeken & Getuigenissen</h3>
+                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">Malkie Weinstock, <em>Angel of Orphans</em> (biografie van Rabbi Yona Tiefenbrunner).</li>
+                                <li style="margin-bottom: 0.5rem;"><em>De Jodenvervolging in België</em>, historisch onderzoek naar kindredding.</li>
+                                <li style="margin-bottom: 0.5rem;">Naoorlogse getuigenissen van overlevenden van het Brusselse Kindertehuis.</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -80,7 +704,10 @@
             </div>
         </footer>
     </div>
+    
+    <script src="../../js/lightbox.js"></script>
     <script src="../../js/scroll-top.js"></script>
+
 </body>
 
 </html>

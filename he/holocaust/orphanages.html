@@ -5,12 +5,293 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>בתי יתומים יהודיים - השואה - ארכיון היסטורי של אנטוורפן</title>
+    <title>בתי יתומים ובתי ילדים - השואה - ארכיון היסטורי של אנטוורפן</title>
+    <meta name="description" content="חקור את ההיסטוריה של בתי יתומים ובתי ילדים באנטוורפן ובבלגיה שהעניקו מקלט לילדים יהודים במהלך השואה." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/nav.js" defer></script>
+    <style>
+        /* Interactive Map CSS */
+        .map-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .map-container {
+            position: relative;
+            background-color: var(--color-slate);
+            border: 1px solid #333;
+            border-radius: 12px;
+            height: 400px;
+            width: 100%;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image: radial-gradient(circle, var(--color-gold) 1px, transparent 1px);
+            background-size: 15px 15px;
+        }
+        .map-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-gold);
+            border: 3px solid var(--color-charcoal);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            z-index: 10;
+        }
+        .map-marker:hover, .map-marker.active {
+            transform: scale(1.3);
+            background-color: var(--color-white);
+            box-shadow: 0 0 15px var(--color-gold);
+        }
+        .map-marker::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--color-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            opacity: 0.7;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .map-marker[data-city="אנטוורפן"] {
+            top: 32%;
+            left: 48%;
+        }
+        .map-marker[data-city="בריסל"] {
+            top: 58%;
+            left: 45%;
+        }
+        .map-tooltip {
+            position: absolute;
+            background: var(--color-charcoal);
+            border: 1px solid var(--color-gold);
+            color: var(--color-text-main);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            width: 250px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            text-align: right;
+        }
+        .map-marker:hover + .map-tooltip {
+            opacity: 1;
+        }
+        .map-tooltip-antwerp {
+            top: 18%;
+            left: 51%;
+        }
+        .map-tooltip-brussels {
+            top: 48%;
+            left: 48%;
+        }
+        .map-instructions {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            background: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Database Table CSS */
+        .database-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .search-bar-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .search-input {
+            flex: 1;
+            background-color: var(--color-slate);
+            border: 1px solid #444;
+            color: var(--color-text-main);
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.11-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: calc(100% - 12px) center;
+            text-align: right;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+        }
+        .reset-btn {
+            background-color: transparent;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .reset-btn:hover {
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 0.95rem;
+        }
+        .db-table th {
+            background-color: rgba(197, 160, 89, 0.1);
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+            padding: 1rem;
+            border-bottom: 2px solid #333;
+        }
+        .db-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #2d2d2d;
+            color: var(--color-text-main);
+        }
+        .db-table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        .db-table tbody tr:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-deported {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(220, 53, 69, 0.4);
+        }
+        .badge-survived {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #51cf66;
+            border: 1px solid rgba(40, 167, 69, 0.4);
+        }
+
+        /* Gallery Masonry CSS */
+        .gallery-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .gallery-masonry {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-masonry {
+                column-count: 1;
+            }
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background-color: var(--color-slate);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+        }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid #2d2d2d;
+            text-align: right;
+        }
+
+        /* Highlighted Section CSS */
+        .highlight-box {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-right: 4px solid var(--color-gold);
+            border-left: none;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: right;
+        }
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .highlight-img-wrapper {
+            height: 250px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #444;
+            grid-column: 1;
+        }
+        @media (max-width: 768px) {
+            .highlight-img-wrapper {
+                grid-column: auto;
+            }
+        }
+        .highlight-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -48,39 +329,444 @@
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">בַּיִת</a></li>
-                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">השואה</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">בתי יתומים יהודיים</li>
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">בית</a></li>
+                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">השואה</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">בתי יתומים</li>
                     </ol>
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="section-title">בתי יתומים</h1>
+                    <h1 class="section-title">בתי יתומים ובתי ילדים</h1>
+                    <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">
+                        מוסדות ששימשו מקלט לילדים יהודים באנטוורפן במהלך השואה.
+                    </p>
+
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg"
-                            alt="Children in Antwerp"
+                            alt="ילדים אוכלים יחד בבית היתומים לבנות באנטוורפן, 1934"
+                            class="lightbox-trigger"
+                            data-caption="בית היתומים לבנות באנטוורפן (Meisjesweeshuis), חדר האוכל בשנת 1934."
                             style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
                     </div>
-                    <div style="text-align: center; padding: 4rem 0;">
-                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">בקרוב</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                            אנו מלקטים את ההיסטוריה של בתי היתומים שהסתירו ילדים יהודים באנטוורפן במהלך
-                            המלחמה וגורלם של אותם ילדים.
+
+                    <!-- Factual Historical Introduction -->
+                    <div style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto 3rem auto; text-align: justify;">
+                        <p style="margin-bottom: 1rem;">
+                            בעקבות הגירושים והמעצרים ההמוניים של משפחות יהודיות באנטוורפן בקיץ 1942, מאות ילדים יהודים נותרו ללא הורים או אפוטרופוסים. לאחר מעצרים אלו, חלק מהילדים הועברו לבתי יתומים עירוניים, בתי ילדים, או מוסדות פרטיים לא-יהודיים, בעוד שאחרים נאספו על ידי מטפלים ומחנכים אמיצים.
                         </p>
-                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">לַחֲזוֹר</a>
+                        <p style="margin-bottom: 1rem;">
+                            למרות הסיכונים הקיצוניים תחת הכיבוש הצבאי הגרמני, מנהלים, אחיות ורשתות הצלה שונות ניסו להגן ולהסתיר את הילדים הללו. עם זאת, המוסדות העירוניים נותרו תחת פיקוח הדוק. ב-21 בספטמבר 1942, הממשל הצבאי הגרמני ביצע פשיטה שיטתית על בתי היתומים העירוניים באנטוורפן, שהובילה למעצרם ולגירושם של עשרות ילדים יהודים דרך מחנה המעבר מכלן (קסרן דוסאן) לאושוויץ-בירקנאו.
+                        </p>
+                        <p>
+                            דף זה מתעד את התפקיד ההיסטורי של בתי היתומים הללו, את גורלם של הילדים שעברו בהם, ואת אנשי הצוות והמצילים שסיכנו את חייהם כדי להגן עליהם.
+                        </p>
                     </div>
+
+                    <!-- Main Antwerp Institutions (Redesigned as Highlight Boxes) -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">מוסדות באנטוורפן</h2>
+                        
+                        <!-- Meisjeshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: none;">בית הבנות (Meisjeshuis)</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/voormalig- meisjeshuis.jpg" 
+                                         alt="בניין בית הבנות (Meisjeshuis)" 
+                                         class="lightbox-trigger"
+                                         data-caption="בניין בית הבנות (Meisjeshuis) לשעבר ברחוב אלברט גריסאר, אנטוורפן.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>בית הבנות</strong> (Meisjeshuis) באנטוורפן היה בית יתומים עירוני שהפך למקלט חיוני לבנות יהודיות שהוריהן נעצרו וגורשו במהלך קיץ 1942.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> הבית סיפק מקלט תחת איום מתמיד של בדיקות ופשיטות. מטפלים ואנשי צוות שגילו אהדה ניסו להגן על הילדים על ידי עיכוב הרישום הרשמי והסתרת בנות בודדות ככל האפשר.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> ב-21 בספטמבר 1942 ביצעו כוחות הכיבוש הגרמניים פשיטה שיטתית על בתי היתומים העירוניים. הבנות היהודיות נעצרו, נשלחו למחנה המעבר מכלן (קסרן דוסאן), וגורשו לאחר מכן לאושוויץ-בירקנאו. מעטות מאוד שרדו.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> רחוב אלברט גריסאר, אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> בית יתומים עירוני לבנות
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> תיאום סיוע מחתרתי
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> ארכיון פליקס אנטוורפן, מחנה המעבר מכלן
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jongenshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">בית הבנים (Jongenshuis)</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/boys-home-sketch.png" 
+                                         alt="בית הבנים (Jongenshuis)" 
+                                         class="lightbox-trigger"
+                                         data-caption="רישום היסטורי של בית הבנים (Jongenshuis), אנטוורפן.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>בית הבנים</strong> (Jongenshuis) היה בית היתומים העירוני ההיסטורי לבנים באנטוורפן, אשר תפקד כמקלט זמני לבנים יהודים בשיא מעצרי הגירוש האנטי-יהודיים.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> שיכן ותמך בבנים שנותרו ללא הורים. חברי צוות עירוני ואזרחים ניסו לשתף פעולה עם רשתות התנגדות מחתרתיות, במטרה לזייף מסמכים או לעכב את הרישום הרשמי לפני בדיקות פיקוח.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> המוסד היווה מטרה במהלך הפשיטה הטראגית של 21 בספטמבר 1942. כמעט כל הבנים היהודים ששהו במוסד נעצרו, נלקחו למחנה המעבר מכלן, וגורשו למחנות הריכוז.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> רחוב דורלט, אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> בית יתומים עירוני לבנים
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> זיוף מסמכים ועיכוב רישום
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> ארכיון פליקס אנטוורפן, עדויות ניצולים
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pennsylvania Foundation -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: none;">קרן פנסילבניה (Pennsylvania Foundation)</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/wartime-document-mockup.png" 
+                                         alt="קרן פנסילבניה" 
+                                         class="lightbox-trigger"
+                                         data-caption="מסמך זיהוי של ילד שהוצל (הדמיה).">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>קרן פנסילבניה</strong> תפקדה כמעון יום ומקלט לילדים באנטוורפן, וסיפקה מזון, טיפול רפואי ומחסה לתינוקות וילדים קטנים ממשפחות נרדפות.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> בשיתוף פעולה עם הוועד היהודי להגנת היהודים (CDJ) המחתרתי, המעון שימש כצומת מעבר מרכזי להברחת ילדים אל מחוץ לעיר והשמתם אצל משפחות אומנה קתוליות באזורים כפריים תחת זהויות בדויות.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> בעוד שילדים רבים ניצלו בהצלחה באמצעות השמתם במסתור, אחרים נתפסו במהלך פשיטות ובדיקות פתע עוקבות.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> מעון יום ומקלט לילדים
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> הברחה חשאית בשיתוף ה-CDJ
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> דוחות מחתרתיים של ה-CDJ, תיקי הצלה
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jewish Orphanage -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: none;">בית היתומים היהודי (לנגה לימסטראט)</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="https://placehold.co/800x600/1a1a1a/c5a059?text=Orphanage+Lange+Leemstraat" 
+                                         alt="בית היתומים היהודי (לנגה לימסטראט)">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>בית היתומים היהודי</strong> ברחוב לנגה לימסטראט היה בית היתומים הראשי שפעל לפני המלחמה בניהול ישיר של הקהילה היהודית באנטוורפן, וטיפל ביתומים יהודים וילדים נזקקים.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> בימיו הראשונים של הכיבוש, המשיך לפעול תחת הגבלות קיצוניות. ככל שהצעדים האנטי-יהודיים החמירו, פיזרו מנהיגי הקהילה את הילדים לבתים פרטיים או הבריחו אותם אל מחוץ לעיר.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> הפעילות נפסקה כאשר הילדים נאלצו לרדת למסתור או נעצרו בפעולות נפרדות. המבנה נתפס וננעל לבסוף על ידי שלטונות הכיבוש.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> לנגה לימסטראט, אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> בית יתומים של הקהילה היהודית
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> רשתות פיזור והסתרה
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> ספרי זיכרון של הקהילה באנטוורפן
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Highlighted Section: R’ Yona Tiefenbrunner & Brussels Children’s Home -->
+                    <div class="highlight-box">
+                        <span class="badge" style="background-color: rgba(197, 160, 89, 0.2); color: var(--color-gold); border: 1px solid var(--color-gold); margin-bottom: 1rem;">
+                            מוסד הצלה קשור מחוץ לאנטוורפן
+                        </span>
+                        <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                            <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: none;">הרב יונה טיפנברונר ובית הילדים בבריסל</a>
+                        </h2>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem;">
+                            הערה: מקרה מבחן זה נכלל בשל חשיבותו ההיסטורית העצומה לרשתות הצלת ילדים יהודים בבלגיה הכבושה.
+                        </p>
+                        
+                        <div class="highlight-grid">
+                            <div class="highlight-img-wrapper">
+                                <img src="../../images/tiefenbrunner-home-sketch.png" 
+                                     alt="בית הילדים בבריסל (Home de la Glacière)" 
+                                     class="lightbox-trigger"
+                                     data-caption="ציור היסטורי של בית הילדים בבריסל.">
+                            </div>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                <p style="margin-bottom: 1rem;">
+                                    הרב יונה טיפנברונר ניהל בית ילדים יהודי בבריסל (הידוע בשם <em>Home de la Glacière</em>) שהפך לאחת מרשתות בתי היתומים היהודיים המרכזיות בבלגיה הכבושה במהלך המלחמה. 
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    בין השנים 1942 ל-1944, בתנאי מלחמה קשים ביותר, הרב טיפנברונר וצוותו טיפלו במאות ילדים יהודים. הוא שמר על סביבה חמה ומגוננת תחת איום מתמיד של פשיטות, ופעל בחשאי עם ארגוני מחתרת להסתרת ילדים.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    הבית הצליח להישאר פתוח לאורך כל תקופת הכיבוש, ושימש מקלט ליתומים ולילדים שהוריהם גורשו. לאחר השחרור הוא המשיך לפעול כבית יתומים לילדי ניצולים עד שנת 1960.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>מיקום:</strong> רחוב דה לה גלאסייר, בריסל
+                                    </div>
+                                    <div>
+                                        <strong>שנות פעילות:</strong> 1942–1960
+                                    </div>
+                                    <div>
+                                        <strong>רלוונטיות:</strong> שיתף פעולה עם רשתות מחתרת באנטוורפן להברחת ילדים למקום מבטחים.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="map-section">
+                        <h2 class="section-title">מפה אינטראקטיבית של מקומות המקלט</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 1rem;">
+                            לחץ על סמן כדי לסנן את מאגר הילדים לפי עיר.
+                        </p>
+                        
+                        <div class="map-container">
+                            <div class="map-bg"></div>
+                            
+                            <!-- Belgium map outline simplified in SVG -->
+                            <svg class="map-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M120 40 L180 30 L220 50 L270 45 L320 80 L350 120 L330 180 L280 220 L240 250 L180 260 L140 240 L100 230 L80 180 L70 120 L85 80 Z" stroke="#c5a059" stroke-width="2" stroke-dasharray="5 5"/>
+                                <text x="185" y="100" fill="#c5a059" font-size="12" opacity="0.3" font-family="var(--font-serif)">בלגיה</text>
+                            </svg>
+                            
+                            <!-- Antwerp Marker -->
+                            <div class="map-marker" data-city="אנטוורפן" id="marker-antwerp"></div>
+                            <div class="map-tooltip map-tooltip-antwerp">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">אנטוורפן</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>בית הבנות (Meisjeshuis)</li>
+                                    <li>בית הבנים (Jongenshuis)</li>
+                                    <li>קרן פנסילבניה</li>
+                                    <li>בית היתומים היהודי (לנגה לימסטראט)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Brussels Marker -->
+                            <div class="map-marker" data-city="בריסל" id="marker-brussels"></div>
+                            <div class="map-tooltip map-tooltip-brussels">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">בריסל</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>בית הילדים של הרב יונה טיפנברונר</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="map-instructions">מיקום מפה אינטראקטיבית</div>
+                        </div>
+                    </div>
+
+                    <!-- Children Database Section -->
+                    <div class="database-section">
+                        <h2 class="section-title">מאגר מידע ורישומי ילדים</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            השמות והרישומים האישיים של הילדים שעברו במוסדות אלו נמצאים כעת בתהליך של אימות היסטורי וארכוב. אם יש ברשותכם מסמכים מאומתים, עדויות או מידע על ילדים ספציפיים, אנא שקלו לתרום אותם לארכיון.
+                        </p>
+                        <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                            <a href="../contribute.html" class="reset-btn" style="text-decoration: none; display: inline-block;">תרומת מידע ועדויות</a>
+                        </div>
+                    </div>
+
+                    <!-- Caregivers Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">מטפלים וצוות הצלה</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 2rem;">
+                            אישים שניסו להגן ולהציל ילדים במהלך השנים הקשות.
+                        </p>
+                        <div class="synagogue-grid">
+                            
+                            <!-- Yvonne Nevejean -->
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="../../images/Yvonne_Nèvejean.jpg" 
+                                         alt="Yvonne Nèvejean" 
+                                         class="lightbox-trigger"
+                                         data-caption="איבון נבז'ן, מנהלת ה-ONE (Office de la Naissance et de l'Enfance).">
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="card-title">איבון נבז'ן (Yvonne Nèvejean)</h2>
+                                    <div class="card-meta">
+                                        <span>בריסל ואנטוורפן</span> • <span>מנהלת ה-ONE</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        אחת המנהיגות המרכזיות בהצלת ילדים יהודים בבלגיה הכבושה. שיתפה פעולה עם ה-CDJ להשמת אלפי ילדים בבתי יתומים עירוניים ופרטיים, משפחות אומנה ומנזרים. הוכרה כחסידת אומות העולם.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Rabbi Yona Tiefenbrunner -->
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="https://placehold.co/800x600/1a1a1a/c5a059?text=Rabbi+Yona+Tiefenbrunner" 
+                                         alt="הרב יונה טיפנברונר">
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="card-title">הרב יונה טיפנברונר</h2>
+                                    <div class="card-meta">
+                                        <span>בריסל</span> • <span>מנהל Home de la Glacière</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        ניהל את בית הילדים היהודי בבריסל והעניק מקלט למאות ילדים. הוא שמר על חינוך יהודי וחיי קהילה במהלך הכיבוש תחת לחץ כבד ומחסור חמור במזון.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Marie-Thérèse De Clerck -->
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="https://placehold.co/800x600/1a1a1a/c5a059?text=Marie-Th%C3%A9r%C3%a8se+De+Clerck" 
+                                         alt="Marie-Thérèse De Clerck">
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="card-title">מארי-תרז דה קלרק</h2>
+                                    <div class="card-meta">
+                                        <span>אנטוורפן</span> • <span>אחות עירונית</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        אחות בבית הבנות באנטוורפן שפעלה בחשאי עם רשתות מחתרת. היא סייעה להזהיר משפחות לפני הפשיטה של ספטמבר 1942, ובכך אפשרה למספר ילדים לברוח.
+                                    </p>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <!-- Masonry Gallery Section -->
+                    <div class="gallery-section">
+                        <h2 class="section-title">גלריית ארכיון</h2>
+                        <div class="gallery-masonry">
+                            <div class="gallery-item">
+                                <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg" 
+                                     alt="חדר האוכל בית הבנות 1934" 
+                                     class="lightbox-trigger"
+                                     data-caption="בית היתומים לבנות באנטוורפן (Meisjesweeshuis), חדר האוכל בשנת 1934.">
+                                <div class="gallery-caption">חדר האוכל של בית הבנות, 1934.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/voormalig- meisjeshuis.jpg" 
+                                     alt="בניין בית הבנות לשעבר" 
+                                     class="lightbox-trigger"
+                                     data-caption="בניין בית הבנות (Meisjeshuis) לשעבר ברחוב אלברט גריסאר, אנטוורפן.">
+                                <div class="gallery-caption">בניין בית הבנות לשעבר, אנטוורפן.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/memorial-meisjeshuis.jpg" 
+                                     alt="לוח זיכרון בבית הבנות" 
+                                     class="lightbox-trigger"
+                                     data-caption="לוח זיכרון בחזית בניין בית הבנות לשעבר המוקדש לילדים שגורשו.">
+                                <div class="gallery-caption">לוח זיכרון, בית הבנות.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sources Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.95rem; line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">מקורות ראשוניים וארכיונים</h3>
+                            <ul style="padding-right: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">ארכיון פליקס אנטוורפן (פנקסי רישום של בתי היתומים).</li>
+                                <li style="margin-bottom: 0.5rem;">ארכיון מחנה המעבר מכלן, קסרן דוסאן (רשימות גירוש 1942).</li>
+                                <li>ארכיוני הוועד להגנת היהודים (CDJ), בריסל.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">ספרים ועדויות</h3>
+                            <ul style="padding-right: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;"><em>רדיפת היהודים בבלגיה</em>, מחקרים היסטוריים על הצלת ילדים.</li>
+                                <li style="margin-bottom: 0.5rem;">עדויות לאחר המלחמה של ניצולי בית הילדים בבריסל.</li>
+                                <li>תיקי חסידי אומות העולם ביד ושם (איבון נבז'ן והרב יונה טיפנברונר).</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
 
         <footer class="main-footer">
             <div class="container">
-                <p>© 2026 הארכיון ההיסטורי היהודי של אנטוורפן. כֹּל הַזְכוּיוֹת שְׁמוּרוֹת.</p>
+                <p>&copy; 2026 הארכיון ההיסטורי של אנטוורפן היהודית. כל הזכויות שמורות.</p>
             </div>
         </footer>
     </div>
+    
+    <script src="../../js/lightbox.js"></script>
     <script src="../../js/scroll-top.js"></script>
+
 </body>
 
 </html>

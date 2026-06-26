@@ -5,12 +5,272 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jewish Orphanages - The Holocaust - Jewish Antwerp Historical Archive</title>
+    <title>Orphanages and Children's Homes - The Holocaust - Jewish Antwerp Historical Archive</title>
+    <meta name="description" content="Explore the history of orphanages and children's homes in Antwerp and Belgium that sheltered Jewish children during the Holocaust." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/nav.js" defer></script>
+    <style>
+        /* Interactive Map CSS */
+        .map-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .map-container {
+            position: relative;
+            background-color: var(--color-slate);
+            border: 1px solid #333;
+            border-radius: 12px;
+            height: 400px;
+            width: 100%;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image: radial-gradient(circle, var(--color-gold) 1px, transparent 1px);
+            background-size: 15px 15px;
+        }
+        .map-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-gold);
+            border: 3px solid var(--color-charcoal);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            z-index: 10;
+        }
+        .map-marker:hover, .map-marker.active {
+            transform: scale(1.3);
+            background-color: var(--color-white);
+            box-shadow: 0 0 15px var(--color-gold);
+        }
+        .map-marker::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--color-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            opacity: 0.7;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .map-marker[data-city="antwerp"] {
+            top: 32%;
+            left: 48%;
+        }
+        .map-marker[data-city="brussels"] {
+            top: 58%;
+            left: 45%;
+        }
+        .map-tooltip {
+            position: absolute;
+            background: var(--color-charcoal);
+            border: 1px solid var(--color-gold);
+            color: var(--color-text-main);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            width: 250px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .map-marker:hover + .map-tooltip {
+            opacity: 1;
+        }
+        .map-tooltip-antwerp {
+            top: 18%;
+            left: 51%;
+        }
+        .map-tooltip-brussels {
+            top: 48%;
+            left: 48%;
+        }
+        .map-instructions {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            background: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Database Table CSS */
+        .database-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .search-bar-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .search-input {
+            flex: 1;
+            background-color: var(--color-slate);
+            border: 1px solid #444;
+            color: var(--color-text-main);
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.11-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 12px center;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+        }
+        .reset-btn {
+            background-color: transparent;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .reset-btn:hover {
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .db-table th {
+            background-color: rgba(197, 160, 89, 0.1);
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+            padding: 1rem;
+            border-bottom: 2px solid #333;
+        }
+        .db-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #2d2d2d;
+            color: var(--color-text-main);
+        }
+        .db-table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        .db-table tbody tr:hover {
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Gallery Masonry CSS */
+        .gallery-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .gallery-masonry {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-masonry {
+                column-count: 1;
+            }
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background-color: var(--color-slate);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+        }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid #2d2d2d;
+        }
+
+        /* Highlighted Section CSS */
+        .highlight-box {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-left: 4px solid var(--color-gold);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .highlight-img-wrapper {
+            height: 250px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+        .highlight-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -49,27 +309,389 @@
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Home</a></li>
-                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">The Holocaust</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Jewish Orphanages</li>
+                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">The Holocaust</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Orphanages</li>
                     </ol>
                 </nav>
 
                 <div class="wiki-main-content">
-                    <h1 class="section-title">Orphanages</h1>
+                    <h1 class="section-title">Orphanages and Children's Homes</h1>
+                    <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">
+                        Institutions that sheltered Jewish children in Antwerp during the Holocaust.
+                    </p>
+
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <img src="../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg"
-                            alt="Children in Antwerp"
-                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
+                            alt="Children at Meisjesweeshuis dining room, 1934"
+                            class="lightbox-trigger"
+                            data-caption="Antwerp Girls' Orphanage (Meisjesweeshuis) dining room, 1934."
+                            style="max-width: 500px; width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
                     </div>
-                    <div style="text-align: center; padding: 4rem 0;">
-                        <h2 style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1rem;">Coming Soon</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                            We are compiling the history of the orphanages that hid Jewish children in Antwerp during
-                            the war and the fate of those children.
+
+                    <!-- Factual Historical Introduction -->
+                    <div style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto 3rem auto; text-align: justify;">
+                        <p style="margin-bottom: 1rem;">
+                            Following the onset of deportations and mass arrests of Jewish families in Antwerp in the summer of 1942, hundreds of Jewish children were left without parents or guardians. In the wake of these arrests, some children were placed in municipal orphanages, children's homes, or non-Jewish private institutions, while others were taken in by courageous caregivers.
                         </p>
-                        <a href="holocaust.html" class="btn" style="margin-top: 2rem;">Go Back</a>
+                        <p style="margin-bottom: 1rem;">
+                            Despite the extreme risks involved under German military occupation, various directors, nurses, and rescue networks attempted to protect and hide these children. However, the municipal institutions remained under surveillance. On September 21, 1942, the German military administration carried out a systematic raid on Antwerp's municipal orphanages, leading to the arrest and subsequent deportation of dozens of Jewish children via the Dossin Barracks in Mechelen to Auschwitz-Birkenau.
+                        </p>
+                        <p>
+                            This page documents the historical role of these orphanages, the fate of the children who passed through them, and the caregivers who risked their lives to shelter them.
+                        </p>
                     </div>
+
+                    <!-- Main Antwerp Institutions -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">Antwerp Institutions</h2>
+                        
+                        <!-- Meisjeshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: none;">Meisjeshuis (Girls' Home)</a>
+                            </h2>
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../images/voormalig- meisjeshuis.jpg" 
+                                         alt="Meisjeshuis Girls' Home Building" 
+                                         class="lightbox-trigger"
+                                         data-caption="The former Meisjeshuis building on Albert Grisarstraat, Antwerp.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        The <strong>Meisjeshuis</strong> (Girls' Home) in Antwerp was a municipal orphanage that became a critical refuge for Jewish girls whose parents had been arrested and deported during the summer of 1942.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>Holocaust Role:</strong> The home provided shelter under the constant threat of inspections. Caregivers and sympathetic staff members attempted to protect the children by delaying official registration and hiding individuals whenever possible.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>Fate:</strong> On September 21, 1942, German occupation forces carried out a systematic raid on the municipal orphanages. The Jewish girls were arrested, sent to the Dossin Barracks in Mechelen, and subsequently deported to Auschwitz-Birkenau. Very few survived.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>Location:</strong> Albert Grisarstraat, Antwerp
+                                        </div>
+                                        <div>
+                                            <strong>Institution Type:</strong> Municipal Girls' Orphanage
+                                        </div>
+                                        <div>
+                                            <strong>Rescue Connection:</strong> Clandestine aid coordination
+                                        </div>
+                                        <div>
+                                            <strong>Primary Sources:</strong> FelixArchief Antwerp, Kazerne Dossin
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jongenshuis -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">Jongenshuis (Boys' Home)</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    The <strong>Jongenshuis</strong> (Boys' Home) was Antwerp's historic municipal orphanage for boys, functioning as a temporary refuge for Jewish boys during the peak of anti-Jewish roundups.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Holocaust Role:</strong> Housed and supported boys left parentless. Members of the municipal staff and sympathizers made efforts to coordinate with underground resistance networks, trying to falsify records or delay registration before inspections.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Fate:</strong> Targeted during the tragic raid on September 21, 1942. Virtually all Jewish boys housed in the institution were arrested, taken to the Dossin Barracks, and deported to concentration camps.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Location:</strong> Durletstraat, Antwerp
+                                    </div>
+                                    <div>
+                                        <strong>Institution Type:</strong> Municipal Boys' Orphanage
+                                    </div>
+                                    <div>
+                                        <strong>Rescue Connection:</strong> Falsification & registration delays
+                                    </div>
+                                    <div>
+                                        <strong>Primary Sources:</strong> FelixArchief Antwerp, survivor testimonies
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pennsylvania Foundation -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: none;">Pennsylvania Foundation</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    The <strong>Pennsylvania Foundation</strong> functioned as a day nursery and children's refuge in Antwerp, providing essential food, healthcare, and shelter for vulnerable infants and young children of persecuted parents.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Holocaust Role:</strong> In cooperation with the underground *Comité de Défense des Juifs* (CDJ), the home served as a major transit node for smuggling children out of the city and placing them with Catholic foster families in rural areas under false identities.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Fate:</strong> While many children were successfully saved through placement in hiding, others were seized during subsequent inspections and raids.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Location:</strong> Antwerp
+                                    </div>
+                                    <div>
+                                        <strong>Institution Type:</strong> Day Nursery & Day Shelter
+                                    </div>
+                                    <div>
+                                        <strong>Rescue Connection:</strong> Clandestine smuggling with the CDJ
+                                    </div>
+                                    <div>
+                                        <strong>Primary Sources:</strong> CDJ clandestine reports, postwar records
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jewish Orphanage -->
+                        <div class="highlight-box">
+                            <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                                <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: none;">Jewish Orphanage (Lange Leemstraat)</a>
+                            </h2>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    The <strong>Jewish Orphanage</strong> on Lange Leemstraat was the primary pre-war orphanage run directly by the Jewish community of Antwerp, caring for Jewish orphans and vulnerable children.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Holocaust Role:</strong> In the early days of the occupation, it continued to operate under extreme restrictions. As the anti-Jewish measures intensified, community leaders dispersed the children to rural areas or private homes.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>Fate:</strong> Operations ceased as children were forced into hiding or rounded up in separate actions. The building was eventually seized and shuttered by the occupation authorities.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>Location:</strong> Lange Leemstraat, Antwerp
+                                    </div>
+                                    <div>
+                                        <strong>Institution Type:</strong> Community Jewish Orphanage
+                                    </div>
+                                    <div>
+                                        <strong>Rescue Connection:</strong> Placement dispersion networks
+                                    </div>
+                                    <div>
+                                        <strong>Primary Sources:</strong> Antwerp Community Memorial Books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Highlighted Section: R’ Yona Tiefenbrunner & Brussels Children’s Home -->
+                    <div class="highlight-box">
+                        <span class="badge" style="background-color: rgba(197, 160, 89, 0.2); color: var(--color-gold); border: 1px solid var(--color-gold); margin-bottom: 1rem;">
+                            Related Rescue Institution Outside Antwerp
+                        </span>
+                        <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
+                            <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: none;">R’ Yona Tiefenbrunner and the Brussels Children’s Home</a>
+                        </h2>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem;">
+                            Note: This case study is included due to its historical importance to Jewish child rescue networks in occupied Belgium.
+                        </p>
+                        
+                        <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                            <p style="margin-bottom: 1rem;">
+                                Rabbi Yona Tiefenbrunner operated a Jewish children's home in Brussels (known as the <em>Home de la Glacière</em>) that became one of the key wartime Jewish orphanage networks in occupied Belgium. 
+                            </p>
+                            <p style="margin-bottom: 1rem;">
+                                Between 1942 and 1944, under extreme wartime conditions, Rabbi Tiefenbrunner and his staff cared for hundreds of Jewish children. He maintained a warm, protective environment under the constant threat of raids, and worked secretly with underground rescue organizations to place children in hiding.
+                            </p>
+                            <p style="margin-bottom: 1rem;">
+                                The home successfully remained open during the occupation, serving as a refuge for orphans and children whose parents had been deported. Following the liberation, it continued to operate as an orphanage for survivor children until 1960.
+                            </p>
+                            <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                            </p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                <div>
+                                    <strong>Location:</strong> Rue de la Glacière, Brussels
+                                </div>
+                                <div>
+                                    <strong>Years Active:</strong> 1942–1960
+                                </div>
+                                <div>
+                                    <strong>Relevance:</strong> Collaborated with Antwerp resistance networks to smuggle children to safety.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="map-section">
+                        <h2 class="section-title">Interactive Map of Shelter Locations</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 1rem;">
+                            Hover over the markers on the map to locate shelter and rescue centers in Belgium.
+                        </p>
+                        
+                        <div class="map-container">
+                            <div class="map-bg"></div>
+                            
+                            <!-- Belgium map outline simplified in SVG -->
+                            <svg class="map-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M120 40 L180 30 L220 50 L270 45 L320 80 L350 120 L330 180 L280 220 L240 250 L180 260 L140 240 L100 230 L80 180 L70 120 L85 80 Z" stroke="#c5a059" stroke-width="2" stroke-dasharray="5 5"/>
+                                <text x="185" y="100" fill="#c5a059" font-size="12" opacity="0.3" font-family="var(--font-serif)">BELGIUM</text>
+                            </svg>
+                            
+                            <!-- Antwerp Marker -->
+                            <div class="map-marker" data-city="antwerp" id="marker-antwerp"></div>
+                            <div class="map-tooltip map-tooltip-antwerp">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Antwerp</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>Meisjeshuis (Girls' Home)</li>
+                                    <li>Jongenshuis (Boys' Home)</li>
+                                    <li>Pennsylvania Foundation</li>
+                                    <li>Jewish Orphanage (Lange Leemstraat)</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Brussels Marker -->
+                            <div class="map-marker" data-city="brussels" id="marker-brussels"></div>
+                            <div class="map-tooltip map-tooltip-brussels">
+                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Brussels</h4>
+                                <ul style="padding-left: 1.2rem; margin: 0;">
+                                    <li>R’ Yona Tiefenbrunner Home</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="map-instructions">Hover over markers to view shelter details</div>
+                        </div>
+                    </div>
+
+                    <!-- Children Database Section -->
+                    <div class="database-section">
+                        <h2 class="section-title">Children Database & Records</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            The names and individual records of the children who passed through these institutions are currently undergoing historical verification and archiving. If you have verified records, witness testimonies, or information about specific children, please consider contributing them to the archive.
+                        </p>
+                        <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+                            <a href="../contribute.html" class="reset-btn" style="text-decoration: none; display: inline-block;">Contribute Records</a>
+                        </div>
+                    </div>
+
+                    <!-- Caregivers Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
+                        <h2 class="section-title">Caregivers and Staff</h2>
+                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 2rem;">
+                            Individuals who attempted to shelter and rescue children.
+                        </p>
+                        <div class="synagogue-grid">
+                            
+                            <!-- Yvonne Nevejean -->
+                            <article class="card">
+                                <div class="card-image">
+                                    <img src="../images/Yvonne_Nèvejean.jpg" 
+                                         alt="Yvonne Nèvejean" 
+                                         class="lightbox-trigger"
+                                         data-caption="Yvonne Nèvejean, head of the ONE (Office de la Naissance et de l'Enfance).">
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="card-title">Yvonne Nèvejean</h2>
+                                    <div class="card-meta">
+                                        <span>Brussels & Antwerp</span> • <span>Director of the ONE</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        One of the primary leaders in the rescue of Jewish children in occupied Belgium. Coordinated with the CDJ to place thousands of children in municipal and private orphanages, foster homes, and convents. Recognized as Righteous Among the Nations.
+                                    </p>
+                                </div>
+                            </article>
+                            <!-- Rabbi Yona Tiefenbrunner -->
+                            <article class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">Rabbi Yona Tiefenbrunner</h2>
+                                    <div class="card-meta">
+                                        <span>Brussels</span> • <span>Home de la Glacière Director</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        Managed the Jewish children's home in Brussels, sheltering hundreds of children. He maintained Jewish education and community life during the occupation under extreme pressure and food scarcity.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Marie-Thérèse De Clerck -->
+                            <article class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">Marie-Thérèse De Clerck</h2>
+                                    <div class="card-meta">
+                                        <span>Antwerp</span> • <span>Municipal Nurse</span>
+                                    </div>
+                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
+                                        A nurse at the Antwerp Meisjeshuis who worked secretly with underground networks. She helped alert families before the September 1942 raid, enabling several children to escape.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Archive Gallery Section -->
+                    <div class="gallery-section">
+                        <h2 class="section-title">Archive Gallery</h2>
+                        <div class="gallery-masonry">
+                            <div class="gallery-item">
+                                <img src="../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg" 
+                                     alt="Meisjesweeshuis dining room, 1934" 
+                                     class="lightbox-trigger"
+                                     data-caption="Antwerp Girls' Orphanage (Meisjesweeshuis) dining room, 1934.">
+                                <div class="gallery-caption">Antwerp Girls' Orphanage dining room, 1934.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/voormalig- meisjeshuis.jpg" 
+                                     alt="Voormalig Meisjeshuis building" 
+                                     class="lightbox-trigger"
+                                     data-caption="The former Meisjeshuis building on Albert Grisarstraat, Antwerp.">
+                                <div class="gallery-caption">Former Meisjeshuis building, Antwerp.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/memorial-meisjeshuis.jpg" 
+                                     alt="Commemorative plaque at Meisjeshuis" 
+                                     class="lightbox-trigger"
+                                     data-caption="Commemorative plaque at the former Meisjeshuis building, dedicated to the deported children.">
+                                <div class="gallery-caption">Commemorative plaque, Meisjeshuis.</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; color: var(--color-text-muted); font-size: 0.95rem; margin-top: 1rem;">
+                            Do you have historical photos, documents, or records of these orphanages? Please consider <a href="../contribute.html" style="color: var(--color-gold); text-decoration: underline;">contributing them</a> to the archive.
+                        </p>
+                    </div>
+
+                    <!-- Sources Section -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.95rem; line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Primary Sources & Archives</h3>
+                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">FelixArchief Antwerp (Municipal Orphanage registry files).</li>
+                                <li style="margin-bottom: 0.5rem;">Kazerne Dossin Archives, Mechelen (Transport Lists 1942).</li>
+                                <li>Archives of the *Comité de Défense des Juifs* (CDJ), Brussels.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Books & Oral Testimonies</h3>
+                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">Malkie Weinstock, <em>Angel of Orphans</em> (biography of Rabbi Yona Tiefenbrunner).</li>
+                                <li style="margin-bottom: 0.5rem;"><em>The Shoah in Belgium</em>, historical survey of child rescue.</li>
+                                <li>Postwar testimonies of survivors from the Brussels Children's Home.</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -80,7 +702,10 @@
             </div>
         </footer>
     </div>
+    
+    <script src="../js/lightbox.js"></script>
     <script src="../js/scroll-top.js"></script>
+
 </body>
 
 </html>
