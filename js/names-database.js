@@ -511,14 +511,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Parse CSV in microtask to allow loader text repaint
-            setTimeout(() => {
-                const parsed = parseCSV(text);
-                if (parsed.length > 0) {
-                    headers = parsed[0].map(h => h.trim());
-                    rawRecords = parsed.slice(1);
-                    processRecords();
-                } else {
-                    throw new Error("No data in CSV");
+            setTimeout(async () => {
+                try {
+                    const parsed = parseCSV(text);
+                    if (parsed.length > 0) {
+                        headers = parsed[0].map(h => h.trim());
+                        rawRecords = parsed.slice(1);
+                        
+                        // Load and merge secondary CSV file (names-meisjeshuis.csv)
+                        try {
+                            const secondaryCsvPath = csvPath.replace('names.csv', 'names-meisjeshuis.csv');
+                            const secondaryResponse = await fetch(secondaryCsvPath);
+                            if (secondaryResponse.ok) {
+                                const secondaryText = await secondaryResponse.text();
+                                const secondaryParsed = parseCSV(secondaryText);
+                                if (secondaryParsed.length > 1) {
+                                    const secondaryRows = secondaryParsed.slice(1);
+                                    rawRecords = rawRecords.concat(secondaryRows);
+                                    console.log(`Successfully merged ${secondaryRows.length} records from names-meisjeshuis.csv`);
+                                }
+                            } else {
+                                console.warn(`Could not load names-meisjeshuis.csv: ${secondaryResponse.status} ${secondaryResponse.statusText}`);
+                            }
+                        } catch (secErr) {
+                            console.error("Error loading/parsing names-meisjeshuis.csv: ", secErr);
+                        }
+                        
+                        processRecords();
+                    } else {
+                        throw new Error("No data in CSV");
+                    }
+                } catch (err) {
+                    console.error("Error parsing/processing names database: ", err);
+                    loaderStatus.innerHTML = `<span style="color: #ff6b6b;">Error loading database. Please check your network connection and try again.<br><small>${err.message}</small></span>`;
                 }
             }, 50);
             
