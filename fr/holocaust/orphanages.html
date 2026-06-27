@@ -270,6 +270,102 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Gallery Grid CSS */
+        .gallery-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background-color: var(--color-slate);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid #2d2d2d;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Caregivers Cards Styling */
+        .caregiver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .caregiver-card {
+            display: flex;
+            flex-direction: row;
+            background: var(--color-slate);
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .caregiver-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-gold);
+        }
+        .caregiver-card .card-image {
+            width: 120px;
+            height: auto;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .caregiver-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .caregiver-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        .caregiver-card .card-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media (max-width: 600px) {
+            .caregiver-card {
+                flex-direction: column;
+            }
+            .caregiver-card .card-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
     </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -314,7 +410,7 @@
                     </ol>
                 </nav>
 
-                <div class="wiki-main-content">
+                <div class="wiki-main-content" style="max-width: 900px; margin: 0 auto;">
                     <h1 class="section-title">Orphelinats et Foyers pour Enfants</h1>
                     <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">
                         Institutions ayant abrité des enfants juifs à Anvers pendant la Shoah.
@@ -396,7 +492,15 @@
                             <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
                                 <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">Jongenshuis (Foyer pour garçons)</a>
                             </h2>
-                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/jongensweeshuis.jpg" 
+                                         alt="Bâtiment du Jongenshuis (Foyer pour garçons)" 
+                                         class="lightbox-trigger"
+                                         data-caption="Vue historique du Jongenshuis (Foyer pour garçons) à Anvers.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    
                                 <p style="margin-bottom: 1rem;">
                                     Le <strong>Jongenshuis</strong> était l'orphelinat municipal historique pour garçons d'Anvers, servant de refuge temporaire pour les garçons juifs au plus fort des rafles anti-juives.
                                 </p>
@@ -409,6 +513,8 @@
                                 <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
                                     <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lire l'histoire complète →</a>
                                 </p>
+                                </div>
+                            
                                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
                                     <div>
                                         <strong>Lieu :</strong> Durletstraat, Anvers
@@ -510,7 +616,15 @@
                             Note : Cette étude de cas est incluse en raison de son importance historique majeure pour les réseaux de sauvetage d'enfants juifs en Belgique occupée.
                         </p>
                         
-                        <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
+                        <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/Tieffenbrunner ardennen.jpg" 
+                                         alt="Orphelinat Tiefenbrunner en vacances dans les Ardennes" 
+                                         class="lightbox-trigger"
+                                         data-caption="Enfants et personnel de l'orphelinat juif Tiefenbrunner d'Anvers pendant des vacances dans les Ardennes.">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    
                             <p style="margin-bottom: 1rem;">
                                 Le rabbin Yona Tiefenbrunner a dirigé un foyer pour enfants juifs à Bruxelles (connu sous le nom de <em>Home de la Glacière</em>) qui est devenu l'un des principaux réseaux d'orphelinats juifs en Belgique occupée pendant la guerre.
                             </p>
@@ -523,6 +637,8 @@
                             <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
                                 <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Lire l'histoire complète →</a>
                             </p>
+                                </div>
+                            
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
                                 <div>
                                     <strong>Lieu :</strong> Rue de la Glacière, Bruxelles
@@ -534,47 +650,6 @@
                                     <strong>Pertinence :</strong> A collaboré avec les réseaux de résistance anversois pour mettre les enfants en sécurité.
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Map Section -->
-                    <div class="map-section">
-                        <h2 class="section-title">Carte Interactive des Lieux de Refuge</h2>
-                        <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 1rem;">
-                            Survolez les marqueurs sur la carte pour localiser les centres d'accueil et de sauvetage en Belgique.
-                        </p>
-                        
-                        <div class="map-container">
-                            <div class="map-bg"></div>
-                            
-                            <!-- Belgium map outline simplified in SVG -->
-                            <svg class="map-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M120 40 L180 30 L220 50 L270 45 L320 80 L350 120 L330 180 L280 220 L240 250 L180 260 L140 240 L100 230 L80 180 L70 120 L85 80 Z" stroke="#c5a059" stroke-width="2" stroke-dasharray="5 5"/>
-                                <text x="185" y="100" fill="#c5a059" font-size="12" opacity="0.3" font-family="var(--font-serif)">BELGIQUE</text>
-                            </svg>
-                            
-                            <!-- Antwerp Marker -->
-                            <div class="map-marker" data-city="anvers" id="marker-antwerp"></div>
-                            <div class="map-tooltip map-tooltip-antwerp">
-                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Anvers</h4>
-                                <ul style="padding-left: 1.2rem; margin: 0;">
-                                    <li>Meisjeshuis</li>
-                                    <li>Jongenshuis</li>
-                                    <li>Pennsylvania Foundation</li>
-                                    <li>Orphelinat Juif (Lange Leemstraat)</li>
-                                </ul>
-                            </div>
-                            
-                            <!-- Brussels Marker -->
-                            <div class="map-marker" data-city="bruxelles" id="marker-brussels"></div>
-                            <div class="map-tooltip map-tooltip-brussels">
-                                <h4 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.25rem;">Bruxelles</h4>
-                                <ul style="padding-left: 1.2rem; margin: 0;">
-                                    <li>Foyer R’ Yona Tiefenbrunner</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="map-instructions">Survolez les marqueurs pour voir les détails du refuge</div>
                         </div>
                     </div>
 
@@ -592,87 +667,95 @@
                         <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 2rem;">
                             Personnes ayant tenté de protéger et de sauver des enfants.
                         </p>
-                        <div class="synagogue-grid">
-                            
-                            <!-- Yvonne Nevejean -->
-                            <article class="card">
+                        
+                        <div class="caregiver-grid">
+                            <article class="caregiver-card">
                                 <div class="card-image">
-                                    <img src="../../images/Yvonne_Nèvejean.jpg" 
-                                         alt="Yvonne Nèvejean" 
-                                         class="lightbox-trigger"
-                                         data-caption="Yvonne Nèvejean, directrice de l'ONE (Office de la Naissance et de l'Enfance).">
+                                    <img src="../../images/Yvonne_Nèvejean.jpg" alt="Yvonne Nèvejean" class="lightbox-trigger" data-caption="Yvonne Nèvejean">
                                 </div>
                                 <div class="card-content">
-                                    <h2 class="card-title">Yvonne Nèvejean</h2>
-                                    <div class="card-meta">
-                                        <span>Bruxelles & Anvers</span> • <span>Directrice de l'ONE</span>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Yvonne Nèvejean</h2>
+                                    <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
+                                        Bruxelles & Anvers • Directrice de l'ONE
                                     </div>
-                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
-                                        L'une des principales dirigeantes du sauvetage des enfants juifs en Belgique occupée. A coordonné avec le CDJ le placement de milliers d'enfants dans des orphelinats municipaux et privés, des familles d'accueil et des couvents. Reconnue comme Juste parmi les Nations.
+                                    <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                        L'une des principales dirigeantes du sauvetage des enfants juifs en Belgique occupée. A coordonné avec le CDJ le placement de milliers d'enfants dans des orphelinats municipaux et privés, des foyers d'accueil et des couvents. Reconnue comme Juste parmi les Nations.
                                     </p>
                                 </div>
                             </article>
+                            <article class="caregiver-card">
 
-                            <!-- Rabbi Yona Tiefenbrunner -->
-                            <article class="card">
                                 <div class="card-content">
-                                    <h2 class="card-title">Rabbi Yona Tiefenbrunner</h2>
-                                    <div class="card-meta">
-                                        <span>Bruxelles</span> • <span>Directeur du Home de la Glacière</span>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Rabbi Yona Tiefenbrunner</h2>
+                                    <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
+                                        Bruxelles • Directeur du Home de la Glacière
                                     </div>
-                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
-                                        A dirigé le foyer pour enfants juifs à Bruxelles, abritant des centaines d'enfants. A maintenu l'éducation juive et la via communautaire pendant l'occupation sous une pression extrême et des pénuries alimentaires.
+                                    <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                        A dirigé le foyer pour enfants juifs à Bruxelles, abritant des centaines d'enfants. Il a maintenu l'éducation juive et la vie communautaire sous une pression extrême et des pénuries alimentaires.
                                     </p>
                                 </div>
                             </article>
+                            <article class="caregiver-card">
 
-                            <!-- Marie-Thérèse De Clerck -->
-                            <article class="card">
                                 <div class="card-content">
-                                    <h2 class="card-title">Marie-Thérèse De Clerck</h2>
-                                    <div class="card-meta">
-                                        <span>Anvers</span> • <span>Infirmière Municipale</span>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Marie-Thérèse De Clerck</h2>
+                                    <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
+                                        Anvers • Infirmière municipale
                                     </div>
-                                    <p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6;">
-                                        Infirmière au Meisjeshuis d'Anvers qui a travaillé secrètement avec les réseaux clandestins. Elle a aidé à alerter les familles avant le raid de septembre 1942, permettant à plusieurs enfants de s'échapper.
+                                    <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                                        Une infirmière au Meisjeshuis d'Anvers qui a travaillé secrètement avec les réseaux de résistance. Elle a aidé à alerter les familles avant la rafle de septembre 1942, permettant à plusieurs enfants de s'échapper.
                                     </p>
                                 </div>
                             </article>
-
                         </div>
-                    </div>
-
-                    <!-- Galerie d'Archives Section -->
+                    </div><!-- Galerie d'Archives Section -->
                     <div class="gallery-section">
                         <h2 class="section-title">Galerie d'Archives</h2>
-                        <div class="gallery-masonry">
+                        <div class="gallery-grid">
                             <div class="gallery-item">
                                 <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg" 
-                                     alt="Réfectoire Meisjesweeshuis, 1934" 
-                                     class="lightbox-trigger"
-                                     data-caption="Orphelinat pour filles d'Anvers (Meisjesweeshuis), réfectoire en 1934.">
-                                <div class="gallery-caption">Réfectoire du Meisjesweeshuis, 1934.</div>
+                                     alt="Réfectoire de l'orphelinat pour filles d'Anvers, 1934." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Réfectoire de l'orphelinat pour filles d'Anvers, 1934.">
+                                <div class="gallery-caption">Réfectoire de l'orphelinat pour filles d'Anvers, 1934.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/voormalig- meisjeshuis.jpg" 
-                                     alt="Ancien bâtiment du Meisjeshuis" 
-                                     class="lightbox-trigger"
-                                     data-caption="L'ancien bâtiment du Meisjeshuis sur la Albert Grisarstraat, Anvers.">
+                                     alt="Ancien bâtiment du Meisjeshuis, Anvers." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Ancien bâtiment du Meisjeshuis, Anvers.">
                                 <div class="gallery-caption">Ancien bâtiment du Meisjeshuis, Anvers.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/memorial-meisjeshuis.jpg" 
-                                     alt="Plaque commémorative au Meisjeshuis" 
-                                     class="lightbox-trigger"
-                                     data-caption="Plaque commémorative sur le bâtiment de l'ancien Meisjeshuis dédiée aux enfants déportés.">
+                                     alt="Plaque commémorative, Meisjeshuis." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Plaque commémorative, Meisjeshuis.">
                                 <div class="gallery-caption">Plaque commémorative, Meisjeshuis.</div>
                             </div>
+                            <div class="gallery-item">
+                                <img src="../../images/jongensweeshuis.jpg" 
+                                     alt="Bâtiment du Jongenshuis (Foyer pour garçons), Anvers." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Bâtiment du Jongenshuis (Foyer pour garçons), Anvers.">
+                                <div class="gallery-caption">Bâtiment du Jongenshuis (Foyer pour garçons), Anvers.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/Tieffenbrunner ardennen.jpg" 
+                                     alt="Vacances de l'orphelinat juif Tiefenbrunner d'Anvers dans les Ardennes." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Vacances de l'orphelinat juif Tiefenbrunner d'Anvers dans les Ardennes.">
+                                <div class="gallery-caption">Vacances de l'orphelinat juif Tiefenbrunner d'Anvers dans les Ardennes.</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../../images/Yona and Ruth Tiefenbrunner walking with 2 orphans cir 1947.jpg" 
+                                     alt="Le rabbin Yona Tiefenbrunner et son épouse Ruth avec des orphelins." 
+                                     class="lightbox-trigger" 
+                                     data-caption="Le rabbin Yona Tiefenbrunner et son épouse Ruth avec des orphelins.">
+                                <div class="gallery-caption">Le rabbin Yona Tiefenbrunner et son épouse Ruth avec des orphelins.</div>
+                            </div>
                         </div>
-                        <p style="text-align: center; color: var(--color-text-muted); font-size: 0.95rem; margin-top: 1rem;">
-                            Avez-vous des photos historiques, des documents ou des registres de ces orphelinats ? Veuillez envisager de les <a href="../contribute.html" style="color: var(--color-gold); text-decoration: underline;">partager</a> avec l'archive.
-                        </p>
                     </div>
-
                     <!-- Sources Section -->
                     <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.95rem; line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div>

@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 event: "Event",
                 company: "Company",
                 kehilla: "Kehilla",
-                person: "Person"
+                person: "Person",
+                yeshiva: "Yeshiva"
             }
         },
         nl: {
@@ -56,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 event: "Evenement",
                 company: "Bedrijf",
                 kehilla: "Kehilla",
-                person: "Persoon"
+                person: "Persoon",
+                yeshiva: "Yeshiva"
             }
         },
         fr: {
@@ -73,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 event: "Événement",
                 company: "Entreprise",
                 kehilla: "Kehilla",
-                person: "Personne"
+                person: "Personne",
+                yeshiva: "Yeshiva"
             }
         },
         he: {
@@ -90,7 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 event: "אירוע",
                 company: "חברה",
                 kehilla: "קהילה",
-                person: "אישיות"
+                person: "אישיות",
+                yeshiva: "ישיבה"
             }
         }
     };
@@ -168,9 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi", titleHe: "רב לייביש" },
         { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi", titleHe: "שמואל ברודט" },
         { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi", titleHe: "הרב יהודה אריה טרגר" },
+        { title: "Rabbi Shraga Feivel Shapira", url: "rabbis/rabbi-shraga-feivel-shapira.html", type: "Rabbi", titleNl: "Rabbijn Shraga Feivel Shapira", titleFr: "Rabbin Shraga Feivel Shapira", titleHe: "הרב שרגא פייבל שפירא" },
 
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place", titleHe: "הייד, קלמהוט" },
+        { title: "Yeshivat Heide", url: "places/yeshivat-heide.html", type: "Yeshiva", titleNl: "Yeshivat Heide", titleFr: "Yeshivat Heide", titleHe: "ישיבת הייד" },
         { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School", titleHe: "בית הספר יסודי התורה" },
         { title: "Yavne School", url: "places/yavne.html", type: "School", titleHe: "בית הספר יבנה" },
         { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School", titleHe: "בית הספר תחכמוני" },

@@ -30,7 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
             unnamedChild: "Unnamed Child (Girls' Home)",
             inventaris: "Inventory Number",
             category: "Category",
-            detailsLabel: "Biographical details & citations:"
+            detailsLabel: "Biographical details & citations:",
+            institutionFilter: "Institution",
+            meisjeshuis: "Meisjeshuis (Girls' Home)",
+            jongenshuis: "Jongenshuis (Boys' Home)",
+            lange_leemstraat: "Jewish Orphanage (Lange Leemstraat)",
+            pennsylvania: "Pennsylvania Foundation",
+            brussels: "Brussels Children's Home"
         },
         nl: {
             searchPlaceholder: "Zoek op status, adres of historische context...",
@@ -50,7 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
             unnamedChild: "Onbekend Kind (Meisjeshuis)",
             inventaris: "Inventarisnummer",
             category: "Categorie",
-            detailsLabel: "Biografische gegevens & citaten:"
+            detailsLabel: "Biografische gegevens & citaten:",
+            institutionFilter: "Instelling",
+            meisjeshuis: "Meisjeshuis",
+            jongenshuis: "Jongenshuis",
+            lange_leemstraat: "Joods Weeshuis (Lange Leemstraat)",
+            pennsylvania: "Pennsylvania Foundation",
+            brussels: "Tehuis Brussel"
         },
         fr: {
             searchPlaceholder: "Rechercher par statut, adresse ou contexte...",
@@ -70,7 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
             unnamedChild: "Enfant non nommé (Foyer pour filles)",
             inventaris: "Numéro d'inventaire",
             category: "Catégorie",
-            detailsLabel: "Détails biographiques & citations:"
+            detailsLabel: "Détails biographiques & citations:",
+            institutionFilter: "Institution",
+            meisjeshuis: "Meisjeshuis (Foyer pour filles)",
+            jongenshuis: "Jongenshuis (Foyer pour garçons)",
+            lange_leemstraat: "Orphelinat Juif (Lange Leemstraat)",
+            pennsylvania: "Fondation Pennsylvania",
+            brussels: "Foyer de Bruxelles"
         },
         he: {
             searchPlaceholder: "חפש לפי גורל, כתובת או הערות היסטוריות...",
@@ -89,7 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
             unnamedChild: "ילדה ללא שם (בית הבנות)",
             inventaris: "מספר ארכיון",
             category: "קטגוריה",
-            detailsLabel: "פרטים ביוגרפיים ומקורות:"
+            detailsLabel: "פרטים ביוגרפיים ומקורות:",
+            institutionFilter: "מוסד",
+            meisjeshuis: "בית הבנות (Meisjeshuis)",
+            jongenshuis: "בית הבנים (Jongenshuis)",
+            lange_leemstraat: "בית היתומים היהודי (לנגה לימסטראט)",
+            pennsylvania: "קרן פנסילבניה",
+            brussels: "בית הילדים בבריסל"
         }
     };
 
@@ -146,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let records = [];
     let filteredRecords = [];
     let currentFilter = 'all'; // 'all', 'survived', 'deported'
+    let currentInstitutionFilter = null; // null, 'meisjeshuis', 'jongenshuis', etc.
     let searchQuery = '';
 
     // Load CSV
@@ -212,7 +237,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 matchStatus = rec.Overlijdensdetails && (rec.Overlijdensdetails.includes("Gedeporteerd") || rec.Overlijdensdetails.includes("Omgekomen"));
             }
 
-            return matchQuery && matchStatus;
+            // Filter by institution
+            let matchInstitution = true;
+            if (currentInstitutionFilter) {
+                const woonplaats = (rec.Woonplaats || '').toLowerCase();
+                const adres = (rec.Adres || '').toLowerCase();
+                const extraInfo = (rec.ExtraInformatie || '').toLowerCase();
+                const inventaris = (rec.Inventarisnummer || '').toLowerCase();
+                
+                if (currentInstitutionFilter === 'meisjeshuis') {
+                    matchInstitution = adres.includes('meisjeshuis') || adres.includes('grisarstraat') || 
+                                       extraInfo.includes('meisjeshuis') || extraInfo.includes('grisarstraat') ||
+                                       inventaris.startsWith('mh');
+                } else if (currentInstitutionFilter === 'jongenshuis') {
+                    matchInstitution = adres.includes('jongenshuis') || adres.includes('durletstraat') || 
+                                       extraInfo.includes('jongenshuis') || extraInfo.includes('durletstraat') ||
+                                       inventaris.startsWith('jh');
+                } else if (currentInstitutionFilter === 'lange_leemstraat') {
+                    matchInstitution = adres.includes('lange leemstraat') || extraInfo.includes('lange leemstraat');
+                } else if (currentInstitutionFilter === 'pennsylvania') {
+                    matchInstitution = adres.includes('pennsylvania') || extraInfo.includes('pennsylvania');
+                } else if (currentInstitutionFilter === 'brussels') {
+                    matchInstitution = woonplaats.includes('brussel') || woonplaats.includes('bruxelles') || 
+                                       woonplaats.includes('tiefenbrunner') || woonplaats.includes('glacière') ||
+                                       extraInfo.includes('brussel') || extraInfo.includes('bruxelles') ||
+                                       extraInfo.includes('tiefenbrunner') || extraInfo.includes('glacière');
+                }
+            }
+
+            return matchQuery && matchStatus && matchInstitution;
         });
 
         renderTableBody();
@@ -233,8 +286,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="reset-btn" data-filter="deported" id="btn-filter-deported" style="padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem;">${t.statusDeported}</button>
                     </div>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--color-text-muted);">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--color-text-muted); flex-wrap: wrap; gap: 0.5rem;">
                     <span id="records-count">${records.length} ${t.totalRecords}</span>
+                    <div id="city-filter-indicator" style="display: none; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 0.85rem; color: var(--color-text-muted);">${t.institutionFilter}:</span>
+                        <span id="active-city-badge" class="badge" style="background-color: rgba(197, 160, 89, 0.15); color: var(--color-gold); border: 1px solid rgba(197, 160, 89, 0.3); font-weight: 500; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 20px;">
+                            <span id="active-city-name"></span>
+                            <span id="clear-city-filter" style="cursor: pointer; font-weight: bold; margin-left: 4px; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">×</span>
+                        </span>
+                    </div>
                 </div>
             </div>
             
@@ -313,6 +373,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Wire clear indicator button
+        const clearIndicatorBtn = document.getElementById('clear-city-filter');
+        if (clearIndicatorBtn) {
+            clearIndicatorBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearInstitutionFilterAction();
+            });
+        }
+
+        // Setup/Restore active city filter UI state
+        if (currentInstitutionFilter) {
+            const indicator = document.getElementById('city-filter-indicator');
+            const nameSpan = document.getElementById('active-city-name');
+            if (indicator && nameSpan) {
+                nameSpan.textContent = t[currentInstitutionFilter] || currentInstitutionFilter;
+                indicator.style.display = 'flex';
+            }
+        }
+
         renderTableBody();
         updateCountLabel();
     }
@@ -381,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const countLabel = document.getElementById('records-count');
         if (!countLabel) return;
         
-        if (searchQuery || currentFilter !== 'all') {
+        if (searchQuery || currentFilter !== 'all' || currentInstitutionFilter) {
             countLabel.textContent = `${filteredRecords.length} ${t.resultsFound} (of ${records.length} ${t.totalRecords})`;
         } else {
             countLabel.textContent = `${records.length} ${t.totalRecords}`;
@@ -446,6 +525,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.style.display = 'flex';
     }
+
+    // Setup map marker click listeners
+    function setupMapListeners() {
+        const markers = document.querySelectorAll('.map-marker');
+        markers.forEach(marker => {
+            marker.style.cursor = 'pointer';
+            marker.addEventListener('click', () => {
+                const markerId = marker.id;
+                let inst = '';
+                if (markerId === 'marker-meisjeshuis') {
+                    inst = 'meisjeshuis';
+                } else if (markerId === 'marker-jongenshuis') {
+                    inst = 'jongenshuis';
+                } else if (markerId === 'marker-lange-leemstraat') {
+                    inst = 'lange_leemstraat';
+                } else if (markerId === 'marker-pennsylvania') {
+                    inst = 'pennsylvania';
+                } else if (markerId === 'marker-brussels') {
+                    inst = 'brussels';
+                }
+
+                if (!inst) return;
+
+                if (currentInstitutionFilter === inst) {
+                    clearInstitutionFilterAction();
+                } else {
+                    selectInstitutionFilterAction(inst);
+                }
+            });
+        });
+    }
+
+    // Action to select an institution filter
+    function selectInstitutionFilterAction(inst) {
+        currentInstitutionFilter = inst;
+        
+        // Update map markers UI
+        const markers = document.querySelectorAll('.map-marker');
+        markers.forEach(m => {
+            if (m.id === `marker-${inst.replace('_', '-')}`) {
+                m.classList.add('active');
+            } else {
+                m.classList.remove('active');
+            }
+        });
+
+        // Update database UI indicator
+        const indicator = document.getElementById('city-filter-indicator');
+        const nameSpan = document.getElementById('active-city-name');
+        if (indicator && nameSpan) {
+            nameSpan.textContent = t[inst] || inst;
+            indicator.style.display = 'flex';
+        }
+
+        // Filter records
+        if (records.length > 0) {
+            filterRecords();
+            // Scroll to database section
+            const dbSection = document.querySelector('.database-section');
+            if (dbSection) {
+                dbSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
+    // Action to clear the institution filter
+    function clearInstitutionFilterAction() {
+        currentInstitutionFilter = null;
+
+        // Update map markers UI
+        const markers = document.querySelectorAll('.map-marker');
+        markers.forEach(m => {
+            m.classList.remove('active');
+        });
+
+        // Update database UI indicator
+        const indicator = document.getElementById('city-filter-indicator');
+        if (indicator) {
+            indicator.style.display = 'none';
+        }
+
+        // Filter records
+        if (records.length > 0) {
+            filterRecords();
+        }
+    }
+
+    // Initialize map event listeners
+    setupMapListeners();
 
     loadOrphansDatabase();
 });
