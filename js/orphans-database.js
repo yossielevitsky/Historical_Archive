@@ -335,13 +335,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tbody.innerHTML = filteredRecords.map(rec => {
             // Determine status badge style
-            let badgeStyle = '';
+            let badgeStyle = 'background-color: rgba(255, 255, 255, 0.05); color: var(--color-text-main); border: 1px solid #444;';
             let localizedStatus = rec.Overlijdensdetails;
             if (rec.Overlijdensdetails && rec.Overlijdensdetails.includes("Overleefde")) {
-                badgeStyle = 'background-color: rgba(46, 117, 89, 0.2); color: #52c48a; border: 1px solid rgba(46, 117, 89, 0.4);';
                 localizedStatus = t.statusSurvived;
             } else {
-                badgeStyle = 'background-color: rgba(224, 86, 86, 0.2); color: #ff6b6b; border: 1px solid rgba(224, 86, 86, 0.4);';
                 localizedStatus = t.statusDeported;
             }
 
@@ -396,13 +394,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = document.getElementById('modal-content');
         if (!modal || !content) return;
 
-        let badgeStyle = '';
+        let badgeStyle = 'background-color: rgba(255, 255, 255, 0.05); color: var(--color-text-main); border: 1px solid #444;';
         let localizedStatus = rec.Overlijdensdetails;
         if (rec.Overlijdensdetails && rec.Overlijdensdetails.includes("Overleefde")) {
-            badgeStyle = 'background-color: rgba(46, 117, 89, 0.2); color: #52c48a; border: 1px solid rgba(46, 117, 89, 0.4);';
             localizedStatus = t.statusSurvived;
         } else {
-            badgeStyle = 'background-color: rgba(224, 86, 86, 0.2); color: #ff6b6b; border: 1px solid rgba(224, 86, 86, 0.4);';
             localizedStatus = t.statusDeported;
         }
 
