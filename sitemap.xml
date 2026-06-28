@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/contribute.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -176,7 +176,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/contribute.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -278,13 +278,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/holocaust/home-de-la-glaciere.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/holocaust/jongenshuis.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -314,7 +314,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/holocaust/orphanages.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -367,8 +367,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/fr/places/heide-victims.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/fr/places/heide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -391,8 +397,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/fr/places/yeshivat-heide.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -410,7 +422,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis/rabbi-chaim-kreiswirth.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/fr/rabbis/rabbi-shraga-feivel-shapira.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -758,7 +776,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/contribute.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -860,13 +878,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/holocaust/home-de-la-glaciere.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/holocaust/jongenshuis.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -896,7 +914,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/holocaust/orphanages.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -949,8 +967,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/he/places/heide-victims.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/he/places/heide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -973,8 +997,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/he/places/yeshivat-heide.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/he/rabbis.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -992,7 +1022,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/rabbis/rabbi-chaim-kreiswirth.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/he/rabbis/rabbi-shraga-feivel-shapira.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1352,13 +1388,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/holocaust/home-de-la-glaciere.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/holocaust/jongenshuis.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1388,7 +1424,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/holocaust/orphanages.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1496,7 +1532,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/contribute.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1598,13 +1634,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/holocaust/home-de-la-glaciere.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/holocaust/jongenshuis.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1634,7 +1670,7 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/holocaust/orphanages.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1687,8 +1723,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/nl/places/heide-victims.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/nl/places/heide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1711,8 +1753,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/nl/places/yeshivat-heide.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1730,7 +1778,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis/rabbi-chaim-kreiswirth.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/nl/rabbis/rabbi-shraga-feivel-shapira.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2023,8 +2077,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/places/heide-victims.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/places/heide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2047,8 +2107,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/places/yeshivat-heide.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/rabbis.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2066,7 +2132,13 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/rabbis/rabbi-chaim-kreiswirth.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/rabbis/rabbi-shraga-feivel-shapira.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
