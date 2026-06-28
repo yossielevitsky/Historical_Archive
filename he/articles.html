@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>מאמרים - הארכיון ההיסטורי היהודי של אנטוורפן</title>
+    <title>Articles - Jewish Antwerp Historical Archive</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -23,7 +23,7 @@
         <header class="main-header">
             <div class="container header-content">
                 <div class="logo">
-                    <a href="index.html">אנטוורפן היהודית<br><span class="subtitle">הארכיון ההיסטורי</span></a>
+                    <a href="index.html">The Jewish Antwerp<br><span class="subtitle">Historical Archive</span></a>
                 </div>
                 <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="bar"></span>
@@ -32,13 +32,13 @@
                 </button>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="index.html">בית</a></li>
-                        <li><a href="history.html">היסטוריה מלאה</a></li>
-                        <li><a href="holocaust/holocaust.html">השואה</a></li>
-                        <li><a href="articles.html" class="active">מאמרים</a></li>
-                        <li><a href="rabbis.html">רבנים</a></li>
-                        <li><a href="synagogues.html">בתי כנסת</a></li>
-                        <li><a href="chazanim.html">חזנים</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">Full History</a></li>
+                        <li><a href="holocaust/holocaust.html">The Holocaust</a></li>
+                        <li><a href="articles.html" class="active">Articles</a></li>
+                        <li><a href="rabbis.html">Rabbis</a></li>
+                        <li><a href="synagogues.html">Synagogues</a></li>
+                        <li><a href="chazanim.html">Chazanim</a></li>
                     </ul>
                 </nav>
             </div>
@@ -49,33 +49,33 @@
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="padding: 0;">
                     <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">בַּיִת</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">מאמרים</li>
+                        <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Articles</li>
                     </ol>
                 </nav>
 
                 <div
                     style="padding: var(--spacing-sm) 0 var(--spacing-lg) 0; border-bottom: 1px solid var(--color-slate); margin-bottom: var(--spacing-md);">
-                    <h1 style="color: var(--color-gold); font-size: 3rem;">מאמרים</h1>
-                    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">חיבורים היסטוריים, מחקרים ועדויות מאנטוורפן היהודית.</p>
+                    <h1 style="color: var(--color-gold); font-size: 3rem;">Articles</h1>
+                    <p style="color: var(--color-text-muted); font-size: 1.2rem; margin-top: 1rem;">Historical essays, research, and testimonies from Jewish Antwerp.</p>
                 </div>
 
                 <div class="write-article-banner">
-                    <h3>יש לך מאמר שאתה רוצה לכתוב?</h3>
-                    <p>אנו מקדמים בברכה מאמרים, חיבורים ועדויות מהקהילה. שלח לנו דוא"ל לכתובת:</p>
+                    <h3>Do you have an article you want to write?</h3>
+                    <p>We welcome articles, essays, and testimonies from the community. Email us at:</p>
                     <div class="write-article-email-container">
                         <span id="contact-email">jewishantwerphistoricalarchive@gmail.com</span>
-                        <button onclick="navigator.clipboard.writeText('jewishantwerphistoricalarchive@gmail.com'); const btn = this; const orig = btn.textContent; btn.textContent = 'הועתק!'; btn.style.background = '#2e7d32'; btn.style.color = '#fff'; setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);">העתקה</button>
+                        <button onclick="navigator.clipboard.writeText('jewishantwerphistoricalarchive@gmail.com'); const btn = this; const orig = btn.textContent; btn.textContent = 'Copied!'; btn.style.background = '#2e7d32'; btn.style.color = '#fff'; setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);">Copy</button>
                     </div>
                 </div>
 
                 <div class="articles-search-container">
                     <input type="text" id="articles-search" class="articles-search-input" placeholder="Search articles..." aria-label="Search articles" />
-                    <span class="articles-search-icon">🔍</span>
+                    <span class="articles-search-icon">&#128269;</span>
                 </div>
 
                 <div class="articles-grid">
-                    <div id="no-results-message" class="no-results-message">לא נמצאו מאמרים התואמים לחיפוש שלך.</div>
+                    <div id="no-results-message" class="no-results-message">No articles found matching your search.</div>
 
 
                     <!-- 1980 Attack -->
@@ -85,11 +85,11 @@
                                 <img src="../images/gva levaje.jpg" alt="Funeral of David Kohane" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">1980 מתקפת אנטוורפן</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">1980 Antwerp Attack</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    הסיפור הטראגי של הפיגוע בקבוצת ילדים שהמתינה לאוטובוס באנטוורפן.
+                                    The tragic story of the attack on a group of children waiting for a bus in Antwerp.
                                 </p>
-                                <span class="card-link">קרא עוד →</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -101,11 +101,11 @@
                                 <img src="../images/Bomaanslag_in_Joodse_wijk_in_Antwerpen_de_auto_waar_de_bom_is_geplaatst_voor_de,_Bestanddeelnr_253-8615.jpg" alt="Wreckage of the 1981 car bomb" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">1981 הפצצת בית הכנסת</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">1981 Synagogue Bombing</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    פיצוץ מכונית תופת הרסנית בלב רובע היהלומים.
+                                    A devastating car bomb explosion in the heart of the diamond district.
                                 </p>
-                                <span class="card-link">קרא עוד →</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -117,27 +117,27 @@
                                 <img src="../images/ST%20Louis%20cuba.jpeg" alt="MS St. Louis in Antwerp" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">בריחה להוואנה</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Escape to Havana</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    המסע הטראגי של מ.ס סנט לואיס וכיצד חותכי היהלומים של אנטוורפן מצאו מקלט בקובה.
+                                    The tragic voyage of the MS St. Louis and how Antwerp's diamond cutters found refuge in Cuba.
                                 </p>
-                                <span class="card-link">קרא עוד →</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
 
-                    <!-- מסעו של החיד"א בבלגיה -->
+                    <!-- The Chida's Journey in Belgium -->
                     <article class="card">
                         <a href="articles/chida-journey-antwerp-belgium.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/chida%20in%20belgium.png" alt="רבי חיים יוסף דוד אזולאי (החיד&quot;א)" style="object-fit: cover;">
+                                <img src="../images/chida%20in%20belgium.png" alt="Rabbi Chaim Yosef David Azulai (The Chida)" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">מסעו של החיד"א בבלגיה</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">The Chida's Journey in Belgium</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    מסעותיו של רבי חיים יוסף דוד אזולאי באנטוורפן, בריסל ומכלן בשנות ה-70 של המאה ה-18, ויחסו לחברה המקומית.
+                                    Rabbi Chaim Yosef David Azulai's 1770s travels through Antwerp, Brussels, and Mechelen, and how he perceived local society.
                                 </p>
-                                <span class="card-link">קרא עוד →</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -146,14 +146,14 @@
                     <article class="card">
                         <a href="articles/sholem-aleichem-motl.html" style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="מוטל של שלום עליכם" style="object-fit: cover;">
+                                <img src="../images/Sholem%20Aleichem's%20Motl,%20the%20Cantor's%20Son.jfif" alt="Sholem Aleichem's Motl" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">מוטל של שלום עליכם באנטוורפן</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Sholem Aleichem's Motl in Antwerp</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    תיאורו של אנטוורפן ביצירת המופת של שלום עליכם, מוטל בן פייסי החזן, המציג את תקופת ההגירה ההמונית היהודית.
+                                    Sholem Aleichem's portrayal of Antwerp in his final masterpiece, Motl the Cantor's Son, capturing the Jewish mass migration era.
                                 </p>
-                                <span class="card-link">קרא עוד &rarr;</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -166,11 +166,11 @@
                                 <img src="https://placehold.co/800x400/2d2d2d/c5a059?text=Future+Article+3" alt="Future Article" style="object-fit: cover;">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">סעיף 3 עתידי</h3>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Future Article 3</h3>
                                 <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5;">
-                                    תוכן למאמר היסטורי זה יתפרסם בקרוב. הישארו מעודכנים לעדכונים.
+                                    Content for this historical article will be published soon. Stay tuned for updates.
                                 </p>
-                                <span class="card-link">קרא עוד →</span>
+                                <span class="card-link">Read More &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -181,7 +181,7 @@
 
         <footer class="main-footer">
             <div class="container">
-                <p>© 2026 הארכיון ההיסטורי היהודי של אנטוורפן. כֹּל הַזְכוּיוֹת שְׁמוּרוֹת.</p>
+                <p>&copy; 2026 The Jewish Antwerp Historical Archive. All rights reserved.</p>
             </div>
         </footer>
     </div>

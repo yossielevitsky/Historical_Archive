@@ -854,6 +854,10 @@ h3 {
     transition: transform 0.5s ease;
 }
 
+.card-image img[src*="rabbi-shraga-feivel-shapiro"] {
+    object-position: center top;
+}
+
 .card:hover .card-image img {
     transform: scale(1.05);
 }

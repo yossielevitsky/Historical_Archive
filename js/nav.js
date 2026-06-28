@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 company: "Company",
                 kehilla: "Kehilla",
                 person: "Person",
-                yeshiva: "Yeshiva"
+                yeshiva: "Yeshiva",
+                history: "History"
             }
         },
         nl: {
@@ -58,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 company: "Bedrijf",
                 kehilla: "Kehilla",
                 person: "Persoon",
-                yeshiva: "Yeshiva"
+                yeshiva: "Yeshiva",
+                history: "Geschiedenis"
             }
         },
         fr: {
@@ -76,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 company: "Entreprise",
                 kehilla: "Kehilla",
                 person: "Personne",
-                yeshiva: "Yeshiva"
+                yeshiva: "Yeshiva",
+                history: "Histoire"
             }
         },
         he: {
@@ -94,15 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 company: "חברה",
                 kehilla: "קהילה",
                 person: "אישיות",
-                yeshiva: "ישיבה"
+                yeshiva: "ישיבה",
+                history: "היסטוריה"
             }
         }
     };
 
     const currentLang = document.documentElement.lang || 'en';
-    const langData = translations[currentLang] || translations['en'];
-
-    const searchData = [
+    co    const searchData = [
         // Main Pages
         { title: "Home", url: "index.html", type: "Page", titleNl: "Home", titleFr: "Accueil", titleHe: "בית" },
         { title: "History of Jewish Antwerp", url: "history.html", type: "Page", titleNl: "Volledige geschiedenis", titleFr: "Histoire complète", titleHe: "היסטוריה מלאה" },
@@ -110,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Chazanim", url: "chazanim.html", type: "Page", titleNl: "Chazaniem", titleFr: "Chazanim", titleHe: "חזנים" },
         { title: "Synagogues", url: "synagogues.html", type: "Page", titleNl: "Synagogen", titleFr: "Synagogues", titleHe: "בתי כנסת" },
         { title: "Contribute", url: "contribute.html", type: "Page", titleNl: "Bijdragen", titleFr: "Contribuer", titleHe: "לתרום" },
+        { title: "Articles", url: "articles.html", type: "Page", titleNl: "Artikelen", titleFr: "Articles", titleHe: "מאמרים" },
 
         // Holocaust Section
         { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page", titleNl: "De Holocaust", titleFr: "La Shoah", titleHe: "השואה" },
@@ -118,11 +121,19 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Names Database", url: "holocaust/names.html", type: "Research", titleNl: "Namen Database", titleFr: "Base de données des noms", titleHe: "מאגר שמות" },
         { title: "Jewish Orphanages", url: "holocaust/orphanages.html", type: "Article", titleNl: "Joodse Weeshuizen", titleFr: "Orphelinats juifs", titleHe: "בתי יתומים יהודיים" },
         { title: "Dossin Kazerne", url: "holocaust/dossin.html", type: "Article", titleNl: "Kazerne Dossin", titleFr: "Caserne Dossin", titleHe: "קסרקטין דוסין (מכלן)" },
-        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית של אנטוורפן" },
+        { title: "Antwerp Central Station", url: "holocaust/central-station.html", type: "Article", titleNl: "Antwerpen-Centraal", titleFr: "Gare centrale d'Anvers", titleHe: "התחנה המרכזית van Antwerpen" },
         { title: "Escape to Havana: St. Louis and Cuba's Diamond Refuge", url: "articles/cuba-connection.html", type: "Article", titleHe: "הבריחה להוואנה: סנט לואיס ומקלט היהלומים של קובה" },
         { title: "The Chida's Journey Through Antwerp, Brussels, and Mechelen in the 1770s", url: "articles/chida-journey-antwerp-belgium.html", type: "Article", titleHe: "מסע החיד\"א באנטוורפן, בריסל ומכלן בשנות ה-1770" },
         { title: "Antwerp Through the Eyes of Sholem Aleichem's Motl the Cantor's Son", url: "articles/sholem-aleichem-motl.html", type: "Article", titleNl: "Antwerpen door de ogen van Sholem Aleichems Motl de Chazans zoon", titleFr: "Anvers à travers les yeux de Motl, fils du chantre de Sholem Aleichem", titleHe: "אנטוורפן בעיניו של מוטל בן החזן של שלום עליכם" },
+        { title: "The 1980 Antwerp Attack on Jewish Children", url: "articles/1980-terrorist-attack.html", type: "Article", titleNl: "De Antwerpse aanval op Joodse kinderen in 1980", titleFr: "L'attaque d'Anvers contre des enfants juifs en 1980", titleHe: "הפיגוע באנטוורפן ב-1980 על ילדים יהודים" },
+        { title: "1981 Antwerp Synagogue Bombing", url: "articles/1981-synagogue-bombing.html", type: "Article", titleNl: "1981 Bombardement op de Antwerpse synagoge", titleFr: "Attentat à la bombe contre la synagogue d'Anvers en 1981", titleHe: "1981 הפצצת בית הכנסת באנטוורפן" },
 
+        // Orphanages & Homes
+        { title: "Home de la Glacière (Orphanage)", url: "holocaust/home-de-la-glaciere.html", type: "Article", titleNl: "Home de la Glacière (Weeshuis)", titleFr: "Home de la Glacière (Orphelinat)", titleHe: "בית הילדים בבריסל (Home de la Glacière)" },
+        { title: "Jongenshuis (Boys' Home Orphanage)", url: "holocaust/jongenshuis.html", type: "Article", titleNl: "Jongenshuis (Jongensweeshuis)", titleFr: "Jongenshuis (Foyer pour garçons)", titleHe: "בית הבנים (Jongenshuis)" },
+        { title: "Jewish Orphanage (Lange Leemstraat)", url: "holocaust/lange-leemstraat-orphanage.html", type: "Article", titleNl: "Joods Weeshuis (Lange Leemstraat)", titleFr: "Orphelinat Juif (Lange Leemstraat)", titleHe: "בית היתומים היהודי (Lange Leemstraat)" },
+        { title: "Meisjeshuis (Girls' Home Orphanage)", url: "holocaust/meisjeshuis.html", type: "Article", titleNl: "Meisjeshuis (Meisjesweeshuis)", titleFr: "Meisjeshuis (Foyer pour filles)", titleHe: "בית הבנות (Meisjeshuis)" },
+        { title: "Pennsylvania Foundation", url: "holocaust/pennsylvania-foundation.html", type: "Article", titleNl: "Pennsylvania Foundation", titleFr: "Pennsylvania Foundation", titleHe: "קרן פנסילבניה (Pennsylvania Foundation)" },
 
         // Synagogues
         { title: "Agudath Israel", url: "synagogues/agudath-israel.html", type: "Synagogue", titleHe: "אגודת ישראל" },
@@ -181,29 +192,40 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Yavne School", url: "places/yavne.html", type: "School", titleHe: "בית הספר יבנה" },
         { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School", titleHe: "בית הספר תחכמוני" },
         { title: "Belz School", url: "places/belz-school.html", type: "School", titleHe: "בית הספר בעלז" },
+        { title: "Heide-Kalmthout Holocaust Victims Database", url: "places/heide-victims.html", type: "Research", titleNl: "Heide-Kalmthout Holocaust Slachtoffers Databank", titleFr: "Base de données des victimes de la Shoah de Heide-Kalmthout", titleHe: "מאגר קורבנות השואה של היידה-קלמטהוט" },
 
         // History Events & Organizations
         { title: "Belgian Revolution of 1830", url: "history/belgian-revolution-1830.html", type: "Event", titleNl: "Belgische Revolutie van 1830", titleFr: "Révolution belge de 1830", titleHe: "המהפכה הבלגית של 1830" },
         { title: "Antwerp Pogrom", url: "history/antwerp-pogrom.html", type: "Event", titleNl: "Antwerpse pogrom", titleFr: "Pogrom d'Anvers", titleHe: "פוגרום אנטוורפן" },
         { title: "Red Star Line", url: "history/red-star-line.html", type: "Company", titleNl: "Red Star Line", titleFr: "Red Star Line", titleHe: "רד סטאר ליין" },
 
+        // History Periods
+        { title: "Medieval Period (History)", url: "history/medieval-period.html", type: "History", titleNl: "Middeleeuwse periode (Geschiedenis)", titleFr: "Période médiévale (Histoire)", titleHe: "ימי הביניים (היסטוריה)" },
+        { title: "Early Modern Period (History)", url: "history/early-modern-period.html", type: "History", titleNl: "Vroegmoderne tijd (Geschiedenis)", titleFr: "Période moderne (Histoire)", titleHe: "העת החדשה המוקדמת (היסטוריה)" },
+        { title: "19th Century (History)", url: "history/19th-century.html", type: "History", titleNl: "19e eeuw (Geschiedenis)", titleFr: "XIXe siècle (Histoire)", titleHe: "המאה ה-19 (היסטוריה)" },
+        { title: "Pre-War Era (History)", url: "history/pre-war.html", type: "History", titleNl: "Vooroorlogse periode (Geschiedenis)", titleFr: "L'époque d'avant-guerre (Histoire)", titleHe: "תקופת טרום המלחמה (היסטוריה)" },
+        { title: "World War II (History)", url: "history/wwii.html", type: "History", titleNl: "Wereldoorlog II (Geschiedenis)", titleFr: "Seconde Guerre mondiale (Histoire)", titleHe: "מלחמת העולם השנייה (היסטוריה)" },
+        { title: "Post-War Rebuilding (History)", url: "history/post-war.html", type: "History", titleNl: "Naoorlogse wederopbouw (Geschiedenis)", titleFr: "Reconstruction d'après-guerre (Histoire)", titleHe: "שיקום שלאחר המלחמה (היסטוריה)" },
+        { title: "Modern Antwerp (History)", url: "history/modern-antwerp.html", type: "History", titleNl: "Modern Antwerpen (Geschiedenis)", titleFr: "Anvers moderne (Histoire)", titleHe: "אנטוורפן המודרנית (היסטוריה)" },
+        { title: "Full History Timeline", url: "history/full-history.html", type: "History", titleNl: "Volledige geschiedenis tijdlijn", titleFr: "Chronologie complète de l'histoire", titleHe: "ציר זמן היסטורי מלא" },
+
         // Communal Bodies (Kehilles)
         { title: "Machsike Hadas", url: "organizations/machsike-hadas.html", type: "kehilla", titleHe: "מחזיקי הדת" },
         { title: "Shomre Hadas", url: "organizations/shomre-hadas.html", type: "kehilla", titleHe: "שומרי הדת" },
         { title: "Sephardic Community", url: "organizations/sephardic-community.html", type: "kehilla", titleHe: "הקהילה הספרדית" },
 
-        // New pages added in June 2026
+        // New pages added in June 2026 / People
         { title: "Jozef Sterngold", url: "people/jozef-sterngold.html", type: "Person", titleNl: "Jozef Sterngold", titleFr: "Jozef Sterngold", titleHe: "יוזף שטרנגולד" },
         { title: "April 1943 attack", url: "history/april-1943-attack.html", type: "Event", titleNl: "De aanval van april 1943", titleFr: "L'attaque d'avril 1943", titleHe: "ההתקפה של אפריל 1943" },
 
         // Chazanim
-        { title: "Benjamin Muller", url: "chazanim.html", type: "Person", titleHe: "בנימין מילר" },
-        { title: "Yossi Muller", url: "chazanim.html", type: "Person", titleHe: "יוסי מילר" },
-        { title: "Benzion Moskovitz", url: "chazanim.html", type: "Person", titleHe: "בנציון מוסקוביץ" },
-        { title: "Abraham Jelenko", url: "chazanim.html", type: "Person", titleHe: "אברהם ילנקו" },
-        { title: "Simon Davidovic", url: "chazanim.html", type: "Person", titleHe: "שמעון דוידוביץ" },
-        { title: "Uscher Felder", url: "chazanim.html", type: "Person", titleHe: "אשר פלדר" },
-        { title: "Jacob Feldinger", url: "chazanim.html", type: "Person", titleHe: "יעקב פלדינגר" }
+        { title: "Benjamin Muller", url: "chazanim/benjamin-muller.html", type: "Person", titleHe: "בנימין מילר" },
+        { title: "Yossi Muller", url: "chazanim/yossi-muller.html", type: "Person", titleHe: "יוסי מילר" },
+        { title: "Benzion Moskovitz", url: "chazanim/benzion-moskovitz.html", type: "Person", titleHe: "בנציון מוסקוביץ" },
+        { title: "Abraham Jelenko", url: "chazanim/abraham-jelenko.html", type: "Person", titleHe: "אברהם ילנקו" },
+        { title: "Simon Davidovic", url: "chazanim/simon-davidovic.html", type: "Person", titleHe: "שמעון דוידוביץ" },
+        { title: "Uscher Felder", url: "chazanim/uscher-felder.html", type: "Person", titleHe: "אשר פלדר" },
+        { title: "Jacob Feldinger", url: "chazanim/jacob-feldinger.html", type: "Person", titleHe: "יעקב פלדינגר" }
     ];
 
     const headerContent = document.querySelector('.header-content');
@@ -502,6 +524,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const href = link.getAttribute('href');
         if (!href) return;
+
+        // Only allow links inside paragraphs (p) or list items (li)
+        if (!link.closest('p') && !link.closest('li')) {
+            return;
+        }
+
+        // Skip buttons, cards, or other non-text UI components
+        if (link.classList.contains('btn') || link.closest('.btn') || 
+            link.classList.contains('card') || link.closest('.card') ||
+            link.classList.contains('card-link')) {
+            return;
+        }
 
         // Skip breadcrumbs
         if (link.closest('.breadcrumb-nav') || link.classList.contains('breadcrumb-link')) {
