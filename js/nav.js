@@ -104,7 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const currentLang = document.documentElement.lang || 'en';
-    co    const searchData = [
+    const langData = translations[currentLang] || translations['en'];
+
+    const searchData = [
         // Main Pages
         { title: "Home", url: "index.html", type: "Page", titleNl: "Home", titleFr: "Accueil", titleHe: "בית" },
         { title: "History of Jewish Antwerp", url: "history.html", type: "Page", titleNl: "Volledige geschiedenis", titleFr: "Histoire complète", titleHe: "היסטוריה מלאה" },
