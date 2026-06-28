@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
             font-weight: 600;
         }
         #heide-db-container .badge.badge-victim {
-            background-color: rgba(255, 99, 71, 0.15);
-            color: #ff6347;
-            border: 1px solid rgba(255, 99, 71, 0.3);
+            background-color: rgba(160, 160, 160, 0.1);
+            color: var(--color-text-muted);
+            border: 1px solid rgba(160, 160, 160, 0.25);
         }
         #heide-db-container .badge.badge-survived {
-            background-color: rgba(46, 204, 113, 0.15);
-            color: #2ecc71;
-            border: 1px solid rgba(46, 204, 113, 0.3);
+            background-color: rgba(197, 160, 89, 0.12);
+            color: var(--color-gold);
+            border: 1px solid rgba(197, 160, 89, 0.25);
         }
         #heide-db-container .badge.badge-adult {
             background-color: rgba(255, 255, 255, 0.1);
