@@ -2557,10 +2557,14 @@ h3 {
 }
 
 /* RTL Layout Support */
-@media (min-width: 769px) {
+@media (min-width: 901px) {
+    [dir="rtl"] .logo {
+        margin-left: auto;
+        margin-right: 0;
+    }
     [dir="rtl"] .main-nav {
-        margin-right: auto;
         margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -2569,7 +2573,7 @@ h3 {
     right: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     [dir="rtl"] .main-nav ul {
         position: absolute;
         left: auto;

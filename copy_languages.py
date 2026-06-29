@@ -1,6 +1,7 @@
 import os
 import shutil
 import re
+import sys
 
 languages = ['nl', 'fr', 'he']
 excluded_files = {
@@ -30,6 +31,21 @@ excluded_dirs = {
     "he",
 }
 
+def is_manually_translated(content, lang):
+    content_lower = content.lower()
+    if lang == 'he':
+        # Check for Hebrew characters
+        return bool(re.search(r'[\u0590-\u05fe]', content))
+    elif lang == 'nl':
+        # Check for Dutch-specific navigation/content terms
+        dutch_terms = ["volledige geschiedenis", "rabbijnen", "chazaniem", "geschiedenis", "bekijk profiel"]
+        return any(term in content_lower for term in dutch_terms)
+    elif lang == 'fr':
+        # Check for French-specific navigation/content terms
+        french_terms = ["histoire complète", "rabbins", "accueil", "voir le profil", "tous droits réservés"]
+        return any(term in content_lower for term in french_terms)
+    return False
+
 def adjust_content(content, lang, rel_path):
     # Adjust lang attribute in html tag (and direction for Hebrew RTL)
     if lang == 'he':
@@ -47,6 +63,10 @@ def adjust_content(content, lang, rel_path):
     return content
 
 def main():
+    force = "--force" in sys.argv or "-f" in sys.argv
+    if force:
+        print("Force flag detected. All destination files will be overwritten.")
+
     # Gather html files
     html_files = []
     for root, dirs, files in os.walk("."):
@@ -73,6 +93,22 @@ def main():
             
             adjusted = adjust_content(content, lang, rel_path)
             
+            if os.path.exists(dest_path):
+                with open(dest_path, "r", encoding="utf-8") as f:
+                    existing_content = f.read()
+                
+                # Normalize whitespace for basic comparison
+                norm_existing = re.sub(r'\s+', ' ', existing_content).strip()
+                norm_adjusted = re.sub(r'\s+', ' ', adjusted).strip()
+                
+                if norm_existing != norm_adjusted:
+                    if is_manually_translated(existing_content, lang) and not force:
+                        print(f"  Skipped (manually translated): {dest_path}")
+                        continue
+                else:
+                    # Content is identical, skip writing to avoid changing file metadata/timestamps
+                    continue
+
             with open(dest_path, "w", encoding="utf-8") as f:
                 f.write(adjusted)
             print(f"  Copied and adjusted: {rel_path} -> {dest_path}")

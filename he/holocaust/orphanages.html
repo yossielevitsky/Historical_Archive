@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orphanages and Children's Homes - The Holocaust - Jewish Antwerp Historical Archive</title>
-    <meta name="description" content="Explore the history of orphanages and children's homes in Antwerp and Belgium that sheltered Jewish children during the Holocaust." />
+    <title>בתי יתומים ובתי ילדים - השואה - ארכיון היסטורי של אנטוורפן</title>
+    <meta name="description" content="חקור את ההיסטוריה של בתי יתומים ובתי ילדים באנטוורפן ובבלגיה שהעניקו מקלט לילדים יהודים במהלך השואה." />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -68,11 +68,11 @@
             0% { transform: scale(1); opacity: 0.8; }
             100% { transform: scale(2); opacity: 0; }
         }
-        .map-marker[data-city="antwerp"] {
+        .map-marker[data-city="אנטוורפן"] {
             top: 32%;
             left: 48%;
         }
-        .map-marker[data-city="brussels"] {
+        .map-marker[data-city="בריסל"] {
             top: 58%;
             left: 45%;
         }
@@ -90,6 +90,7 @@
             transition: opacity 0.2s ease;
             z-index: 20;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            text-align: right;
         }
         .map-marker:hover + .map-tooltip {
             opacity: 1;
@@ -105,7 +106,7 @@
         .map-instructions {
             position: absolute;
             bottom: 15px;
-            left: 15px;
+            right: 15px;
             font-size: 0.85rem;
             color: var(--color-text-muted);
             background: rgba(0,0,0,0.6);
@@ -129,12 +130,13 @@
             background-color: var(--color-slate);
             border: 1px solid #444;
             color: var(--color-text-main);
-            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
             border-radius: 8px;
             font-size: 1rem;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23a0a0a0" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.11-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
             background-repeat: no-repeat;
-            background-position: 12px center;
+            background-position: calc(100% - 12px) center;
+            text-align: right;
         }
         .search-input:focus {
             outline: none;
@@ -163,7 +165,7 @@
         .db-table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left;
+            text-align: right;
             font-size: 0.95rem;
         }
         .db-table th {
@@ -190,6 +192,16 @@
             border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 600;
+        }
+        .badge-deported {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(220, 53, 69, 0.4);
+        }
+        .badge-survived {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #51cf66;
+            border: 1px solid rgba(40, 167, 69, 0.4);
         }
 
         /* Gallery Masonry CSS */
@@ -237,16 +249,19 @@
             font-size: 0.85rem;
             color: var(--color-text-muted);
             border-top: 1px solid #2d2d2d;
+            text-align: right;
         }
 
         /* Highlighted Section CSS */
         .highlight-box {
             background: rgba(197, 160, 89, 0.05);
             border: 1px solid rgba(197, 160, 89, 0.2);
-            border-left: 4px solid var(--color-gold);
+            border-right: 4px solid var(--color-gold);
+            border-left: none;
             padding: 2rem;
             border-radius: 8px;
             margin: 2rem 0;
+            text-align: right;
         }
         .highlight-grid {
             display: grid;
@@ -264,6 +279,12 @@
             border-radius: 6px;
             overflow: hidden;
             border: 1px solid #444;
+            grid-column: 1;
+        }
+        @media (max-width: 768px) {
+            .highlight-img-wrapper {
+                grid-column: auto;
+            }
         }
         .highlight-img-wrapper img {
             width: 100%;
@@ -378,7 +399,7 @@
         <header class="main-header">
             <div class="container header-content">
                 <div class="logo">
-                    <a href="../index.html">The Jewish Antwerp<br><span class="subtitle">Historical Archive</span></a>
+                    <a href="../index.html">אנטוורפן היהודית<br><span class="subtitle">הארכיון ההיסטורי</span></a>
                 </div>
                 <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="bar"></span>
@@ -387,13 +408,13 @@
                 </button>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../history.html">Full History</a></li>
-                        <li><a href="../holocaust/holocaust.html" class="active">The Holocaust</a></li>
-                        <li><a href="../articles.html">Articles</a></li>
-                        <li><a href="../rabbis.html">Rabbis</a></li>
-                        <li><a href="../synagogues.html">Synagogues</a></li>
-                        <li><a href="../chazanim.html">Chazanim</a></li>
+                        <li><a href="../index.html">בית</a></li>
+                        <li><a href="../history.html">היסטוריה מלאה</a></li>
+                        <li><a href="../holocaust/holocaust.html" class="active">השואה</a></li>
+                        <li><a href="../articles.html">מאמרים</a></li>
+                        <li><a href="../rabbis.html">רבנים</a></li>
+                        <li><a href="../synagogues.html">בתי כנסת</a></li>
+                        <li><a href="../chazanim.html">חזנים</a></li>
                     </ul>
                 </nav>
             </div>
@@ -404,81 +425,81 @@
                 <!-- Breadcrumb Navigation -->
                 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
                     <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Home</a></li>
-                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">The Holocaust</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Orphanages</li>
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">בית</a></li>
+                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">השואה</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">בתי יתומים</li>
                     </ol>
                 </nav>
 
                 <div class="wiki-main-content" style="max-width: 900px; margin: 0 auto;">
-                    <h1 class="section-title">Orphanages and Children's Homes</h1>
+                    <h1 class="section-title">בתי יתומים ובתי ילדים</h1>
                     <p class="section-subtitle" style="text-align: center; color: var(--color-gold); font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">
-                        Institutions that sheltered Jewish children in Antwerp during the Holocaust.
+                        מוסדות ששימשו מקלט לילדים יהודים באנטוורפן במהלך השואה.
                     </p>
 
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg"
-                            alt="Children at Meisjesweeshuis dining room, 1934"
+                            alt="ילדים אוכלים יחד בבית היתומים לבנות באנטוורפן, 1934"
                             class="lightbox-trigger"
-                            data-caption="Antwerp Girls' Orphanage (Meisjesweeshuis) dining room, 1934."
-                            style="max-width: 500px; width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
+                            data-caption="בית היתומים לבנות באנטוורפן (Meisjesweeshuis), חדר האוכל בשנת 1934."
+                            style="max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #444;">
                     </div>
 
                     <!-- Factual Historical Introduction -->
                     <div style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto 3rem auto; text-align: justify;">
                         <p style="margin-bottom: 1rem;">
-                            Following the onset of deportations and mass arrests of Jewish families in Antwerp in the summer of 1942, hundreds of Jewish children were left without parents or guardians. In the wake of these arrests, some children were placed in municipal orphanages, children's homes, or non-Jewish private institutions, while others were taken in by courageous caregivers.
+                            בעקבות הגירושים והמעצרים ההמוניים של משפחות יהודיות באנטוורפן בקיץ 1942, מאות ילדים יהודים נותרו ללא הורים או אפוטרופוסים. לאחר מעצרים אלו, חלק מהילדים הועברו לבתי יתומים עירוניים, בתי ילדים, או מוסדות פרטיים לא-יהודיים, בעוד שאחרים נאספו על ידי מטפלים ומחנכים אמיצים.
                         </p>
                         <p style="margin-bottom: 1rem;">
-                            Despite the extreme risks involved under German military occupation, various directors, nurses, and rescue networks attempted to protect and hide these children. However, the municipal institutions remained under surveillance. On September 21, 1942, the German military administration carried out a systematic raid on Antwerp's municipal orphanages, leading to the arrest and subsequent deportation of dozens of Jewish children via the Dossin Barracks in Mechelen to Auschwitz-Birkenau.
+                            למרות הסיכונים הקיצוניים תחת הכיבוש הצבאי הגרמני, מנהלים, אחיות ורשתות הצלה שונות ניסו להגן ולהסתיר את הילדים הללו. עם זאת, המוסדות העירוניים נותרו תחת פיקוח הדוק. ב-21 בספטמבר 1942, הממשל הצבאי הגרמני ביצע פשיטה שיטתית על בתי היתומים העירוניים באנטוורפן, שהובילה למעצרם ולגירושם של עשרות ילדים יהודים דרך מחנה המעבר מכלן (קסרן דוסאן) לאושוויץ-בירקנאו.
                         </p>
                         <p>
-                            This page documents the historical role of these orphanages, the fate of the children who passed through them, and the caregivers who risked their lives to shelter them.
+                            דף זה מתעד את התפקיד ההיסטורי של בתי היתומים הללו, את גורלם של הילדים שעברו בהם, ואת אנשי הצוות והמצילים שסיכנו את חייהם כדי להגן עליהם.
                         </p>
                     </div>
 
-                    <!-- Main Antwerp Institutions -->
+                    <!-- Main Antwerp Institutions (Redesigned as Highlight Boxes) -->
                     <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
-                        <h2 class="section-title">Antwerp Institutions</h2>
+                        <h2 class="section-title">מוסדות באנטוורפן</h2>
                         
                         <!-- Meisjeshuis -->
                         <div class="highlight-box">
                             <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
-                                <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: none;">Meisjeshuis (Girls' Home)</a>
+                                <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: none;">בית הבנות (Meisjeshuis)</a>
                             </h2>
                             
                             <div class="highlight-grid">
                                 <div class="highlight-img-wrapper">
                                     <img src="../../images/voormalig- meisjeshuis.jpg" 
-                                         alt="Meisjeshuis Girls' Home Building" 
+                                         alt="בניין בית הבנות (Meisjeshuis)" 
                                          class="lightbox-trigger"
-                                         data-caption="The former Meisjeshuis building on Albert Grisarstraat, Antwerp.">
+                                         data-caption="בניין בית הבנות (Meisjeshuis) לשעבר ברחוב אלברט גריסאר, אנטוורפן.">
                                 </div>
                                 <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
                                     <p style="margin-bottom: 1rem;">
-                                        The <strong>Meisjeshuis</strong> (Girls' Home) in Antwerp was a municipal orphanage that became a critical refuge for Jewish girls whose parents had been arrested and deported during the summer of 1942.
+                                        <strong>בית הבנות</strong> (Meisjeshuis) באנטוורפן היה בית יתומים עירוני שהפך למקלט חיוני לבנות יהודיות שהוריהן נעצרו וגורשו במהלך קיץ 1942.
                                     </p>
                                     <p style="margin-bottom: 1rem;">
-                                        <strong>Holocaust Role:</strong> The home provided shelter under the constant threat of inspections. Caregivers and sympathetic staff members attempted to protect the children by delaying official registration and hiding individuals whenever possible.
+                                        <strong>תפקיד בתקופת השואה:</strong> הבית סיפק מקלט תחת איום מתמיד של בדיקות ופשיטות. מטפלים ואנשי צוות שגילו אהדה ניסו להגן על הילדים על ידי עיכוב הרישום הרשמי והסתרת בנות בודדות ככל האפשר.
                                     </p>
                                     <p style="margin-bottom: 1rem;">
-                                        <strong>Fate:</strong> On September 21, 1942, German occupation forces carried out a systematic raid on the municipal orphanages. The Jewish girls were arrested, sent to the Dossin Barracks in Mechelen, and subsequently deported to Auschwitz-Birkenau. Very few survived.
+                                        <strong>גורל:</strong> ב-21 בספטמבר 1942 ביצעו כוחות הכיבוש הגרמניים פשיטה שיטתית על בתי היתומים העירוניים. הבנות היהודיות נעצרו, נשלחו למחנה המעבר מכלן (קסרן דוסאן), וגורשו לאחר מכן לאושוויץ-בירקנאו. מעטות מאוד שרדו.
                                     </p>
                                     <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                                        <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
+                                        <a href="meisjeshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
                                     </p>
                                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
                                         <div>
-                                            <strong>Location:</strong> Albert Grisarstraat, Antwerp
+                                            <strong>מיקום:</strong> רחוב אלברט גריסאר, אנטוורפן
                                         </div>
                                         <div>
-                                            <strong>Institution Type:</strong> Municipal Girls' Orphanage
+                                            <strong>סוג המוסד:</strong> בית יתומים עירוני לבנות
                                         </div>
                                         <div>
-                                            <strong>Rescue Connection:</strong> Clandestine aid coordination
+                                            <strong>קשר להצלה:</strong> תיאום סיוע מחתרתי
                                         </div>
                                         <div>
-                                            <strong>Primary Sources:</strong> FelixArchief Antwerp, Kazerne Dossin
+                                            <strong>מקורות ראשוניים:</strong> ארכיון פליקס אנטוורפן, מחנה המעבר מכלן
                                         </div>
                                     </div>
                                 </div>
@@ -488,43 +509,42 @@
                         <!-- Jongenshuis -->
                         <div class="highlight-box">
                             <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
-                                <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">Jongenshuis (Boys' Home)</a>
+                                <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: none;">בית הבנים (Jongenshuis)</a>
                             </h2>
+                            
                             <div class="highlight-grid">
                                 <div class="highlight-img-wrapper">
                                     <img src="../../images/jongensweeshuis.jpg" 
-                                         alt="Jongenshuis Boys' Home Building" 
+                                         alt="בית הבנים (Jongenshuis)" 
                                          class="lightbox-trigger"
-                                         data-caption="Historical view of the Jongenshuis (Boys' Home), Antwerp.">
+                                         data-caption="מבט היסטורי על בית הבנים (Jongenshuis), אנטוורפן.">
                                 </div>
                                 <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
-                                    
-                                <p style="margin-bottom: 1rem;">
-                                    The <strong>Jongenshuis</strong> (Boys' Home) was Antwerp's historic municipal orphanage for boys, functioning as a temporary refuge for Jewish boys during the peak of anti-Jewish roundups.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Holocaust Role:</strong> Housed and supported boys left parentless. Members of the municipal staff and sympathizers made efforts to coordinate with underground resistance networks, trying to falsify records or delay registration before inspections.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Fate:</strong> Targeted during the tragic raid on September 21, 1942. Virtually all Jewish boys housed in the institution were arrested, taken to the Dossin Barracks, and deported to concentration camps.
-                                </p>
-                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                                    <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
-                                </p>
-                                </div>
-                            
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
-                                    <div>
-                                        <strong>Location:</strong> Durletstraat, Antwerp
-                                    </div>
-                                    <div>
-                                        <strong>Institution Type:</strong> Municipal Boys' Orphanage
-                                    </div>
-                                    <div>
-                                        <strong>Rescue Connection:</strong> Falsification & registration delays
-                                    </div>
-                                    <div>
-                                        <strong>Primary Sources:</strong> FelixArchief Antwerp, survivor testimonies
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>בית הבנים</strong> (Jongenshuis) היה בית היתומים העירוני ההיסטורי לבנים באנטוורפן, אשר תפקד כמקלט זמני לבנים יהודים בשיא מעצרי הגירוש האנטי-יהודיים.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> שיכן ותמך בבנים שנותרו ללא הורים. חברי צוות עירוני ואזרחים ניסו לשתף פעולה עם רשתות התנגדות מחתרתיות, במטרה לזייף מסמכים או לעכב את הרישום הרשמי לפני בדיקות פיקוח.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> המוסד היווה מטרה במהלך הפשיטה הטראגית של 21 בספטמבר 1942. כמעט כל הבנים היהודים ששהו במוסד נעצרו, נלקחו למחנה המעבר מכלן, וגורשו למחנות הריכוז.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="jongenshuis.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> רחוב דורלט, אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> בית יתומים עירוני לבנים
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> זיוף מסמכים ועיכוב רישום
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> ארכיון פליקס אנטוורפן, עדויות ניצולים
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -533,33 +553,42 @@
                         <!-- Pennsylvania Foundation -->
                         <div class="highlight-box">
                             <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
-                                <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: none;">Pennsylvania Foundation</a>
+                                <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: none;">קרן פנסילבניה (Pennsylvania Foundation)</a>
                             </h2>
-                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
-                                <p style="margin-bottom: 1rem;">
-                                    The <strong>Pennsylvania Foundation</strong> functioned as a day nursery and children's refuge in Antwerp, providing essential food, healthcare, and shelter for vulnerable infants and young children of persecuted parents.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Holocaust Role:</strong> In cooperation with the underground *Comité de Défense des Juifs* (CDJ), the home served as a major transit node for smuggling children out of the city and placing them with Catholic foster families in rural areas under false identities.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Fate:</strong> While many children were successfully saved through placement in hiding, others were seized during subsequent inspections and raids.
-                                </p>
-                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                                    <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
-                                </p>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
-                                    <div>
-                                        <strong>Location:</strong> Antwerp
-                                    </div>
-                                    <div>
-                                        <strong>Institution Type:</strong> Day Nursery & Day Shelter
-                                    </div>
-                                    <div>
-                                        <strong>Rescue Connection:</strong> Clandestine smuggling with the CDJ
-                                    </div>
-                                    <div>
-                                        <strong>Primary Sources:</strong> CDJ clandestine reports, postwar records
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="../../images/wartime-document-mockup.png" 
+                                         alt="קרן פנסילבניה" 
+                                         class="lightbox-trigger"
+                                         data-caption="מסמך זיהוי של ילד שהוצל (הדמיה).">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>קרן פנסילבניה</strong> תפקדה כמעון יום ומקלט לילדים באנטוורפן, וסיפקה מזון, טיפול רפואי ומחסה לתינוקות וילדים קטנים ממשפחות נרדפות.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> בשיתוף פעולה עם הוועד היהודי להגנת היהודים (CDJ) המחתרתי, המעון שימש כצומת מעבר מרכזי להברחת ילדים אל מחוץ לעיר והשמתם אצל משפחות אומנה קתוליות באזורים כפריים תחת זהויות בדויות.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> בעוד שילדים רבים ניצלו בהצלחה באמצעות השמתם במסתור, אחרים נתפסו במהלך פשיטות ובדיקות פתע עוקבות.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="pennsylvania-foundation.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> מעון יום ומקלט לילדים
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> הברחה חשאית בשיתוף ה-CDJ
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> דוחות מחתרתיים של ה-CDJ, תיקי הצלה
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -568,33 +597,40 @@
                         <!-- Jewish Orphanage -->
                         <div class="highlight-box">
                             <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
-                                <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: none;">Jewish Orphanage (Lange Leemstraat)</a>
+                                <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: none;">בית היתומים היהודי (לנגה לימסטראט)</a>
                             </h2>
-                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6; margin-top: 1.5rem;">
-                                <p style="margin-bottom: 1rem;">
-                                    The <strong>Jewish Orphanage</strong> on Lange Leemstraat was the primary pre-war orphanage run directly by the Jewish community of Antwerp, caring for Jewish orphans and vulnerable children.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Holocaust Role:</strong> In the early days of the occupation, it continued to operate under extreme restrictions. As the anti-Jewish measures intensified, community leaders dispersed the children to rural areas or private homes.
-                                </p>
-                                <p style="margin-bottom: 1rem;">
-                                    <strong>Fate:</strong> Operations ceased as children were forced into hiding or rounded up in separate actions. The building was eventually seized and shuttered by the occupation authorities.
-                                </p>
-                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                                    <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
-                                </p>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
-                                    <div>
-                                        <strong>Location:</strong> Lange Leemstraat, Antwerp
-                                    </div>
-                                    <div>
-                                        <strong>Institution Type:</strong> Community Jewish Orphanage
-                                    </div>
-                                    <div>
-                                        <strong>Rescue Connection:</strong> Placement dispersion networks
-                                    </div>
-                                    <div>
-                                        <strong>Primary Sources:</strong> Antwerp Community Memorial Books
+                            
+                            <div class="highlight-grid">
+                                <div class="highlight-img-wrapper">
+                                    <img src="https://placehold.co/800x600/1a1a1a/c5a059?text=Orphanage+Lange+Leemstraat" 
+                                         alt="בית היתומים היהודי (לנגה לימסטראט)">
+                                </div>
+                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>בית היתומים היהודי</strong> ברחוב לנגה לימסטראט היה בית היתומים הראשי שפעל לפני המלחמה בניהול ישיר של הקהילה היהודית באנטוורפן, וטיפל ביתומים יהודים וילדים נזקקים.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>תפקיד בתקופת השואה:</strong> בימיו הראשונים של הכיבוש, המשיך לפעול תחת הגבלות קיצוניות. ככל שהצעדים האנטי-יהודיים החמירו, פיזרו מנהיגי הקהילה את הילדים לבתים פרטיים או הבריחו אותם אל מחוץ לעיר.
+                                    </p>
+                                    <p style="margin-bottom: 1rem;">
+                                        <strong>גורל:</strong> הפעילות נפסקה כאשר הילדים נאלצו לרדת למסתור או נעצרו בפעולות נפרדות. המבנה נתפס וננעל לבסוף על ידי שלטונות הכיבוש.
+                                    </p>
+                                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                        <a href="lange-leemstraat-orphanage.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                    </p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                        <div>
+                                            <strong>מיקום:</strong> לנגה לימסטראט, אנטוורפן
+                                        </div>
+                                        <div>
+                                            <strong>סוג המוסד:</strong> בית יתומים של הקהילה היהודית
+                                        </div>
+                                        <div>
+                                            <strong>קשר להצלה:</strong> רשתות פיזור והסתרה
+                                        </div>
+                                        <div>
+                                            <strong>מקורות ראשוניים:</strong> ספרי זיכרון של הקהילה באנטוורפן
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -605,47 +641,45 @@
                     <!-- Highlighted Section: R’ Yona Tiefenbrunner & Brussels Children’s Home -->
                     <div class="highlight-box">
                         <span class="badge" style="background-color: rgba(197, 160, 89, 0.2); color: var(--color-gold); border: 1px solid var(--color-gold); margin-bottom: 1rem;">
-                            Related Rescue Institution Outside Antwerp
+                            מוסד הצלה קשור מחוץ לאנטוורפן
                         </span>
                         <h2 style="font-family: var(--font-serif); color: var(--color-gold); font-size: 2rem; margin-bottom: 0.5rem;">
-                            <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: none;">R’ Yona Tiefenbrunner and the Brussels Children’s Home</a>
+                            <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: none;">הרב יונה טיפנברונר ובית הילדים בבריסל</a>
                         </h2>
                         <p style="color: var(--color-text-muted); font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem;">
-                            Note: This case study is included due to its historical importance to Jewish child rescue networks in occupied Belgium.
+                            הערה: מקרה מבחן זה נכלל בשל חשיבותו ההיסטורית העצומה לרשתות הצלת ילדים יהודים בבלגיה הכבושה.
                         </p>
                         
                         <div class="highlight-grid">
-                                <div class="highlight-img-wrapper">
-                                    <img src="../../images/Tieffenbrunner ardennen.jpg" 
-                                         alt="Tiefenbrunner orphanage on vacation in the Ardennes" 
-                                         class="lightbox-trigger"
-                                         data-caption="Children and staff of the Antwerp Jewish Tiefenbrunner orphanage during a vacation in the Ardennes.">
-                                </div>
-                                <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
-                                    
-                            <p style="margin-bottom: 1rem;">
-                                Rabbi Yona Tiefenbrunner operated a Jewish children's home in Brussels (known as the <em>Home de la Glacière</em>) that became one of the key wartime Jewish orphanage networks in occupied Belgium. 
-                            </p>
-                            <p style="margin-bottom: 1rem;">
-                                Between 1942 and 1944, under extreme wartime conditions, Rabbi Tiefenbrunner and his staff cared for hundreds of Jewish children. He maintained a warm, protective environment under the constant threat of raids, and worked secretly with underground rescue organizations to place children in hiding.
-                            </p>
-                            <p style="margin-bottom: 1rem;">
-                                The home successfully remained open during the occupation, serving as a refuge for orphans and children whose parents had been deported. Following the liberation, it continued to operate as an orphanage for survivor children until 1960.
-                            </p>
-                            <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
-                                <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">Read Full History →</a>
-                            </p>
-                                </div>
-                            
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
-                                <div>
-                                    <strong>Location:</strong> Rue de la Glacière, Brussels
-                                </div>
-                                <div>
-                                    <strong>Years Active:</strong> 1942–1960
-                                </div>
-                                <div>
-                                    <strong>Relevance:</strong> Collaborated with Antwerp resistance networks to smuggle children to safety.
+                            <div class="highlight-img-wrapper">
+                                <img src="../../images/Tieffenbrunner ardennen.jpg" 
+                                     alt="בית היתומים טיפנברונר בנופש בארדנים" 
+                                     class="lightbox-trigger"
+                                     data-caption="ילדים וצוות בית היתומים היהודי טיפנברונר מאנטוורפן במהלך חופשה בארדנים.">
+                            </div>
+                            <div style="color: var(--color-text-main); font-size: 1rem; line-height: 1.6;">
+                                <p style="margin-bottom: 1rem;">
+                                    הרב יונה טיפנברונר ניהל בית ילדים יהודי בבריסל (הידוע בשם <em>Home de la Glacière</em>) שהפך לאחת מרשתות בתי היתומים היהודיים המרכזיות בבלגיה הכבושה במהלך המלחמה. 
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    בין השנים 1942 ל-1944, בתנאי מלחמה קשים ביותר, הרב טיפנברונר וצוותו טיפלו במאות ילדים יהודים. הוא שמר על סביבה חמה ומגוננת תחת איום מתמיד של פשיטות, ופעל בחשאי עם ארגוני מחתרת להסתרת ילדים.
+                                </p>
+                                <p style="margin-bottom: 1rem;">
+                                    הבית הצליח להישאר פתוח לאורך כל תקופת הכיבוש, ושימש מקלט ליתומים ולילדים שהוריהם גורשו. לאחר השחרור הוא המשיך לפעול כבית יתומים לילדי ניצולים עד שנת 1960.
+                                </p>
+                                <p style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                                    <a href="home-de-la-glaciere.html" style="color: var(--color-gold); text-decoration: underline; font-weight: 500;">קרא את ההיסטוריה המלאה ←</a>
+                                </p>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); border-top: 1px solid #333; padding-top: 1rem;">
+                                    <div>
+                                        <strong>מיקום:</strong> רחוב דה לה גלאסייר, בריסל
+                                    </div>
+                                    <div>
+                                        <strong>שנות פעילות:</strong> 1942–1960
+                                    </div>
+                                    <div>
+                                        <strong>רלוונטיות:</strong> שיתף פעולה עם רשתות מחתרת באנטוורפן להברחת ילדים למקום מבטחים.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -653,123 +687,123 @@
 
                     <!-- Children Database Section -->
                     <div class="database-section">
-                        <h2 class="section-title">Children Database & Records</h2>
+                        <h2 class="section-title">מאגר מידע ורישומי ילדים</h2>
                         <div id="orphans-db-container">
-                            <!-- Rendered dynamically by ../js/orphans-database.js -->
+                            <!-- Rendered dynamically by js/orphans-database.js -->
                         </div>
                     </div>
 
                     <!-- Caregivers Section -->
                     <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate);">
-                        <h2 class="section-title">Caregivers and Staff</h2>
+                        <h2 class="section-title">מטפלים וצוות הצלה</h2>
                         <p style="color: var(--color-text-muted); font-size: 1rem; text-align: center; margin-bottom: 2rem;">
-                            Individuals who attempted to shelter and rescue children.
+                            אישים שניסו להגן ולהציל ילדים במהלך השנים הקשות.
                         </p>
                         
                         <div class="caregiver-grid">
                             <article class="caregiver-card">
                                 <div class="card-image">
-                                    <img src="../../images/Yvonne_Nèvejean.jpg" alt="Yvonne Nèvejean" class="lightbox-trigger" data-caption="Yvonne Nèvejean">
+                                    <img src="../../images/Yvonne_Nèvejean.jpg" alt="איבון נבז'ן (Yvonne Nèvejean)" class="lightbox-trigger" data-caption="איבון נבז'ן (Yvonne Nèvejean)">
                                 </div>
                                 <div class="card-content">
-                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Yvonne Nèvejean</h2>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">איבון נבז'ן (Yvonne Nèvejean)</h2>
                                     <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
-                                        Brussels & Antwerp • Director of the ONE
+                                        בריסל ואנטוורפן • מנהלת ה-ONE
                                     </div>
                                     <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                                        One of the primary leaders in the rescue of Jewish children in occupied Belgium. Coordinated with the CDJ to place thousands of children in municipal and private orphanages, foster homes, and convents. Recognized as Righteous Among the Nations.
+                                        אחת המנהיגות המרכזיות בהצלת ילדים יהודים בבלגיה הכבושה. שיתפה פעולה עם ה-CDJ להשמת אלפי ילדים בבתי יתומים עירוניים ופרטיים, משפחות אומנה ומנזרים. הוכרה כחסידת אומות העולם.
                                     </p>
                                 </div>
                             </article>
                             <article class="caregiver-card">
 
                                 <div class="card-content">
-                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Rabbi Yona Tiefenbrunner</h2>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">הרב יונה טיפנברונר</h2>
                                     <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
-                                        Brussels • Home de la Glacière Director
+                                        בריסל • מנהל בית הילדים ברחוב דה לה גלאסייר
                                     </div>
                                     <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                                        Managed the Jewish children's home in Brussels, sheltering hundreds of children. He maintained Jewish education and community life during the occupation under extreme pressure and food scarcity.
+                                        ניהל את בית הילדים היהודי בבריסל, ושיכן מאות ילדים. הוא שמר על חינוך יהודי וחיי קהילה במהלך הכיבוש תחת לחץ כבד ומחסור במזון.
                                     </p>
                                 </div>
                             </article>
                             <article class="caregiver-card">
 
                                 <div class="card-content">
-                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">Marie-Thérèse De Clerck</h2>
+                                    <h2 class="card-title" style="margin-top: 0; font-size: 1.25rem;">מארי-תרז דה קלרק (Marie-Thérèse De Clerck)</h2>
                                     <div class="card-meta" style="margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
-                                        Antwerp • Municipal Nurse
+                                        אנטוורפן • אחות עירונית
                                     </div>
                                     <p style="color: var(--color-text-main); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                                        A nurse at the Antwerp Meisjeshuis who worked secretly with underground networks. She helped alert families before the September 1942 raid, enabling several children to escape.
+                                        אחות בבית הבנות באנטוורפן שפעלה בחשאי עם רשתות מחתרת. היא סייעה להזהיר משפחות לפני הפשיטה של ספטמבר 1942, ובכך איפשרה למספר ילדים להימלט.
                                     </p>
                                 </div>
                             </article>
                         </div>
-                    </div><!-- Archive Gallery Section -->
+                    </div><!-- Masonry Gallery Section -->
                     <div class="gallery-section">
-                        <h2 class="section-title">Archive Gallery</h2>
+                        <h2 class="section-title">גלריית ארכיון</h2>
                         <div class="gallery-grid">
                             <div class="gallery-item">
                                 <img src="../../images/Meisjesweeshuis_Antwerpen,_kribbe_kinderen_eten_samen_in_de_eetzaal_1934.jpg" 
-                                     alt="Antwerp Girls' Orphanage dining room, 1934." 
+                                     alt="חדר האוכל של בית היתומים לבנות באנטוורפן, 1934." 
                                      class="lightbox-trigger" 
-                                     data-caption="Antwerp Girls' Orphanage dining room, 1934.">
-                                <div class="gallery-caption">Antwerp Girls' Orphanage dining room, 1934.</div>
+                                     data-caption="חדר האוכל של בית היתומים לבנות באנטוורפן, 1934.">
+                                <div class="gallery-caption">חדר האוכל של בית היתומים לבנות באנטוורפן, 1934.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/voormalig- meisjeshuis.jpg" 
-                                     alt="Former Meisjeshuis building, Antwerp." 
+                                     alt="בניין בית הבנות (Meisjeshuis) לשעבר, אנטוורפן." 
                                      class="lightbox-trigger" 
-                                     data-caption="Former Meisjeshuis building, Antwerp.">
-                                <div class="gallery-caption">Former Meisjeshuis building, Antwerp.</div>
+                                     data-caption="בניין בית הבנות (Meisjeshuis) לשעבר, אנטוורפן.">
+                                <div class="gallery-caption">בניין בית הבנות (Meisjeshuis) לשעבר, אנטוורפן.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/memorial-meisjeshuis.jpg" 
-                                     alt="Commemorative plaque, Meisjeshuis." 
+                                     alt="לוח זיכרון, בית הבנות (Meisjeshuis)." 
                                      class="lightbox-trigger" 
-                                     data-caption="Commemorative plaque, Meisjeshuis.">
-                                <div class="gallery-caption">Commemorative plaque, Meisjeshuis.</div>
+                                     data-caption="לוח זיכרון, בית הבנות (Meisjeshuis).">
+                                <div class="gallery-caption">לוח זיכרון, בית הבנות (Meisjeshuis).</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/jongensweeshuis.jpg" 
-                                     alt="Jongenshuis (Boys' Home) building, Antwerp." 
+                                     alt="בניין בית הבנים (Jongenshuis), אנטוורפן." 
                                      class="lightbox-trigger" 
-                                     data-caption="Jongenshuis (Boys' Home) building, Antwerp.">
-                                <div class="gallery-caption">Jongenshuis (Boys' Home) building, Antwerp.</div>
+                                     data-caption="בניין בית הבנים (Jongenshuis), אנטוורפן.">
+                                <div class="gallery-caption">בניין בית הבנים (Jongenshuis), אנטוורפן.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/Tieffenbrunner ardennen.jpg" 
-                                     alt="Antwerp Jewish Tiefenbrunner orphanage vacation in the Ardennes." 
+                                     alt="חופשת בית היתומים היהודי טיפנברונר מאנטוורפן בארדנים." 
                                      class="lightbox-trigger" 
-                                     data-caption="Antwerp Jewish Tiefenbrunner orphanage vacation in the Ardennes.">
-                                <div class="gallery-caption">Antwerp Jewish Tiefenbrunner orphanage vacation in the Ardennes.</div>
+                                     data-caption="חופשת בית היתומים היהודי טיפנברונר מאנטוורפן בארדנים.">
+                                <div class="gallery-caption">חופשת בית היתומים היהודי טיפנברונר מאנטוורפן בארדנים.</div>
                             </div>
                             <div class="gallery-item">
                                 <img src="../../images/Yona and Ruth Tiefenbrunner walking with 2 orphans cir 1947.jpg" 
-                                     alt="Rabbi Yona Tiefenbrunner and wife Ruth walking with orphans." 
+                                     alt="הרב יונה טיפנברונר ואשתו רות עם יתומים." 
                                      class="lightbox-trigger" 
-                                     data-caption="Rabbi Yona Tiefenbrunner and wife Ruth walking with orphans.">
-                                <div class="gallery-caption">Rabbi Yona Tiefenbrunner and wife Ruth walking with orphans.</div>
+                                     data-caption="הרב יונה טיפנברונר ואשתו רות עם יתומים.">
+                                <div class="gallery-caption">הרב יונה טיפנברונר ואשתו רות עם יתומים.</div>
                             </div>
                         </div>
                     </div>
                     <!-- Sources Section -->
                     <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-slate); font-size: 0.95rem; line-height: 1.6; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div>
-                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Primary Sources & Archives</h3>
-                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
-                                <li style="margin-bottom: 0.5rem;">FelixArchief Antwerp (Municipal Orphanage registry files).</li>
-                                <li style="margin-bottom: 0.5rem;">Kazerne Dossin Archives, Mechelen (Transport Lists 1942).</li>
-                                <li>Archives of the *Comité de Défense des Juifs* (CDJ), Brussels.</li>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">מקורות ראשוניים וארכיונים</h3>
+                            <ul style="padding-right: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;">ארכיון פליקס אנטוורפן (פנקסי רישום של בתי היתומים).</li>
+                                <li style="margin-bottom: 0.5rem;">ארכיון מחנה המעבר מכלן, קסרן דוסאן (רשימות גירוש 1942).</li>
+                                <li>ארכיוני הוועד להגנת היהודים (CDJ), בריסל.</li>
                             </ul>
                         </div>
                         <div>
-                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">Books & Oral Testimonies</h3>
-                            <ul style="padding-left: 1.2rem; margin: 0; color: var(--color-text-muted);">
-                                <li style="margin-bottom: 0.5rem;">Malkie Weinstock, <em>Angel of Orphans</em> (biography of Rabbi Yona Tiefenbrunner).</li>
-                                <li style="margin-bottom: 0.5rem;"><em>The Shoah in Belgium</em>, historical survey of child rescue.</li>
-                                <li>Postwar testimonies of survivors from the Brussels Children's Home.</li>
+                            <h3 style="color: var(--color-gold); font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.15rem;">ספרים ועדויות</h3>
+                            <ul style="padding-right: 1.2rem; margin: 0; color: var(--color-text-muted);">
+                                <li style="margin-bottom: 0.5rem;"><em>רדיפת היהודים בבלגיה</em>, מחקרים היסטוריים על הצלת ילדים.</li>
+                                <li style="margin-bottom: 0.5rem;">עדויות לאחר המלחמה של ניצולי בית הילדים בבריסל.</li>
+                                <li>תיקי חסידי אומות העולם ביד ושם (איבון נבז'ן והרב יונה טיפנברונר).</li>
                             </ul>
                         </div>
                     </div>
@@ -780,7 +814,7 @@
 
         <footer class="main-footer">
             <div class="container">
-                <p>&copy; 2026 The Jewish Antwerp Historical Archive. All rights reserved.</p>
+                <p>&copy; 2026 הארכיון ההיסטורי של אנטוורפן היהודית. כל הזכויות שמורות.</p>
             </div>
         </footer>
     </div>
