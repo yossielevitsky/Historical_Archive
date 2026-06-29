@@ -15,6 +15,34 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+        .sorting-controls {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .sort-btn {
+            background: transparent;
+            border: 1px solid var(--color-slate-light);
+            color: var(--color-text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .sort-btn:hover {
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+        }
+        .sort-btn.active {
+            background: var(--color-slate-light) !important;
+            border: 1px solid var(--color-gold) !important;
+            color: var(--color-gold) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -71,6 +99,14 @@
                     </p>
                 </div>
 
+                <!-- Sorting Control Panel -->
+                <div class="sorting-controls">
+                    <span id="sort-label" style="color: var(--color-text-main); font-weight: 500;">Sort By:</span>
+                    <button class="sort-btn active" data-sort="family" id="sort-family-btn">Family Name</button>
+                    <button class="sort-btn" data-sort="name" id="sort-name-btn">Name</button>
+                    <button class="sort-btn" data-sort="birth" id="sort-birth-btn">Birthdate</button>
+                </div>
+
                 <!-- Denser Grid for Profiles -->
                 <div class="synagogue-grid rabbis-grid">
 
@@ -106,6 +142,22 @@
                         </a>
                     </article>
 
+                    <!-- G -->
+                    <article class="card">
+                        <a href="rabbis/rabbi-moshe-yitzchak-gewirtzman.html"
+                            style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="images/reb Itzikel.jpg"
+                                    alt="Rabbi Moshe Yitzchak Gewirtzman (Reb Itzikel)">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Moshe Yitzchak Gewirtzman (Reb Itzikel)</h3>
+                                <div class="card-meta">1882–1976</div>
+                                <span class="card-link">View Profile &rarr;</span>
+                            </div>
+                        </a>
+                    </article>
+
                     <!-- K -->
                     <article class="card">
                         <a href="rabbis/rabbi-chaim-kreiswirth.html"
@@ -126,11 +178,26 @@
                         <a href="rabbis/reb-leibish.html"
                             style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image" style="height: 200px;">
-                                <img src="images/reb-leibish.png" alt="Reb Leibish">
+                                <img src="images/reb-leibish.png" alt="Rabbi Chaim Aryeh Leibish Leizer (Reb Leibish)">
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title" style="font-size: 1.2rem;">Reb Leibish</h3>
-                                <div class="card-meta">20th Century</div>
+                                <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Chaim Aryeh Leibish Leizer (Reb Leibish)</h3>
+                                <div class="card-meta">1938–</div>
+                                <span class="card-link">View Profile &rarr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <a href="rabbis/rabbi-yaakov-leizer.html"
+                            style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="images/reb yankele.jpg"
+                                    alt="Rabbi Yaakov Leizer (Reb Yankele)">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Yaakov Leizer (Reb Yankele)</h3>
+                                <div class="card-meta">1907–1998</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -235,7 +302,7 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Shraga Feivel Shapira</h3>
-                                <div class="card-meta">20th Century</div>
+                                <div class="card-meta">1901–</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -282,6 +349,104 @@
         </footer>
     </div>
     <script src="js/scroll-top.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.querySelector('.rabbis-grid');
+            if (!grid) return;
+            const cards = Array.from(grid.querySelectorAll('.card'));
+            const sortButtons = document.querySelectorAll('.sort-btn');
+
+            const rabbiData = {
+                "rav-moshe-avigdor-amiel.html": { birth: 1882, family: "Amiel" },
+                "shemuel-brodt.html": { birth: 1885, family: "Brodt" },
+                "rabbi-moshe-yitzchak-gewirtzman.html": { birth: 1882, family: "Gewirtzman" },
+                "rabbi-chaim-kreiswirth.html": { birth: 1918, family: "Kreiswirth" },
+                "reb-leibish.html": { birth: 1938, family: "Leizer" },
+                "rabbi-yaakov-leizer.html": { birth: 1907, family: "Leizer" },
+                "rav-dovid-moshe-lieberman.html": { birth: 1925, family: "Lieberman" },
+                "rav-hillel-medalie.html": { birth: 1916, family: "Medalie" },
+                "rav-pinchas-padwa.html": { birth: 1908, family: "Padwa" },
+                "rav-markus-mordechai-rottenberg.html": { birth: 1872, family: "Rottenberg" },
+                "rav-aaron-schiff.html": { birth: 1940, family: "Schiff" },
+                "dayan-schmal.html": { birth: 1920, family: "Schmal" },
+                "rabbi-shraga-feivel-shapira.html": { birth: 1901, family: "Shapira" },
+                "rav-eliyahu-shternbuch.html": { birth: 1931, family: "Shternbuch" },
+                "rabbi-yehuda-aryeh-treger.html": { birth: 1933, family: "Treger" }
+            };
+
+            // Initialize data attributes
+            cards.forEach(card => {
+                const link = card.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    const filename = href.substring(href.lastIndexOf('/') + 1);
+                    const data = rabbiData[filename] || { birth: 0, family: "" };
+                    card.setAttribute('data-birth', data.birth);
+                    card.setAttribute('data-family', data.family);
+                }
+            });
+
+            // Handle translations
+            const lang = document.documentElement.lang || 'en';
+            const translations = {
+                en: { label: 'Sort By:', name: 'Name', family: 'Family Name', birth: 'Birthdate' },
+                nl: { label: 'Sorteren op:', name: 'Naam', family: 'Achternaam', birth: 'Geboortedatum' },
+                fr: { label: 'Trier par :', name: 'Nom', family: 'Nom de famille', birth: 'Date de naissance' },
+                he: { label: 'מיין לפי:', name: 'שם', family: 'שם משפחה', birth: 'תאריך לידה' }
+            };
+
+            const t = translations[lang] || translations.en;
+            const sortLabelEl = document.getElementById('sort-label');
+            const sortNameEl = document.getElementById('sort-name-btn');
+            const sortFamilyEl = document.getElementById('sort-family-btn');
+            const sortBirthEl = document.getElementById('sort-birth-btn');
+
+            if (sortLabelEl) sortLabelEl.textContent = t.label;
+            if (sortNameEl) sortNameEl.textContent = t.name;
+            if (sortFamilyEl) sortFamilyEl.textContent = t.family;
+            if (sortBirthEl) sortBirthEl.textContent = t.birth;
+
+            function sortCards(criteria) {
+                let sorted;
+                if (criteria === 'name') {
+                    sorted = cards.sort((a, b) => {
+                        const cleanName = (el) => {
+                            const name = el.querySelector('.card-title').textContent.trim();
+                            return name.replace(/^(Rabbi|Rav|Dayan)\s+/i, '');
+                        };
+                        return cleanName(a).localeCompare(cleanName(b), lang);
+                    });
+                } else if (criteria === 'family') {
+                    sorted = cards.sort((a, b) => {
+                        const familyA = a.getAttribute('data-family') || '';
+                        const familyB = b.getAttribute('data-family') || '';
+                        return familyA.localeCompare(familyB, lang);
+                    });
+                } else if (criteria === 'birth') {
+                    sorted = cards.sort((a, b) => {
+                        const birthA = parseInt(a.getAttribute('data-birth')) || 0;
+                        const birthB = parseInt(b.getAttribute('data-birth')) || 0;
+                        return birthA - birthB;
+                    });
+                }
+
+                // Re-append sorted cards
+                sorted.forEach(card => grid.appendChild(card));
+            }
+
+            sortButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sortButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const criteria = btn.getAttribute('data-sort');
+                    sortCards(criteria);
+                });
+            });
+
+            // Default sort by family name
+            sortCards('family');
+        });
+    </script>
 </body>
 
 </html>

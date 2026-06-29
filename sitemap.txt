@@ -55,6 +55,7 @@ https://jewishantwerparchive.org/fr/holocaust/pennsylvania-foundation.html
 https://jewishantwerparchive.org/fr/holocaust/righteous.html
 https://jewishantwerparchive.org/fr/
 https://jewishantwerparchive.org/fr/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/fr/organizations/pshevorsk.html
 https://jewishantwerparchive.org/fr/organizations/sephardic-community.html
 https://jewishantwerparchive.org/fr/organizations/shomre-hadas.html
 https://jewishantwerparchive.org/fr/people/jozef-sterngold.html
@@ -69,7 +70,9 @@ https://jewishantwerparchive.org/fr/rabbis.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/fr/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-shraga-feivel-shapira.html
+https://jewishantwerparchive.org/fr/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/fr/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/fr/rabbis/rav-dovid-moshe-lieberman.html
@@ -155,6 +158,7 @@ https://jewishantwerparchive.org/he/holocaust/pennsylvania-foundation.html
 https://jewishantwerparchive.org/he/holocaust/righteous.html
 https://jewishantwerparchive.org/he/
 https://jewishantwerparchive.org/he/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/he/organizations/pshevorsk.html
 https://jewishantwerparchive.org/he/organizations/sephardic-community.html
 https://jewishantwerparchive.org/he/organizations/shomre-hadas.html
 https://jewishantwerparchive.org/he/people/jozef-sterngold.html
@@ -169,7 +173,9 @@ https://jewishantwerparchive.org/he/rabbis.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/he/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-shraga-feivel-shapira.html
+https://jewishantwerparchive.org/he/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/he/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/he/rabbis/rav-dovid-moshe-lieberman.html
@@ -281,6 +287,7 @@ https://jewishantwerparchive.org/nl/holocaust/pennsylvania-foundation.html
 https://jewishantwerparchive.org/nl/holocaust/righteous.html
 https://jewishantwerparchive.org/nl/
 https://jewishantwerparchive.org/nl/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/nl/organizations/pshevorsk.html
 https://jewishantwerparchive.org/nl/organizations/sephardic-community.html
 https://jewishantwerparchive.org/nl/organizations/shomre-hadas.html
 https://jewishantwerparchive.org/nl/people/jozef-sterngold.html
@@ -295,7 +302,9 @@ https://jewishantwerparchive.org/nl/rabbis.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/nl/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-shraga-feivel-shapira.html
+https://jewishantwerparchive.org/nl/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/nl/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/nl/rabbis/rav-dovid-moshe-lieberman.html
@@ -340,6 +349,7 @@ https://jewishantwerparchive.org/nl/synagogues/wiznitz-2.html
 https://jewishantwerparchive.org/nl/synagogues/wiznitz-synagogue.html
 https://jewishantwerparchive.org/nl/synagogues/zichron-benjamin.html
 https://jewishantwerparchive.org/organizations/machsike-hadas.html
+https://jewishantwerparchive.org/organizations/pshevorsk.html
 https://jewishantwerparchive.org/organizations/sephardic-community.html
 https://jewishantwerparchive.org/organizations/shomre-hadas.html
 https://jewishantwerparchive.org/people/jozef-sterngold.html
@@ -354,7 +364,9 @@ https://jewishantwerparchive.org/rabbis.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/rabbis/rabbi-chaim-kreiswirth.html
+https://jewishantwerparchive.org/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
 https://jewishantwerparchive.org/rabbis/rabbi-shraga-feivel-shapira.html
+https://jewishantwerparchive.org/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/rabbis/rabbi-yehuda-aryeh-treger.html
 https://jewishantwerparchive.org/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/rabbis/rav-dovid-moshe-lieberman.html

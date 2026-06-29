@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 kehilla: "Kehilla",
                 person: "Person",
                 yeshiva: "Yeshiva",
-                history: "History"
+                history: "History",
+                hasidic_dynasty: "Hasidic Dynasty"
             }
         },
         nl: {
@@ -60,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 kehilla: "Kehilla",
                 person: "Persoon",
                 yeshiva: "Yeshiva",
-                history: "Geschiedenis"
+                history: "Geschiedenis",
+                hasidic_dynasty: "Chassidische dynastie"
             }
         },
         fr: {
@@ -79,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 kehilla: "Kehilla",
                 person: "Personne",
                 yeshiva: "Yeshiva",
-                history: "Histoire"
+                history: "Histoire",
+                hasidic_dynasty: "Dynastie hassidique"
             }
         },
         he: {
@@ -98,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 kehilla: "קהילה",
                 person: "אישיות",
                 yeshiva: "ישיבה",
-                history: "היסטוריה"
+                history: "היסטוריה",
+                hasidic_dynasty: "שושלת חסידית"
             }
         }
     };
@@ -182,7 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rav Moshe Avigdor Amiel", url: "rabbis/rav-moshe-avigdor-amiel.html", type: "Rabbi", titleHe: "הרב משה אבגדור עמיאל" },
         { title: "Rav Pinchas Padwa", url: "rabbis/rav-pinchas-padwa.html", type: "Rabbi", titleHe: "הרב פנחס פדווה" },
         { title: "Rav Eliyahu Shternbuch", url: "rabbis/rav-eliyahu-shternbuch.html", type: "Rabbi", titleHe: "הרב אליהו שטרנבוך" },
-        { title: "Reb Leibish", url: "rabbis/reb-leibish.html", type: "Rabbi", titleHe: "רב לייביש" },
+        { title: "Rabbi Chaim Aryeh Leibish Leizer (Reb Leibish)", url: "rabbis/reb-leibish.html", type: "Rabbi", titleHe: "הרב חיים אריה לייביש לייזר" },
+        { title: "Rabbi Yaakov Leizer (Reb Yankele)", url: "rabbis/rabbi-yaakov-leizer.html", type: "Rabbi", titleHe: "הרב יעקב לייזר" },
+        { title: "Rabbi Moshe Yitzchak Gewirtzman (Reb Itzikel)", url: "rabbis/rabbi-moshe-yitzchak-gewirtzman.html", type: "Rabbi", titleHe: "הרב משה יצחק גבירצמן" },
         { title: "Shemu’el Brodt", url: "rabbis/shemuel-brodt.html", type: "Rabbi", titleHe: "שמואל ברודט" },
         { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi", titleHe: "הרב יהודה אריה טרגר" },
         { title: "Rabbi Shraga Feivel Shapira", url: "rabbis/rabbi-shraga-feivel-shapira.html", type: "Rabbi", titleNl: "Rabbijn Shraga Feivel Shapira", titleFr: "Rabbin Shraga Feivel Shapira", titleHe: "הרב שרגא פייבל שפירא" },
@@ -215,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Machsike Hadas", url: "organizations/machsike-hadas.html", type: "kehilla", titleHe: "מחזיקי הדת" },
         { title: "Shomre Hadas", url: "organizations/shomre-hadas.html", type: "kehilla", titleHe: "שומרי הדת" },
         { title: "Sephardic Community", url: "organizations/sephardic-community.html", type: "kehilla", titleHe: "הקהילה הספרדית" },
+        { title: "Pshevorsk", url: "organizations/pshevorsk.html", type: "hasidic_dynasty", titleHe: "פשבורסק" },
 
         // New pages added in June 2026 / People
         { title: "Jozef Sterngold", url: "people/jozef-sterngold.html", type: "Person", titleNl: "Jozef Sterngold", titleFr: "Jozef Sterngold", titleHe: "יוזף שטרנגולד" },
