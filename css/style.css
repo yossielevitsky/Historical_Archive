@@ -774,6 +774,41 @@ h3 {
     border-bottom: none !important;
 }
 
+/* Fix button styling inside wiki content to prevent color overriding */
+.wiki-content a.btn,
+.wiki-main-content a.btn {
+    color: var(--color-gold) !important;
+    border: 1px solid var(--color-gold) !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
+.wiki-content a.btn:hover,
+.wiki-main-content a.btn:hover {
+    color: var(--color-charcoal) !important;
+    background-color: var(--color-gold) !important;
+    border-color: var(--color-gold-hover) !important;
+    text-decoration: none !important;
+}
+
+.wiki-content a.btn.btn-filled,
+.wiki-main-content a.btn.btn-filled,
+.btn.btn-filled {
+    background-color: var(--color-gold) !important;
+    color: var(--color-charcoal) !important;
+    border-color: var(--color-gold) !important;
+    font-weight: 600;
+}
+
+.wiki-content a.btn.btn-filled:hover,
+.wiki-main-content a.btn.btn-filled:hover,
+.btn.btn-filled:hover {
+    background-color: var(--color-gold-hover) !important;
+    color: var(--color-charcoal) !important;
+    border-color: var(--color-gold-hover) !important;
+}
+
+
 /* Sidebar */
 .wiki-sidebar {
     background: var(--color-slate);
@@ -3191,4 +3226,55 @@ h3 {
         display: none !important;
     }
 }
+
+/* Synagogue Page Sort Filter Styles */
+.sort-filter-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.sort-select-label {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+}
+
+.sort-select-input {
+    background-color: var(--color-slate);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-gold);
+    padding: 0.6rem 2.5rem 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%23c5a059'><path d='M0 0l5 6 5-6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.sort-select-input:hover,
+.sort-select-input:focus {
+    border-color: var(--color-gold-hover);
+    box-shadow: 0 0 5px rgba(197, 160, 89, 0.4);
+}
+
+/* Support RTL alignment for Hebrew select input */
+[dir="rtl"] .sort-filter-bar {
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .sort-select-input {
+    padding: 0.6rem 1.2rem 0.6rem 2.5rem;
+    background-position: left 1rem center;
+}
+
 

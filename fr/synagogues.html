@@ -71,6 +71,15 @@
                     </p>
                 </div>
 
+                <div class="sort-filter-bar">
+                    <label for="sort-select" class="sort-select-label">Ordonner par :</label>
+                    <select id="sort-select" class="sort-select-input">
+                        <option value="oldest" selected>Plus ancien en premier</option>
+                        <option value="newest">Plus récent en premier</option>
+                        <option value="name">Nom (A-Z)</option>
+                    </select>
+                </div>
+
                 <div id="synagogue-list" class="synagogue-grid">
 
                     <!-- Hollandse Synagoge -->
@@ -137,27 +146,6 @@
                         </a>
                     </article>
 
-                    <!-- Beit Yaakov -->
-                    <article class="card">
-                        <a href="synagogues/beit-yaakov.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Beit+Yaakov"
-                                    alt="Beit Yaakov">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Beit Yaakov</h2>
-                                <div class="card-meta">
-                                    <span>Jacob Jacobstraat</span> • <span>1910</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Texte d'espace réservé historique pour la synagogue Beit Yaakov. Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
                     <!-- Oosten Synagogue -->
                     <article class="card">
                         <a href="synagogues/oosten-synagogue.html"
@@ -168,7 +156,7 @@
                             <div class="card-content">
                                 <h2 class="card-title">Synagogue d'Osten</h2>
                                 <div class="card-meta">
-                                    <span>Rue Oosten</span> • <span>Début du 20e siècle</span>
+                                    <span>Rue Oosten</span> • <span>1913-14</span>
                                 </div>
                                 <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
                                     Une majestueuse synagogue reflétant la grandeur de la communauté juive d'Anvers.
@@ -241,291 +229,22 @@
                         </a>
                     </article>
 
-                    <!-- Belz Synagogue -->
+                    <!-- Heide Synagogue -->
                     <article class="card">
-                        <a href="synagogues/belz-center.html"
+                        <a href="places/heide-synagogue.html"
                             style="display: block; text-decoration: none; color: inherit;">
                             <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Belz" alt="Belz">
+                                <img src="images/synagoge_heide_kalmthout.jpeg" alt="Synagogue de Heide">
                             </div>
                             <div class="card-content">
-                                <h2 class="card-title">Centre Belz</h2>
+                                <h2 class="card-title">Synagogue de Heide</h2>
                                 <div class="card-meta">
-                                    <span>Rue Van Spangen</span> • <span>années 1990</span>
+                                    <span>Leopoldstraat 58, Kalmthout</span> • <span>1929</span>
                                 </div>
                                 <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Un centre majeur pour la communauté Belz à Anvers. Contenu à mettre à jour.
+                                    La seule synagogue de Belgique construite en dehors d'une grande zone métropolitaine, desservant la communauté juive de la station d'été d'avant-guerre.
                                 </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Satmar Synagogue -->
-                    <article class="card">
-                        <a href="synagogues/satmar-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Satmar" alt="Satmar">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Synagogue Satmar</h2>
-                                <div class="card-meta">
-                                    <span>Rue Jakob Jordaens</span> • <span>années 1950</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Au service de la communauté hassidique Satmar. Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Alexander Synagoge -->
-                    <article class="card">
-                        <a href="synagogues/alexander-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Alexander"
-                                    alt="Alexander Synagoge">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Synagogue Alexandre</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Belz (Centraal) -->
-                    <article class="card">
-                        <a href="synagogues/belz-center.html" style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Belz+(Centraal)"
-                                    alt="Belz (Centraal)">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Belz (Central)</h2>
-                                <div class="card-meta">
-                                    <span>Centre principal</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Belz 2 (Ohel Moshe) -->
-                    <article class="card">
-                        <a href="synagogues/belz-2-ohel-moshe.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Belz+2+(Ohel+Moshe)"
-                                    alt="Belz 2 (Ohel Moshe)">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Belz 2 (Ohel Moshe)</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Belz 3 (Beis Ahron) -->
-                    <article class="card">
-                        <a href="synagogues/belz-3-beis-ahron.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Belz+3+(Beis+Ahron)"
-                                    alt="Belz 3 (Beis Ahron)">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Belz 3 (Beis Ahron)</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Belz 4 (Beis Hillel) -->
-                    <article class="card">
-                        <a href="synagogues/belz-4-beis-hillel.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Belz+4+(Beis+Hillel)"
-                                    alt="Belz 4 (Beis Hillel)">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Belz 4 (Beis Hillel)</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Beit Hakneset Hasafaradi Jotsei Geruzia -->
-                    <article class="card">
-                        <a href="jotsei-geruzia-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Jotsei+Geruzia"
-                                    alt="Beit Hakneset Hasafaradi Jotsei Geruzia">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Beit Hakneset Hasafaradi Jotsei Geruzia</h2>
-                                <div class="card-meta">
-                                    <span>Sépharade / Géorgien</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Beth Mordechai -->
-                    <article class="card">
-                        <a href="synagogues/beth-mordechai.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Beth+Mordechai"
-                                    alt="Beth Mordechai">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Beth Mordéhaï</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Bobov -->
-                    <article class="card">
-                        <a href="synagogues/bobov-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Bobov" alt="Bobov">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Bobova</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Daas Sholem-Shotz -->
-                    <article class="card">
-                        <a href="synagogues/daas-sholem-shotz.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Daas+Sholem-Shotz"
-                                    alt="Daas Sholem-Shotz">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Daas Sholem-Shotz</h2>
-                                <div class="card-meta">
-                                    <span>Communauté hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Gur -->
-                    <article class="card">
-                        <a href="synagogues/gur-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Gur" alt="Gur">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Gur</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Klausenburg -->
-                    <article class="card">
-                        <a href="synagogues/klausenburg-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Klausenburg"
-                                    alt="Klausenburg">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Klausenbourg</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- K'hal Chasidim -->
-                    <article class="card">
-                        <a href="synagogues/khal-chasidim.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=K'hal+Chasidim"
-                                    alt="K'hal Chasidim">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">K'hal Chasidim</h2>
-                                <div class="card-meta">
-                                    <span>Communauté hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
+                                <span class="card-link">Afficher l'entrée d'archive &rarr;</span>
                             </div>
                         </a>
                     </article>
@@ -591,190 +310,6 @@
                         </a>
                     </article>
 
-                    <!-- Agudath Israel -->
-                    <article class="card">
-                        <a href="synagogues/agudath-israel.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Agudath+Israel"
-                                    alt="Agudath Israel">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Agudath Israël</h2>
-                                <div class="card-meta">
-                                    <span>Rue Mercator</span> • <span>années 1930</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Synagogue centrale du mouvement Agudath Israel à Anvers.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Ohel Yaakov -->
-                    <article class="card">
-                        <a href="synagogues/ohel-yaakov.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Ohel+Yaakov"
-                                    alt="Ohel Yaakov">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Ohel Yaakov</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Or Shraga-Kolel -->
-                    <article class="card">
-                        <a href="synagogues/or-shraga-kolel.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Or+Shraga-Kolel"
-                                    alt="Or Shraga-Kolel">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Ou Shraga-Kolel</h2>
-                                <div class="card-meta">
-                                    <span>Kolel / Salle d'étude</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Satmar 2 -->
-                    <article class="card">
-                        <a href="synagogues/satmar-2.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Satmar+2" alt="Satmar 2">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Satmar 2</h2>
-                                <div class="card-meta">
-                                    <span>Communauté hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Schmigred -->
-                    <article class="card">
-                        <a href="synagogues/schmigred-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Schmigred" alt="Schmigred">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Schmigred</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Tshortkow -->
-                    <article class="card">
-                        <a href="synagogues/tshortkow-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Tshortkow" alt="Tshortkow">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Tshortkow</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Wiznitz -->
-                    <article class="card">
-                        <a href="synagogues/wiznitz-synagogue.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Wiznitz" alt="Wiznitz">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Wiznitz</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Wiznitz 2 -->
-                    <article class="card">
-                        <a href="synagogues/wiznitz-2.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Wiznitz+2" alt="Wiznitz 2">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Wiznitz 2</h2>
-                                <div class="card-meta">
-                                    <span>Dynastie hassidique</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Zichron Benjamin -->
-                    <article class="card">
-                        <a href="synagogues/zichron-benjamin.html"
-                            style="display: block; text-decoration: none; color: inherit;">
-                            <div class="card-image">
-                                <img src="https://placehold.co/800x600/2d2d2d/c5a059?text=Zichron+Benjamin"
-                                    alt="Zichron Benjamin">
-                            </div>
-                            <div class="card-content">
-                                <h2 class="card-title">Zichron Benjamin</h2>
-                                <div class="card-meta">
-                                    <span>Synagogue communautaire</span> • <span>20e siècle</span>
-                                </div>
-                                <p style="color: var(--color-text-main); font-size: 0.95rem; margin-bottom: 1rem;">
-                                    Contenu à mettre à jour.
-                                </p>
-                                <span class="card-link">Afficher l'entrée d'archive →</span>
-                            </div>
-                        </a>
-                    </article>
-
                 </div>
             </div>
         </main>
@@ -786,6 +321,65 @@
         </footer>
     </div>
     <script src="../js/scroll-top.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const select = document.getElementById('sort-select');
+            const grid = document.getElementById('synagogue-list');
+            if (!select || !grid) return;
+
+            const cards = Array.from(grid.querySelectorAll('.card'));
+            
+            // Map each card to its parsed details and save its original index for default sorting
+            const cardData = cards.map((card, index) => {
+                const titleEl = card.querySelector('.card-title');
+                const name = titleEl ? titleEl.textContent.trim() : '';
+                
+                let year = 1950;
+                const metaSpans = card.querySelectorAll('.card-meta span');
+                if (metaSpans.length > 0) {
+                    const lastSpanText = metaSpans[metaSpans.length - 1].textContent.trim();
+                    const yearMatch = lastSpanText.match(/\b\d{4}\b/);
+                    if (yearMatch) {
+                        year = parseInt(yearMatch[0], 10);
+                    } else {
+                        const text = lastSpanText.toLowerCase();
+                        if (text.includes('20') || text.includes('המאה ה-20')) {
+                            year = 1950;
+                        } else if (text.includes('19') || text.includes('המאה ה-19')) {
+                            year = 1850;
+                        }
+                    }
+                }
+
+                return { card, name, year, originalIndex: index };
+            });
+
+            function applySort() {
+                const sortBy = select.value;
+                
+                if (sortBy === 'name') {
+                    cardData.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true }));
+                } else if (sortBy === 'oldest') {
+                    cardData.sort((a, b) => a.year - b.year || a.name.localeCompare(b.name));
+                } else if (sortBy === 'newest') {
+                    cardData.sort((a, b) => b.year - a.year || a.name.localeCompare(b.name));
+                } else {
+                    // default
+                    cardData.sort((a, b) => a.originalIndex - b.originalIndex);
+                }
+
+                // Re-append cards in sorted order
+                cardData.forEach(item => {
+                    grid.appendChild(item.card);
+                });
+            }
+
+            select.addEventListener('change', applySort);
+            
+            // Apply initial sort on load
+            applySort();
+        });
+    </script>
 </body>
 
 </html>
