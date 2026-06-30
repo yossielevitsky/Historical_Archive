@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Chabad Lubavitch", url: "synagogues/chabad-lubavitch.html", type: "Synagogue", titleHe: "חב\"ד ליובאוויטש" },
         { title: "Eisenmann Synagogue", url: "synagogues/eisenmann-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אייזנמן" },
         { title: "Hollandse Synagoge", url: "synagogues/hollandse-synagoge.html", type: "Synagogue", titleHe: "בית הכנסת של הולנד" },
-        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue", titleHe: "מחסיקה הדסה" },
+        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue", titleHe: "מחזיקי הדת" },
         { title: "Moryah Terlist", url: "synagogues/moryah-terlist.html", type: "Synagogue", titleHe: "מוריה טרליסט" },
         { title: "Oosten Synagogue", url: "synagogues/oosten-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אוסטן" },
         { title: "Portuguese Synagogue", url: "synagogues/portuguese-synagogue.html", type: "Synagogue", titleHe: "בית כנסת פורטוגלי" },
@@ -744,7 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 en: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is the principal ultra-Orthodox (Haredi) umbrella organization in Antwerp. Established in the late 19th century, it oversees synagogues, schools, and dietary certification (kashrut) systems.' },
                 nl: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is de belangrijkste ultraorthodoxe (Haredi) koepelorganisatie in Antwerpen. Opgericht in de late 19e eeuw, houdt zij toezicht op synagogen, scholen en kasjroet-certificering.' },
                 fr: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas est la principale organisation faîtière ultra-orthodoxe (Haredi) d\'Anvers. Fondée à la fin du XIXe siècle, elle supervise les synagogues, les écoles et la certification de la cacherout.' },
-                he: { title: 'מחסיקה הדס', years: '', desc: 'מחזיקי הדת הוא ארגון הגג החרדי המרכזי באנטוורפן. הוא הוקם בשלהי המאה ה-19 ומפקח על בתי כנסת, מוסדות חינוך ומערכות השגחת כשרות.' }
+                he: { title: 'מחזיקי הדת', years: '', desc: 'מחזיקי הדת הוא ארגון הגג החרדי המרכזי באנטוורפן. הוא הוקם בשלהי המאה ה-19 ומפקח על בתי כנסת, מוסדות חינוך ומערכות השגחת כשרות.' }
             },
             'shomre-hadas': {
                 image: '',
