@@ -416,13 +416,19 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/fr/rabbis/hershel-krengel.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -465,6 +471,12 @@
   <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis/rabbi-yehuda-aryeh-treger.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/fr/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -902,13 +914,19 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/rabbis.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/he/rabbis/hershel-krengel.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -951,6 +969,12 @@
   <url>
     <loc>https://jewishantwerparchive.org/he/rabbis/rabbi-yehuda-aryeh-treger.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/he/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1544,13 +1568,19 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/nl/rabbis/hershel-krengel.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1593,6 +1623,12 @@
   <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis/rabbi-yehuda-aryeh-treger.html</loc>
     <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/nl/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1784,13 +1820,19 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/rabbis.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/rabbis/hershel-krengel.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1833,6 +1875,12 @@
   <url>
     <loc>https://jewishantwerparchive.org/rabbis/rabbi-yehuda-aryeh-treger.html</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

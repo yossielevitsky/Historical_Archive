@@ -170,6 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rabbi Yehuda Aryeh Treger", url: "rabbis/rabbi-yehuda-aryeh-treger.html", type: "Rabbi", titleHe: "הרב יהודה אריה טרגר" },
         { title: "Rabbi Shraga Feivel Shapira", url: "rabbis/rabbi-shraga-feivel-shapira.html", type: "Rabbi", titleNl: "Rabbijn Shraga Feivel Shapira", titleFr: "Rabbin Shraga Feivel Shapira", titleHe: "הרב שרגא פייבל שפירא" },
         { title: "Rabbi Noah Zvi Ullmann", url: "rabbis/rabbi-noah-zvi-ullman.html", type: "Rabbi", titleNl: "Rabbi Noah Zvi Ullmann", titleFr: "Rabbi Noah Zvi Ullmann", titleHe: "הרב נח צבי אולמן" },
+        { title: "Hershel Krengel", url: "rabbis/hershel-krengel.html", type: "Rabbi", titleNl: "Hershel Krengel", titleFr: "Hershel Krengel", titleHe: "הרשל קרנגל" },
+        { title: "Rabbi Yitzchok Zvi Ratzersdorfer", url: "rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html", type: "Rabbi", titleNl: "Rabbi Yitzchok Zvi Ratzersdorfer", titleFr: "Rabbi Yitzchok Zvi Ratzersdorfer", titleHe: "הרב יצחק צבי רצסדורפר" },
 
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place", titleHe: "הייד, קלמהוט" },

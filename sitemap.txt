@@ -69,6 +69,7 @@ https://jewishantwerparchive.org/fr/places/yavne.html
 https://jewishantwerparchive.org/fr/places/yeshivat-heide.html
 https://jewishantwerparchive.org/fr/rabbis.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
+https://jewishantwerparchive.org/fr/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
@@ -76,6 +77,7 @@ https://jewishantwerparchive.org/fr/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-yehuda-aryeh-treger.html
+https://jewishantwerparchive.org/fr/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html
 https://jewishantwerparchive.org/fr/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/fr/rabbis/rav-dovid-moshe-lieberman.html
 https://jewishantwerparchive.org/fr/rabbis/rav-eliyahu-shternbuch.html
@@ -150,6 +152,7 @@ https://jewishantwerparchive.org/he/places/yavne.html
 https://jewishantwerparchive.org/he/places/yeshivat-heide.html
 https://jewishantwerparchive.org/he/rabbis.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
+https://jewishantwerparchive.org/he/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
@@ -157,6 +160,7 @@ https://jewishantwerparchive.org/he/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-yehuda-aryeh-treger.html
+https://jewishantwerparchive.org/he/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html
 https://jewishantwerparchive.org/he/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/he/rabbis/rav-dovid-moshe-lieberman.html
 https://jewishantwerparchive.org/he/rabbis/rav-eliyahu-shternbuch.html
@@ -257,6 +261,7 @@ https://jewishantwerparchive.org/nl/places/yavne.html
 https://jewishantwerparchive.org/nl/places/yeshivat-heide.html
 https://jewishantwerparchive.org/nl/rabbis.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
+https://jewishantwerparchive.org/nl/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
@@ -264,6 +269,7 @@ https://jewishantwerparchive.org/nl/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-yehuda-aryeh-treger.html
+https://jewishantwerparchive.org/nl/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html
 https://jewishantwerparchive.org/nl/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/nl/rabbis/rav-dovid-moshe-lieberman.html
 https://jewishantwerparchive.org/nl/rabbis/rav-eliyahu-shternbuch.html
@@ -297,6 +303,7 @@ https://jewishantwerparchive.org/places/yavne.html
 https://jewishantwerparchive.org/places/yeshivat-heide.html
 https://jewishantwerparchive.org/rabbis.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
+https://jewishantwerparchive.org/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
@@ -304,6 +311,7 @@ https://jewishantwerparchive.org/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/rabbis/rabbi-yehuda-aryeh-treger.html
+https://jewishantwerparchive.org/rabbis/rabbi-yitzchok-zvi-ratzersdorfer.html
 https://jewishantwerparchive.org/rabbis/rav-aaron-schiff.html
 https://jewishantwerparchive.org/rabbis/rav-dovid-moshe-lieberman.html
 https://jewishantwerparchive.org/rabbis/rav-eliyahu-shternbuch.html
