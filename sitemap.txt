@@ -72,6 +72,7 @@ https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
+https://jewishantwerparchive.org/fr/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/fr/rabbis/rabbi-yehuda-aryeh-treger.html
@@ -152,6 +153,7 @@ https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
+https://jewishantwerparchive.org/he/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/he/rabbis/rabbi-yehuda-aryeh-treger.html
@@ -258,6 +260,7 @@ https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
+https://jewishantwerparchive.org/nl/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/nl/rabbis/rabbi-yehuda-aryeh-treger.html
@@ -297,6 +300,7 @@ https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html
 https://jewishantwerparchive.org/rabbis/rabbi-chaim-kreiswirth.html
 https://jewishantwerparchive.org/rabbis/rabbi-moshe-yitzchak-gewirtzman.html
+https://jewishantwerparchive.org/rabbis/rabbi-noah-zvi-ullman.html
 https://jewishantwerparchive.org/rabbis/rabbi-shraga-feivel-shapira.html
 https://jewishantwerparchive.org/rabbis/rabbi-yaakov-leizer.html
 https://jewishantwerparchive.org/rabbis/rabbi-yehuda-aryeh-treger.html
