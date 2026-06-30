@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Machsike Hadass - Jewish Antwerp Historical Archive</title>
+    <title>Machsike Hadass Kehillah - Jewish Antwerp Historical Archive</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -37,7 +37,7 @@
                         <li><a href="../holocaust/holocaust.html">The Holocaust</a></li>
                         <li><a href="../articles.html">Articles</a></li>
                         <li><a href="../rabbis.html">Rabbis</a></li>
-                        <li><a href="../synagogues.html" class="active">Synagogues</a></li>
+                        <li><a href="../synagogues.html">Synagogues</a></li>
                         <li><a href="../chazanim.html">Chazanim</a></li>
                     </ul>
                 </nav>
@@ -45,27 +45,20 @@
         </header>
 
         <main id="main-content">
-
-        <div class="container breadcrumb-container" style="padding-top: var(--spacing-sm);">
-            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-                <ol class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../synagogues.html" class="breadcrumb-link">Synagogues</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Machsike Hadass</li>
-                </ol>
-            </nav>
-        </div>
-            <!-- Detail Hero -->
-            <div class="hero"
-                style="height: 50vh; min-height: 400px; background-image: url('../images/machsike-hadass-logo.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: var(--color-slate);">
-                <div class="hero-overlay" style="background: rgba(0, 0, 0, 0.45);"></div>
-                <div class="hero-content">
-                    <h1>Machsike Hadass</h1>
-                    <p class="hebrew-text">מחזיקי הדת</p>
-                </div>
+            <!-- Breadcrumb Navigation -->
+            <div class="container" style="padding-top: var(--spacing-md); padding-bottom: var(--spacing-sm);">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../history.html" class="breadcrumb-link">History</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Machsike Hadass Kehillah</li>
+                    </ol>
+                </nav>
+                <h1 style="font-size: 3rem; color: var(--color-gold); margin-bottom: 0.5rem; margin-top: 1rem;">Machsike Hadass Kehillah</h1>
+                <p class="hebrew-text" style="font-size: 1.5rem; color: var(--color-text-muted);">מחזיקי הדת</p>
             </div>
 
-            <div class="container wiki-container">
+            <div class="container wiki-container" style="margin-top: 0;">
                 <!-- Main Content -->
                 <article class="wiki-main">
                     <section class="wiki-content">
@@ -90,7 +83,7 @@
 
                         <h2>Building a Communal Center</h2>
                         <p>As the community expanded, it became necessary to establish a central synagogue complex. This led to the development of the Oosten Synagogue project on Oosten Street, which became the flagship beis haknesses of the kehilla.</p>
-                        <p>The kehilla developed around several key institutions:</p>
+                        <p>The kehilla developed around several key institutions:
                         <ul>
                             <li>Central synagogues (including Oosten Shul)</li>
                             <li>Beis midrash study halls</li>
@@ -101,7 +94,7 @@
                         <p>This structure allowed Machsike Hadass to function as a fully independent Orthodox kehilla with strong internal governance.</p>
 
                         <h2>Rabbinic Leadership</h2>
-                        <p>Over the decades, the kehilla was shaped by important rabbinic and dayan leadership, including:</p>
+                        <p>Over the decades, the kehilla was shaped by important rabbinic and dayan leadership, including:
                         <ul>
                             <li><strong>Harav Mordechai Rottenberg zt”l hy”d</strong> – leading Rav before World War II, representing the kehilla during a critical period of growth and rising European tensions</li>
                             <li><strong>Harav Noach Tzvi Ullman zt”l</strong> – dayan and halachic authority within the kehilla</li>
@@ -152,6 +145,10 @@
 
                 <!-- Sidebar -->
                 <aside class="wiki-sidebar">
+                    <div class="profile-image-container" style="margin-bottom: var(--spacing-md); border-bottom: 1px solid var(--color-slate); padding-bottom: var(--spacing-md);">
+                        <img src="../images/machsike-hadass-logo.jpg" alt="Machsike Hadass logo" style="width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--color-slate); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                    </div>
+
                     <h3 class="sidebar-title">At a Glance</h3>
 
                     <div class="data-point">
@@ -176,9 +173,8 @@
 
                     <div class="data-point">
                         <span class="data-label">Location</span>
-                        <span class="data-value">Antwerp</span>
+                        <span class="data-value">Antwerp, Belgium</span>
                     </div>
-
                 </aside>
             </div>
         </main>
@@ -195,5 +191,3 @@
 </body>
 
 </html>
-
-

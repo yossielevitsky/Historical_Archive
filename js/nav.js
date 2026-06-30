@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Chabad Lubavitch", url: "synagogues/chabad-lubavitch.html", type: "Synagogue", titleHe: "חב\"ד ליובאוויטש" },
         { title: "Eisenmann Synagogue", url: "synagogues/eisenmann-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אייזנמן" },
         { title: "Hollandse Synagoge", url: "synagogues/hollandse-synagoge.html", type: "Synagogue", titleHe: "בית הכנסת של הולנד" },
-        { title: "Machsike Hadass", url: "synagogues/machsike-hadass.html", type: "Synagogue", titleHe: "מחזיקי הדת" },
+
         { title: "Moryah Terlist", url: "synagogues/moryah-terlist.html", type: "Synagogue", titleHe: "מוריה טרליסט" },
         { title: "Oosten Synagogue", url: "synagogues/oosten-synagogue.html", type: "Synagogue", titleHe: "בית הכנסת אוסטן" },
         { title: "Portuguese Synagogue", url: "synagogues/portuguese-synagogue.html", type: "Synagogue", titleHe: "בית כנסת פורטוגלי" },
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Full History Timeline", url: "history/full-history.html", type: "History", titleNl: "Volledige geschiedenis tijdlijn", titleFr: "Chronologie complète de l'histoire", titleHe: "ציר זמן היסטורי מלא" },
 
         // Communal Bodies (Kehilles)
-        { title: "Machsike Hadas", url: "organizations/machsike-hadas.html", type: "kehilla", titleHe: "מחזיקי הדת" },
+        { title: "Machsike Hadass", url: "organizations/machsike-hadass.html", type: "kehilla", titleHe: "מחזיקי הדת" },
         { title: "Shomre Hadas", url: "organizations/shomre-hadas.html", type: "kehilla", titleHe: "שומרי הדת" },
         { title: "Sephardic Community", url: "organizations/sephardic-community.html", type: "kehilla", titleHe: "הקהילה הספרדית" },
         { title: "Pshevorsk", url: "organizations/pshevorsk.html", type: "hasidic_dynasty", titleHe: "פשבורסק" },
@@ -739,12 +739,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 fr: { title: 'Marcus Rottenberg', years: '', desc: 'Marcus (Mordechai) Rottenberg a été le grand rabbin de la communauté orthodoxe d\'Anvers (Machsike Hadas) à partir de 1912. Il refusa d\'abandonner sa congrégation pendant la guerre et fut assassiné à Auschwitz en 1943.' },
                 he: { title: 'מרקוס רוטנברג', years: '', desc: 'הרב מרדכי (מרקוס) רוטנברג כיהן כרבה הראשי של הקהילה החרדית "מחזיקי הדת" באנטוורפן משנת 1912. הוא סירב לנטוש את קהילתו במהלך המלחמה ונרצח באושוויץ בשנת 1943.' }
             },
-            'machsike-hadas': {
+            'machsike-hadass': {
                 image: '',
-                en: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is the principal ultra-Orthodox (Haredi) umbrella organization in Antwerp. Established in the late 19th century, it oversees synagogues, schools, and dietary certification (kashrut) systems.' },
-                nl: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas is de belangrijkste ultraorthodoxe (Haredi) koepelorganisatie in Antwerpen. Opgericht in de late 19e eeuw, houdt zij toezicht op synagogen, scholen en kasjroet-certificering.' },
-                fr: { title: 'Machsike Hadas', years: '', desc: 'Machsike Hadas est la principale organisation faîtière ultra-orthodoxe (Haredi) d\'Anvers. Fondée à la fin du XIXe siècle, elle supervise les synagogues, les écoles et la certification de la cacherout.' },
-                he: { title: 'מחזיקי הדת', years: '', desc: 'מחזיקי הדת הוא ארגון הגג החרדי המרכזי באנטוורפן. הוא הוקם בשלהי המאה ה-19 ומפקח על בתי כנסת, מוסדות חינוך ומערכות השגחת כשרות.' }
+                en: { title: 'Machsike Hadass', years: '', desc: 'Machsike Hadass is the central Orthodox Jewish community of Antwerp and one of the most established Haredi communities in Western Europe.' },
+                nl: { title: 'Machsike Hadass', years: '', desc: 'De Machsike Hadass-gemeente (kehillah) is de centrale orthodox-Joodse gemeenschap van Antwerpen en een van de meest gevestigde charedische gemeenschappen in West-Europa.' },
+                fr: { title: 'Machsike Hadass', years: '', desc: 'La communauté Machsike Hadass est la communauté juive orthodoxe centrale d\'Anvers et l\'une des communautés ultra-orthodoxes (haredi) les plus établies d\'Europe occidentale.' },
+                he: { title: 'מחזיקי הדת', years: '', desc: 'קהילת מחזיקי הדת היא הקהילה היהודית האורתודוקסית המרכזית באנטוורפן ואחת הקהילות החרדיות המבוססות ביותר במערב אירופה.' }
             },
             'shomre-hadas': {
                 image: '',

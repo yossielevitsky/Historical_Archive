@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>מחזיקי הדת - הארכיון ההיסטורי היהודי של אנטוורפן</title>
+    <title>קהילת מחזיקי הדת - הארכיון ההיסטורי היהודי של אנטוורפן</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
@@ -37,7 +37,7 @@
                         <li><a href="../holocaust/holocaust.html">השואה</a></li>
                         <li><a href="../articles.html">מאמרים</a></li>
                         <li><a href="../rabbis.html">רבנים</a></li>
-                        <li><a href="../synagogues.html" class="active">בתי כנסת</a></li>
+                        <li><a href="../synagogues.html">בתי כנסת</a></li>
                         <li><a href="../chazanim.html">חזנים</a></li>
                     </ul>
                 </nav>
@@ -45,30 +45,23 @@
         </header>
 
         <main id="main-content">
-
-        <div class="container breadcrumb-container" style="padding-top: var(--spacing-sm);">
-            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-                <ol class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">בַּיִת</a></li>
-                    <li class="breadcrumb-item"><a href="../synagogues.html" class="breadcrumb-link">בתי כנסת</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">מחזיקי הדת</li>
-                </ol>
-            </nav>
-        </div>
-            <!-- Detail Hero -->
-            <div class="hero"
-                style="height: 50vh; min-height: 400px; background-image: url('../../images/machsike-hadass-logo.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: var(--color-slate);">
-                <div class="hero-overlay" style="background: rgba(0, 0, 0, 0.45);"></div>
-                <div class="hero-content">
-                    <h1>מחזיקי הדת</h1>
-                    <p class="hebrew-text">קהילת מחזיקי הדת באנטוורפן</p>
-                </div>
+            <!-- Breadcrumb Navigation -->
+            <div class="container" style="padding-top: var(--spacing-md); padding-bottom: var(--spacing-sm);">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">בית</a></li>
+                        <li class="breadcrumb-item"><a href="../history.html" class="breadcrumb-link">היסטוריה</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">קהילת מחזיקי הדת</li>
+                    </ol>
+                </nav>
+                <h1 style="font-size: 3rem; color: var(--color-gold); margin-bottom: 0.5rem; margin-top: 1rem;">קהילת מחזיקי הדת</h1>
+                <p class="hebrew-text" style="font-size: 1.5rem; color: var(--color-text-muted);">Machsike Hadass</p>
             </div>
 
-            <div class="container wiki-container">
+            <div class="container wiki-container" style="margin-top: 0;">
                 <!-- Main Content -->
                 <article class="wiki-main">
-                    <section class="wiki-content">
+                    <section class="wiki-content" dir="rtl">
                         <p><strong>קהילת מחזיקי הדת</strong> היא הקהילה היהודית האורתודוקסית המרכזית באנטוורפן ואחת הקהילות החרדיות המבוססות ביותר במערב אירופה. הקהילה נוסדה בשלהי המאה ה-19 והפכה לעמוד התווך המוסדי של החיים הדתיים היהודיים בעיר, תוך פיתוח מנהיגות רבנית משלה, מערכת חינוך ותשתיות קהילתיות.</p>
 
                         <h2>ייסוד (1892)</h2>
@@ -152,7 +145,11 @@
 
                 <!-- Sidebar -->
                 <aside class="wiki-sidebar">
-                    <h3 class="sidebar-title">במבט אחד</h3>
+                    <div class="profile-image-container" style="margin-bottom: var(--spacing-md); border-bottom: 1px solid var(--color-slate); padding-bottom: var(--spacing-md);">
+                        <img src="../../images/machsike-hadass-logo.jpg" alt="Machsike Hadass logo" style="width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--color-slate); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                    </div>
+
+                    <h3 class="sidebar-title">במבט מהיר</h3>
 
                     <div class="data-point">
                         <span class="data-label">נוסדה</span>
@@ -176,16 +173,15 @@
 
                     <div class="data-point">
                         <span class="data-label">מיקום</span>
-                        <span class="data-value">אנטוורפן</span>
+                        <span class="data-value">אנטוורפן, בלגיה</span>
                     </div>
-
                 </aside>
             </div>
         </main>
 
         <footer class="main-footer">
             <div class="container">
-                <p>© 2026 הארכיון ההיסטורי היהודי של אנטוורפן. כֹּל הַזְכוּיוֹת שְׁמוּרוֹת.</p>
+                <p>© 2026 הארכיון ההיסטורי היהודי של אנטוורפן. כל הזכויות שמורות.</p>
             </div>
         </footer>
     </div>
@@ -195,5 +191,3 @@
 </body>
 
 </html>
-
-
