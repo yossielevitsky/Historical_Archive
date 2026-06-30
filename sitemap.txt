@@ -68,6 +68,7 @@ https://jewishantwerparchive.org/fr/places/tachkemoni.html
 https://jewishantwerparchive.org/fr/places/yavne.html
 https://jewishantwerparchive.org/fr/places/yeshivat-heide.html
 https://jewishantwerparchive.org/fr/rabbis.html
+https://jewishantwerparchive.org/fr/rabbis/chayim-yaakov-rottenberg.html
 https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/fr/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/fr/rabbis/mizrachi-rav-amiel.html
@@ -151,6 +152,7 @@ https://jewishantwerparchive.org/he/places/tachkemoni.html
 https://jewishantwerparchive.org/he/places/yavne.html
 https://jewishantwerparchive.org/he/places/yeshivat-heide.html
 https://jewishantwerparchive.org/he/rabbis.html
+https://jewishantwerparchive.org/he/rabbis/chayim-yaakov-rottenberg.html
 https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/he/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/he/rabbis/mizrachi-rav-amiel.html
@@ -260,6 +262,7 @@ https://jewishantwerparchive.org/nl/places/tachkemoni.html
 https://jewishantwerparchive.org/nl/places/yavne.html
 https://jewishantwerparchive.org/nl/places/yeshivat-heide.html
 https://jewishantwerparchive.org/nl/rabbis.html
+https://jewishantwerparchive.org/nl/rabbis/chayim-yaakov-rottenberg.html
 https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/nl/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/nl/rabbis/mizrachi-rav-amiel.html
@@ -302,6 +305,7 @@ https://jewishantwerparchive.org/places/tachkemoni.html
 https://jewishantwerparchive.org/places/yavne.html
 https://jewishantwerparchive.org/places/yeshivat-heide.html
 https://jewishantwerparchive.org/rabbis.html
+https://jewishantwerparchive.org/rabbis/chayim-yaakov-rottenberg.html
 https://jewishantwerparchive.org/rabbis/dayan-schmal.html
 https://jewishantwerparchive.org/rabbis/hershel-krengel.html
 https://jewishantwerparchive.org/rabbis/mizrachi-rav-amiel.html

@@ -421,6 +421,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/fr/rabbis/chayim-yaakov-rottenberg.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -917,6 +923,12 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/he/rabbis/chayim-yaakov-rottenberg.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/rabbis/dayan-schmal.html</loc>
@@ -1573,6 +1585,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/nl/rabbis/chayim-yaakov-rottenberg.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis/dayan-schmal.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -1823,6 +1841,12 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/rabbis/chayim-yaakov-rottenberg.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/rabbis/dayan-schmal.html</loc>
