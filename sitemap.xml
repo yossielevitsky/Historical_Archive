@@ -415,6 +415,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/fr/places/yeshivat-wilrijk.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/fr/rabbis.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -914,6 +920,12 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/he/places/yeshivat-heide.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/he/places/yeshivat-wilrijk.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1579,6 +1591,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jewishantwerparchive.org/nl/places/yeshivat-wilrijk.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jewishantwerparchive.org/nl/rabbis.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1832,6 +1850,12 @@
   </url>
   <url>
     <loc>https://jewishantwerparchive.org/places/yeshivat-heide.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jewishantwerparchive.org/places/yeshivat-wilrijk.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

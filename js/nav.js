@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Places
         { title: "Heide, Kalmthout", url: "places/heide.html", type: "Place", titleHe: "הייד, קלמהוט" },
         { title: "Yeshivat Heide", url: "places/yeshivat-heide.html", type: "Yeshiva", titleNl: "Yeshivat Heide", titleFr: "Yeshivat Heide", titleHe: "ישיבת הייד" },
+        { title: "Yeshivat Wilrijk", url: "places/yeshivat-wilrijk.html", type: "Yeshiva", titleNl: "Yeshivat Wilrijk", titleFr: "Yeshivat Wilrijk", titleHe: "ישיבת וילריק" },
         { title: "Jesode Hatorah School", url: "places/jesode-hatorah.html", type: "School", titleHe: "בית הספר יסודי התורה" },
         { title: "Yavne School", url: "places/yavne.html", type: "School", titleHe: "בית הספר יבנה" },
         { title: "Tachkemoni School", url: "places/tachkemoni.html", type: "School", titleHe: "בית הספר תחכמוני" },
