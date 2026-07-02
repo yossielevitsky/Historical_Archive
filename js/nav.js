@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         en: {
             placeholder: "Search...",
-            contribute: "Contribute",
+            contribute: "Contribute & Contact",
             types: {
                 page: "Page",
                 article: "Article",
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         nl: {
             placeholder: "Zoeken...",
-            contribute: "Bijdragen",
+            contribute: "Bijdragen & Contact",
             types: {
                 page: "Pagina",
                 article: "Artikel",
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         fr: {
             placeholder: "Rechercher...",
-            contribute: "Contribuer",
+            contribute: "Contribuer & Contact",
             types: {
                 page: "Page",
                 article: "Article",
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         he: {
             placeholder: "חיפוש...",
-            contribute: "לתרום",
+            contribute: "לתרום וליצור קשר",
             types: {
                 page: "דף",
                 article: "מאמר",
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Rabbis", url: "rabbis.html", type: "Page", titleNl: "Rabbijnen", titleFr: "Rabbins", titleHe: "רבנים" },
         { title: "Chazanim", url: "chazanim.html", type: "Page", titleNl: "Chazaniem", titleFr: "Chazanim", titleHe: "חזנים" },
         { title: "Synagogues", url: "synagogues.html", type: "Page", titleNl: "Synagogen", titleFr: "Synagogues", titleHe: "בתי כנסת" },
-        { title: "Contribute", url: "contribute.html", type: "Page", titleNl: "Bijdragen", titleFr: "Contribuer", titleHe: "לתרום" },
+        { title: "Contribute & Contact", url: "contribute.html", type: "Page", titleNl: "Bijdragen & Contact", titleFr: "Contribuer & Contact", titleHe: "לתרום וליצור קשר" },
         { title: "Articles", url: "articles.html", type: "Page", titleNl: "Artikelen", titleFr: "Articles", titleHe: "מאמרים" },
 
         // Holocaust Section
