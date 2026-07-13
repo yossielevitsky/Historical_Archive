@@ -1068,6 +1068,26 @@ h3 {
     font-family: var(--font-sans);
 }
 
+@media (max-width: 768px) {
+    .database-search-preview-card {
+        height: 200px;
+    }
+    .database-preview-content {
+        padding: var(--spacing-sm);
+    }
+    .search-bar-preview {
+        padding: 0.65rem 1.25rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    .search-tag-preview {
+        gap: 8px;
+    }
+    .search-tag-preview span {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+    }
+}
+
 
 /* About Section */
 .about-section {
@@ -1407,7 +1427,8 @@ h3 {
 @media (max-width: 900px) {
     :root {
         --spacing-md: 1.5rem;
-        --spacing-lg: 3rem;
+        --spacing-lg: 2.5rem;
+        --spacing-xl: 3.5rem;
     }
 
     .container {
