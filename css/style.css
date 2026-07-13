@@ -901,15 +901,16 @@ h3 {
 }
 
 .database-cta-container {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-lg);
-    align-items: center;
 }
 
 @media (min-width: 992px) {
     .database-cta-container {
+        display: grid;
         grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
     }
 }
 
