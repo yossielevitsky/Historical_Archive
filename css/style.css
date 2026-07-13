@@ -1044,6 +1044,11 @@ h3 {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     font-family: var(--font-sans);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex-grow: 1;
 }
 
 .search-tag-preview {
