@@ -666,7 +666,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <aside class="filter-panel">
                     <h3 class="filter-panel-title">
                         <span>${t.filterTitle}</span>
-                        <button class="clear-all-filters" id="sidebar-clear-filters">${t.clearFilters}</button>
+                        <span class="filter-panel-actions">
+                            <button class="clear-all-filters" id="sidebar-clear-filters">${t.clearFilters}</button>
+                            <button class="close-filter-panel-btn" id="btn-close-filters" aria-label="${t.closeModal}">&times;</button>
+                        </span>
                     </h3>
                     
                     <div class="filter-group">
@@ -753,6 +756,14 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleBtn.addEventListener('click', () => {
                 filterPanel.classList.toggle('active');
                 toggleBtn.classList.toggle('active');
+            });
+        }
+
+        const closeFilterBtn = document.getElementById('btn-close-filters');
+        if (closeFilterBtn && filterPanel) {
+            closeFilterBtn.addEventListener('click', () => {
+                filterPanel.classList.remove('active');
+                if (toggleBtn) toggleBtn.classList.remove('active');
             });
         }
 
