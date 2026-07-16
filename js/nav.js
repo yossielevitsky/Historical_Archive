@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Holocaust Section
         { title: "The Holocaust", url: "holocaust/holocaust.html", type: "Page", titleNl: "De Holocaust", titleFr: "La Shoah", titleHe: "השואה" },
+        { title: "Testimonies", url: "holocaust/testimonies.html", type: "Page", titleNl: "Getuigenissen", titleFr: "Témoignages", titleHe: "עדויות" },
         { title: "Righteous Among the Nations", url: "holocaust/righteous.html", type: "Article", titleNl: "Rechtvaardigen onder de Volkeren", titleFr: "Justes parmi les nations", titleHe: "חסידי אומות העולם" },
         { title: "Memorials & Monuments", url: "holocaust/memorials.html", type: "Article", titleNl: "Gedenktekens & Monumenten", titleFr: "Mémoriaux & Monuments", titleHe: "אנדרטאות ומונומנטים" },
         { title: "Names Database", url: "holocaust/names.html", type: "Research", titleNl: "Namen Database", titleFr: "Base de données des noms", titleHe: "מאגר שמות" },
