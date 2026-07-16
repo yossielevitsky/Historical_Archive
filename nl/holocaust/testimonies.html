@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getuigenissen - De Holocaust - Joods Antwerpen Historisch Archief</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/nav.js" defer></script>
+    <style>
+        .testimonies-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .testimonies-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .testimonies-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .testimony-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none !important;
+        }
+
+        .testimony-box {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            background-color: var(--color-slate);
+            border: 1px solid #444;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            cursor: pointer;
+        }
+
+        .testimony-box svg {
+            width: 36px;
+            height: 36px;
+            opacity: 0.25;
+            transition: all 0.3s ease;
+        }
+
+        .testimony-card:hover .testimony-box {
+            border-color: var(--color-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            background-color: #383838;
+        }
+
+        .testimony-card:hover .testimony-box svg {
+            opacity: 0.6;
+            color: var(--color-gold);
+        }
+
+        .testimony-name {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-text-main);
+            text-align: center;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .testimony-card:hover .testimony-name {
+            color: var(--color-gold);
+        }
+    </style>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <a href="../index.html">Joods Antwerpen<br><span class="subtitle">Historisch Archief</span></a>
+                </div>
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../history.html">Volledige geschiedenis</a></li>
+                        <li><a href="../holocaust/holocaust.html" class="active">De Holocaust</a></li>
+                        <li><a href="../articles.html">Artikelen</a></li>
+                        <li><a href="../rabbis.html">Rabbijnen</a></li>
+                        <li><a href="../synagogues.html">Synagogen</a></li>
+                        <li><a href="../chazanim.html">Chazaniem</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div class="container" style="padding: 2rem 1rem;">
+                <!-- Breadcrumb Navigation -->
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="../index.html" class="breadcrumb-link">Thuis</a></li>
+                        <li class="breadcrumb-item"><a href="holocaust.html" class="breadcrumb-link">De Holocaust</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Getuigenissen</li>
+                    </ol>
+                </nav>
+
+                <div class="wiki-main-content">
+                    <h1 class="section-title">Getuigenissen</h1>
+                    <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 800px; margin-bottom: 2rem;">
+                        Een verzameling van persoonlijke verhalen, video- en audio-interviews, en geschreven getuigenissen van Holocaustoverlevenden en getuigen uit Antwerpen.
+                    </p>
+
+                    <div class="testimonies-grid">
+                        <!-- Box 1 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#1</span>
+                        </div>
+
+                        <!-- Box 2 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#2</span>
+                        </div>
+
+                        <!-- Box 3 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#3</span>
+                        </div>
+
+                        <!-- Box 4 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#4</span>
+                        </div>
+
+                        <!-- Box 5 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#5</span>
+                        </div>
+
+                        <!-- Box 6 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#6</span>
+                        </div>
+
+                        <!-- Box 7 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#7</span>
+                        </div>
+
+                        <!-- Box 8 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#8</span>
+                        </div>
+
+                        <!-- Box 9 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#9</span>
+                        </div>
+
+                        <!-- Box 10 -->
+                        <div class="testimony-card">
+                            <div class="testimony-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="testimony-name">#10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container">
+                <p>&copy; 2026 Joods Antwerpen Historisch Archief. Alle rechten voorbehouden.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../../js/scroll-top.js"></script>
+</body>
+
+</html>
