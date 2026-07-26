@@ -42,6 +42,9 @@
             border: 1px solid var(--color-gold) !important;
             color: var(--color-gold) !important;
         }
+        .sorting-controls.collapsed {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -99,12 +102,48 @@
                     </p>
                 </div>
 
-                <!-- Sorting Control Panel -->
-                <div class="sorting-controls">
-                    <span id="sort-label" style="color: var(--color-text-main); font-weight: 500;">Sort By:</span>
-                    <button class="sort-btn active" data-sort="family" id="sort-family-btn">Family Name</button>
-                    <button class="sort-btn" data-sort="name" id="sort-name-btn">Name</button>
-                    <button class="sort-btn" data-sort="birth" id="sort-birth-btn">Birthdate</button>
+                <!-- Sorting and Filtering Control Panel Toggle -->
+                <button id="filter-toggle-btn" class="sort-btn" style="width: 100%; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1rem;">
+                    <span id="filter-toggle-icon">🔍</span> <span id="filter-toggle-text">Show Filters & Search</span>
+                </button>
+
+                <!-- Sorting and Filtering Control Panel -->
+                <div class="sorting-controls" style="display: flex; flex-direction: column; gap: 1.5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-slate-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <!-- Row 1: Search and Radio Filters -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; width: 100%;">
+                        <!-- Search Bar -->
+                        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label for="search-input" style="color: var(--color-text-main); font-weight: 500;" id="search-label">Search Rabbis:</label>
+                            <input type="text" id="search-input" placeholder="Type a name..." style="background: rgba(0, 0, 0, 0.2); border: 1px solid var(--color-slate-light); color: var(--color-text-main); padding: 0.6rem 1rem; border-radius: 4px; font-size: 1rem; font-family: inherit; transition: all 0.3s ease; width: 100%; box-sizing: border-box;" onfocus="this.style.borderColor='var(--color-gold)';" onblur="this.style.borderColor='var(--color-slate-light)';">
+                        </div>
+
+                        <!-- Community Radio Filter -->
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 280px;">
+                            <span style="color: var(--color-text-main); font-weight: 500;" id="community-label">Community:</span>
+                            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; height: 100%;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); cursor: pointer;">
+                                    <input type="radio" name="community-filter" value="all" checked style="accent-color: var(--color-gold);">
+                                    <span id="comm-all">All</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); cursor: pointer;">
+                                    <input type="radio" name="community-filter" value="machsike" style="accent-color: var(--color-gold);">
+                                    <span id="comm-machsike">Machsike Hadass</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-text-muted); cursor: pointer;">
+                                    <input type="radio" name="community-filter" value="shomre" style="accent-color: var(--color-gold);">
+                                    <span id="comm-shomre">Shomrei Hadass</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Sort Controls -->
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; border-top: 1px solid var(--color-slate-light); padding-top: 1rem; width: 100%;">
+                        <span id="sort-label" style="color: var(--color-text-main); font-weight: 500;">Sort By:</span>
+                        <button class="sort-btn active" data-sort="family" id="sort-family-btn">Family Name</button>
+                        <button class="sort-btn" data-sort="name" id="sort-name-btn">Name</button>
+                        <button class="sort-btn" data-sort="birth" id="sort-birth-btn">Birthdate</button>
+                    </div>
                 </div>
 
                 <!-- Denser Grid for Profiles -->
@@ -152,7 +191,7 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Moshe Yitzchak Gewirtzman (Reb Itzikel) zt”l</h3>
-                                <div class="card-meta">1882–1976</div>
+                                <div class="card-meta">1882–1977</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -226,7 +265,7 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title" style="font-size: 1.2rem;">Rav Hillel Medalie zt”l</h3>
-                                <div class="card-meta">1916 - 1977</div>
+                                <div class="card-meta">1917–1977</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -258,7 +297,7 @@
                             </div>
                             <div class="card-content">
                                 <h3 class="card-title" style="font-size: 1.2rem;">Rav Markus Mordechai Rottenberg zt”l</h3>
-                                <div class="card-meta">1872 - 1944</div>
+                                <div class="card-meta">1872–1944</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -323,6 +362,21 @@
                         </a>
                     </article>
 
+                    <!-- S -->
+                    <article class="card">
+                        <a href="rabbis/rabbi-sholom-sternberg.html"
+                            style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="images/rabbi sholem sternberg.jpg" alt="Rabbi Sholom Sternberg">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Sholom Sternberg zt”l</h3>
+                                <div class="card-meta">20th Century</div>
+                                <span class="card-link">View Profile &rarr;</span>
+                            </div>
+                        </a>
+                    </article>
+
                     <!-- T -->
                     <article class="card">
                         <a href="rabbis/rabbi-yehuda-aryeh-treger.html"
@@ -348,6 +402,21 @@
                             <div class="card-content">
                                 <h3 class="card-title" style="font-size: 1.2rem;">Rabbi Noah Zvi Ullmann zt”l</h3>
                                 <div class="card-meta">1854 - 1916</div>
+                                <span class="card-link">View Profile &rarr;</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- W -->
+                    <article class="card">
+                        <a href="rabbis/rav-joseph-wiener.html"
+                            style="display: block; text-decoration: none; color: inherit;">
+                            <div class="card-image" style="height: 200px;">
+                                <img src="images/Joseph-wiener.jpg" alt="Rav Joseph Wiener">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title" style="font-size: 1.2rem;">Rav Joseph Wiener zt”l</h3>
+                                <div class="card-meta">1870 - 1942</div>
                                 <span class="card-link">View Profile &rarr;</span>
                             </div>
                         </a>
@@ -403,25 +472,27 @@
             const sortButtons = document.querySelectorAll('.sort-btn');
 
             const rabbiData = {
-                "rav-moshe-avigdor-amiel.html": { birth: 1882, family: "Amiel" },
-                "shemuel-brodt.html": { birth: 1885, family: "Brodt" },
-                "rabbi-moshe-yitzchak-gewirtzman.html": { birth: 1882, family: "Gewirtzman" },
-                "rabbi-chaim-kreiswirth.html": { birth: 1918, family: "Kreiswirth" },
-                "reb-leibish.html": { birth: 1938, family: "Leizer" },
-                "rabbi-yaakov-leizer.html": { birth: 1907, family: "Leizer" },
-                "rav-dovid-moshe-lieberman.html": { birth: 1925, family: "Lieberman" },
-                "rav-hillel-medalie.html": { birth: 1916, family: "Medalie" },
-                "rav-pinchas-padwa.html": { birth: 1908, family: "Padwa" },
-                "rav-markus-mordechai-rottenberg.html": { birth: 1872, family: "Rottenberg" },
-                "rav-aaron-schiff.html": { birth: 1940, family: "Schiff" },
-                "dayan-schmal.html": { birth: 1920, family: "Schmal" },
-                "rabbi-shraga-feivel-shapira.html": { birth: 1901, family: "Shapira" },
-                "rav-eliyahu-shternbuch.html": { birth: 1931, family: "Shternbuch" },
-                "rabbi-yehuda-aryeh-treger.html": { birth: 1933, family: "Treger" },
-                "rabbi-noah-zvi-ullman.html": { birth: 1854, family: "Ullmann" },
+                "rav-moshe-avigdor-amiel.html": { birth: 1882, family: "Amiel", community: "shomre" },
+                "shemuel-brodt.html": { birth: 1885, family: "Brodt", community: "shomre" },
+                "rabbi-moshe-yitzchak-gewirtzman.html": { birth: 1882, family: "Gewirtzman", community: "other" },
+                "rabbi-chaim-kreiswirth.html": { birth: 1918, family: "Kreiswirth", community: "machsike" },
+                "reb-leibish.html": { birth: 1938, family: "Leizer", community: "other" },
+                "rabbi-yaakov-leizer.html": { birth: 1907, family: "Leizer", community: "other" },
+                "rav-dovid-moshe-lieberman.html": { birth: 1925, family: "Lieberman", community: "shomre" },
+                "rav-hillel-medalie.html": { birth: 1917, family: "Medalie", community: "shomre" },
+                "rav-pinchas-padwa.html": { birth: 1908, family: "Padwa", community: "shomre" },
+                "rav-markus-mordechai-rottenberg.html": { birth: 1872, family: "Rottenberg", community: "machsike" },
+                "rav-aaron-schiff.html": { birth: 1940, family: "Schiff", community: "machsike" },
+                "dayan-schmal.html": { birth: 1920, family: "Schmal", community: "machsike" },
+                "rabbi-shraga-feivel-shapira.html": { birth: 1901, family: "Shapira", community: "other" },
+                "rav-eliyahu-shternbuch.html": { birth: 1931, family: "Shternbuch", community: "machsike" },
+                "rabbi-sholom-sternberg.html": { birth: 1900, family: "Sternberg", community: "machsike" },
+                "rabbi-yehuda-aryeh-treger.html": { birth: 1933, family: "Treger", community: "other" },
+                "rabbi-noah-zvi-ullman.html": { birth: 1854, family: "Ullmann", community: "machsike" },
+                "rav-joseph-wiener.html": { birth: 1870, family: "Wiener", community: "shomre" },
 
-                "rabbi-yitzchok-zvi-ratzersdorfer.html": { birth: 0, family: "Ratzersdorfer" },
-                "chayim-yaakov-rottenberg.html": { birth: 1909, family: "Rottenberg" }
+                "rabbi-yitzchok-zvi-ratzersdorfer.html": { birth: 0, family: "Ratzersdorfer", community: "machsike" },
+                "chayim-yaakov-rottenberg.html": { birth: 1909, family: "Rottenberg", community: "machsike" }
             };
 
             // Initialize data attributes
@@ -430,19 +501,72 @@
                 if (link) {
                     const href = link.getAttribute('href');
                     const filename = href.substring(href.lastIndexOf('/') + 1);
-                    const data = rabbiData[filename] || { birth: 0, family: "" };
+                    const data = rabbiData[filename] || { birth: 0, family: "", community: "other" };
                     card.setAttribute('data-birth', data.birth);
                     card.setAttribute('data-family', data.family);
+                    card.setAttribute('data-community', data.community);
                 }
             });
 
             // Handle translations
             const lang = document.documentElement.lang || 'en';
             const translations = {
-                en: { label: 'Sort By:', name: 'Name', family: 'Family Name', birth: 'Birthdate' },
-                nl: { label: 'Sorteren op:', name: 'Naam', family: 'Achternaam', birth: 'Geboortedatum' },
-                fr: { label: 'Trier par :', name: 'Nom', family: 'Nom de famille', birth: 'Date de naissance' },
-                he: { label: 'מיין לפי:', name: 'שם', family: 'שם משפחה', birth: 'תאריך לידה' }
+                en: {
+                    label: 'Sort By:',
+                    name: 'Name',
+                    family: 'Family Name',
+                    birth: 'Birthdate',
+                    searchLabel: 'Search Rabbis:',
+                    searchPlaceholder: 'Type a name...',
+                    communityLabel: 'Community:',
+                    commAll: 'All',
+                    commMachsike: 'Machsike Hadass',
+                    commShomre: 'Shomrei Hadass',
+                    showFilters: 'Show Filters & Search',
+                    hideFilters: 'Hide Filters & Search'
+                },
+                nl: {
+                    label: 'Sorteren op:',
+                    name: 'Naam',
+                    family: 'Achternaam',
+                    birth: 'Geboortedatum',
+                    searchLabel: 'Rabbijnen zoeken:',
+                    searchPlaceholder: 'Typ een naam...',
+                    communityLabel: 'Gemeenschap:',
+                    commAll: 'Alle',
+                    commMachsike: 'Machsike Hadass',
+                    commShomre: 'Shomrei Hadass',
+                    showFilters: 'Filters & zoeken tonen',
+                    hideFilters: 'Filters & zoeken verbergen'
+                },
+                fr: {
+                    label: 'Trier par :',
+                    name: 'Nom',
+                    family: 'Nom de famille',
+                    birth: 'Date de naissance',
+                    searchLabel: 'Rechercher des rabbins :',
+                    searchPlaceholder: 'Tapez un nom...',
+                    communityLabel: 'Communauté :',
+                    commAll: 'Tout',
+                    commMachsike: 'Machsike Hadass',
+                    commShomre: 'Shomrei Hadass',
+                    showFilters: 'Afficher les filtres et la recherche',
+                    hideFilters: 'Masquer les filtres et la recherche'
+                },
+                he: {
+                    label: 'מיין לפי:',
+                    name: 'שם',
+                    family: 'שם משפחה',
+                    birth: 'תאריך לידה',
+                    searchLabel: 'חפש רבנים:',
+                    searchPlaceholder: 'הקלד שם...',
+                    communityLabel: 'קהילה:',
+                    commAll: 'הכל',
+                    commMachsike: 'מחזיקי הדת',
+                    commShomre: 'שומרי הדת',
+                    showFilters: 'הצג מסננים וחיפוש',
+                    hideFilters: 'הסתר מסננים וחיפוש'
+                }
             };
 
             const t = translations[lang] || translations.en;
@@ -450,11 +574,82 @@
             const sortNameEl = document.getElementById('sort-name-btn');
             const sortFamilyEl = document.getElementById('sort-family-btn');
             const sortBirthEl = document.getElementById('sort-birth-btn');
+            const searchLabelEl = document.getElementById('search-label');
+            const searchInputEl = document.getElementById('search-input');
+            const communityLabelEl = document.getElementById('community-label');
+            const commAllEl = document.getElementById('comm-all');
+            const commMachsikeEl = document.getElementById('comm-machsike');
+            const commShomreEl = document.getElementById('comm-shomre');
+            const filterToggleTextEl = document.getElementById('filter-toggle-text');
 
             if (sortLabelEl) sortLabelEl.textContent = t.label;
             if (sortNameEl) sortNameEl.textContent = t.name;
             if (sortFamilyEl) sortFamilyEl.textContent = t.family;
             if (sortBirthEl) sortBirthEl.textContent = t.birth;
+            if (searchLabelEl) searchLabelEl.textContent = t.searchLabel;
+            if (searchInputEl) searchInputEl.placeholder = t.searchPlaceholder;
+            if (communityLabelEl) communityLabelEl.textContent = t.communityLabel;
+            if (commAllEl) commAllEl.textContent = t.commAll;
+            if (commMachsikeEl) commMachsikeEl.textContent = t.commMachsike;
+            if (commShomreEl) commShomreEl.textContent = t.commShomre;
+            if (filterToggleTextEl) filterToggleTextEl.textContent = t.showFilters;
+
+            // Mobile toggle functionality
+            const filterToggleBtn = document.getElementById('filter-toggle-btn');
+            const sortingControls = document.querySelector('.sorting-controls');
+            const filterToggleIcon = document.getElementById('filter-toggle-icon');
+
+            if (filterToggleBtn && sortingControls) {
+                // Collapse initially
+                sortingControls.classList.add('collapsed');
+
+                filterToggleBtn.addEventListener('click', () => {
+                    const isCollapsed = sortingControls.classList.toggle('collapsed');
+                    if (isCollapsed) {
+                        if (filterToggleTextEl) filterToggleTextEl.textContent = t.showFilters;
+                        if (filterToggleIcon) filterToggleIcon.textContent = "🔍";
+                    } else {
+                        if (filterToggleTextEl) filterToggleTextEl.textContent = t.hideFilters;
+                        if (filterToggleIcon) filterToggleIcon.textContent = "✖";
+                    }
+                });
+            }
+
+            // Filter and Search logic
+            const searchInput = document.getElementById('search-input');
+            const communityRadios = document.getElementsByName('community-filter');
+
+            function applyFilters() {
+                const searchText = searchInput.value.toLowerCase().trim();
+                let selectedCommunity = 'all';
+                for (const radio of communityRadios) {
+                    if (radio.checked) {
+                        selectedCommunity = radio.value;
+                        break;
+                    }
+                }
+
+                cards.forEach(card => {
+                    const cardComm = card.getAttribute('data-community') || 'other';
+                    const matchesCommunity = (selectedCommunity === 'all') || (cardComm === selectedCommunity);
+
+                    const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
+                    const matchesSearch = cardTitle.includes(searchText);
+
+                    if (matchesCommunity && matchesSearch) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', applyFilters);
+            }
+            communityRadios.forEach(radio => {
+                radio.addEventListener('change', applyFilters);
+            });
 
             function sortCards(criteria) {
                 let sorted;
